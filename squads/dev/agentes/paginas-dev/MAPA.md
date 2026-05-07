@@ -1,0 +1,26 @@
+# MAPA — squads/dev/agentes/paginas-dev/
+
+> Última atualização: 2026-05-06
+
+## Propósito
+
+Memória e aprendizados específicos do agente **paginas-dev** (squad-dev), responsável por
+implementar páginas Astro a partir de copy aprovada.
+
+## Arquivos
+
+| Arquivo | Conteúdo |
+|---------|----------|
+| `aprendizados.md` | Lições do agente, especialmente registros de rejeições do Gui (Regra #14). |
+| `MAPA.md` | Este arquivo. |
+
+## Skills relacionadas
+
+- `/codar-pagina` — gera o componente Astro a partir do markdown aprovado
+- `/revisar-codigo-pagina` — checklist de qualidade antes do deploy
+- `/publicar-pagina` — sobe build → preview → produção
+
+## Referências
+
+- `Páginas Astro Gui Ávila/DESIGN-SYSTEM.md` — fonte única de verdade visual
+- `Páginas Astro Gui Ávila/MAPA.md` — estrutura do projeto Astro
