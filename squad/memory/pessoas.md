@@ -1,7 +1,3 @@
-# Pessoas
+# Pessoas — {{NOME_OPERADOR}}
 
-> Time, parceiros, fornecedores. Cadastrar conforme aparecem.
-
-| Nome | Papel | Empresa | Contato |
-|---|---|---|---|
-
+> Time, parceiros, clientes-chave.

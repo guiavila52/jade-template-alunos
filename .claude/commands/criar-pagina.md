@@ -82,7 +82,7 @@ JADE RECEBE PEDIDO DO GUI
 [11] Despachar /testar-pagina (bateria #15 — 12/12)
         │
         ▼
-[12] Notificar Gui que a página passou por estratégia + copy + dev + testes
+[12] Notificar {{NOME_OPERADOR}} que a página passou por estratégia + copy + dev + testes
      Avisar: "vou subir preview localhost"
         │
         ▼
@@ -94,19 +94,19 @@ JADE RECEBE PEDIDO DO GUI
 [14] Apresentar URL localhost ao Gui
      Aguardar OK (ou ajuste)
         │
-        ├── Gui pediu ajuste de copy → voltar a [5] (refazer com nova diretriz)
-        ├── Gui pediu ajuste de dev  → voltar a [8] com apontamentos
-        ├── Gui pediu ajuste de estratégia → voltar a [2] (estratégia foi insuficiente)
+        ├── {{NOME_OPERADOR}} pediu ajuste de copy → voltar a [5] (refazer com nova diretriz)
+        ├── {{NOME_OPERADOR}} pediu ajuste de dev  → voltar a [8] com apontamentos
+        ├── {{NOME_OPERADOR}} pediu ajuste de estratégia → voltar a [2] (estratégia foi insuficiente)
         │
-        ▼ Gui aprovou
+        ▼ {{NOME_OPERADOR}} aprovou
 [15] Despachar /publicar-pagina (modo produção)
      Comando: vercel --prod no projeto Páginas Astro {{NOME_OPERADOR}}/
         │
-        ├── deploy falhou? ─ sim → reportar ao Gui, NÃO retentar
+        ├── deploy falhou? ─ sim → reportar ao {{NOME_OPERADOR}}, NÃO retentar
         │
         ▼ deploy OK
 [16] Capturar URL de produção
-     Notificar Gui: "publicado em https://[url-vercel]"
+     Notificar {{NOME_OPERADOR}}: "publicado em https://[url-vercel]"
         │
         ▼
 [17] Atualizar squads/conteudo/tarefas.md (estratégia) +
@@ -121,7 +121,7 @@ JADE RECEBE PEDIDO DO GUI
 
 > ⚠️ **Etapa de estratégia é OBRIGATÓRIA pra páginas novas e redesigns** (Tarefa #119, 06/05/2026).
 > Pixel-perfect (/migrar-pagina) NÃO passa por estratégia — clone de design original.
-> Diretiva do Gui: "Toda nova página tem que passar pela estratégia primeiro, pra depois passar pra copy."
+> Diretiva do {{NOME_OPERADOR}}: "Toda nova página tem que passar pela estratégia primeiro, pra depois passar pra copy."
 
 ---
 
@@ -255,8 +255,8 @@ Em `squad/output/paginas/MAPA.md`:
 
 - Jade não escreve copy nem código — apenas coordena e passa instruções claras
 - Nunca avançar para o próximo passo sem confirmação do passo anterior
-- Se qualquer agente ficar bloqueado por mais de 1 turno, reportar ao Gui com contexto claro
+- Se qualquer agente ficar bloqueado por mais de 1 turno, reportar ao {{NOME_OPERADOR}} com contexto claro
 - Manter `squads/copy/tarefas.md` e `squads/dev/tarefas.md` sempre atualizados (regra inviolável #5)
-- **Nunca rodar `vercel --prod` antes do Gui aprovar o preview localhost** (passo [12])
+- **Nunca rodar `vercel --prod` antes do {{NOME_OPERADOR}} aprovar o preview localhost** (passo [12])
 
 ⚠️ **Segundo Cérebro = só leitura.** Consulte mas nunca edite `Segundo Cérebro/`.

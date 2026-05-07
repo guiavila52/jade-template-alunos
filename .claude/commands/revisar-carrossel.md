@@ -34,7 +34,7 @@ Ou sem argumento — o revisor pedirá o caminho.
 ### Slides intermediários
 - [ ] Cada slide = **uma única premissa**? (se tem duas ideias, quebrar em dois)
 - [ ] Transição lógica: cada slide decorre do anterior?
-- [ ] Linguagem está no tom do Gui? (direto, sem formalidade excessiva, sem jargão vazio)
+- [ ] Linguagem está no tom do {{NOME_OPERADOR}}? (direto, sem formalidade excessiva, sem jargão vazio)
 - [ ] Usa detalhes específicos — não frases como "resultados incríveis" ou "transformação total"?
 - [ ] Texto caberia no template tweet-card? (máx. ~180 caracteres por slide — se exceder, truncará na imagem)
 
@@ -96,7 +96,7 @@ Registrar o resultado em `squads/conteudo/agentes/carrossel/aprendizados.md`:
 [ 2. Aplicar checklist slide a slide ] → @revisor-carrossel
    - Slide 1 (Hook): sem 3 Ps + Setup+Punch/Escalada + específico
    - Intermediários: 1 premissa por slide + transição lógica
-                     + tom do Gui + cabe em ~180 chars
+                     + tom do {{NOME_OPERADOR}} + cabe em ~180 chars
    - Último (CTA): claro e específico, sem promessa vazia
    - Light Copy geral: parece conteúdo, não anúncio
         ↓

@@ -1,7 +1,3 @@
-# Projetos
+# Projetos — {{NOME_OPERADOR}}
 
-> Projetos ativos do squad.
-
-| # | Nome | Status | Owner | Prazo |
-|---|---|---|---|---|
-
+> Lista de projetos ativos da empresa.

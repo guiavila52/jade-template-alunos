@@ -1,6 +1,6 @@
 # MAPA — squads/dev/agentes/
 
-> Última atualização: 2026-05-06
+> Última atualização: 07/05/2026
 
 ## Propósito
 
@@ -12,6 +12,7 @@ Cada subpasta tem `memoria.md`, `aprendizados.md` e `MAPA.md` próprios.
 | Agente | Pasta | Responsabilidade |
 |--------|-------|------------------|
 | paginas-dev | `paginas-dev/` | Implementa páginas Astro a partir de copy aprovada. Skill: `/codar-pagina`. |
+| bug-hunter | `bug-hunter/` | Caça bugs ANTES do deploy via Playwright + console/network. Detecta + reporta (não corrige). Definição em `.claude/agents/bug-hunter.md`. |
 
 ## Próximos a criar (backlog)
 

@@ -1,51 +1,30 @@
-# MEMORY.md — GPS do Squad
+# Memory Index — {{NOME_OPERADOR}}
 
-> Carregado automaticamente a cada sessão. Leia antes de qualquer coisa.
-> Última atualização: {{DATA}}
+## Arquitetura de memória do squad (5 camadas)
 
----
-
-## ⚡ FOCO ATUAL
-
-**Meta:** {{META_NEGOCIO}}
-**Caminho:** {{ESTRATEGIA_FUNIL}}
-**Esta semana:** {{FOCO_DA_SEMANA}}
-
----
-
-## 📊 ESTADO DO NEGÓCIO
-
-| | |
-|---|---|
-| Baseline | {{BASELINE_FINANCEIRO}} |
-| Meta atual | {{META_FINANCEIRA}} |
-| Squad ativo | {{COMPOSICAO_SQUAD}} |
-
----
-
-## 🎯 PROJETOS ATIVOS
-
-(Liste aqui os projetos em andamento. Cada item: nome + objetivo + responsável + prazo.)
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  CAMADA 1 — KNOWLEDGE (READ-ONLY) — quem é o operador            │
+  │  Segundo Cérebro/ (identidade, negócios, operação, decisões)     │
+  └──────────────────────────────────────────────────────────────────┘
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  CAMADA 2 — RULES — leis invioláveis do squad                    │
+  │  AGENTS.md + CLAUDE.md (regras estruturais que toda skill segue) │
+  └──────────────────────────────────────────────────────────────────┘
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  CAMADA 3 — USER FEEDBACK — corrigências + decisões persistentes │
+  │  ~/.claude/.../memory/MEMORY.md — Regra #19                      │
+  └──────────────────────────────────────────────────────────────────┘
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  CAMADA 4 — SQUAD/AGENT LEARNINGS — lições por squad e agente    │
+  │  squads/{sq}/aprendizados.md + squads/{sq}/agentes/{ag}/...      │
+  └──────────────────────────────────────────────────────────────────┘
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  CAMADA 5 — WORK STATE — estado atual do trabalho                │
+  │  squad/memory/ (pendencias, projetos, decisoes ativas, diário)   │
+  └──────────────────────────────────────────────────────────────────┘
 
 ---
 
-## 📁 ESTRUTURA
+## Índice de memórias
 
-- `AGENTS.md` — regras invioláveis (não editar sem combinar com squad)
-- `CLAUDE.md` — instruções persistentes do projeto
-- `.claude/commands/` — skills (verbo-primeiro, Regra #17)
-- `squads/` — squad operacional (jade COO + workers)
-- `squad/` — memória + outputs do squad
-- `Segundo Cérebro/` — base de conhecimento da empresa (criar quando começar)
-
----
-
-## 🔗 LINKS
-
-- Documentação: {{DOC_URL}}
-- Repo: {{REPO_URL}}
-- Deploy: {{DEPLOY_URL}}
-
----
-
-> **Como preencher:** substitua os placeholders `{{...}}` pelos dados da sua empresa antes da primeira sessão. A Jade vai puxar daqui pra orientar todas as outras tarefas.
+(adicionar arquivos de memória conforme forem criados)

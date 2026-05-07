@@ -71,14 +71,14 @@ Ou sem argumento — o revisor pedirá o caminho.
 - [ ] **Urgência:** Existe uma razão para agir agora? (prazo, bônus, escassez real — não inventada)
 - [ ] **Prova social:** Depoimentos ou credibilidade presente? Com detalhes específicos (nome, resultado, contexto)?
 - [ ] **Métricas públicas — sem faturamento**:
-  - [ ] grep `-E "(R\\$|fatura|faturamento|MRR|receita)"` no `.astro` retorna 0 menções relacionadas a empresas do Gui ({{PRODUTO_PRINCIPAL}}, {{ORIGEM_BIOGRAFICA}}, Projeto {{NOME_OPERADOR}}, {{EMPRESA_HOLDING}})
+  - [ ] grep `-E "(R\\$|fatura|faturamento|MRR|receita)"` no `.astro` retorna 0 menções relacionadas a empresas do {{NOME_OPERADOR}} ({{EMPRESA_2}}, {{EMPRESA_1}}, Projeto {{NOME_OPERADOR}}, {{EMPRESA_GUARDA_CHUVA}})
   - [ ] Se houver prova social numérica, usa: usuários ativos, alunos, criadores, cases, tempo de mercado, marcas atendidas
-  - [ ] Nenhuma menção a faturamento, MRR, lucro, ARR de {{PRODUTO_PRINCIPAL}}, {{ORIGEM_BIOGRAFICA}}, Projeto {{NOME_OPERADOR}}
+  - [ ] Nenhuma menção a faturamento, MRR, lucro, ARR de {{EMPRESA_2}}, {{EMPRESA_1}}, Projeto {{NOME_OPERADOR}}
   Falhar = REPROVAR.
 - [ ] **Hiperlinks INLINE — link na palavra**:
-  - [ ] grep `guiavila\.com` no `.astro` retorna 0 ocorrências em texto puro (sem `href=` e fora de comentários `//`)
-  - [ ] Toda URL é `<a href="https://guiavila.com/[slug]">palavra</a>` com classe `.link-inline`
-  - [ ] Sem URLs entre parênteses como texto pra copiar (ex: ❌ "consultoria (guiavila.com/consultoria)")
+  - [ ] grep `{{DOMINIO}}\.com` no `.astro` retorna 0 ocorrências em texto puro (sem `href=` e fora de comentários `//`)
+  - [ ] Toda URL é `<a href="https://{{DOMINIO}}/[slug]">palavra</a>` com classe `.link-inline`
+  - [ ] Sem URLs entre parênteses como texto pra copiar (ex: ❌ "consultoria ({{DOMINIO}}/consultoria)")
   - [ ] Slugs seguem padrão canônico (magicaonline, manychat, clickup, clickup8x, level, automacoes, reverso, youtube, mentoria, consultoria, ensinio — ver `project_hiperlinks_padrao.md`)
   Falhar = REPROVAR.
 - [ ] **Vocabulário aproxima o lead — não afasta**:
@@ -128,10 +128,10 @@ Registrar resultado em `squads/copy/aprendizados.md`:
 - Se aprovada: o que estava certo (padrão para replicar)
 - Se reprovada: o que falhou (padrão para evitar)
 
-- [ ] **Posicionamento de comunidade** (em produtos com mentor — mentoria, consultoria, eventos, cursos com presença do Gui):
+- [ ] **Posicionamento de comunidade** (em produtos com mentor — mentoria, consultoria, eventos, cursos com presença do {{NOME_OPERADOR}}):
   - [ ] Comunidade NÃO está posicionada como "segredo", "verdadeiro valor", "chave", ou "core" do produto
   - [ ] Comunidade aparece como BENEFÍCIO COMPLEMENTAR (envolvimento, troca, networking)
-  - [ ] O Gui (mentor/consultor) é claramente o protagonista de valor
+  - [ ] O {{NOME_OPERADOR}} (mentor/consultor) é claramente o protagonista de valor
   - [ ] Sem frases tipo "você aprende com os outros mais do que imagina" ou "a turma é o que vale"
   - Falhar = REPROVAR copy.
 
@@ -139,12 +139,12 @@ Registrar resultado em `squads/copy/aprendizados.md`:
 ### Checklist — Prova social honesta, sobre o GUI, inequívoca (Tarefa #113)
 
 - [ ] **Prova social — honesta, sobre o GUI, inequívoca**:
-  - [ ] grep `400 ?k|400 ?mil` retorna 0 ocorrências como métrica do Gui (pode aparecer descrevendo a {{PRODUTO_PRINCIPAL}} em contexto claro: "plataforma com 400k+ usuários hospedando cursos")
+  - [ ] grep `400 ?k|400 ?mil` retorna 0 ocorrências como métrica do {{NOME_OPERADOR}} (pode aparecer descrevendo a {{EMPRESA_2}} em contexto claro: "plataforma com 400k+ usuários hospedando cursos")
   - [ ] Sem "N+ empresas" sem precisão
   - [ ] Sem "N continentes" / "globalmente"
-  - [ ] Métricas usadas são sobre o GUI: CEO {{PRODUTO_PRINCIPAL}}, autor 2 livros, ~15 mil inscritos YouTube, avaliações cursos
+  - [ ] Métricas usadas são sobre o GUI: CEO {{EMPRESA_2}}, autor 2 livros, ~15 mil inscritos YouTube, avaliações cursos
   - [ ] Cada número tem fonte verificável (não inventado)
-  - [ ] Leitor não consegue confundir o que pertence ao Gui vs ao produto que ele cofundou
+  - [ ] Leitor não consegue confundir o que pertence ao {{NOME_OPERADOR}} vs ao produto que ele cofundou
   Falhar = REPROVAR.
 
 

@@ -1,7 +1,3 @@
-# Decisões Estratégicas
+# Decisões — {{NOME_OPERADOR}}
 
-> Decisões que impactam produtos, squads, arquitetura, prioridades.
-
-| Data | Decisão | Contexto | Impacto |
-|---|---|---|---|
-
+> Decisões estratégicas registradas.

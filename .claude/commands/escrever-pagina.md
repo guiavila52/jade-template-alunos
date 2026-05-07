@@ -16,11 +16,11 @@ Antes de escrever copy para qualquer página, ler:
 
 ### Métricas públicas do Gui
 
-Ver `/escrever-copy` seção "Métricas do Gui — o que pode e o que NÃO pode mencionar publicamente". Regra crítica: **nunca expor faturamento** (R$, MRR, lucro). Sempre usar métricas alternativas (usuários, alunos, cases).
+Ver `/escrever-copy` seção "Métricas do {{NOME_OPERADOR}} — o que pode e o que NÃO pode mencionar publicamente". Regra crítica: **nunca expor faturamento** (R$, MRR, lucro). Sempre usar métricas alternativas (usuários, alunos, cases).
 
 ### Hiperlinks INLINE
 
-Ver `/escrever-copy` seção "Hiperlinks INLINE — link na palavra, NUNCA URL como texto". Regra crítica: **URL nunca aparece como texto** que o usuário tenha que copiar/colar. Sempre `<a href="https://guiavila.com/[slug]" class="link-inline">palavra</a>`. Slugs canônicos: magicaonline, manychat, clickup, clickup8x, level, automacoes, reverso, youtube, mentoria, consultoria, ensinio (ver `project_hiperlinks_padrao.md`).
+Ver `/escrever-copy` seção "Hiperlinks INLINE — link na palavra, NUNCA URL como texto". Regra crítica: **URL nunca aparece como texto** que o usuário tenha que copiar/colar. Sempre `<a href="https://{{DOMINIO}}/[slug]" class="link-inline">palavra</a>`. Slugs canônicos: magicaonline, manychat, clickup, clickup8x, level, automacoes, reverso, youtube, mentoria, consultoria, ensinio (ver `project_hiperlinks_padrao.md`).
 
 ---
 
@@ -31,7 +31,7 @@ Squad: copy
 ## Fluxo
 
 ```
-BRIEFING RECEBIDO (da Jade ou do Gui)
+BRIEFING RECEBIDO (da Jade ou do {{NOME_OPERADOR}})
         │
         ▼
 [1] Ler Segundo Cérebro
@@ -56,7 +56,7 @@ BRIEFING RECEBIDO (da Jade ou do Gui)
         │
         ▼
 [5] Redigir copy completa
-    Tom do Gui | Light Copy | sem 3 Ps | CTA único
+    Tom do {{NOME_OPERADOR}} | Light Copy | sem 3 Ps | CTA único
         │
         ▼
 [6] Salvar output
@@ -160,14 +160,14 @@ Ao entregar, registrar em `squads/copy/tarefas.md`:
 
 ## Captura de aprendizado (obrigatório após aprovação ou rejeição)
 
-Quando o Gui aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
+Quando o {{NOME_OPERADOR}} aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
 
 **Se aprovado:**
 ```
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que funcionou:** [o que o Gui aprovou e por quê]
+**O que funcionou:** [o que o {{NOME_OPERADOR}} aprovou e por quê]
 **Padrão identificado:** [regra que pode ser reutilizada]
 ```
 
@@ -176,7 +176,7 @@ Quando o Gui aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que não funcionou:** [o que o Gui rejeitou e por quê]
+**O que não funcionou:** [o que o {{NOME_OPERADOR}} rejeitou e por quê]
 **Correção aplicada:** [o que mudou na segunda versão]
 **Regra para não repetir:** [o que evitar da próxima vez]
 ```
@@ -187,11 +187,11 @@ Registrar em DOIS lugares:
 
 ### Posicionamento de comunidade
 
-Ver `/escrever-copy` seção "Posicionamento de comunidade/turma em produtos com mentor". Regra crítica em landing pages de mentoria/consultoria/eventos do Gui — não posicionar comunidade como SEGREDO do produto.
+Ver `/escrever-copy` seção "Posicionamento de comunidade/turma em produtos com mentor". Regra crítica em landing pages de mentoria/consultoria/eventos do {{NOME_OPERADOR}} — não posicionar comunidade como SEGREDO do produto.
 
 
 ### Prova social
-Ver `/escrever-copy` seção "Prova social — honesta, sobre o GUI, inequívoca". Regra crítica: prova social do Gui em LP é sobre AUTORIDADE DELE (CEO {{PRODUTO_PRINCIPAL}}, autor de livros, YouTube), não números de produto cofundado. Banido: "400k+ usuários" como métrica do Gui, "N+ empresas" sem fonte, "N continentes".
+Ver `/escrever-copy` seção "Prova social — honesta, sobre o GUI, inequívoca". Regra crítica: prova social do {{NOME_OPERADOR}} em LP é sobre AUTORIDADE DELE (CEO {{EMPRESA_2}}, autor de livros, YouTube), não números de produto cofundado. Banido: "400k+ usuários" como métrica do {{NOME_OPERADOR}}, "N+ empresas" sem fonte, "N continentes".
 
 
 
@@ -201,4 +201,4 @@ Ver `/escrever-copy` seções "Vagueza calibrada — copy não afirma números v
 
 - Não afirmar números voláteis em copy (duração, quantidade encontros, valor, bônus, garantia em dias).
 - Info de outro produto não vive aqui — comparativo cross-página usa formato/abordagem, não duração/encontros/valor.
-- Contexto: tarefa #114 (06/05/2026) — Gui rejeitou "4 meses, 32 encontros" da mentoria na tabela comparativa de /consultoria.
+- Contexto: tarefa #114 (06/05/2026) — {{NOME_OPERADOR}} rejeitou "4 meses, 32 encontros" da mentoria na tabela comparativa de /consultoria.

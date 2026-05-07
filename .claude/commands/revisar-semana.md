@@ -18,7 +18,7 @@ Para cada agente, pontue de 1-5 nos seguintes critérios:
 
 | Critério | Pergunta |
 |----------|----------|
-| **Quality Score** | Output precisou de retrabalho? Teve erros? Manteve o tom do Gui? |
+| **Quality Score** | Output precisou de retrabalho? Teve erros? Manteve o tom do {{NOME_OPERADOR}}? |
 | **Velocidade** | Entregou quando pedido? Respondeu rápido? |
 | **Proatividade** | Sugeriu melhorias? Antecipou problemas? Trouxe insights? |
 | **Aderência** | Seguiu guardrails? Respeitou o nível? Manteve contexto? |
@@ -63,7 +63,7 @@ Motivo: [1 frase]
 
 - Não inflar pontuação por falta de dados — agente sem uso = sem histórico = manter em L1
 - Promoção sempre exige critério atingido + confirmação do Gui
-- Desativação exige confirmação do Gui antes de remover do TEAM.md
+- Desativação exige confirmação do {{NOME_OPERADOR}} antes de remover do TEAM.md
 - Se a semana foi de estruturação (sem entregas reais), documentar isso e manter todos os níveis
 
 
@@ -84,10 +84,10 @@ Motivo: [1 frase]
         ↓
 [ 3. Decisão por agente ] → @jade
    ┌──────────────────────────────────────┐
-   ↓ 🏆 Promover (critério + consistência — exige OK Gui)
+   ↓ 🏆 Promover (critério + consistência — exige OK {{NOME_OPERADOR}})
    ↓ 📊 Manter
    ↓ 📉 Rebaixar (2 erros graves ou 2 retrabalhos)
-   ↓ ❌ Desativar (4+ semanas sem uso — exige OK Gui)
+   ↓ ❌ Desativar (4+ semanas sem uso — exige OK {{NOME_OPERADOR}})
         ↓
 [ 4. Registrar ] → @jade
    - niveis-agentes.md (novos níveis + data)
@@ -95,7 +95,7 @@ Motivo: [1 frase]
    - coo-lessons.md (resumo da semana)
    - diario/[data].md (se houve decisão importante)
         ↓
-[ 5. Entregar relatório ao Gui ] → @jade
+[ 5. Entregar relatório ao {{NOME_OPERADOR}} ] → @jade
    formato com destaque + atenção
         ↓
    ⟶ FIM

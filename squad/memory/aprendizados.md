@@ -1,7 +1,3 @@
-# Aprendizados Globais
+# Aprendizados — {{NOME_OPERADOR}}
 
-> Aprendizados que valem pra todo o squad (não squad-específicos).
-
-| Data | Aprendizado | Aplicação |
-|---|---|---|
-
+> Lições aprendidas do squad.

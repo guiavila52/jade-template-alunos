@@ -46,10 +46,10 @@ body_temp = re.sub(r'<noscript><iframe src="https://www\.googletagmanager\.com/n
 body_temp = re.sub(r'<!-- Google Tag Manager \(noscript\) -->', '', body_temp)
 body_temp = re.sub(r'<!-- End Google Tag Manager \(noscript\) -->', '', body_temp)
 
-# Reescrever asset paths para URLs absolutas em sites.guiavila.com
-body_temp = re.sub(r'src="/([^"]+\.(?:png|jpg|jpeg|svg|webp|gif|ico|mp4))', r'src="https://sites.guiavila.com/\1', body_temp)
+# Reescrever asset paths para URLs absolutas em sites.{{DOMINIO}}
+body_temp = re.sub(r'src="/([^"]+\.(?:png|jpg|jpeg|svg|webp|gif|ico|mp4))', r'src="https://sites.{{DOMINIO}}/\1', body_temp)
 # href para imagens (raro)
-body_temp = re.sub(r'href="/(images/[^"]+)"', r'href="https://sites.guiavila.com/\1"', body_temp)
+body_temp = re.sub(r'href="/(images/[^"]+)"', r'href="https://sites.{{DOMINIO}}/\1"', body_temp)
 
 def esc(s):
     return s.replace('\\', '\\\\').replace('`', '\\`').replace('${', '\\${')
@@ -81,7 +81,7 @@ body_html = re.sub(r'<!-- SCRIPT_PLACEHOLDER_\d+ -->', '', body_html)
 template = f'''---
 // /{slug} — migração pixel perfect (Onda 6)
 //
-// Origem: https://sites.guiavila.com/{slug} (HTML estático)
+// Origem: https://sites.{{DOMINIO}}/{slug} (HTML estático)
 // Data migração: 2026-05-06
 // Diretiva: PIXEL PERFECT — clone visual idêntico da original.
 //
@@ -90,7 +90,7 @@ template = f'''---
 //     o global.css do design system (que define h1/h2/h3 com Syne).
 //   • Aurora própria (não a do Base): aurora={{false}}.
 //   • Footer original próprio (não global): footer={{false}}.
-//   • Imagens apontam pra URLs absolutas em sites.guiavila.com (asset fonte único).
+//   • Imagens apontam pra URLs absolutas em sites.{{DOMINIO}} (asset fonte único).
 
 import Base from "../../layouts/Base.astro";
 
@@ -99,7 +99,7 @@ const meta = {{
   description:
     "{desc}",
   slug: "{slug}",
-  canonical: "https://sites.guiavila.com/{slug}",
+  canonical: "https://sites.{{DOMINIO}}/{slug}",
 }};
 
 const bodyHtml = `{esc(body_html)}`;
@@ -127,7 +127,7 @@ const pageStyles = `{esc(css)}`;
 {ext_scripts_block}{inline_scripts_block}</Base>
 '''
 
-out_dir = f'~/Documents/Projetos IA Gui Ávila/Páginas Astro Gui Ávila/src/pages/{slug}'
+out_dir = f'~/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/src/pages/{slug}'
 os.makedirs(out_dir, exist_ok=True)
 out = f'{out_dir}/index.astro'
 open(out, 'w').write(template)

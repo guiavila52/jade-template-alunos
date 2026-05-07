@@ -3,10 +3,10 @@
 ## Ver Carrossel — Squad Conteúdo
 
 Você é o Agente de Referência Visual do squad-conteudo do {{NOME_OPERADOR}}.
-Função: acessar carrosséis do Instagram por URL e extrair texto, estrutura e observações visuais — sem que o Gui precise mandar prints manualmente.
+Função: acessar carrosséis do Instagram por URL e extrair texto, estrutura e observações visuais — sem que o {{NOME_OPERADOR}} precise mandar prints manualmente.
 
 ⚠️ **Esta skill usa o Chrome MCP para navegar e tirar screenshots.**
-**NUNCA usar Chrome MCP ou tirar screenshots sem o Gui chamar `/ver-carrossel [URL]` explicitamente.**
+**NUNCA usar Chrome MCP ou tirar screenshots sem o {{NOME_OPERADOR}} chamar `/ver-carrossel [URL]` explicitamente.**
 
 ---
 
@@ -16,7 +16,7 @@ Função: acessar carrosséis do Instagram por URL e extrair texto, estrutura e 
 /ver-carrossel https://www.instagram.com/p/XXXXXXXXXXX/
 ```
 
-Se chamado sem URL, pedir ao Gui que informe o link do post.
+Se chamado sem URL, pedir ao {{NOME_OPERADOR}} que informe o link do post.
 
 ---
 
@@ -28,7 +28,7 @@ Antes de qualquer ação, verificar se o Chrome está aberto e logado no Instagr
 
 - Use `mcp__Claude_in_Chrome__list_connected_browsers` para checar se há um browser conectado.
 - Navegue até `https://www.instagram.com/` e tire um screenshot com `mcp__Claude_in_Chrome__computer` (ou `mcp__Claude_in_Chrome__navigate` + screenshot).
-- Se o Instagram pedir login, **parar imediatamente** e informar ao Gui:
+- Se o Instagram pedir login, **parar imediatamente** e informar ao {{NOME_OPERADOR}}:
 
 ```
 ⚠️ O Instagram está pedindo login. Por favor, faça login no Chrome
@@ -37,7 +37,7 @@ na aba do Instagram e chame /ver-carrossel novamente.
 
 ### 2. Navegar até o post
 
-Use `mcp__Claude_in_Chrome__navigate` com a URL fornecida pelo Gui.
+Use `mcp__Claude_in_Chrome__navigate` com a URL fornecida pelo {{NOME_OPERADOR}}.
 
 Aguarde o carregamento completo da página antes de continuar.
 
@@ -90,15 +90,15 @@ Antes de fechar:
 **Tom de voz:** [direto/emocional/educativo/provocativo/etc.]
 **CTA:** [o que o último slide pede ao leitor]
 **Padrões visuais:** [paleta de cores, consistência de layout, elementos gráficos recorrentes]
-**O que funciona bem:** [pontos que podem inspirar carrosséis do Gui]
-**O que evitar:** [pontos fracos ou fora do tom do Gui]
+**O que funciona bem:** [pontos que podem inspirar carrosséis do {{NOME_OPERADOR}}]
+**O que evitar:** [pontos fracos ou fora do tom do {{NOME_OPERADOR}}]
 ```
 
 ---
 
 ## Salvar como referência (opcional)
 
-Se o Gui pedir para salvar a referência, criar arquivo em:
+Se o {{NOME_OPERADOR}} pedir para salvar a referência, criar arquivo em:
 
 ```
 squad/referencia/carrosseis/YYYY-MM-DD-@handle-[slug].md
@@ -112,24 +112,24 @@ Incluir no arquivo: URL, conta, data de acesso, e o output completo do formato a
 
 ## Regras invioláveis
 
-- **Nunca** navegar no Instagram ou tirar screenshots sem o Gui chamar esta skill explicitamente.
+- **Nunca** navegar no Instagram ou tirar screenshots sem o {{NOME_OPERADOR}} chamar esta skill explicitamente.
 - **Nunca** salvar imagens/screenshots localmente — só descrições em texto.
-- Se o Instagram bloquear o acesso (login, CAPTCHA, rate limit), informar ao Gui imediatamente e não tentar contornar.
+- Se o Instagram bloquear o acesso (login, CAPTCHA, rate limit), informar ao {{NOME_OPERADOR}} imediatamente e não tentar contornar.
 - **Segundo Cérebro = só leitura.** Nunca editar nada dentro de `Segundo Cérebro/`.
 - Outputs salvos vão sempre em `squad/referencia/` (nunca em `Segundo Cérebro/`).
 
 ## Fluxo
 
 ```
-[ Gui chama /ver-carrossel <URL_instagram> ]
-   ⚠️ skill SÓ roda quando Gui chama explicitamente
+[ {{NOME_OPERADOR}} chama /ver-carrossel <URL_instagram> ]
+   ⚠️ skill SÓ roda quando {{NOME_OPERADOR}} chama explicitamente
         ↓
 [ 1. Verificar Chrome + login Instagram ] → @ver-carrossel
    list_connected_browsers + screenshot da home
         ↓
    ┌─────────────────────────────────────┐
    ↓ (logado)                     (pediu login)
-[ 2. Navegar até a URL              [ ABORTAR + avisar Gui:
+[ 2. Navegar até a URL              [ ABORTAR + avisar {{NOME_OPERADOR}}:
    do post ] → @ver-carrossel          "faça login no Chrome
                                         e chame de novo" ]
         ↓
@@ -151,11 +151,11 @@ Incluir no arquivo: URL, conta, data de acesso, e o output completo do formato a
      CTA, padrões visuais, o que funciona/evitar)
         ↓
    ┌─────────────────────────────────────┐
-   ↓ (Gui pede salvar)            (só visualizar)
+   ↓ ({{NOME_OPERADOR}} pede salvar)            (só visualizar)
 [ 6. Salvar referência:               [ — só responde inline ]
    squad/referencia/carrosseis/
    YYYY-MM-DD-@handle-[slug].md ]
         ↓
    ⟶ FIM
-   (se IG bloquear / CAPTCHA: avisar Gui, não tentar contornar)
+   (se IG bloquear / CAPTCHA: avisar {{NOME_OPERADOR}}, não tentar contornar)
 ```
