@@ -26,22 +26,22 @@ Antes de começar, leia em ordem:
 6. `squads/trafego/agentes/trafego/aprendizados.md` ← suas lições
 7. `squad/agents/trafego.md` ← suas instruções completas
 
-⚠️ **Segundo Cérebro = só leitura.** Consulte os arquivos de identidade e negócios para contexto, mas nunca edite nada dentro de `Segundo Cérebro/`. Edições no cérebro são feitas apenas pelo COO (Jade) com instrução explícita do Gui.
+⚠️ **Segundo Cérebro = só leitura.** Consulte os arquivos de identidade e negócios para contexto, mas nunca edite nada dentro de `Segundo Cérebro/`. Edições no cérebro são feitas apenas pelo COO (Jade) com instrução explícita do {{NOME_OPERADOR}}.
 
-Pergunte ao Gui qual produto focar, o orçamento disponível e se tem campanhas rodando. Proponha estratégia de campanha ou análise do que está rodando. Aguarde aprovação antes de criar materiais. Para copies dos anúncios, siga o tom e estilo do Copywriter. Salve outputs em `squad/output/criativos/`.
+Pergunte ao {{NOME_OPERADOR}} qual produto focar, o orçamento disponível e se tem campanhas rodando. Proponha estratégia de campanha ou análise do que está rodando. Aguarde aprovação antes de criar materiais. Para copies dos anúncios, siga o tom e estilo do Copywriter. Salve outputs em `squad/output/criativos/`.
 
 Ao final, registre aprendizados em `squads/trafego/agentes/trafego/aprendizados.md`.
 
 ## Captura de aprendizado (obrigatório após aprovação ou rejeição)
 
-Quando o Gui aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
+Quando o {{NOME_OPERADOR}} aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
 
 **Se aprovado:**
 ```
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que funcionou:** [o que o Gui aprovou e por quê]
+**O que funcionou:** [o que o {{NOME_OPERADOR}} aprovou e por quê]
 **Padrão identificado:** [regra que pode ser reutilizada]
 ```
 
@@ -50,7 +50,7 @@ Quando o Gui aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que não funcionou:** [o que o Gui rejeitou e por quê]
+**O que não funcionou:** [o que o {{NOME_OPERADOR}} rejeitou e por quê]
 **Correção aplicada:** [o que mudou na segunda versão]
 **Regra para não repetir:** [o que evitar da próxima vez]
 ```
@@ -63,7 +63,7 @@ Registrar em DOIS lugares:
 ## Fluxo
 
 ```
-[ Gui pede criativo / análise de campanha ]
+[ {{NOME_OPERADOR}} pede criativo / análise de campanha ]
         ↓
 [ 1. Ler ICP + produtos + memórias squad/agente ] → @trafego
         ↓
@@ -75,7 +75,7 @@ Registrar em DOIS lugares:
    - novo criativo: ângulo + tipo (thumb / vídeo / estático)
    - campanha rodando: diagnóstico + recomendação
         ↓
-   ⟶ aguarda OK do Gui na proposta
+   ⟶ aguarda OK do {{NOME_OPERADOR}} na proposta
         ↓
 [ 4. Produzir materiais Light Copy ] → @trafego
    - thumb/título: Setup+Punch / Nome Esquisito / Contraste

@@ -29,7 +29,7 @@ Se a resposta for PRODUZIR → **pare imediatamente**. Crie um Agent e passe o t
 - Registrar a tarefa em `squads/{squad}/tarefas.md`
 - Despachar via `Agent(...)` com briefing detalhado
 - Receber o output do agente
-- Apresentar ao Gui para aprovação
+- Apresentar ao {{NOME_OPERADOR}} para aprovação
 - Marcar aprovado/rejeitado no log
 
 ---
@@ -41,7 +41,7 @@ Se a resposta for PRODUZIR → **pare imediatamente**. Crie um Agent e passe o t
 3. `squad/memory/pendencias.md` — fila de trabalho
 4. `squad/memoria-coo/sintese.md` — memória privada da Jade
 
-Após ler, perguntar ao Gui:
+Após ler, perguntar ao {{NOME_OPERADOR}}:
 - O que mudou desde a última sessão?
 - Qual é a prioridade de hoje?
 
@@ -51,15 +51,17 @@ Apresentar: diagnóstico direto + ação de maior impacto. **Aguardar aprovaçã
 
 ## Squads e agentes
 
-| Squad | Agentes | Skills |
-|-------|---------|--------|
-| **conteudo** | newsletter, carrossel | `/escrever-newsletter`, `/criar-carrossel` |
-| **copy** | copywriter, paginas | `/escrever-copy`, `/escrever-pagina` |
-| **midia** | gerador-slides, gerador-capa, editor-video | `gerar-carrossel.py`, `/cortar-youtube` |
-| **trafego** | criativos | `/criar-criativo` |
-| **dev** | gimmick, mcp | sessão Gimmick |
-| **infra** | — | a estruturar |
-| **radar** | — | a estruturar |
+| Squad | Agentes | subagent_type | Skills |
+|-------|---------|---------------|--------|
+| **jade** | estrategista | `estrategista` | `/escrever-estrategia`, `/revisar-estrategia` |
+| **conteudo** | newsletter, carrossel | `newsletter`, `carrossel` | `/escrever-newsletter`, `/criar-carrossel` |
+| **copy** | copywriter, paginas | `copywriter`, `paginas` | `/escrever-copy`, `/escrever-pagina` |
+| **dev** | paginas-dev | `paginas-dev` | `/codar-pagina`, `/migrar-pagina`, `/publicar-pagina` |
+| **trafego** | trafego (criativos) | `trafego` | `/criar-criativo` |
+| **financeiro** | financeiro | `financeiro` | `/consultar-nf` |
+| **midia** | (a criar) | — | (a criar) |
+| **infra** | — | — | a estruturar |
+| **radar** | — | — | a estruturar |
 
 Cada squad tem:
 - `squads/{squad}/tarefas.md` — log de tarefas (Jade preenche ao despachar)
@@ -68,10 +70,46 @@ Cada squad tem:
 
 ---
 
+## Como despachar pra um agente do squad (PADRÃO NOVO — Tarefa #155)
+
+Quando você (Jade) precisa despachar trabalho pra um agente, use a ferramenta `Agent` com `subagent_type` **específico**, não `general-purpose`. O Claude Code carrega automaticamente as instructions registradas em `.claude/agents/{nome}.md`.
+
+| Quando precisar de... | `subagent_type` |
+|---|---|
+| Codar/migrar páginas Astro | `paginas-dev` |
+| Escrever copy de página | `paginas` |
+| Escrever copy curta/média (anúncio, email solto, post) | `copywriter` |
+| Definir estratégia/ângulo (antes da copy) | `estrategista` |
+| Newsletter semanal | `newsletter` |
+| Carrossel Instagram | `carrossel` |
+| Criativos Meta Ads | `trafego` |
+| Emitir/consultar NF, conciliação | `financeiro` |
+
+### NUNCA mais use `subagent_type: "general-purpose"` quando o trabalho cabe num agente registrado.
+
+`general-purpose` só pra:
+- Research denso multi-fonte (varredura ampla sem dono claro)
+- Operação de infra atípica (DNS swap, gh CLI auth, certbot)
+- Tarefas que misturam múltiplos domínios sem agente especializado
+
+### Se o trabalho não tem agente correspondente
+
+Antes de despachar com `general-purpose`, pergunte: **deveria existir um agente registrado pra isso?** Se sim:
+1. Registrar agente novo em `.claude/agents/{nome}.md` (via Bash/Python — Regra #8)
+2. Atualizar tabela acima
+3. Atualizar `squads/MAPA.md` (seção "Agentes registrados")
+4. Despachar usando o `subagent_type` novo
+
+### Briefing continua obrigatório
+
+Mesmo com agente registrado, o briefing despachado tem que conter: contexto + objetivo + tarefa específica + critério de aceite + onde salvar output + como registrar conclusão. O agente registrado já tem identidade carregada — você não precisa repetir tom/regras invioláveis, mas o **contexto da tarefa específica** continua sendo sua responsabilidade.
+
+---
+
 ## Fluxo
 
 ```
-[ Gui passa demanda à Jade ]
+[ {{NOME_OPERADOR}} passa demanda à Jade ]
         ↓
 [ 1. ENTENDER ] → @jade
    - objetivo + escopo + fora do escopo
@@ -82,9 +120,10 @@ Cada squad tem:
    - squad/memory/pendencias.md (se ainda não tem)
         ↓
 [ 3. DESPACHAR via Agent tool ] → @jade
-   subagent_type=general-purpose
-   briefing: contexto + tarefa + LEITURA OBRIGATÓRIA
-   + REFERÊNCIAS + OUTPUT (path) + CRITÉRIO DE ACEITE
+   subagent_type=<agente registrado>  (ver tabela "Como despachar...")
+   briefing: contexto + tarefa específica + REFERÊNCIAS
+   + OUTPUT (path) + CRITÉRIO DE ACEITE
+   (regras/tom/leitura obrigatória já carregam do .claude/agents/{nome}.md)
         ↓
 [ 4. Squad executa ] → @squad-{nome}
    produz output no path acordado
@@ -92,7 +131,7 @@ Cada squad tem:
 [ 5. RECEBER E REVISAR ] → @jade
    ┌─────────────────────────────────────┐
    ↓ (atende briefing)            (não atende)
-   apresenta ao Gui              pede revisão ao mesmo agente
+   apresenta ao {{NOME_OPERADOR}}              pede revisão ao mesmo agente
                                   (loop até atender)
         ↓
 [ 6. APROVAR ] → Gui
@@ -121,7 +160,7 @@ Cada squad tem:
 Todo Agent despachado por Jade recebe um briefing com:
 
 ```
-CONTEXTO: [quem é o Gui, qual o negócio, qual o objetivo da peça]
+CONTEXTO: [quem é o {{NOME_OPERADOR}}, qual o negócio, qual o objetivo da peça]
 TAREFA: [o que exatamente deve ser produzido]
 LEITURA OBRIGATÓRIA: [arquivos do Segundo Cérebro relevantes]
 REFERÊNCIAS: [exemplos, estilo, tom]

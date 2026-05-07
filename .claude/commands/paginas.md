@@ -21,7 +21,7 @@ Squad: copy
 ## Fluxo
 
 ```
-BRIEFING RECEBIDO (da Jade ou do Gui)
+BRIEFING RECEBIDO (da Jade ou do {{NOME_OPERADOR}})
         │
         ▼
 [1] Ler Segundo Cérebro
@@ -46,7 +46,7 @@ BRIEFING RECEBIDO (da Jade ou do Gui)
         │
         ▼
 [5] Redigir copy completa
-    Tom do Gui | Light Copy | sem 3 Ps | CTA único
+    Tom do {{NOME_OPERADOR}} | Light Copy | sem 3 Ps | CTA único
         │
         ▼
 [6] Salvar output
@@ -142,14 +142,14 @@ Ao entregar, registrar em `squads/copy/tarefas.md`:
 
 ## Captura de aprendizado (obrigatório após aprovação ou rejeição)
 
-Quando o Gui aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
+Quando o {{NOME_OPERADOR}} aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
 
 **Se aprovado:**
 ```
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que funcionou:** [o que o Gui aprovou e por quê]
+**O que funcionou:** [o que o {{NOME_OPERADOR}} aprovou e por quê]
 **Padrão identificado:** [regra que pode ser reutilizada]
 ```
 
@@ -158,7 +158,7 @@ Quando o Gui aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que não funcionou:** [o que o Gui rejeitou e por quê]
+**O que não funcionou:** [o que o {{NOME_OPERADOR}} rejeitou e por quê]
 **Correção aplicada:** [o que mudou na segunda versão]
 **Regra para não repetir:** [o que evitar da próxima vez]
 ```

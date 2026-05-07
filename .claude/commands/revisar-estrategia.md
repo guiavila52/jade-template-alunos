@@ -4,7 +4,7 @@
 
 > Skill da Jade COO. Recebe documento de estratégia produzido pelo `@estrategista` e aprova ou devolve com apontamentos. É o gate ANTES da copy.
 >
-> Acionada automaticamente após `/escrever-estrategia` salvar o output, ou diretamente pelo Gui quando ele quiser que a Jade revise uma estratégia anterior.
+> Acionada automaticamente após `/escrever-estrategia` salvar o output, ou diretamente pelo {{NOME_OPERADOR}} quando ele quiser que a Jade revise uma estratégia anterior.
 
 ---
 
@@ -51,12 +51,12 @@ Marcar `[x]` ou `[ ]` em cada item. Documento aprovado = TODOS `[x]`.
 - [ ] Estado emocional do lead ao chegar está descrito
 - [ ] Origem de tráfego identificada (YouTube/Email/Instagram/LinkedIn/Pago/Direto)
 - [ ] Posicionamento honesto, sem inflar
-- [ ] Tese reforça "Gui = especialista nº 1 em construir squads de agentes de IA" (direta ou indiretamente)
+- [ ] Tese reforça "{{NOME_OPERADOR}} = especialista nº 1 em construir squads de agentes de IA" (direta ou indiretamente)
 - [ ] Funil canônico respeitado (YouTube → Imersão → Mentoria/Reverso → Consultoria)
 
 #### Ângulo único
 - [ ] Ângulo único definido em 1 frase (não tenta capturar todos os públicos)
-- [ ] Banco de histórias do Gui referenciado (≥1 história do `banco-de-historias.md`)
+- [ ] Banco de histórias do {{NOME_OPERADOR}} referenciado (≥1 história do `banco-de-historias.md`)
 - [ ] Ângulo está ancorado em história real (não é tese abstrata)
 
 #### Narrativa
@@ -74,7 +74,7 @@ Marcar `[x]` ou `[ ]` em cada item. Documento aprovado = TODOS `[x]`.
 - [ ] Prova social escolhida está na lista permitida (sem 400k/35+/3 continentes/faturamento)
 - [ ] Toda métrica citada existe literalmente em `estrategia-viva.md` (seção "Métricas que podem ser mencionadas publicamente")
 - [ ] Cada item de prova tem justificativa de por quê entra NESTA página
-- [ ] Sem ambiguidade em "400k usuários {{PRODUTO_PRINCIPAL}}" (sempre com contexto: plataforma, não público pessoal)
+- [ ] Sem ambiguidade em "400k usuários {{EMPRESA_2}}" (sempre com contexto: plataforma, não público pessoal)
 - [ ] Sem mencionar Mente Matemática / Lisieux como empresas
 
 #### Vocabulário
@@ -92,19 +92,19 @@ Marcar `[x]` ou `[ ]` em cada item. Documento aprovado = TODOS `[x]`.
 - [ ] Sem CTA múltiplo no mesmo bloco
 
 #### Hiperlinks
-- [ ] Hiperlinks `guiavila.com/[slug]` mapeados (somente os usados nesta página)
+- [ ] Hiperlinks `{{DOMINIO}}/[slug]` mapeados (somente os usados nesta página)
 - [ ] Slugs canônicos respeitados: magicaonline, manychat, clickup, clickup8x, level, automacoes, reverso, youtube, mentoria, consultoria, ensinio
 - [ ] Toda menção a empresa/produto/parceiro vira link inline (na palavra, não URL como texto)
 
 #### Briefing pra peças derivadas (SEÇÃO 10)
 - [ ] Diretrizes pra copywriter explícitas (NÃO faça + tom + estrutura sugerida)
 - [ ] Pontos de atenção (aprendizados aplicáveis) listados com link
-- [ ] Quando perguntar pro Gui antes de redigir está descrito
+- [ ] Quando perguntar pro {{NOME_OPERADOR}} antes de redigir está descrito
 - [ ] Briefing é executável dentro de Light Copy (sem reinventar tom)
 
 #### Decisões pendentes (SEÇÃO 11)
-- [ ] Tudo que SÓ o Gui pode dar está listado
-- [ ] Estrategista NÃO escolheu pelo Gui (sem decisão silenciosa)
+- [ ] Tudo que SÓ o {{NOME_OPERADOR}} pode dar está listado
+- [ ] Estrategista NÃO escolheu pelo {{NOME_OPERADOR}} (sem decisão silenciosa)
 
 #### Métricas de validação
 - [ ] Métrica primária (conversão) definida
@@ -117,7 +117,7 @@ Marcar `[x]` ou `[ ]` em cada item. Documento aprovado = TODOS `[x]`.
 **APROVADO** = todos os itens `[x]`.
 - Despachar `/escrever-pagina` (ou `/escrever-copy` / `/criar-carrossel` / `/criar-criativo`, conforme aplicável) passando o documento estratégico INTEIRO.
 - Atualizar `squads/conteudo/tarefas.md`: status `aprovado`.
-- Notificar Gui: "Estratégia [slug] aprovada. Despachei [skill consequente]."
+- Notificar {{NOME_OPERADOR}}: "Estratégia [slug] aprovada. Despachei [skill consequente]."
 
 **REPROVADO** = qualquer item `[ ]`.
 - Devolver ao `@estrategista` com:
@@ -133,7 +133,7 @@ Se a estratégia, ao ser aprovada, **introduz uma decisão nova** (data, posicio
 → DESPACHAR `/atualizar-estrategia` pra registrar na `estrategia-viva.md`.
 
 Exemplos que disparam:
-- "Vamos focar em {{METODO_PRINCIPAL}} pelos próximos 90 dias"
+- "Vamos focar em {{PRODUTO_PRINCIPAL}} pelos próximos 90 dias"
 - "Mentoria volta a ter opção 1:1"
 - "Nova métrica pública: 12 squads em produção"
 - "Imersão muda de 2x/mês pra semanal"
@@ -146,11 +146,11 @@ Exemplos que disparam:
 2. Prova social inflada (faturamento, "400k usuários" como público pessoal, "35+ empresas")
 3. Vocabulário interno ("qualificação", "screening", "triagem")
 4. Números voláteis na promessa ("21 dias", "4 meses garantidos", "32 encontros")
-5. Inventar contexto do Gui sem fonte no Segundo Cérebro
+5. Inventar contexto do {{NOME_OPERADOR}} sem fonte no Segundo Cérebro
 6. Pular o `banco-de-historias.md` (ângulo abstrato sem âncora real)
 7. CTA múltiplo no mesmo bloco
 8. Diretriz vaga pra copywriter ("escrever bem", "tom acolhedor")
-9. Esquecer hiperlinks `guiavila.com/[slug]` quando há menção a produto interno
+9. Esquecer hiperlinks `{{DOMINIO}}/[slug]` quando há menção a produto interno
 10. Documento curto demais (<300 linhas equivalente — sinal de superficialidade)
 11. Não consultar `estrategia-viva.md` ou usar dado divergente sem flag
 12. Não listar decisões pendentes quando há claramente input que falta
@@ -186,7 +186,7 @@ Formato:
 - [ ] Não
 
 ## Próximo passo
-- [skill consequente despachada | devolução pro estrategista | aguardando input do Gui]
+- [skill consequente despachada | devolução pro estrategista | aguardando input do {{NOME_OPERADOR}}]
 ```
 
 ---

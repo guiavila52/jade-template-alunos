@@ -31,6 +31,6 @@ infraestrutura de código do squad de agentes.
 
 ## Referências externas
 
-- `Páginas Astro Gui Ávila/DESIGN-SYSTEM.md` — fonte única visual
-- `Páginas Astro Gui Ávila/MAPA.md` — estrutura do projeto Astro
+- `Páginas Astro {{NOME_OPERADOR}}/DESIGN-SYSTEM.md` — fonte única visual
+- `Páginas Astro {{NOME_OPERADOR}}/MAPA.md` — estrutura do projeto Astro
 - `squad/processos/pipeline-paginas.md` — pipeline ponta-a-ponta

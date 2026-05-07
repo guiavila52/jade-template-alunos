@@ -27,22 +27,22 @@ Antes de começar, leia em ordem:
 6. `squads/conteudo/agentes/newsletter/aprendizados.md` ← suas lições
 7. `squad/agents/newsletter.md` ← suas instruções completas
 
-⚠️ **Segundo Cérebro = só leitura.** Consulte os arquivos de identidade e negócios para contexto, mas nunca edite nenhum arquivo dentro de `Segundo Cérebro/`. Edições no cérebro são feitas apenas pelo COO (Jade) com instrução explícita do Gui.
+⚠️ **Segundo Cérebro = só leitura.** Consulte os arquivos de identidade e negócios para contexto, mas nunca edite nenhum arquivo dentro de `Segundo Cérebro/`. Edições no cérebro são feitas apenas pelo COO (Jade) com instrução explícita do {{NOME_OPERADOR}}.
 
-Pergunte ao Gui qual o tema ou insight desta semana. Monte a estrutura da edição, valide com o Gui, depois redija o texto completo no tom dele. Salve o output aprovado em `squad/output/newsletter/YYYY-MM-DD-newsletter.md`.
+Pergunte ao {{NOME_OPERADOR}} qual o tema ou insight desta semana. Monte a estrutura da edição, valide com o {{NOME_OPERADOR}}, depois redija o texto completo no tom dele. Salve o output aprovado em `squad/output/newsletter/YYYY-MM-DD-newsletter.md`.
 
 Ao final, registre qualquer aprendizado novo em `squads/conteudo/agentes/newsletter/aprendizados.md`.
 
 ## Captura de aprendizado (obrigatório após aprovação ou rejeição)
 
-Quando o Gui aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
+Quando o {{NOME_OPERADOR}} aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
 
 **Se aprovado:**
 ```
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que funcionou:** [o que o Gui aprovou e por quê]
+**O que funcionou:** [o que o {{NOME_OPERADOR}} aprovou e por quê]
 **Padrão identificado:** [regra que pode ser reutilizada]
 ```
 
@@ -51,7 +51,7 @@ Quando o Gui aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que não funcionou:** [o que o Gui rejeitou e por quê]
+**O que não funcionou:** [o que o {{NOME_OPERADOR}} rejeitou e por quê]
 **Correção aplicada:** [o que mudou na segunda versão]
 **Regra para não repetir:** [o que evitar da próxima vez]
 ```
@@ -64,7 +64,7 @@ Registrar em DOIS lugares:
 ## Fluxo
 
 ```
-[ Gui pede newsletter da semana ]
+[ {{NOME_OPERADOR}} pede newsletter da semana ]
         ↓
 [ 1. Ler tom + identidade + memórias squad/agente ] → @newsletter
    inclui banco-de-historias.md (Light Copy)
@@ -79,12 +79,12 @@ Registrar em DOIS lugares:
    - sem 3 Ps na abertura
    - se for primeira da sequência: pedir resposta
         ↓
-[ 4. Validar estrutura com Gui ] → @newsletter
+[ 4. Validar estrutura com {{NOME_OPERADOR}} ] → @newsletter
         ↓
    ⟶ aguarda OK do Gui
         ↓
 [ 5. Redigir texto completo ] → @newsletter
-   tom do Gui, parágrafos curtos, pouco negrito
+   tom do {{NOME_OPERADOR}}, parágrafos curtos, pouco negrito
         ↓
 [ 6. Apresentar pra aprovação ] → @newsletter
         ↓

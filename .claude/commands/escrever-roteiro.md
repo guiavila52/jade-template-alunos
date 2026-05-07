@@ -38,7 +38,7 @@ Antes de qualquer roteiro, ler em ordem:
 - CTA para o produto correto na escada de valor
 
 **Camada 2 — Bastidores / Opinionado (meio de funil)**
-- O Gui mostrando o que está construindo na prática
+- O {{NOME_OPERADOR}} mostrando o que está construindo na prática
 - Decisões reais, erros reais, bastidores de verdade
 - Gera conexão emocional: "esse cara faz de verdade"
 
@@ -67,14 +67,14 @@ Antes de qualquer roteiro, ler em ordem:
 
 ### Bloco 4: CTA
 - Um CTA por vídeo — não dois
-- Escada de valor: conteúdo gratuito → Produto de entrada (R$X) → Produto intermediário → Mentoria → Consultoria
+- Escada de valor: conteúdo gratuito → Produto de entrada (R$X) → Sistemas Reverso → Mentoria → Consultoria
 - Adaptar o CTA ao tipo de vídeo e temperatura do espectador
 
 ## Regras do canal
 
 - O protagonista é sempre o **sistema**, não a ferramenta — "esse é o sistema de banco de ideias, vou te mostrar uma ferramenta que uso dentro dele"
-- Nunca posicionar o Gui como "especialista em IA" ou "o cara do ClickUp"
-- A {{PRODUTO_PRINCIPAL}} aparece naturalmente, nunca forçada
+- Nunca posicionar o {{NOME_OPERADOR}} como "especialista em IA" ou "o cara do ClickUp"
+- A {{EMPRESA_2}} aparece naturalmente, nunca forçada
 - Narrativa da mágica pode aparecer organicamente — nunca forçada
 - Nunca conteúdo enciclopédia: cada vídeo resolve um problema específico
 
@@ -94,12 +94,12 @@ Entregar o roteiro com:
 - [ ] Tem pelo menos um detalhe específico em vez de afirmação genérica?
 - [ ] O sistema está em evidência (não a ferramenta)?
 - [ ] Um único CTA, adequado ao tipo de vídeo?
-- [ ] Tom bate com o Gui (direto, acessível, sem "marketês")?
+- [ ] Tom bate com o {{NOME_OPERADOR}} (direto, acessível, sem "marketês")?
 
 ## Fluxo
 
 ```
-[ Gui pede roteiro de vídeo do YouTube ]
+[ {{NOME_OPERADOR}} pede roteiro de vídeo do YouTube ]
         ↓
 [ 1. Ler banco-de-historias + tom + ICP + canal-youtube ] → @roteiro
         ↓

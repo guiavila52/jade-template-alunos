@@ -25,9 +25,9 @@ Antes de começar, leia em ordem:
 6. `squads/conteudo/agentes/carrossel/aprendizados.md` ← suas lições
 7. `squad/agents/carrossel.md` ← suas instruções completas
 
-⚠️ **Segundo Cérebro = só leitura.** Consulte os arquivos de identidade para contexto, mas nunca edite nada dentro de `Segundo Cérebro/`. Edições no cérebro são feitas apenas pelo COO (Jade) com instrução explícita do Gui.
+⚠️ **Segundo Cérebro = só leitura.** Consulte os arquivos de identidade para contexto, mas nunca edite nada dentro de `Segundo Cérebro/`. Edições no cérebro são feitas apenas pelo COO (Jade) com instrução explícita do {{NOME_OPERADOR}}.
 
-Pergunte ao Gui qual vídeo do YouTube vai virar carrossel (manda o link ou o título). Mapeie os pontos principais, proponha o esqueleto slide a slide e aguarde aprovação antes de redigir. Escreva os textos dos slides no tom do Gui. ## Output e geração de imagens
+Pergunte ao {{NOME_OPERADOR}} qual vídeo do YouTube vai virar carrossel (manda o link ou o título). Mapeie os pontos principais, proponha o esqueleto slide a slide e aguarde aprovação antes de redigir. Escreva os textos dos slides no tom do {{NOME_OPERADOR}}. ## Output e geração de imagens
 
 ### 1. Texto dos slides
 Salvar em: `squad/output/midia/carrosseis/YYYY-MM-DD-[slug]/escrever-roteiro.md`
@@ -56,7 +56,7 @@ python3 squad/scripts/gerar-carrossel.py \
   --roteiro "squad/output/midia/carrosseis/YYYY-MM-DD-[slug]/escrever-roteiro.md" \
   --output "squad/output/midia/carrosseis/YYYY-MM-DD-[slug]/"
 ```
-O script gera `slide-01.png`, `slide-02.png`... com o template tweet card do Gui.
+O script gera `slide-01.png`, `slide-02.png`... com o template tweet card do {{NOME_OPERADOR}}.
 
 ### 5. Atualizar MAPA
 Ao finalizar, adicionar entrada em `squad/output/midia/carrosseis/MAPA.md`.
@@ -68,14 +68,14 @@ Ao final, registre qualquer aprendizado novo em `squads/conteudo/agentes/carross
 
 ## Captura de aprendizado (obrigatório após aprovação ou rejeição)
 
-Quando o Gui aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
+Quando o {{NOME_OPERADOR}} aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
 
 **Se aprovado:**
 ```
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que funcionou:** [o que o Gui aprovou e por quê]
+**O que funcionou:** [o que o {{NOME_OPERADOR}} aprovou e por quê]
 **Padrão identificado:** [regra que pode ser reutilizada]
 ```
 
@@ -84,7 +84,7 @@ Quando o Gui aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que não funcionou:** [o que o Gui rejeitou e por quê]
+**O que não funcionou:** [o que o {{NOME_OPERADOR}} rejeitou e por quê]
 **Correção aplicada:** [o que mudou na segunda versão]
 **Regra para não repetir:** [o que evitar da próxima vez]
 ```
@@ -97,7 +97,7 @@ Registrar em DOIS lugares:
 ## Fluxo
 
 ```
-[ Gui pede carrossel a partir de vídeo do YouTube ]
+[ {{NOME_OPERADOR}} pede carrossel a partir de vídeo do YouTube ]
         ↓
 [ 1. Ler identidade + tom + memórias squad/agente ] → @carrossel
         ↓
@@ -105,7 +105,7 @@ Registrar em DOIS lugares:
         ↓
 [ 3. Mapear pontos principais + propor esqueleto ] → @carrossel
         ↓
-   ⟶ aguarda OK do Gui no esqueleto
+   ⟶ aguarda OK do {{NOME_OPERADOR}} no esqueleto
         ↓
 [ 4. Redigir slides com Light Copy ] → @carrossel
    slide 1 = Setup+Punch ou Escalada;
@@ -128,5 +128,5 @@ Registrar em DOIS lugares:
 [ 10. Registrar aprendizado ] → @carrossel
    squads/conteudo/agentes/carrossel/aprendizados.md
         ↓
-   ⟶ FIM (aguarda aprovação do Gui)
+   ⟶ FIM (aguarda aprovação do {{NOME_OPERADOR}})
 ```

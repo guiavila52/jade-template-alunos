@@ -25,7 +25,7 @@ Squad: conteudo
 
 O input principal é a **transcrição de um vídeo do YouTube** (colada diretamente ou via arquivo).
 
-Opcionalmente, o Gui pode indicar:
+Opcionalmente, o {{NOME_OPERADOR}} pode indicar:
 - Ângulo específico que quer explorar no post
 - Tipo de post preferido
 - Trecho específico do vídeo para usar como base
@@ -34,7 +34,7 @@ Se nenhuma transcrição for fornecida, pedir antes de continuar.
 
 ## Contexto do canal
 
-LinkedIn é o canal de **autoridade B2B** do Gui. Posts curtos e opinionados, 3-5x por semana. O público no LinkedIn é fundador de negócio digital — mais formal que Instagram, mas ainda direto e autêntico. Sem "marketês", sem lista genérica de dicas.
+LinkedIn é o canal de **autoridade B2B** do {{NOME_OPERADOR}}. Posts curtos e opinionados, 3-5x por semana. O público no LinkedIn é fundador de negócio digital — mais formal que Instagram, mas ainda direto e autêntico. Sem "marketês", sem lista genérica de dicas.
 
 ## Pré-requisitos obrigatórios
 
@@ -70,7 +70,7 @@ Quando o vídeo ensina um processo ou sistema que merece detalhe.
 Pode usar listas curtas (máx 4 itens).
 
 **4. Bastidores**
-O que o Gui está construindo na prática. Decisões reais, números reais, erros reais.
+O que o {{NOME_OPERADOR}} está construindo na prática. Decisões reais, números reais, erros reais.
 Usar quando: o vídeo mostra o processo real de construção de algo.
 
 ### Passo 3 — Escrever com Light Copy
@@ -81,13 +81,13 @@ Usar quando: o vídeo mostra o processo real de construção de algo.
 
 ### Passo 4 — Entregar variações
 Sempre entregar **2 versões** a partir de ângulos diferentes da mesma transcrição.
-O Gui escolhe qual publica.
+O {{NOME_OPERADOR}} escolhe qual publica.
 
 ## Formato técnico LinkedIn
 
 - Primeira linha é o que aparece antes do "ver mais" — ela decide se a pessoa clica. Deve prender.
 - Parágrafos de 1-3 linhas. Espaço entre cada parágrafo.
-- Emojis: com naturalidade, como o Gui usa. Nada excessivo.
+- Emojis: com naturalidade, como o {{NOME_OPERADOR}} usa. Nada excessivo.
 - CTA no final: um, máximo. Pode ser pergunta para engajamento, link ou convite.
 - Hashtags: 3-5 no final, relevantes. Nunca no meio do texto.
 
@@ -106,16 +106,16 @@ Salvar em: `squad/output/conteudo/escrever-linkedin/YYYY-MM-DD-[slug].md`
 Quando o MCP do Gimmick estiver ativo, ao finalizar o post:
 1. Usar tool `criar_conteudo` para registrar o post no pipeline do Gimmick
 2. Usar tool `atualizar_status` para marcar como "aguardando aprovação"
-3. O Gui aprova ou solicita ajuste diretamente no painel visual do Gimmick
+3. O {{NOME_OPERADOR}} aprova ou solicita ajuste diretamente no painel visual do Gimmick
 
-**Status atual:** MCP não implementado ainda. Aguarda API key no Gimmick. Enquanto isso, salvar output em arquivo e informar o Gui.
+**Status atual:** MCP não implementado ainda. Aguarda API key no Gimmick. Enquanto isso, salvar output em arquivo e informar o {{NOME_OPERADOR}}.
 
 ## Checklist antes de entregar
 
 - [ ] Transcrição foi lida completa?
 - [ ] Um ângulo específico foi escolhido (não é resumo do vídeo)?
 - [ ] Primeira linha prende sem os 3 Ps?
-- [ ] Tom bate com o Gui (direto, autêntico, sem "marketês")?
+- [ ] Tom bate com o {{NOME_OPERADOR}} (direto, autêntico, sem "marketês")?
 - [ ] Detalhe específico da transcrição aparece no post?
 - [ ] CTA único e adequado ao tipo de post?
 - [ ] Parágrafos curtos com espaçamento?
@@ -125,7 +125,7 @@ Quando o MCP do Gimmick estiver ativo, ao finalizar o post:
 ## Fluxo
 
 ```
-[ Gui passa transcrição de vídeo (ou URL → /transcrever-video) ]
+[ {{NOME_OPERADOR}} passa transcrição de vídeo (ou URL → /transcrever-video) ]
         ↓
 [ 1. Ler banco-de-historias + tom + ICP ] → @linkedin
         ↓
@@ -154,7 +154,7 @@ Quando o MCP do Gimmick estiver ativo, ao finalizar o post:
 [ 6. Salvar output ] → @linkedin
    squad/output/conteudo/escrever-linkedin/YYYY-MM-DD-[slug].md
         ↓
-   ⟶ Gui escolhe qual versão publica
+   ⟶ {{NOME_OPERADOR}} escolhe qual versão publica
         ↓
 [ 7. (Se MCP Gimmick disponível)
    criar_conteudo + atualizar_status ] → @linkedin

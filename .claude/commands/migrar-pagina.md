@@ -40,7 +40,7 @@ Você é o agente de migração de páginas do squad {{NOME_OPERADOR}}. Sua tare
 
 Toda migração DEVE clonar TODOS os assets referenciados pelo HTML para `Páginas Astro {{NOME_OPERADOR}}/public/`. Não é opcional. Não depende de "se a página vai pra mesmo projeto Vercel".
 
-**Por quê:** se o `.astro` mantém URL absoluta (`https://sites.guiavila.com/[slug]/img/...`) ou referencia path relativo `/[slug]/img/...` sem o asset em `public/`, em PRODUÇÃO num projeto Vercel novo (ou em qualquer ambiente local) os assets retornam 404. Pior: diff visual mascara a regressão, porque se ambos os lados (`original` + `novo`) puxam da mesma CDN antiga, a comparação dá "PASS" enganoso.
+**Por quê:** se o `.astro` mantém URL absoluta (`https://sites.{{DOMINIO}}/[slug]/img/...`) ou referencia path relativo `/[slug]/img/...` sem o asset em `public/`, em PRODUÇÃO num projeto Vercel novo (ou em qualquer ambiente local) os assets retornam 404. Pior: diff visual mascara a regressão, porque se ambos os lados (`original` + `novo`) puxam da mesma CDN antiga, a comparação dá "PASS" enganoso.
 
 **Procedimento OBRIGATÓRIO em toda migração:**
 
@@ -48,14 +48,14 @@ Toda migração DEVE clonar TODOS os assets referenciados pelo HTML para `Págin
 cd "Páginas Astro {{NOME_OPERADOR}}"
 
 # 1. Extrair TODAS as URLs absolutas do .astro (e relativas, se houver)
-grep -hoE 'https://sites\.guiavila\.com/[a-z0-9_-]+/(img|assets|files|cdn|fonts|videos)/[^"\)]+\.(jpg|jpeg|png|webp|svg|gif|mov|mp4|webm|woff|woff2|ttf|otf|css|js|ico)' src/pages/[slug]/index.astro | sort -u
+grep -hoE 'https://sites\.{{DOMINIO}}\.com/[a-z0-9_-]+/(img|assets|files|cdn|fonts|videos)/[^"\)]+\.(jpg|jpeg|png|webp|svg|gif|mov|mp4|webm|woff|woff2|ttf|otf|css|js|ico)' src/pages/[slug]/index.astro | sort -u
 
 # 1b. Reforçar com grep que aceita espaço em nome de arquivo (logos com nomes "banco do brasil.png")
-grep -hoE 'src="https://sites\.guiavila\.com/[^"]+\.(jpg|jpeg|png|webp|svg|gif|mov|mp4|webm|woff|woff2|ttf|otf|css|js|ico)"' src/pages/[slug]/index.astro | sort -u
+grep -hoE 'src="https://sites\.{{DOMINIO}}\.com/[^"]+\.(jpg|jpeg|png|webp|svg|gif|mov|mp4|webm|woff|woff2|ttf|otf|css|js|ico)"' src/pages/[slug]/index.astro | sort -u
 
 # 2. Pra cada URL: criar pasta + baixar
 mkdir -p public/[slug]/img public/[slug]/img/logos
-curl -sL "https://sites.guiavila.com/[slug]/img/[arquivo]" -o "public/[slug]/img/[arquivo]"
+curl -sL "https://sites.{{DOMINIO}}/[slug]/img/[arquivo]" -o "public/[slug]/img/[arquivo]"
 
 # 3. Validar tipo (binário, não HTML 404 mascarado)
 file public/[slug]/img/[arquivo]   # deve mostrar PNG/JPEG/WebP/MP4/etc, NUNCA "HTML document"
@@ -67,15 +67,15 @@ test -s public/[slug]/img/[arquivo] || echo "FAIL: arquivo vazio"
 curl -s -o /dev/null -w "%{http_code}" "http://localhost:4321/[slug]/img/[arquivo]"   # tem que ser 200
 
 # 6. Re-rodar diff visual (vai dar PASS) E executar test isolado bloqueando CDN antiga:
-node -e "/* abrir Playwright + page.route bloqueando sites.guiavila.com */"
+node -e "/* abrir Playwright + page.route bloqueando sites.{{DOMINIO}} */"
 # Com a CDN bloqueada, qualquer img.naturalWidth === 0 = asset que não está em public/
 ```
 
-**Cobertura mínima:** validar zero `<img>` quebrado quando navegador bloqueia `sites.guiavila.com` (cenário "Vercel novo"). Documentar count de assets clonados na linha do MAPA.md.
+**Cobertura mínima:** validar zero `<img>` quebrado quando navegador bloqueia `sites.{{DOMINIO}}` (cenário "Vercel novo"). Documentar count de assets clonados na linha do MAPA.md.
 
-**Bug histórico que motivou esta regra:** 06/05/2026 — Onda 6 migrou 6 páginas sem clonar assets. /clickup8x detectado pelo Gui (vídeo de fundo `.mov` 36MB faltava). Auditoria revelou ~70 assets faltando em outras 4 páginas (/reverso, /inscricao-aula-gui-avila-ensinio, /oferta-irresistivel-ensinio, /mentoria-precos). Hotfix sistêmico em #86 clonou 46 únicos. Risco que escapou: se URL absoluta `sites.guiavila.com` for desativada (ou domínio mudar), todas as páginas migradas quebram em produção.
+**Bug histórico que motivou esta regra:** 06/05/2026 — Onda 6 migrou 6 páginas sem clonar assets. /clickup8x detectado pelo {{NOME_OPERADOR}} (vídeo de fundo `.mov` 36MB faltava). Auditoria revelou ~70 assets faltando em outras 4 páginas (/reverso, /inscricao-aula-gui-avila-ensinio, /oferta-irresistivel-ensinio, /mentoria-precos). Hotfix sistêmico em #86 clonou 46 únicos. Risco que escapou: se URL absoluta `sites.{{DOMINIO}}` for desativada (ou domínio mudar), todas as páginas migradas quebram em produção.
 
-**Detalhe técnico crítico:** quando o `.astro` original referencia URL absoluta (`https://sites.guiavila.com/...`), o navegador continua puxando da CDN antiga MESMO com asset clonado em `public/`. Para o asset local "ativar", uma das duas opções:
+**Detalhe técnico crítico:** quando o `.astro` original referencia URL absoluta (`https://sites.{{DOMINIO}}/...`), o navegador continua puxando da CDN antiga MESMO com asset clonado em `public/`. Para o asset local "ativar", uma das duas opções:
 - (a) refatorar `.astro` pra path relativo (`/[slug]/img/...`) — recomendado, ciclo de migração separado;
 - (b) deixar URL absoluta e contar com fallback — aceita risco se o domínio antigo cair.
 
@@ -113,9 +113,9 @@ PEDIDO: migrar /[slug] (URL ou descrição)
     Caminho do arquivo
     Pergunta: "implementar agora ou ajustar copy antes?"
         │
-        ├── Gui pediu ajuste? ─ sim → revisar markdown e voltar a [5]
+        ├── {{NOME_OPERADOR}} pediu ajuste? ─ sim → revisar markdown e voltar a [5]
         │
-        ▼ Gui aprovou
+        ▼ {{NOME_OPERADOR}} aprovou
 [6] Despachar /codar-pagina
     Input: caminho do markdown aprovado
     Output esperado: Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
@@ -134,7 +134,7 @@ PEDIDO: migrar /[slug] (URL ou descrição)
       cd "Páginas Astro {{NOME_OPERADOR}}"
       node scripts/validate-visual.mjs --compare \
         --slug=[slug] \
-        --original=https://sites.guiavila.com/[slug] \
+        --original=https://sites.{{DOMINIO}}/[slug] \
         --novo=http://localhost:4321/[slug]
       Compara mobile (390x844) + desktop (1440x900)
       Salva screenshots lado a lado em
@@ -152,13 +152,13 @@ PEDIDO: migrar /[slug] (URL ou descrição)
         ▼
 [10] Apresentar URL localhost ao Gui
         │
-        ├── Gui pediu ajuste? ─ sim → voltar a [6]
+        ├── {{NOME_OPERADOR}} pediu ajuste? ─ sim → voltar a [6]
         │
-        ▼ Gui aprovou
+        ▼ {{NOME_OPERADOR}} aprovou
 [11] Despachar /publicar-pagina (modo produção)
      vercel --prod no projeto Páginas Astro {{NOME_OPERADOR}}/
         │
-        ├── deploy falhou? ─ sim → reportar ao Gui, NÃO retentar
+        ├── deploy falhou? ─ sim → reportar ao {{NOME_OPERADOR}}, NÃO retentar
         │
         ▼ deploy OK
 [12] Atualizar registros finais:
@@ -167,7 +167,7 @@ PEDIDO: migrar /[slug] (URL ou descrição)
      - squads/dev/tarefas.md (status: publicado)
         │
         ▼
-[13] Notificar Gui:
+[13] Notificar {{NOME_OPERADOR}}:
      "https://[url-vercel] está no ar. Migração de /[slug] concluída."
 ```
 
@@ -188,14 +188,14 @@ Antes de começar, leia:
 ```
 
 Exemplos:
-- `/migrar-pagina https://sites.guiavila.com/reverso`
-- `/migrar-pagina página de vendas do {{METODO_PRINCIPAL}} (GoHighLevel)`
+- `/migrar-pagina https://sites.{{DOMINIO}}/reverso`
+- `/migrar-pagina página de vendas do {{PRODUTO_PRINCIPAL}} (GoHighLevel)`
 
 ## Processo de migração
 
 ### 1. Extração de conteúdo
 
-Se for URL, use WebFetch para capturar o conteúdo. Se for descrição, peça ao Gui que cole o copy da página.
+Se for URL, use WebFetch para capturar o conteúdo. Se for descrição, peça ao {{NOME_OPERADOR}} que cole o copy da página.
 
 Extrair:
 - [ ] Headline principal (H1)
@@ -226,7 +226,7 @@ Criar arquivo em `squad/output/paginas/YYYY-MM-DD-[slug].md` com esta estrutura:
 
 **Data:** YYYY-MM-DD
 **Origem:** [URL ou plataforma de origem]
-**Slug final:** sites.guiavila.com/[slug]
+**Slug final:** sites.{{DOMINIO}}/[slug]
 **Tipo:** [Captura / Venda / Institucional]
 **Status:** Migrado — aguarda implementação
 
@@ -273,7 +273,7 @@ Criar arquivo em `squad/output/paginas/YYYY-MM-DD-[slug].md` com esta estrutura:
 - [ ] CTAs verificados e atualizados
 - [ ] Preços conferidos com produtos-servicos.md
 - [ ] MAPA.md atualizado
-- [ ] Aguarda aprovação do Gui antes de seguir para /codar-pagina
+- [ ] Aguarda aprovação do {{NOME_OPERADOR}} antes de seguir para /codar-pagina
 - [ ] Após dev: rodar `node scripts/validate-visual.mjs --compare --slug=[slug] --original=[URL] --novo=http://localhost:4321/[slug]` — diff < 5% mobile + desktop
 - [ ] Após dev: rodar `node scripts/audit-fonts.mjs <urlOriginal> http://localhost:4321/[slug]` — 0 mismatches obrigatório
 ```
@@ -291,10 +291,10 @@ Entregar:
 
 ### 6+ — Pipeline Astro
 
-Após o OK do Gui no markdown, encadear automaticamente:
+Após o OK do {{NOME_OPERADOR}} no markdown, encadear automaticamente:
 1. `/codar-pagina` → gera componente Astro em `Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro`
 2. `/revisar-codigo-pagina` → checklist Astro completo
-3. `/publicar-pagina` → preview localhost → OK do Gui → `vercel --prod`
+3. `/publicar-pagina` → preview localhost → OK do {{NOME_OPERADOR}} → `vercel --prod`
 
 A esteira é idêntica à de `/criar-pagina` a partir desse ponto.
 
@@ -302,7 +302,7 @@ A esteira é idêntica à de `/criar-pagina` a partir desse ponto.
 
 Toda migração DEVE incluir auditoria sistemática de `font-family` de cada elemento textual da página, comparando com a original. Não basta "achar que tá igual" — comparar computed styles é mandatório.
 
-**Bug histórico (06/05/2026):** homepage `/` foi migrada e passou na bateria #15 (12/12) com diff visual ~5%, mas o Gui apontou que fontes do footer estavam diferentes da original (CURSOS, GUI ÁVILA, SISTEMA REVERSO, ENSINIO). Causa raiz: `global.css` do squad declara `h1,h2,h3,h4 { font-family: var(--font-display) /* Syne */ }`, e o style inline da página migrada não fazia override de font-family pros h4 — Syne vazou pro footer da home. Pixel diff visual não capturou porque Syne e Inter têm tamanho/peso semelhantes nesses tamanhos pequenos. Esta seção é a resposta.
+**Bug histórico (06/05/2026):** homepage `/` foi migrada e passou na bateria #15 (12/12) com diff visual ~5%, mas o {{NOME_OPERADOR}} apontou que fontes do footer estavam diferentes da original (CURSOS, GUI ÁVILA, SISTEMA REVERSO, ENSINIO). Causa raiz: `global.css` do squad declara `h1,h2,h3,h4 { font-family: var(--font-display) /* Syne */ }`, e o style inline da página migrada não fazia override de font-family pros h4 — Syne vazou pro footer da home. Pixel diff visual não capturou porque Syne e Inter têm tamanho/peso semelhantes nesses tamanhos pequenos. Esta seção é a resposta.
 
 **Como auditar:**
 
@@ -311,7 +311,7 @@ Toda migração DEVE incluir auditoria sistemática de `font-family` de cada ele
 2. **Capturar computed `font-family`** via Playwright em ambos (original + local). Script reutilizável já disponível em `Páginas Astro {{NOME_OPERADOR}}/scripts/audit-fonts.mjs`:
 
    ```bash
-   cd "Sites Astro Gui Avila" && node scripts/audit-fonts.mjs https://sites.guiavila.com/[slug] http://localhost:4321/[slug]
+   cd "Sites Astro {{NOME_OPERADOR}}" && node scripts/audit-fonts.mjs https://sites.{{DOMINIO}}/[slug] http://localhost:4321/[slug]
    ```
 
    Imprime tabela markdown `seletor | original | local | match` e exit 1 se houver mismatch.
@@ -331,7 +331,7 @@ Toda migração DEVE incluir auditoria sistemática de `font-family` de cada ele
 
 - **Pixel perfect, sempre.** Migração = clone visual idêntico. Diff visual via Playwright é OBRIGATÓRIO antes de aprovar (≤ 5% diferença mobile + desktop). Diff > 5% = REPROVADO. Mudança de design só em ciclo separado.
 - **Nunca inventar copy** — extrair do original. Sugestões de melhoria ficam separadas como "Diagnóstico".
-- **Nunca subir direto para produção** — o output passa pelo `/revisar-codigo-pagina` e pelo OK do Gui no preview localhost.
+- **Nunca subir direto para produção** — o output passa pelo `/revisar-codigo-pagina` e pelo OK do {{NOME_OPERADOR}} no preview localhost.
 - **Preços e CTAs devem ser conferidos** com `02-negocios/produtos-servicos.md` antes de entregar
 - **MAPA.md é obrigatório** — toda migração que não atualiza o MAPA está incompleta
 - **Stack obrigatória:** Astro 6 + Tailwind v4 no projeto `Páginas Astro {{NOME_OPERADOR}}/`. Sem fallback HTML.

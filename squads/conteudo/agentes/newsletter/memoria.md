@@ -1,12 +1,4 @@
-# Memória — Squad conteudo
+# Memória — conteudo/agentes/newsletter
 
-> Estado vivo do squad. Atualizar conforme evolui.
-
-## Última atualização
-{{DATA}}
-
-## Status
-(em construção)
-
-## Aprendizados-chave
-(Adicionar conforme o squad opera.)
+> Decisões, padrões, contexto persistente deste squad/agente.
+> Atualizar conforme tarefas são entregues e padrões emergem.

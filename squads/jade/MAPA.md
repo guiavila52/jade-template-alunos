@@ -20,4 +20,4 @@
 | `memoria.md` | memória de orquestração (estado, contexto cruzado entre squads) |
 
 ## Histórico
-- 2026-05-06: Tarefa #124 — `@estrategista` migrado de `squad-conteudo` pra `squad-jade`. Decisão Gui + Jade: estratégia é peer da Jade, não produção. Atende todos os squads.
+- 2026-05-06: Tarefa #124 — `@estrategista` migrado de `squad-conteudo` pra `squad-jade`. Decisão {{NOME_OPERADOR}} + Jade: estratégia é peer da Jade, não produção. Atende todos os squads.
