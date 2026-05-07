@@ -34,6 +34,7 @@ A partir da Tarefa #155 (07/05/2026), cada agente do squad tem entry corresponde
 | `financeiro` | financeiro | `squads/financeiro/agentes/financeiro/` | sonnet-4-5 |
 | `jade` | jade (orquestrador) | (sem pasta dedicada — skill `/jade`) | opus-4-5 |
 | `bug-hunter` | dev | (sem pasta dedicada — só `.claude/agents/bug-hunter.md`) | sonnet-4-5 |
+| `revisor-visual` | dev | `squads/dev/agentes/revisor-visual/` | sonnet-4-5 |
 
 > Os arquivos `instructions.md` antigos em `squads/{sq}/agentes/{ag}/` permanecem como FONTE HISTÓRICA. Os novos `.claude/agents/{ag}.md` são a versão canônica pra dispatch.
 
@@ -41,3 +42,4 @@ A partir da Tarefa #155 (07/05/2026), cada agente do squad tem entry corresponde
 - 2026-05-06: Tarefa #124 — `squad-jade` formalizado como pasta. `@estrategista` migrado de `squad-conteudo` pra `squad-jade` (estratégia é peer da Jade, não produção).
 - 2026-05-07: Tarefa #155 — agentes registrados em `.claude/agents/{nome}.md` (9 cadastros). Jade despacha via `subagent_type` específico em vez de `general-purpose`.
 - 2026-05-07: Tarefa #175.2 — agente `bug-hunter` cadastrado (caçador de bugs pré-deploy via Playwright). Faz parte do triple-check obrigatório (paginas + paginas-dev + bug-hunter) antes de `vercel --prod`. Não corrige, só detecta e reporta.
+- 2026-05-07: Tarefa #183 — agente `revisor-visual` cadastrado (revisor de defeitos ESTÉTICOS de outputs visuais: carrossel, criativo, thumb, post). Triple-check obrigatório de output visual (revisor-visual + bug-hunter + revisor de copy do squad) antes de publish. Não corrige, só reporta.

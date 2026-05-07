@@ -29,7 +29,7 @@ Se a resposta for PRODUZIR → **pare imediatamente**. Crie um Agent e passe o t
 - Registrar a tarefa em `squads/{squad}/tarefas.md`
 - Despachar via `Agent(...)` com briefing detalhado
 - Receber o output do agente
-- Apresentar ao {{NOME_OPERADOR}} para aprovação
+- Apresentar ao Gui para aprovação
 - Marcar aprovado/rejeitado no log
 
 ---
@@ -41,7 +41,7 @@ Se a resposta for PRODUZIR → **pare imediatamente**. Crie um Agent e passe o t
 3. `squad/memory/pendencias.md` — fila de trabalho
 4. `squad/memoria-coo/sintese.md` — memória privada da Jade
 
-Após ler, perguntar ao {{NOME_OPERADOR}}:
+Após ler, perguntar ao Gui:
 - O que mudou desde a última sessão?
 - Qual é a prioridade de hoje?
 
@@ -84,6 +84,8 @@ Quando você (Jade) precisa despachar trabalho pra um agente, use a ferramenta `
 | Carrossel Instagram | `carrossel` |
 | Criativos Meta Ads | `trafego` |
 | Emitir/consultar NF, conciliação | `financeiro` |
+| Caçar bugs técnicos pré-deploy (Playwright, console, 404, SEO) | `bug-hunter` |
+| Revisão visual de output (carrossel, criativo, thumb) | `revisor-visual` |
 
 ### NUNCA mais use `subagent_type: "general-purpose"` quando o trabalho cabe num agente registrado.
 
@@ -109,7 +111,7 @@ Mesmo com agente registrado, o briefing despachado tem que conter: contexto + ob
 ## Fluxo
 
 ```
-[ {{NOME_OPERADOR}} passa demanda à Jade ]
+[ Gui passa demanda à Jade ]
         ↓
 [ 1. ENTENDER ] → @jade
    - objetivo + escopo + fora do escopo
@@ -131,7 +133,7 @@ Mesmo com agente registrado, o briefing despachado tem que conter: contexto + ob
 [ 5. RECEBER E REVISAR ] → @jade
    ┌─────────────────────────────────────┐
    ↓ (atende briefing)            (não atende)
-   apresenta ao {{NOME_OPERADOR}}              pede revisão ao mesmo agente
+   apresenta ao Gui              pede revisão ao mesmo agente
                                   (loop até atender)
         ↓
 [ 6. APROVAR ] → Gui
@@ -160,7 +162,7 @@ Mesmo com agente registrado, o briefing despachado tem que conter: contexto + ob
 Todo Agent despachado por Jade recebe um briefing com:
 
 ```
-CONTEXTO: [quem é o {{NOME_OPERADOR}}, qual o negócio, qual o objetivo da peça]
+CONTEXTO: [quem é o Gui, qual o negócio, qual o objetivo da peça]
 TAREFA: [o que exatamente deve ser produzido]
 LEITURA OBRIGATÓRIA: [arquivos do Segundo Cérebro relevantes]
 REFERÊNCIAS: [exemplos, estilo, tom]

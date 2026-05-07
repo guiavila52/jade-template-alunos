@@ -88,7 +88,7 @@ Quando a página menciona uma ferramenta, plataforma, parceiro, integração ou 
 - **Usar logomarca oficial** (SVG preferido, PNG fallback). Exemplo: ClickUp, Google Drive, Calendar, Meta, Google Ads, Notazz, Canva, Apify, Banco Inter, Supermetrics.
 - **Não usar emoji** (📊 🔧 ✨ etc.) ou texto-só ("C" / "Nz" / "G") como substituto da logo. Letra inicial num quadrado dourado parece amador.
 - **Não inventar logo** — buscar fonte oficial (brand pack, `cdn.simpleicons.org/<slug>`, `cdn.jsdelivr.net/npm/simple-icons@v11/icons/<slug>.svg`, favicon do site oficial).
-- **Logos próprias do {{NOME_OPERADOR}}** ({{EMPRESA_2}}, Gimmick, {{EMPRESA_1}}): salvar em `Páginas Astro {{NOME_OPERADOR}}/public/logos/{ensinio,gimmick,magicaonline}.svg`. Se ainda não há SVG/PNG oficial, usar placeholder dourado em `public/logos/` (mesma rota) e listar como pendência no `MAPA.md` da pasta de logos + nas tarefas do squad.
+- **Logos próprias do Gui** ({{PRODUTO_PRINCIPAL}}, Gimmick, {{PRODUTO_PARCERIA}}): salvar em `Páginas Astro {{NOME_OPERADOR}}/public/logos/{ensinio,gimmick,{{PRODUTO_PARCERIA_SLUG}}}.svg`. Se ainda não há SVG/PNG oficial, usar placeholder dourado em `public/logos/` (mesma rota) e listar como pendência no `MAPA.md` da pasta de logos + nas tarefas do squad.
 - **Diretório padrão:** `Páginas Astro {{NOME_OPERADOR}}/public/logos/` (criar se não existir). Cada logo nomeado em lowercase, sem espaço (`googledrive.svg`, não `Google Drive.svg`).
 - **Render:** `<img src="/logos/<slug>.svg" alt="Logo <Nome>" class="tool-logo" loading="lazy" decoding="async" width="40" height="40" />`. Tamanho consistente — 40px de altura padrão.
 - **Cor:** original sempre que possível (reconhecimento de marca > minimalismo). Aplicar filtro/monocromia só se a página tiver paleta hard-rule explícita.
@@ -100,13 +100,13 @@ Quando a página menciona uma ferramenta, plataforma, parceiro, integração ou 
   - Local: `curl -s -o /dev/null -w "%{http_code}" http://localhost:4321/logos/<slug>.svg` → 200
 - **Manter `public/logos/MAPA.md`** atualizado a cada logo adicionada — origem, status (oficial vs placeholder), pendências.
 
-**Por quê.** Logo oficial dá legitimidade + reconhecimento + visual profissional. Emoji/texto = parece amador. O {{NOME_OPERADOR}} usa as páginas pra mostrar pra alunos / clientes / audiência YouTube — credibilidade visual importa. Histórico: `/squad-time-ia` v2 (06/05/2026) foi reprovada porque a seção MCPs/Ferramentas usava letra-em-quadrado-dourado em vez de logos reais. Citação {{NOME_OPERADOR}}: *"bora botar logomarca, né? Tem que ter a logomarca do gimmick, a logomarca do click-up, a logomarca do drive, a logomarca do Google Calendar, a logomarca da meta, do Google Ads, do notazz."*
+**Por quê.** Logo oficial dá legitimidade + reconhecimento + visual profissional. Emoji/texto = parece amador. O Gui usa as páginas pra mostrar pra alunos / clientes / audiência YouTube — credibilidade visual importa. Histórico: `/squad-time-ia` v2 (06/05/2026) foi reprovada porque a seção MCPs/Ferramentas usava letra-em-quadrado-dourado em vez de logos reais. Citação Gui: *"bora botar logomarca, né? Tem que ter a logomarca do gimmick, a logomarca do click-up, a logomarca do drive, a logomarca do Google Calendar, a logomarca da meta, do Google Ads, do notazz."*
 
 ---
 
 ## Quando há referência visual aprovada (HTML/Figma/screenshot) — Regra #19, 06/05/2026
 
-Se o briefing referencia um arquivo HTML/Figma/protótipo visual aprovado pelo {{NOME_OPERADOR}}:
+Se o briefing referencia um arquivo HTML/Figma/protótipo visual aprovado pelo Gui:
 
 - **Replicar a ESTRUTURA do layout, não reinterpretar.** Não trocar grid horizontal por grid 2x2, não trocar sticky por flex normal, não trocar carrossel por cards estáticos.
 - Manter a hierarquia visual e o "fluxo" do original.
@@ -118,9 +118,9 @@ Se o briefing referencia um arquivo HTML/Figma/protótipo visual aprovado pelo {
 - Diferença permitida apenas: tipografia/cores se desviarem do DS oficial; espaçamentos pra ficar em grid base do DS.
 - Se não der pra replicar 1:1, **perguntar antes de divergir**.
 
-**Por quê.** O {{NOME_OPERADOR}} aprovou aquela estrutura porque ela funciona pra comunicar a tese dele. Reinterpretar é desfazer a aprovação — e sempre vai gerar rejeição na revisão final do {{NOME_OPERADOR}}.
+**Por quê.** O Gui aprovou aquela estrutura porque ela funciona pra comunicar a tese dele. Reinterpretar é desfazer a aprovação — e sempre vai gerar rejeição na revisão final do Gui.
 
-> Histórico: `/squad-time-ia` v1 reprovada em 06/05/2026 — usei grid 2x2 com Jade central + glow, em vez da anatomia "Jade sticky topo + rail horizontal scroll-snap + linhas SVG conectoras" do `excluir-squad/output/visualizacoes/ecossistema.html`. Citação {{NOME_OPERADOR}}: "Eu gostei daquele outro que mostra a Jade com linhas. Então a Jade está conectada nos squads e é carrossel."
+> Histórico: `/squad-time-ia` v1 reprovada em 06/05/2026 — usei grid 2x2 com Jade central + glow, em vez da anatomia "Jade sticky topo + rail horizontal scroll-snap + linhas SVG conectoras" do `excluir-squad/output/visualizacoes/ecossistema.html`. Citação Gui: "Eu gostei daquele outro que mostra a Jade com linhas. Então a Jade está conectada nos squads e é carrossel."
 
 ---
 
@@ -149,14 +149,14 @@ A fonte **Syne** (display do design system) tem comportamento ruim em pesos alto
 **Para criar mais peso visual sem aumentar weight:**
 - Usar `.headline-gradient` (já existe em `global.css`) ao invés de Black.
 - Aumentar font-size dentro do limite, não o weight.
-- Se ainda assim parecer "fraco" visualmente, **trazer pro {{NOME_OPERADOR}}** antes de subir o weight.
+- Se ainda assim parecer "fraco" visualmente, **trazer pro Gui** antes de subir o weight.
 
 **Carregamento explícito de weights:**
 - O `Base.astro` carrega Syne em `wght@600;700;800`. Se um dia precisar adicionar peso novo (300, 400, 500), atualizar o `<link>` do Google Fonts no `Base.astro` ANTES de usar. **Nunca contar com síntese de bold do browser** — sempre distorce.
 
-**Comparação obrigatória:** antes de marcar entregue, comparar visualmente o hero com `/reverso` (referência aprovada pelo {{NOME_OPERADOR}}). Se está mais "encorpado"/denso/achatado, voltar para weight 600.
+**Comparação obrigatória:** antes de marcar entregue, comparar visualmente o hero com `/reverso` (referência aprovada pelo Gui). Se está mais "encorpado"/denso/achatado, voltar para weight 600.
 
-> Histórico: `/squad-time-ia` reprovada pelo {{NOME_OPERADOR}} em 06/05/2026 — hero estava com `font-weight: 800` em `clamp(40px, 6vw, 68px)`. Corrigido para `600` + `clamp(40px, 5.5vw, 60px)`.
+> Histórico: `/squad-time-ia` reprovada pelo Gui em 06/05/2026 — hero estava com `font-weight: 800` em `clamp(40px, 6vw, 68px)`. Corrigido para `600` + `clamp(40px, 5.5vw, 60px)`.
 
 ---
 
@@ -164,7 +164,7 @@ A fonte **Syne** (display do design system) tem comportamento ruim em pesos alto
 
 **GSAP** (https://gsap.com/) é a biblioteca de animação **recomendada/sugerida** do squad para qualquer movimento no front-end.
 
-**Não é obrigatório** — se a página for estática por design, sem movimento, não há problema. Mas para páginas que pedem movimento (qualquer briefing falando "design rico", "experiência incrível", "página com identidade forte"), GSAP é o **padrão recomendado fortemente**. Toda vez que houver movimento, **sugira ativamente GSAP** ao {{NOME_OPERADOR}} antes de implementar com outra solução.
+**Não é obrigatório** — se a página for estática por design, sem movimento, não há problema. Mas para páginas que pedem movimento (qualquer briefing falando "design rico", "experiência incrível", "página com identidade forte"), GSAP é o **padrão recomendado fortemente**. Toda vez que houver movimento, **sugira ativamente GSAP** ao Gui antes de implementar com outra solução.
 
 **CDN padrão:**
 ```html
@@ -257,14 +257,14 @@ O componente `Páginas Astro {{NOME_OPERADOR}}/src/components/Slider.astro` tem 
 - Auto-scroll contínuo, leve, suave (rAF, sem jank)
 - Drag (mouse + touch) sobrescreve o auto durante interação
 - Auto retoma ao soltar
-- **SEM hover-pause** (decisão {{NOME_OPERADOR}} 06/05/2026 — apenas drag pausa)
+- **SEM hover-pause** (decisão Gui 06/05/2026 — apenas drag pausa)
 - 60fps via `transform: translate3d` + `will-change`
 - `prefers-reduced-motion`: auto desligado, drag mantido
 
 ```astro
 <Slider speed={50} gap="3rem">
-  <img src="/logos/ensinio.svg" alt="{{EMPRESA_2}}" />
-  <img src="/logos/magicaonline.svg" alt="{{EMPRESA_1}}" />
+  <img src="/logos/ensinio.svg" alt="{{PRODUTO_PRINCIPAL}}" />
+  <img src="/logos/{{PRODUTO_PARCERIA_SLUG}}.svg" alt="{{PRODUTO_PARCERIA}}" />
   ...
 </Slider>
 ```
@@ -366,7 +366,7 @@ O script:
 
 #### Por quê isso virou GATE inviolável
 
-Em 06/05/2026 o {{NOME_OPERADOR}} rejeitou pela **TERCEIRA vez** slider sem drag (depoimentos da `/reverso`):
+Em 06/05/2026 o Gui rejeitou pela **TERCEIRA vez** slider sem drag (depoimentos da `/reverso`):
 
 > "Esse slider de depoimentos não está com recurso de drag. Quando eu coloco o cursor do mouse, eu não consigo arrastar pra lado e pro outro. Eu já tinha falado sobre isso e já tinha apontado. De novo, passou batido. O que tem que ser feito pra isso não passar mais batido? Quando tem slider assim, tem que ser possível, no front-end, arrastar pro lado. (...) Tem que funcionar tanto em desktop quanto em mobile. E tem que testar para ficar 100% no mobile também."
 
@@ -395,7 +395,7 @@ Copiar o IIFE inline desses arquivos quando precisar de slider sem usar `<Slider
 
 Todo slider drag-enabled DEVE mostrar `cursor: grab` no hover normal e `cursor: grabbing` durante drag. Sem isso o usuário NÃO PERCEBE que pode arrastar — slider vira decoração.
 
-**Citação {{NOME_OPERADOR}} (06/05/2026, /reverso):**
+**Citação Gui (06/05/2026, /reverso):**
 > "nos sliders, tem que ter o drag e aí o cursor do mouse tem que indicar isso. Ficar a mãozinha."
 
 Como aplicar:
@@ -469,7 +469,7 @@ Fonte: tarefa #146 (07/05/2026) — `/automacoes` foi servido com 2 sliders de m
 - ❌ `scroll-behavior: smooth` em `<html>` combinado com listeners que chamam `scrollTo` — bate com user scroll e treme.
 - ❌ Animar `top` / `height` em scroll listener — sempre causa layout thrash. Usar `transform` puro.
 
-### Citação {{NOME_OPERADOR}} (06/05/2026, rejeitando /squad-time-ia)
+### Citação Gui (06/05/2026, rejeitando /squad-time-ia)
 
 > "Sobre esse bug do scroll, poxa, é uma coisa grave, é uma coisa óbvia aqui. Fui descer a barra de rolagem e o site ficou todo tremendo. Então isso tem que ser corrigido tanto na skill pra fazer página, quanto na skill de revisar a página. Como é que o agente que fez a revisão deixou passar furo desse? Uma coisa tão óbvia no front-end não deveria ter sido aprovado. Eu, na mesma hora que eu entrei na página, eu vi o bug. Entendeu a ideia? Isso não pode mais acontecer."
 
@@ -499,7 +499,7 @@ Registrar aprendizados em:
 - **Sem corte** (regra anterior): iframe deve caber o conteúdo completo do form, sem cortar campos no rodapé.
 - **Sem excesso** (NOVA): iframe não pode ter altura tão grande que crie buraco vazio entre ele e a próxima seção.
 
-**Bug histórico:** /mentoria 06/05/2026 herdou `min-height: 1600px` de /consultoria sem revalidar — form da mentoria é menor → enorme buraco vazio entre iframe e FAQ. Rejeitado pelo {{NOME_OPERADOR}}:
+**Bug histórico:** /mentoria 06/05/2026 herdou `min-height: 1600px` de /consultoria sem revalidar — form da mentoria é menor → enorme buraco vazio entre iframe e FAQ. Rejeitado pelo Gui:
 > "Olha o tamanho desse buraco, desse espaço vazio entre o formulário e a parte de perguntas frequentes."
 
 **Como dimensionar corretamente (forms GHL):**
@@ -592,7 +592,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Validação obrigatória ANTES de pedir review (no HTML servido, não no fonte `.astro`):
 
 ```bash
-HTML=$(curl -s https://sites.{{DOMINIO}}/[slug])
+HTML=$(curl -s https://sites.{{DOMINIO_OPERADOR}}/[slug])
 echo "$HTML" | grep -o 'GTM-NN36ZRZ'              | wc -l   # >= 2
 echo "$HTML" | grep -o 'googletagmanager.com/gtm.js'  | wc -l   # >= 1
 echo "$HTML" | grep -o 'googletagmanager.com/ns.html' | wc -l   # >= 1
@@ -606,14 +606,14 @@ Posição:
 
 Páginas geradas via snapshot externo (Framer/Webflow) costumam vir COM o GTM da plataforma original. Se for o nosso (`GTM-NN36ZRZ`), preservar. Se for outro (Framer GTM, Webflow Analytics, etc), SUBSTITUIR pelo nosso.
 
-Fonte: tarefa #147 (07/05/2026) — {{NOME_OPERADOR}} virou regra fixa.
+Fonte: tarefa #147 (07/05/2026) — Gui virou regra fixa.
 
 
 ### Favicon canônico — OBRIGATÓRIO em TODA página
 
 **Regra #19 / aprendizado #149 — 07/05/2026:**
 
-Toda página em `sites.{{DOMINIO}}/*` DEVE usar o mesmo favicon canônico do squad. Não é opcional.
+Toda página em `sites.{{DOMINIO_OPERADOR}}/*` DEVE usar o mesmo favicon canônico do squad. Não é opcional.
 
 Caminho do favicon canônico (declarado em `src/layouts/Base.astro` linhas 65-66):
 
@@ -637,7 +637,7 @@ Fonte: tarefa #149 (07/05/2026) — `/automacoes` foi servida com favicon Framer
 
 ### Slider rail = DRAG FLUIDO obrigatório (Regra #19, aprendizado #165)
 
-**Diretiva ({{NOME_OPERADOR}} repetiu 5x — 07/05/2026):** todo slider rail (cards grandes, drag-only) DEVE ter:
+**Diretiva (Gui repetiu 5x — 07/05/2026):** todo slider rail (cards grandes, drag-only) DEVE ter:
 
 1. **Sem `scroll-snap-type: x mandatory`** — força saltos discretos. BANIDO.
 2. **Sem `scroll-snap-type: x proximity`** — também causa "blocos duros" porque o browser puxa pro card mais próximo no decay. BANIDO. Default: `scroll-snap-type: none`.
@@ -654,9 +654,62 @@ Fonte: tarefa #149 (07/05/2026) — `/automacoes` foi servida com favicon Framer
 - Sem cálculo de velocidade no `pointerup`
 - Animação CSS `transition` no `scrollLeft` (não anima nativo — usar rAF momentum)
 
-**Citação {{NOME_OPERADOR}} (07/05/2026):**
+**Citação Gui (07/05/2026):**
 > "Dá pra clicar e arrastar, mas ele troca meio que em blocos, visualmente, de jeito duro. Não é uma coisa fluida. Esse movimento de arrastar por meio de slider tem que ser fluido, tem que ser gostoso, tem que ser suave. (...) Tem que mudar isso, tem que arrumar estruturalmente no nível do que os agentes fazem e o que eles verificam pra isso nunca mais acontecer."
 
 Causa-raiz histórica #165: `scroll-snap-type: x proximity` + `scroll-snap-align: start` nos cards. Browser desacelerava o scroll para alinhar com o card mais próximo, gerando bloco visual mesmo com momentum JS correto.
 
 Fonte: tarefa #165 (07/05/2026), 5ª iteração de fix em sliders. Validação obrigatória via `scripts/test-rail-smoothness-165.mjs` antes de pedir review.
+
+
+### Página tem que ter ALMA — design rico e contextual (Regra #19, aprendizado #182)
+
+**Diretiva Gui (07/05/2026):**
+> "se é Natal, podia ter uns elementos natalinos, podia ter uma dobra ali com uma imagem mais interessante, usar aquela lib de animação. É muito legal que essas páginas já chegam pra impressionar. (...) o aluno quer ver design incrível."
+
+Toda página produzida pelo squad DEVE ter:
+1. **Elementos visuais contextuais** — se é sazonal (Natal/Black Friday/aniversário), usar elementos do contexto (flocos, gradientes temáticos, ilustrações relacionadas)
+2. **Pelo menos 1 dobra com imagem/ilustração interessante** — não pode ser só tipografia
+3. **GSAP/animações ricas** — reveal stagger, scroll-triggered subtleties, hover micro-animações
+4. **Hierarquia visual clara** — o que é principal, secundário, terciário
+5. **Polishing**: glow sutil, gradientes, hover states, transições suaves
+
+Banido:
+- Página puramente tipográfica sem elementos visuais
+- Página sem GSAP/scroll animations
+- Página plana, sem personalidade
+
+`prefers-reduced-motion: reduce` respeitado SEMPRE.
+
+Fonte: tarefa #182 (07/05/2026).
+
+
+### Scoped CSS Astro — quando usar `:global(...)` (Regra #19, aprendizado #185)
+
+**Bug arquitetural Astro:** scoped CSS de uma page (com `<style>`) NÃO casa elementos renderizados por componentes filhos. Cada componente Astro tem seu próprio `data-astro-cid-XXXX` único. Page tem cid YYYY, componente Section.astro tem cid ZZZZ — não matcham.
+
+**Sintoma:** você escreve `.hero-natal { background: ... }` no `<style>` da page e parece não aplicar. Inspector mostra que outro CSS (do componente filho) ganha.
+
+**Solução:** se a classe está sendo aplicada num elemento dentro de um componente Astro filho, usar `:global(...)`:
+
+```astro
+<style>
+  /* ❌ Não funciona se .hero-natal está dentro do <Section> */
+  .hero-natal { background: radial-gradient(...); }
+
+  /* ✅ Funciona com :global */
+  :global(section.hero-natal) { background: radial-gradient(...); }
+</style>
+```
+
+**Quando usar `:global`:**
+- Estilizar elementos renderizados por componentes filhos (Section, Footer, Slider, Base.astro etc.)
+- Override de estilos default de componentes do design system
+
+**Quando NÃO usar:**
+- Elementos puramente da page (HTML inline, sem componente)
+- Estilos que devem ser isolados pra não vazar pra outras páginas
+
+**Validação:** após escrever CSS scoped, sempre testar via Playwright `getComputedStyle(elemento).property` pra confirmar que está aplicando — não confiar só na leitura visual.
+
+Fonte: tarefa #185 (07/05/2026) — gradient radial do hero `/natal` parecia funcionar mas estava bloqueado pelo Tailwind `bg-[var(--color-bg)]` do Section.astro.
