@@ -1,0 +1,105 @@
+# Skill: /consolidar-sessao
+
+Passa por toda a conversa atual e salva o que ainda não foi registrado: regras de negócio, decisões, preferências, pendências novas, informações sobre o Gui ou o negócio.
+
+## Quando usar
+
+Quando o Gui sentir que deu muitas informações novas na sessão e quer garantir que nada foi perdido. Não tem limite de quantidade — usar sempre que o Gui pedir.
+
+## O que fazer
+
+### 1. Revisar a conversa completa da sessão atual
+
+Passar por todas as mensagens trocadas nesta sessão. Para cada trecho, identificar se contém:
+
+- **Regra de negócio nova** — como algo funciona operacionalmente (ex: "NF só sai 15 dias após a compra")
+- **Decisão estratégica** — escolha que afeta produtos, squads, arquitetura, prioridades
+- **Preferência ou feedback sobre o squad** — como o Gui quer que o squad se comporte
+- **Informação nova sobre o Gui, o negócio ou os produtos** — algo que não estava no Segundo Cérebro
+- **Pendência nova** — tarefa, bloqueio ou demanda que surgiu na conversa e ainda não está em `squad/memory/pendencias.md`
+- **Aprendizado técnico** — decisão de stack, padrão de código, integração
+
+### 2. Checar o que já existe
+
+Antes de salvar qualquer coisa, verificar:
+
+- `MEMORY.md` — índice de memórias persistentes
+- `squad/memory/pendencias.md` — fila de pendências
+- `squad/memory/decisoes.md` — decisões estratégicas
+- `Segundo Cérebro/MAPA.md` — base de conhecimento do Gui
+
+Só salvar o que genuinamente **não existe ainda** ou está **desatualizado**. Não duplicar.
+
+### 3. Salvar o que falta
+
+Para cada item novo encontrado:
+
+**Memória persistente** (regras, feedback, preferências, contexto do negócio):
+- Criar arquivo em `~/.claude/projects/{{ENCODED_PROJECT_PATH}}/memory/`
+- Adicionar no `MEMORY.md`
+- Tipos: `feedback`, `project`, `user`, `reference`
+
+**Pendência nova**:
+- Adicionar em `squad/memory/pendencias.md` na seção correta (hoje, alta prioridade, média, backlog)
+
+**Decisão estratégica**:
+- Adicionar em `squad/memory/decisoes.md`
+- Se relevante para o Segundo Cérebro, adicionar também em `Segundo Cérebro/04-decisoes/`
+
+**Regra de negócio de um squad específico**:
+- Adicionar no arquivo de regras do squad correspondente (ex: `squads/financeiro/regras-nf.md`)
+
+### 4. Reportar ao Gui
+
+Ao final, apresentar resumo claro:
+
+```
+## Consolidação da sessão — [DATA]
+
+### Salvo agora
+- [tipo] [descrição breve] → [arquivo onde foi salvo]
+- [tipo] [descrição breve] → [arquivo onde foi salvo]
+
+### Já estava salvo (não duplicado)
+- [lista do que já existia]
+
+### Nada a salvar
+(se não houver nada novo)
+```
+
+Se não encontrou nada novo: dizer isso diretamente. Não inventar itens para parecer produtivo.
+
+## Regras
+
+- Nunca salvar informações sensíveis (senhas, tokens, chaves de API) em arquivos de memória — essas ficam só no `.env.local`
+- Datas relativas ("ontem", "semana passada") → converter para data absoluta antes de salvar
+- Em caso de dúvida se algo é importante o suficiente para salvar: salvar. É melhor ter do que perder.
+
+## Fluxo
+
+```
+[ Gui chama /consolidar-sessao ]
+        ↓
+[ 1. Varrer conversa atual ] → @jade
+   identifica regras, decisões, feedback,
+   pendências novas, aprendizados técnicos
+        ↓
+[ 2. Checar o que já existe ] → @jade
+   lê MEMORY.md, pendencias.md,
+   decisoes.md, Segundo Cérebro/MAPA.md
+        ↓
+   ┌──────────────────────────────┐
+   ↓ (item novo)            (já existe / igual)
+[ 3a. Salvar ] → @jade            [ pular item ]
+   - memória persistente → ~/.claude/projects/.../memory/
+                          + entrada em MEMORY.md
+   - pendência nova       → squad/memory/pendencias.md
+   - decisão estratégica  → squad/memory/decisoes.md
+                          (+ Segundo Cérebro/04-decisoes/ se relevante)
+   - regra de squad       → squads/{squad}/regras-*.md
+        ↓
+[ 4. Reportar resumo ao Gui ] → @jade
+   "Salvo agora / Já estava salvo / Nada a salvar"
+        ↓
+   ⟶ FIM (sessão consolidada — ok pra /clear)
+```

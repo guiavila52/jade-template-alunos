@@ -1,0 +1,115 @@
+<!-- Modelo recomendado: claude-opus-4-5 (decisões estratégicas precisam de raciocínio forte) -->
+
+# /atualizar-estrategia — Registrar mudança estratégica no documento vivo
+
+> Skill invocada quando o Gui (ou a Jade detecta) que algo mudou no estado estratégico do squad: data de lançamento, posicionamento de produto, novo produto, métrica pública, foco do funil, decisão sobre canal, etc.
+>
+> **A skill atualiza** `Segundo Cérebro/04-decisoes/estrategia-viva.md` **e dispara as ações consequentes.**
+
+---
+
+## Quando invocar
+
+- Gui falou "vamos adiar o lançamento pra dezembro"
+- Gui falou "mentoria agora é só em grupo"
+- Gui falou "tira faturamento da copy"
+- Gui decidiu pivot de produto, canal, oferta, preço
+- Jade percebeu inconsistência entre `estrategia-viva.md` e a realidade
+- Estrategista produziu estratégia que GERA decisão nova (precisa registrar)
+
+**Não invocar** pra:
+- Tarefa operacional (vai pra `pendencias.md`)
+- Aprendizado de processo (vai pra `aprendizados.md` do squad)
+- Decisão tática de copy (vai pra revisão da peça)
+
+---
+
+## Fluxo (passo a passo)
+
+### 1. Diálogo com quem invocou (Gui ou Jade)
+
+Perguntar nessa ordem (uma de cada vez, esperando resposta):
+
+1. **O que mudou?** (uma frase clara — ex: "lançamento adiado de maio pra dezembro")
+2. **Quem decidiu?** (Gui / Jade / Gui+sócio / etc)
+3. **Por quê?** (motivo da mudança — ajuda no histórico)
+4. **Qual o impacto?**
+   - Quais páginas precisam de update? (ex: `/mentoria`, `/imersao`)
+   - Quais skills/agentes precisam saber? (ex: estrategista, copywriter)
+   - Quais memórias persistentes precisam ser criadas/atualizadas?
+   - Quais peças em produção precisam ser refeitas/pausadas?
+
+### 2. Ler `estrategia-viva.md`
+
+```bash
+cat "~/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/Segundo Cérebro/04-decisoes/estrategia-viva.md"
+```
+
+Identificar exatamente quais campos da seção "ATUAL" precisam ser editados.
+
+### 3. Adicionar entrada no HISTÓRICO (no topo da seção)
+
+Formato:
+
+```markdown
+### YYYY-MM-DD — [Mudança em uma frase]
+**Quem decidiu:** [Gui / Jade / Gui+sócio]
+**Mudança:** [descrição curta da mudança concreta]
+**Motivo:** [por quê]
+**Impacto:**
+- Páginas afetadas: [lista]
+- Skills/agentes notificados: [lista]
+- Peças em produção pausadas/refeitas: [lista]
+- Memórias persistentes criadas/atualizadas: [lista]
+```
+
+### 4. Atualizar a seção "ATUAL"
+
+Refletir o novo estado nos campos relevantes (Lançamentos e datas / Funil / Posicionamento / Métricas públicas / Métricas proibidas).
+
+### 5. Atualizar o campo "Última atualização" no topo do documento
+
+`**Última atualização:** YYYY-MM-DD por [Quem invocou + Jade]`
+
+### 6. Listar páginas/skills/memórias que precisam de update consequente
+
+Apresentar pro Gui (via Jade) uma checklist no formato:
+
+```markdown
+## Update consequente da mudança "[mudança]"
+
+Ações pra Jade despachar:
+
+- [ ] `/escrever-pagina /mentoria` — refazer copy (mentoria virou só grupo)
+- [ ] `/revisar-pagina /mentoria-precos` — remover card individual
+- [ ] Criar memória persistente `feedback_mentoria_so_grupo.md` em `~/.claude/projects/.../memory/`
+- [ ] Indexar nova memória em `MEMORY.md`
+- [ ] Avisar squad-conteudo: pausar carrosséis sobre mentoria 1:1
+- [ ] Avisar squad-trafego: pausar criativos que mencionam mentoria 1:1
+```
+
+### 7. Sugerir ação imediata pra Jade
+
+Não terminar perguntando "o que você quer". Afirmar a próxima ação. Exemplo:
+
+> "Registrei a mudança. Vou despachar `/escrever-pagina /mentoria` agora pro squad-copy. Os outros 5 itens do checklist consequente entram na fila de pendências. Me avisa se quiser desviar a ordem."
+
+---
+
+## Regras
+
+- **Nunca apagar entrada do histórico.** Só anexar. Mudou de novo? Adiciona entrada nova com data nova.
+- **Sempre refletir na seção "ATUAL"** — registrar histórico sem atualizar estado vigente quebra o documento.
+- **Sempre atualizar "Última atualização"** no topo.
+- **Se a mudança gera memória persistente** (algo que vai influenciar decisões futuras de outros agentes), CRIAR `feedback_*.md` ou `project_*.md` em `~/.claude/projects/.../memory/` e INDEXAR em `MEMORY.md`. Esse passo NÃO é opcional.
+- **Se a mudança contradiz uma memória persistente existente**, atualizar a memória existente (não criar duplicata) e registrar isso no campo "Impacto" do histórico.
+- **Se faltar info pra registrar** (ex: Gui não soube dizer o impacto em páginas), perguntar — não chutar. Decisão estratégica registrada errada vira veneno.
+
+---
+
+## Output
+
+1. Versão atualizada de `estrategia-viva.md` (gravada no arquivo).
+2. Checklist de update consequente (apresentada na conversa com a Jade/Gui).
+3. Entradas em pendências (`squad/memory/pendencias.md`) pras ações consequentes que precisam de execução.
+4. Memórias persistentes criadas (quando aplicável).

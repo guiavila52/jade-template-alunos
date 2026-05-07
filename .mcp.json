@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "gimmick": {
+      "command": "node",
+      "args": [
+        "~/Documents/Projetos IA Gui Ávila/App Reverso/mcp/dist/index.js"
+      ]
+    }
+  }
+}

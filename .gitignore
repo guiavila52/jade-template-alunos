@@ -1,2 +1,51 @@
+# macOS
 .DS_Store
-*.local
+._.DS_Store
+**/.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependências
+node_modules/
+
+# Builds
+dist/
+.astro/
+.vercel/
+.next/
+out/
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.*.local
+
+# Backups de migração / refatoração
+*.preFix*
+*.preMigracao
+*.preMentoriaV2
+*.preMentoriaPrecosV2
+*.preHeroFotoV3
+*.preUrlsRetrofit98
+*.preSlider
+*.bloqueado
+*.bak
+
+# Templates / git aninhado
+squad/output/dev/squad-template-alunos/.git/
+
+# Next antigo (repo separado, mantido fisicamente — Regra #18)
+app/
+
+# Cache do Claude Code (sessão)
+.claude/cache/
