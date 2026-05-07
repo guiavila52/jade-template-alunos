@@ -287,7 +287,7 @@ Toda skill em `.claude/commands/` deve começar com verbo de ação no infinitiv
 **Nem Jade, nem qualquer agente, nem qualquer skill, nem qualquer subagente — NINGUÉM pode excluir, deletar, mover-para-fora-do-projeto ou destruir repositórios, pastas de projetos completas, código legado de produção ou histórico git, sob nenhuma hipótese.**
 
 Inclui (lista não exaustiva):
-- Repositório Next em `/Users/guiavila/Documents/Projetos IA Gui Ávila/Sites Gui Ávila/` — **NUNCA excluir**, mesmo após swap DNS pra Astro
+- Repositório Next em `~/Documents/Projetos IA Gui Ávila/Sites Gui Ávila/` — **NUNCA excluir**, mesmo após swap DNS pra Astro
 - Pasta `app/` dentro do squad — **NUNCA excluir**
 - Páginas em `site.guiavila.com` (GoHighLevel antigo) — **NUNCA solicitar exclusão da conta GHL**
 - Qualquer projeto Vercel ativo ou inativo

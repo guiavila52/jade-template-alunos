@@ -48,12 +48,12 @@
       "WebFetch(domain:til.simonwillison.net)",
       "WebFetch(domain:community.fly.io)",
       "mcp__gimmick__listar_pipeline",
-      "Bash(cp '/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/.claude/commands/codar-pagina.md' '/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/.claude/commands/codar-pagina.md.preFix131')",
-      "Bash(cp '/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/.claude/commands/revisar-codigo-pagina.md' '/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/.claude/commands/revisar-codigo-pagina.md.preFix131')"
+      "Bash(cp '/Users/{{USERNAME_MAC}}/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/.claude/commands/codar-pagina.md' '/Users/{{USERNAME_MAC}}/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/.claude/commands/codar-pagina.md.preFix131')",
+      "Bash(cp '/Users/{{USERNAME_MAC}}/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/.claude/commands/revisar-codigo-pagina.md' '/Users/{{USERNAME_MAC}}/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/.claude/commands/revisar-codigo-pagina.md.preFix131')"
     ],
     "defaultMode": "bypassPermissions",
     "additionalDirectories": [
-      "/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/.claude/commands"
+      "/Users/{{USERNAME_MAC}}/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/.claude/commands"
     ]
   },
   "hooks": {

@@ -79,7 +79,7 @@ COMPONENTE APROVADO PELO REVISOR-DEV
 ## Como usar
 
 ```
-/publicar-pagina /Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
+/publicar-pagina ~/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
 ```
 
 Ou sem argumento — o agente pedirá o caminho.
@@ -90,7 +90,7 @@ Ou sem argumento — o agente pedirá o caminho.
 
 ### Subir dev server (passo [4])
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}"
+cd "~/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}"
 npm run dev > /tmp/astro-dev-[slug].log 2>&1 &
 echo $! > /tmp/astro-dev-[slug].pid
 sleep 4
@@ -105,7 +105,7 @@ rm -f /tmp/astro-dev-[slug].pid
 
 ### Build + deploy (passos [8] e [9])
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}"
+cd "~/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}"
 npm run build || { echo "BUILD_FAILED"; exit 1; }
 vercel --prod --yes 2>&1 | tee /tmp/vercel-deploy-[slug].log
 # A URL de produção fica nas últimas linhas do log (linha "Production: https://...")

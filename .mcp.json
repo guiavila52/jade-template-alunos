@@ -3,7 +3,7 @@
     "gimmick": {
       "command": "node",
       "args": [
-        "/Users/guiavila/Documents/Projetos IA Gui Ávila/App Reverso/mcp/dist/index.js"
+        "~/Documents/Projetos IA Gui Ávila/App Reverso/mcp/dist/index.js"
       ]
     }
   }

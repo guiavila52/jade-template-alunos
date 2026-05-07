@@ -67,7 +67,7 @@ Antes de qualquer roteiro, ler em ordem:
 
 ### Bloco 4: CTA
 - Um CTA por vídeo — não dois
-- Escada de valor: conteúdo gratuito → Mapa dos Sistemas (R$47) → Sistemas Reverso → Mentoria → Consultoria
+- Escada de valor: conteúdo gratuito → Produto de entrada (R$X) → Produto intermediário → Mentoria → Consultoria
 - Adaptar o CTA ao tipo de vídeo e temperatura do espectador
 
 ## Regras do canal

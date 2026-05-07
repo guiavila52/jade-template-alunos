@@ -53,7 +53,7 @@ COMPONENTE RECEBIDO (caminho do arquivo .astro)
 
 Invoque com o caminho do arquivo:
 ```
-/revisar-codigo-pagina /Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
+/revisar-codigo-pagina ~/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
 ```
 
 Ou sem argumento — o revisor pedirá o caminho.

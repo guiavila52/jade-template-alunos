@@ -210,7 +210,7 @@ Saída: HTTP 200
 ```
 ou
 ```
-/testar-pagina /Users/guiavila/.../Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
+/testar-pagina ~/.../Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
 ```
 
 Sem argumento, o agente pergunta o slug.

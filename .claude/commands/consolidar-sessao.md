@@ -35,7 +35,7 @@ Só salvar o que genuinamente **não existe ainda** ou está **desatualizado**. 
 Para cada item novo encontrado:
 
 **Memória persistente** (regras, feedback, preferências, contexto do negócio):
-- Criar arquivo em `/Users/guiavila/.claude/projects/{{ENCODED_PROJECT_PATH}}/memory/`
+- Criar arquivo em `~/.claude/projects/{{ENCODED_PROJECT_PATH}}/memory/`
 - Adicionar no `MEMORY.md`
 - Tipos: `feedback`, `project`, `user`, `reference`
 
@@ -91,7 +91,7 @@ Se não encontrou nada novo: dizer isso diretamente. Não inventar itens para pa
    ┌──────────────────────────────┐
    ↓ (item novo)            (já existe / igual)
 [ 3a. Salvar ] → @jade            [ pular item ]
-   - memória persistente → /Users/guiavila/.claude/projects/.../memory/
+   - memória persistente → ~/.claude/projects/.../memory/
                           + entrada em MEMORY.md
    - pendência nova       → squad/memory/pendencias.md
    - decisão estratégica  → squad/memory/decisoes.md

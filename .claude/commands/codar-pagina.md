@@ -7,7 +7,7 @@ Função: transformar copy aprovada em **componente Astro 6** funcional, mobile-
 Squad: dev
 
 ⚠️ **Stack obrigatória:** Astro 6 + Tailwind v4. Sem fallback HTML. Páginas novas SEMPRE em Astro.
-⚠️ **Projeto alvo:** `/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/` — NÃO confundir com `Sites {{NOME_OPERADOR}}/` (Next legado, intocável).
+⚠️ **Projeto alvo:** `~/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/` — NÃO confundir com `Sites {{NOME_OPERADOR}}/` (Next legado, intocável).
 
 ---
 

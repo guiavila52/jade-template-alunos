@@ -32,7 +32,7 @@ Argumento posicional após o slash command:
 Exemplos:
 - `/transcrever-video https://youtu.be/1U0g08yDg7M`
 - `/transcrever-video https://www.youtube.com/watch?v=abc123`
-- `/transcrever-video /Users/guiavila/Downloads/aula.mp4`
+- `/transcrever-video ~/Downloads/aula.mp4`
 - `/transcrever-video https://youtu.be/abc --whisper` → força Whisper e PULA a limpeza Claude (Whisper já é alta qualidade)
 
 Se invocada sem argumento, a Jade pede a URL/path antes de rodar.

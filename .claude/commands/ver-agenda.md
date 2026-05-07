@@ -5,7 +5,7 @@ Ao ser chamado, execute em sequência sem pedir confirmação:
 ## 1. Puxe a agenda do dia
 
 Use o MCP do Google Calendar. Busque eventos de hoje nos seguintes calendários em paralelo:
-- `gui@guiavila.com` — agenda principal
+- `{{EMAIL_OPERADOR}}` — agenda principal
 - `c_5kb045kajbgk1mfe0if3uvs5ds@group.calendar.google.com` — {{NOME_OPERADOR}}
 - `c_itvko53jtjt2dug34cjmc5qeu0@group.calendar.google.com` — {{PRODUTO_PRINCIPAL}}
 - `guiavila@ensinio.com` — {{PRODUTO_PRINCIPAL}}
@@ -45,7 +45,7 @@ AGENDA — [dia da semana], [data completa]
 [ Gui pede /ver-agenda ]
         ↓
 [ 1. Buscar eventos de hoje em PARALELO ] → @jade
-   - gui@guiavila.com (principal)
+   - {{EMAIL_OPERADOR}} (principal)
    - c_5kb045kajbgk1mfe0if3uvs5ds@group ({{NOME_OPERADOR}})
    - c_itvko53jtjt2dug34cjmc5qeu0@group ({{PRODUTO_PRINCIPAL}})
    - guiavila@ensinio.com ({{PRODUTO_PRINCIPAL}})

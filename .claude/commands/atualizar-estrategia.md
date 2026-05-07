@@ -42,7 +42,7 @@ Perguntar nessa ordem (uma de cada vez, esperando resposta):
 ### 2. Ler `estrategia-viva.md`
 
 ```bash
-cat "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/Segundo Cérebro/04-decisoes/estrategia-viva.md"
+cat "~/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/Segundo Cérebro/04-decisoes/estrategia-viva.md"
 ```
 
 Identificar exatamente quais campos da seção "ATUAL" precisam ser editados.
