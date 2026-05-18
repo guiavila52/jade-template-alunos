@@ -1,0 +1,19 @@
+# Pre-commit hooks — protecao contra secret leak
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+        name: gitleaks (regex+entropy secret scan)
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        name: detect-secrets (baseline-aware)
+        args: ['--baseline', '.secrets.baseline']
+        exclude: |
+          (?x)^(
+            package-lock\.json|
+            \.secrets\.baseline
+          )$

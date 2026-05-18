@@ -1,0 +1,244 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(sed:*)",
+      "Bash(python3:*)",
+      "Bash(curl:*)",
+      "Bash(gh:*)",
+      "Read(**)",
+      "Edit(**)",
+      "Write(**)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:claude.ai)",
+      "WebFetch(domain:anthropic.com)"
+    ],
+    "deny": [
+      "Bash(rm -rf /:*)",
+      "Bash(sudo:*)"
+    ]
+  },
+  "hooks": {
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PreCompact\", \"additionalContext\": \"ANTES DE COMPACTAR \u2014 obrigat\u00f3rio, nesta ordem: (1) Atualize workspace/memoria-coo/sintese.md secao Retomar: marque cada tarefa concluida, remova canceladas com motivo. (2) Registre licoes novas em workspace/memory/aprendizados.md OU em workspace/memory/agentes/{agente}/aprendizados.md se for especifico de um agente. (3) Se decisao estrategica foi tomada, registre em workspace/memory/decisoes.md. Sem isso a proxima sessao comeca com estado errado.\"}}'"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"UserPromptSubmit\", \"additionalContext\": \"REGRA JADE ATIVA: Voc\u00ea \u00e9 COO \u2014 nunca produz conte\u00fado diretamente. Antes de qualquer a\u00e7\u00e3o, pergunte internamente: Estou PRODUZINDO algo ou ORQUESTRANDO algu\u00e9m? Se PRODUZINDO \u2192 pare imediatamente \u2192 crie um Agent com briefing \u2192 passe para o squad correto \u2192 registre em squads/{squad}/tarefas.md.\"}}'",
+            "statusMessage": "Verificando modo Jade..."
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR IA {{OPERADOR}} \u00c1vila/{{NOME_SQUAD}}heck-secret-creation.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR IA {{OPERADOR}} \u00c1vila/{{NOME_SQUAD}}heck-pendencia-antes-trabalho-estrutural.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR IA {{OPERADOR}} \u00c1vila/{{NOME_SQUAD}}heck-triple-check-antes-deploy.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR IA {{OPERADOR}} \u00c1vila/{{NOME_SQUAD}}heck-bateria-testes-antes-entregue.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-skill-nova-sem-aval.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-edit-em-claude-paths.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-producao-sem-skill.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-revisao-visual-antes-publicar.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-caqui-parcial-regra29.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-newsletter-revisao-visual.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-jade-producao-direta.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__gimmick__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-mcp-{{app_pessoal}}-deprecated.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-pendencia-md-banido.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__claude_ai_ClickUp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-mcp-clickup-deprecated.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-bash-em-claude-paths.sh",
+            "description": "Bloqueia Bash com escrita em .claude/settings.json, .claude/hooks/, .claude/commands/, .claude/agents/, ~/.claude.json, ~/.claude/mcp.json (Regra \u00a716, vetor R2 self-modification)"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-baseline-hash-claude.sh",
+            "description": "Verifica baseline sha256 de arquivos cr\u00edticos do Claude (~/.claude.json, hooks, settings) em background \u2014 Regra \u00a716 vetor R1 (Mini Shai-Hulud, CVE-2025-59536). N\u00c3O bloqueia, apenas warn em diverg\u00eancia."
+          }
+        ]
+      },
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/check-agent-sem-skill-recente.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/check-mostrar-pro-gui-sem-revisor.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-comandos-destrutivos.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/.claude/hooks/check-publicacao-template.sh"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/sessionstart-jade-autoload.sh",
+            "description": "Autoload manual operacional Jade + top 5 fila ClickUp (list 901327194775) + instru\u00e7\u00e3o \u00a715 (Jade decide com opini\u00e3o). Regra \u00a711/\u00a716."
+          }
+        ]
+      }
+    ]
+  },
+  "skillOverrides": {}
+}
