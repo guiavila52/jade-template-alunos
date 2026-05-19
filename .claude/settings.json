@@ -145,7 +145,6 @@
         ]
       },
       {
-        "matcher": "mcp__gimmick__.*",
         "hooks": [
           {
             "type": "command",

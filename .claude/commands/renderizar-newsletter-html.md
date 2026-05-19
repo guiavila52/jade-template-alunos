@@ -185,7 +185,7 @@ Após renderizar o HTML, publicar/atualizar no {{APP_PESSOAL}} via REST.
 - POST `https://{{app_pessoal}}.{{handle}}.com/api/content/newsletters` — criar
 - PATCH `https://{{app_pessoal}}.{{handle}}.com/api/content/newsletters/{id}` — atualizar
 
-**Auth:** `Authorization: Bearer $GIMMICK_API_KEY` (em `app/.env.local`)
+**Auth:** `Authorization: Bearer $CONTENT_API_KEY` (em `app/.env.local`)
 
 **Status válidos (descoberto 14/05/2026):**
 - `ideia_crua`

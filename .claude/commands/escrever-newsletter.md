@@ -397,14 +397,14 @@ Newsletter `cadc4df0-21e2-4b0b-84d8-adb517ab1275` (transcrição YouTube) foi cr
 - **Criar:** `POST https://{{app_pessoal}}.{{handle}}.com/api/content/newsletters`
 - **Atualizar:** `PATCH https://{{app_pessoal}}.{{handle}}.com/api/content/newsletters/{id}`
 - **Validar:** `GET https://{{app_pessoal}}.{{handle}}.com/api/content/newsletters/{id}` → checar `data.newsletter_content.body`
-- **Auth:** `Authorization: Bearer ${GIMMICK_API_KEY}` (de `app/.env.local`)
+- **Auth:** `Authorization: Bearer ${CONTENT_API_KEY}` (de `app/.env.local`)
 
 ### Snippet Python pronto (cola e roda)
 
 ```python
 import os, re, json, urllib.request
 
-key = os.environ["GIMMICK_API_KEY"]
+key = os.environ["CONTENT_API_KEY"]
 md_path = "workspace/output/newsletter/YYYY-MM-DD-slug.md"
 html_path = md_path.replace(".md", "-preview.html")
 
@@ -469,7 +469,7 @@ Sempre informar:
 - ❌ Esquecer de rodar `/renderizar-newsletter-html` antes do POST
 - ❌ Reportar "criado no {{APP_PESSOAL}}" sem fazer GET de validação
 - ❌ Usar status `draft` (não existe no schema)
-- ❌ Usar `mcp__gimmick__criar_conteudo` (deprecated 12/05/2026, retorna 401)
+- ❌ Usar `mcp__{{CONTENT_PLATFORM}}__criar_conteudo` (deprecated 12/05/2026, retorna 401)
 
 ### Status {{APP_PESSOAL}} válidos
 
@@ -565,5 +565,5 @@ Pendência canônica: {{clickup_task_id}}
 - ❌ Hype: "revolucionário", "primeiro do mercado", "único"
 - ❌ Atribuição coletiva ("a gente", "nós", "nossa equipe")
 
-Memória: `feedback_posicionamento_gimmick.md`
+Memória: `feedback_posicionamento_produto.md`
 

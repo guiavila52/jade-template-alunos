@@ -59,11 +59,11 @@ Análoga à `/criar-pendencia` (ClickUp), mas o destino é o backlog editorial d
 ## Setup
 
 Token e base URL em `app/.env.local`:
-- `GIMMICK_API_KEY=sk-sq-*`
-- `GIMMICK_API_BASE_URL=https://{{app_pessoal}}.{{handle}}.com/api/content`
+- `CONTENT_API_KEY=sk-sq-*`
+- `CONTENT_API_BASE_URL=https://{{app_pessoal}}.{{handle}}.com/api/content`
 
 Carregamento: `set -a; source app/.env.local; set +a`
-Header: `Authorization: Bearer $GIMMICK_API_KEY`
+Header: `Authorization: Bearer $CONTENT_API_KEY`
 
 ## Fluxo canônico (REST)
 
@@ -73,11 +73,11 @@ Header: `Authorization: Bearer $GIMMICK_API_KEY`
 set -a; source app/.env.local; set +a
 
 case "$formato" in
-  youtube-longo)     ENDPOINT="${GIMMICK_API_BASE_URL}/youtube" ;;
-  youtube-vertical)  ENDPOINT="${GIMMICK_API_BASE_URL}/vertical" ;;
-  carrossel)         ENDPOINT="${GIMMICK_API_BASE_URL}/carrossel" ;;
-  linkedin)          ENDPOINT="${GIMMICK_API_BASE_URL}/linkedin" ;;
-  newsletter)        ENDPOINT="${GIMMICK_API_BASE_URL}/newsletters" ;;
+  youtube-longo)     ENDPOINT="${CONTENT_API_BASE_URL}/youtube" ;;
+  youtube-vertical)  ENDPOINT="${CONTENT_API_BASE_URL}/vertical" ;;
+  carrossel)         ENDPOINT="${CONTENT_API_BASE_URL}/carrossel" ;;
+  linkedin)          ENDPOINT="${CONTENT_API_BASE_URL}/linkedin" ;;
+  newsletter)        ENDPOINT="${CONTENT_API_BASE_URL}/newsletters" ;;
   *) echo "ERRO: formato inválido: $formato"; exit 1 ;;
 esac
 
@@ -92,7 +92,7 @@ jq -n \
 
 RESP_FILE=$(mktemp)
 HTTP=$(curl -s -o "$RESP_FILE" -w "%{http_code}" -X POST \
-  -H "Authorization: Bearer $GIMMICK_API_KEY" \
+  -H "Authorization: Bearer $CONTENT_API_KEY" \
   -H "Content-Type: application/json" \
   --data-binary "@$PAYLOAD_FILE" \
   "$ENDPOINT")
@@ -138,7 +138,7 @@ case "$formato" in
 esac
 
 HTTP=$(curl -s -o /tmp/patch.json -w "%{http_code}" -X PATCH \
-  -H "Authorization: Bearer $GIMMICK_API_KEY" \
+  -H "Authorization: Bearer $CONTENT_API_KEY" \
   -H "Content-Type: application/json" \
   --data-binary "@$PAYLOAD_FILE" \
   "${ENDPOINT}/${ID}")
@@ -151,7 +151,7 @@ rm -f "$ANGULO_FILE" "$PAYLOAD_FILE"
 ### 3. Validar via GET pós-PATCH
 
 ```bash
-curl -s -H "Authorization: Bearer $GIMMICK_API_KEY" "${ENDPOINT}/${ID}" \
+curl -s -H "Authorization: Bearer $CONTENT_API_KEY" "${ENDPOINT}/${ID}" \
   | jq '{title: .data.title, status: .data.status, priority: .data.priority}'
 
 echo "URL admin: https://{{app_pessoal}}.{{handle}}.com/{{handle}}/conteudos/${ID}"

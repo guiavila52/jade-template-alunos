@@ -115,7 +115,7 @@ Ao finalizar o post, criar no {{APP_PESSOAL}} via API REST (Bearer `sk-sq-*`, en
 2. Validar com `GET /api/content/linkedin/{id}` após criação.
 3. O {{OPERADOR}} aprova ou solicita ajuste diretamente no painel visual do {{APP_PESSOAL}}.
 
-**Nota histórica [DEPRECATED 2026-05-14]:** antes existia plano de usar MCP server (`mcp__gimmick__criar_conteudo` / `atualizar_status`). MCP descontinuado em 12/05/2026 (retorna 401). API REST direta é o caminho canônico.
+**Nota histórica [DEPRECATED 2026-05-14]:** antes existia plano de usar MCP server (`mcp__{{CONTENT_PLATFORM}}__criar_conteudo` / `atualizar_status`). MCP descontinuado em 12/05/2026 (retorna 401). API REST direta é o caminho canônico.
 
 ## Checklist antes de entregar
 

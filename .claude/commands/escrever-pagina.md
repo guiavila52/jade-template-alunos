@@ -239,5 +239,5 @@ Jade NUNCA pede pro {{OPERADOR}} testar — testa antes.
 - ❌ Hype: "revolucionário", "primeiro do mercado", "único"
 - ❌ Atribuição coletiva ("a gente", "nós", "nossa equipe")
 
-Memória: `feedback_posicionamento_gimmick.md`
+Memória: `feedback_posicionamento_produto.md`
 
