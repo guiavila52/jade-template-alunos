@@ -17,7 +17,7 @@ Adiciona comentário num task existente da lista "Tasks Jade COO" do ClickUp **v
 
 - Subagent entregou parte de uma pendência ativa → registrar progresso
 - Detectado novo blocker numa pendência em curso
-- {{OPERADOR}} aprovou/rejeitou parte do output → registrar decisão
+- {{NOME_OPERADOR}} aprovou/rejeitou parte do output → registrar decisão
 - Cross-reference: linkar memória/decisão/aprendizado criado pela pendência
 - {{NOME_SUPORTE}}/{{NOME_BACKUP_ADMIN}} mencionaram algo num task — Jade responde via comment
 
@@ -25,13 +25,13 @@ Adiciona comentário num task existente da lista "Tasks Jade COO" do ClickUp **v
 
 | Campo | Tipo | Obrigatório |
 |---|---|---|
-| `task_id` | string (ex: `{{clickup_task_id}}`) | sim |
+| `task_id` | string (ex: `86ahedjxr`) | sim |
 | `comment_text` | string (markdown OK) | sim |
 | `notify_all` | boolean | opcional (default `false`) |
 
 ## IDs canônicos
 
-- List ID `901327194775` é o esperado. Skill aceita qualquer task_id válido — mas se o task não pertencer a essa lista, a skill **avisa** (proteção contra mexer em listas externas como {{APP_PESSOAL}} `901327190242`).
+- List ID `901327194775` é o esperado. Skill aceita qualquer task_id válido — mas se o task não pertencer a essa lista, a skill **avisa** (proteção contra mexer em listas externas como Gimmick `901327190242`).
 
 ## Setup
 
@@ -139,16 +139,16 @@ Comentário registrado
 
 - **Progresso:** `Fase X concluída. Output em {path}. Próxima: Fase Y.`
 - **Blocker:** `BLOQUEADO: {motivo}. Aguarda: {ação} de {responsável}.`
-- **Decisão {{OPERADOR}}:** `{{OPERADOR}} aprovou {output} em {data}. Próximo: {ação}.`
+- **Decisão {{NOME_OPERADOR}}:** `{{NOME_OPERADOR}} aprovou {output} em {data}. Próximo: {ação}.`
 - **Cross-ref:** `Memória criada: {path}. Aprendizado em: {workspace/agente}.`
 
 ## Tratamento de erros
 
-- HTTP 401 → token inválido → reportar {{OPERADOR}} pra rotacionar
+- HTTP 401 → token inválido → reportar {{NOME_OPERADOR}} pra rotacionar
 - HTTP 404 → task_id inexistente
 - HTTP 429 → rate limit → esperar 60s + retry uma vez
 
 ## Aprendizado + pendência (Regra §5)
 
-- Se {{OPERADOR}} disser "esse comentário tá confuso/longo demais": registrar em `squads/gestao/aprendizados.md` + ajustar convenção acima
+- Se {{NOME_OPERADOR}} disser "esse comentário tá confuso/longo demais": registrar em `squads/gestao/aprendizados.md` + ajustar convenção acima
 - Se HTTP 401: memória `feedback_clickup_api_nao_mcp.md` + pendência rotacionar token

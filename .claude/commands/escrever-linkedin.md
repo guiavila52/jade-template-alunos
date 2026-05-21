@@ -31,7 +31,7 @@ Squad: conteudo
 
 O input principal é a **transcrição de um vídeo do YouTube** (colada diretamente ou via arquivo).
 
-Opcionalmente, o {{OPERADOR}} pode indicar:
+Opcionalmente, o {{NOME_OPERADOR}} pode indicar:
 - Ângulo específico que quer explorar no post
 - Tipo de post preferido
 - Trecho específico do vídeo para usar como base
@@ -40,7 +40,7 @@ Se nenhuma transcrição for fornecida, pedir antes de continuar.
 
 ## Contexto do canal
 
-LinkedIn é o canal de **autoridade B2B** do {{OPERADOR}}. Posts curtos e opinionados, 3-5x por semana. O público no LinkedIn é fundador de negócio digital — mais formal que Instagram, mas ainda direto e autêntico. Sem "marketês", sem lista genérica de dicas.
+LinkedIn é o canal de **autoridade B2B** do {{NOME_OPERADOR}}. Posts curtos e opinionados, 3-5x por semana. O público no LinkedIn é fundador de negócio digital — mais formal que Instagram, mas ainda direto e autêntico. Sem "marketês", sem lista genérica de dicas.
 
 ## Pré-requisitos obrigatórios
 
@@ -76,7 +76,7 @@ Quando o vídeo ensina um processo ou sistema que merece detalhe.
 Pode usar listas curtas (máx 4 itens).
 
 **4. Bastidores**
-O que o {{OPERADOR}} está construindo na prática. Decisões reais, números reais, erros reais.
+O que o {{NOME_OPERADOR}} está construindo na prática. Decisões reais, números reais, erros reais.
 Usar quando: o vídeo mostra o processo real de construção de algo.
 
 ### Passo 3 — Escrever com Light Copy
@@ -87,13 +87,13 @@ Usar quando: o vídeo mostra o processo real de construção de algo.
 
 ### Passo 4 — Entregar variações
 Sempre entregar **2 versões** a partir de ângulos diferentes da mesma transcrição.
-O {{OPERADOR}} escolhe qual publica.
+O {{NOME_OPERADOR}} escolhe qual publica.
 
 ## Formato técnico LinkedIn
 
 - Primeira linha é o que aparece antes do "ver mais" — ela decide se a pessoa clica. Deve prender.
 - Parágrafos de 1-3 linhas. Espaço entre cada parágrafo.
-- Emojis: com naturalidade, como o {{OPERADOR}} usa. Nada excessivo.
+- Emojis: com naturalidade, como o {{NOME_OPERADOR}} usa. Nada excessivo.
 - CTA no final: um, máximo. Pode ser pergunta para engajamento, link ou convite.
 - Hashtags: 3-5 no final, relevantes. Nunca no meio do texto.
 
@@ -107,13 +107,13 @@ Para cada versão entregue:
 
 Salvar em: `workspace/output/conteudo/escrever-linkedin/YYYY-MM-DD-[slug].md`
 
-## Integração {{APP_PESSOAL}} (API REST)
+## Integração Gimmick (API REST)
 
-Ao finalizar o post, criar no {{APP_PESSOAL}} via API REST (Bearer `sk-sq-*`, endpoints em `segundo-cerebro/03-operacao/{{app_pessoal}}-historico.md`):
+Ao finalizar o post, criar no Gimmick via API REST (Bearer `sk-sq-*`, endpoints em `segundo-cerebro/03-operacao/gimmick-historico.md`):
 
-1. `POST /api/content/linkedin` — registrar o post no pipeline do {{APP_PESSOAL}} com `status: "aprovacao"`.
+1. `POST /api/content/linkedin` — registrar o post no pipeline do Gimmick com `status: "aprovacao"`.
 2. Validar com `GET /api/content/linkedin/{id}` após criação.
-3. O {{OPERADOR}} aprova ou solicita ajuste diretamente no painel visual do {{APP_PESSOAL}}.
+3. O {{NOME_OPERADOR}} aprova ou solicita ajuste diretamente no painel visual do Gimmick.
 
 **Nota histórica [DEPRECATED 2026-05-14]:** antes existia plano de usar MCP server (`mcp__{{CONTENT_PLATFORM}}__criar_conteudo` / `atualizar_status`). MCP descontinuado em 12/05/2026 (retorna 401). API REST direta é o caminho canônico.
 
@@ -122,7 +122,7 @@ Ao finalizar o post, criar no {{APP_PESSOAL}} via API REST (Bearer `sk-sq-*`, en
 - [ ] Transcrição foi lida completa?
 - [ ] Um ângulo específico foi escolhido (não é resumo do vídeo)?
 - [ ] Primeira linha prende sem os 3 Ps?
-- [ ] Tom bate com o {{OPERADOR}} (direto, autêntico, sem "marketês")?
+- [ ] Tom bate com o {{NOME_OPERADOR}} (direto, autêntico, sem "marketês")?
 - [ ] Detalhe específico da transcrição aparece no post?
 - [ ] CTA único e adequado ao tipo de post?
 - [ ] Parágrafos curtos com espaçamento?
@@ -132,7 +132,7 @@ Ao finalizar o post, criar no {{APP_PESSOAL}} via API REST (Bearer `sk-sq-*`, en
 ## Fluxo
 
 ```
-[ {{OPERADOR}} passa transcrição de vídeo (ou URL → /transcrever-video) ]
+[ {{NOME_OPERADOR}} passa transcrição de vídeo (ou URL → /transcrever-video) ]
         ↓
 [ 1. Ler banco-de-historias + tom + ICP ] → @linkedin
         ↓
@@ -161,9 +161,9 @@ Ao finalizar o post, criar no {{APP_PESSOAL}} via API REST (Bearer `sk-sq-*`, en
 [ 6. Salvar output ] → @linkedin
    workspace/output/conteudo/escrever-linkedin/YYYY-MM-DD-[slug].md
         ↓
-   ⟶ {{OPERADOR}} escolhe qual versão publica
+   ⟶ {{NOME_OPERADOR}} escolhe qual versão publica
         ↓
-[ 7. (Se {{APP_PESSOAL}} API REST disponível)
+[ 7. (Se Gimmick API REST disponível)
    criar_conteudo + atualizar_status ] → @linkedin
         ↓
    ⟶ FIM
@@ -177,7 +177,7 @@ ANTES de marcar entregue:
 3. REPROVADO → corrige + re-revisa até APROVADO
 4. SÓ aí marca entregue em pendencias.md + commita
 
-Jade NUNCA pede pro {{OPERADOR}} testar — testa antes.
+Jade NUNCA pede pro {{NOME_OPERADOR}} testar — testa antes.
 
 ---
 
@@ -185,5 +185,5 @@ Jade NUNCA pede pro {{OPERADOR}} testar — testa antes.
 
 - Antes de executar trabalho estrutural, registrar pendência no ClickUp via `/criar-pendencia`
 - Ao concluir, comentar via `/comentar-pendencia` e fechar via `/fechar-pendencia`
-- Aprendizado real (correção do {{OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
+- Aprendizado real (correção do {{NOME_OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
 - Reincidência = falha de processo, escalar imediatamente

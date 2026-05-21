@@ -16,11 +16,11 @@ Marca task como `concluído` na lista "Tasks Jade COO" do ClickUp + adiciona com
 ## Quando invocar
 
 - Subagent entregou o escopo COMPLETO da pendência (todas as fases)
-- {{OPERADOR}} aprovou o output final
+- {{NOME_OPERADOR}} aprovou o output final
 - Pendência virou obsoleta (mudança estratégica, deduplicação)
 
 **NÃO usar:** se entrega for parcial (use `/comentar-pendencia`).
-**NÃO usar:** se {{OPERADOR}} ainda precisa aprovar (use `/comentar-pendencia` notificando "aguarda aprovação {{OPERADOR}}").
+**NÃO usar:** se {{NOME_OPERADOR}} ainda precisa aprovar (use `/comentar-pendencia` notificando "aguarda aprovação {{NOME_OPERADOR}}").
 
 ## Inputs
 
@@ -148,7 +148,7 @@ PY
 - ...
 
 **Validação:**
-- {como {{OPERADOR}} pode verificar — preview, build, link, etc}
+- {como {{NOME_OPERADOR}} pode verificar — preview, build, link, etc}
 
 **Aprendizados (Regra §5):**
 - Memória: {path}
@@ -179,7 +179,7 @@ Pendência fechada
 
 ## Tratamento de erros
 
-- HTTP 401 → token inválido → reportar {{OPERADOR}}
+- HTTP 401 → token inválido → reportar {{NOME_OPERADOR}}
 - HTTP 400 com `Status not found` → status name digitado errado (lembrar: `concluído` com acento)
 - HTTP 404 → task_id inexistente
 
@@ -193,5 +193,5 @@ NÃO fechar pendência só porque "achou que estava feito". Confirmar:
 
 ## Aprendizado + pendência (Regra §5)
 
-- Se {{OPERADOR}} reabrir um task fechado: criar pendência de retrofit + atualizar aprendizado "fechamento prematuro"
+- Se {{NOME_OPERADOR}} reabrir um task fechado: criar pendência de retrofit + atualizar aprendizado "fechamento prematuro"
 - Se HTTP 400 por status: memória `feedback_clickup_api_nao_mcp.md` (status names com acento)

@@ -32,7 +32,7 @@ Ver agente `.claude/agents/revisor-roteiro.md` (leitura obrigatória + checklist
 3. CTA único e claro
 4. Tom alinhado com tom-de-voz + exemplos-copy-gui
 5. Sem métricas privadas
-6. Hiperlinks padrão `{{handle}}.com/[slug]`
+6. Hiperlinks padrão `{{DOMINIO}}/[slug]`
 7. Variáveis de personalização preservadas
 
 ### Específico do formato (Roteiro de vídeo YouTube (script falado, marcações de cena, hooks de retenção))

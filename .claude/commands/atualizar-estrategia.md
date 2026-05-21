@@ -8,7 +8,7 @@ type: skill
 
 # /atualizar-estrategia — Registrar mudança estratégica no documento vivo
 
-> Skill invocada quando o {{OPERADOR}} (ou a Jade detecta) que algo mudou no estado estratégico do squad: data de lançamento, posicionamento de produto, novo produto, métrica pública, foco do funil, decisão sobre canal, etc.
+> Skill invocada quando o {{NOME_OPERADOR}} (ou a Jade detecta) que algo mudou no estado estratégico do squad: data de lançamento, posicionamento de produto, novo produto, métrica pública, foco do funil, decisão sobre canal, etc.
 >
 > **A skill atualiza** `segundo-cerebro/04-decisoes/estrategia-viva.md` **e dispara as ações consequentes.**
 
@@ -16,10 +16,10 @@ type: skill
 
 ## Quando invocar
 
-- {{OPERADOR}} falou "vamos adiar o lançamento pra dezembro"
-- {{OPERADOR}} falou "mentoria agora é só em grupo"
-- {{OPERADOR}} falou "tira faturamento da copy"
-- {{OPERADOR}} decidiu pivot de produto, canal, oferta, preço
+- {{NOME_OPERADOR}} falou "vamos adiar o lançamento pra dezembro"
+- {{NOME_OPERADOR}} falou "mentoria agora é só em grupo"
+- {{NOME_OPERADOR}} falou "tira faturamento da copy"
+- {{NOME_OPERADOR}} decidiu pivot de produto, canal, oferta, preço
 - Jade percebeu inconsistência entre `estrategia-viva.md` e a realidade
 - Estrategista produziu estratégia que GERA decisão nova (precisa registrar)
 
@@ -32,12 +32,12 @@ type: skill
 
 ## Fluxo (passo a passo)
 
-### 1. Diálogo com quem invocou ({{OPERADOR}} ou Jade)
+### 1. Diálogo com quem invocou ({{NOME_OPERADOR}} ou Jade)
 
 Perguntar nessa ordem (uma de cada vez, esperando resposta):
 
 1. **O que mudou?** (uma frase clara — ex: "lançamento adiado de maio pra dezembro")
-2. **Quem decidiu?** ({{OPERADOR}} / Jade / {{OPERADOR}}+sócio / etc)
+2. **Quem decidiu?** ({{NOME_OPERADOR}} / Jade / {{NOME_OPERADOR}}+sócio / etc)
 3. **Por quê?** (motivo da mudança — ajuda no histórico)
 4. **Qual o impacto?**
    - Quais páginas precisam de update? (ex: `/mentoria`, `/imersao`)
@@ -48,7 +48,7 @@ Perguntar nessa ordem (uma de cada vez, esperando resposta):
 ### 2. Ler `estrategia-viva.md`
 
 ```bash
-cat "$CLAUDE_PROJECT_DIR/estrategia-viva.md"
+cat "/Users/{{SEU_USUARIO}}/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/segundo-cerebro/04-decisoes/estrategia-viva.md"
 ```
 
 Identificar exatamente quais campos da seção "ATUAL" precisam ser editados.
@@ -59,7 +59,7 @@ Formato:
 
 ```markdown
 ### YYYY-MM-DD — [Mudança em uma frase]
-**Quem decidiu:** [{{OPERADOR}} / Jade / {{OPERADOR}}+sócio]
+**Quem decidiu:** [{{NOME_OPERADOR}} / Jade / {{NOME_OPERADOR}}+sócio]
 **Mudança:** [descrição curta da mudança concreta]
 **Motivo:** [por quê]
 **Impacto:**
@@ -79,7 +79,7 @@ Refletir o novo estado nos campos relevantes (Lançamentos e datas / Funil / Pos
 
 ### 6. Listar páginas/skills/memórias que precisam de update consequente
 
-Apresentar pro {{OPERADOR}} (via Jade) uma checklist no formato:
+Apresentar pro {{NOME_OPERADOR}} (via Jade) uma checklist no formato:
 
 ```markdown
 ## Update consequente da mudança "[mudança]"
@@ -109,14 +109,14 @@ Não terminar perguntando "o que você quer". Afirmar a próxima ação. Exemplo
 - **Sempre atualizar "Última atualização"** no topo.
 - **Se a mudança gera memória persistente** (algo que vai influenciar decisões futuras de outros agentes), CRIAR `feedback_*.md` ou `project_*.md` em `~/.claude/projects/.../memory/` e INDEXAR em `MEMORY.md`. Esse passo NÃO é opcional.
 - **Se a mudança contradiz uma memória persistente existente**, atualizar a memória existente (não criar duplicata) e registrar isso no campo "Impacto" do histórico.
-- **Se faltar info pra registrar** (ex: {{OPERADOR}} não soube dizer o impacto em páginas), perguntar — não chutar. Decisão estratégica registrada errada vira veneno.
+- **Se faltar info pra registrar** (ex: {{NOME_OPERADOR}} não soube dizer o impacto em páginas), perguntar — não chutar. Decisão estratégica registrada errada vira veneno.
 
 ---
 
 ## Output
 
 1. Versão atualizada de `estrategia-viva.md` (gravada no arquivo).
-2. Checklist de update consequente (apresentada na conversa com a Jade/{{OPERADOR}}).
+2. Checklist de update consequente (apresentada na conversa com a Jade/{{NOME_OPERADOR}}).
 3. Entradas em pendências (`workspace/memory/pendencias.md`) pras ações consequentes que precisam de execução.
 4. Memórias persistentes criadas (quando aplicável).
 
@@ -128,4 +128,4 @@ ANTES de marcar entregue:
 3. REPROVADO → corrige + re-revisa até APROVADO
 4. SÓ aí marca entregue em pendencias.md + commita
 
-Jade NUNCA pede pro {{OPERADOR}} testar — testa antes.
+Jade NUNCA pede pro {{NOME_OPERADOR}} testar — testa antes.

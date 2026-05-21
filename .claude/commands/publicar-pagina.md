@@ -1,6 +1,6 @@
 ---
 name: publicar-pagina
-description: Leva componente Astro aprovado pelo revisor ate producao: build local, preview localhost, aprovacao {{OPERADOR}} e entao deploy.
+description: Leva componente Astro aprovado pelo revisor ate producao: build local, preview localhost, aprovacao {{NOME_OPERADOR}} e entao deploy.
 type: skill
 ---
 
@@ -9,9 +9,9 @@ type: skill
 ## /publicar-pagina — Squad Dev
 
 Você é o agente de deploy do squad-dev do {{NOME_OPERADOR}}.
-Função: levar um componente Astro aprovado pelo `/revisar-codigo-pagina` até produção, com checkpoint de aprovação visual do {{OPERADOR}} no meio.
+Função: levar um componente Astro aprovado pelo `/revisar-codigo-pagina` até produção, com checkpoint de aprovação visual do {{NOME_OPERADOR}} no meio.
 
-⚠️ **Nunca rodar `vercel --prod` antes do {{OPERADOR}} aprovar o preview localhost.**
+⚠️ **Nunca rodar `vercel --prod` antes do {{NOME_OPERADOR}} aprovar o preview localhost.**
 ⚠️ **Stack alvo:** projeto `Páginas Astro {{NOME_OPERADOR}}/` (não confundir com `Sites {{NOME_OPERADOR}}/` Next legado).
 
 ---
@@ -40,12 +40,12 @@ COMPONENTE APROVADO PELO REVISOR-DEV
         ▼
 [5] Retornar URL para a Jade
     http://localhost:4321/[slug]
-    (Jade apresenta ao {{OPERADOR}})
+    (Jade apresenta ao {{NOME_OPERADOR}})
         │
         ▼
 [6] Aguardar confirmação da Jade
-    "{{OPERADOR}} aprovou o preview" → segue
-    "{{OPERADOR}} pediu ajuste" → abortar deploy, parar dev server,
+    "{{NOME_OPERADOR}} aprovou o preview" → segue
+    "{{NOME_OPERADOR}} pediu ajuste" → abortar deploy, parar dev server,
                           devolver ao Agente Dev com apontamentos
         │
         ▼
@@ -85,7 +85,7 @@ COMPONENTE APROVADO PELO REVISOR-DEV
 ## Como usar
 
 ```
-/publicar-pagina $CLAUDE_PROJECT_DIR Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
+/publicar-pagina /Users/{{SEU_USUARIO}}/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
 ```
 
 Ou sem argumento — o agente pedirá o caminho.
@@ -96,7 +96,7 @@ Ou sem argumento — o agente pedirá o caminho.
 
 ### Subir dev server (passo [4])
 ```bash
-cd "$CLAUDE_PROJECT_DIR Astro {{NOME_OPERADOR}}"
+cd "/Users/{{SEU_USUARIO}}/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}"
 npm run dev > /tmp/astro-dev-[slug].log 2>&1 &
 echo $! > /tmp/astro-dev-[slug].pid
 sleep 4
@@ -111,7 +111,7 @@ rm -f /tmp/astro-dev-[slug].pid
 
 ### Build + deploy (passos [8] e [9])
 ```bash
-cd "$CLAUDE_PROJECT_DIR Astro {{NOME_OPERADOR}}"
+cd "/Users/{{SEU_USUARIO}}/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}"
 npm run build || { echo "BUILD_FAILED"; exit 1; }
 vercel --prod --yes 2>&1 | tee /tmp/vercel-deploy-[slug].log
 # A URL de produção fica nas últimas linhas do log (linha "Production: https://...")
@@ -124,7 +124,7 @@ vercel --prod --yes 2>&1 | tee /tmp/vercel-deploy-[slug].log
 - **Build falha:** reportar à Jade com últimas 30 linhas do log de erro. NÃO tentar de novo automaticamente. A correção volta para o Agente Dev.
 - **Vercel falha (auth, quota, network):** reportar à Jade com últimas 30 linhas do log. NÃO retentar automaticamente.
 - **Dev server não sobe (porta ocupada):** matar processo na 4321 e tentar novamente UMA vez. Se falhar de novo, reportar à Jade.
-- **{{OPERADOR}} rejeita o preview:** abortar pipeline. Status no `tarefas.md` volta para `rejeitado` com observação. Devolver ao Agente Dev com apontamentos do {{OPERADOR}}.
+- **{{NOME_OPERADOR}} rejeita o preview:** abortar pipeline. Status no `tarefas.md` volta para `rejeitado` com observação. Devolver ao Agente Dev com apontamentos do {{NOME_OPERADOR}}.
 
 ---
 
@@ -222,11 +222,11 @@ ANTES de qualquer `vercel --prod` (ou equivalente), TODA mudança em página/pro
 
 Skill canônica DEVE usar `scripts/deploy/publicar-pagina.sh` em vez de `vercel --prod` direto.
 
-Razão: em 13/05/2026, `vercel --prod` travou infinitamente nesta sessão Claude Code ({{OPERADOR}} passou ~1h pra reverter páginas pré-Fase E). Workaround: `git push origin main` → Vercel auto-deploy GitHub funcionou em 30-90s.
+Razão: em 13/05/2026, `vercel --prod` travou infinitamente nesta sessão Claude Code ({{NOME_OPERADOR}} passou ~1h pra reverter páginas pré-Fase E). Workaround: `git push origin main` → Vercel auto-deploy GitHub funcionou em 30-90s.
 
 O script tenta CLI com timeout 90s. Se travar/falhar, cai automaticamente pra `git push origin main`.
 
 Uso pelo subagent `desenvolvedor-frontend`:
 ```
-bash $HOME/Documents/Projetos\ IA\ {{OPERADOR}}\ Ávila/Squad\ Empresa\ {{OPERADOR}}\ Ávila/scripts/deploy/publicar-pagina.sh "/path/to/repo"
+bash /Users/{{SEU_USUARIO}}/Documents/Projetos\ IA\ {{NOME_OPERADOR}}\ Ávila/Squad\ Empresa\ {{NOME_OPERADOR}}\ Ávila/scripts/deploy/publicar-pagina.sh "/path/to/repo"
 ```

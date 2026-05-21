@@ -1,25 +1,72 @@
 {
+  "env": {
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "85"
+  },
   "permissions": {
     "allow": [
-      "Bash(git:*)",
-      "Bash(ls:*)",
-      "Bash(cat:*)",
-      "Bash(grep:*)",
-      "Bash(find:*)",
-      "Bash(sed:*)",
-      "Bash(python3:*)",
-      "Bash(curl:*)",
-      "Bash(gh:*)",
-      "Read(**)",
-      "Edit(**)",
-      "Write(**)",
-      "WebFetch(domain:github.com)",
-      "WebFetch(domain:claude.ai)",
-      "WebFetch(domain:anthropic.com)"
+      "Bash(*)",
+      "Read(*)",
+      "Edit(*)",
+      "Write(*)",
+      "Write(workspace/**)",
+      "Edit(workspace/**)",
+      "Write(.claude/**)",
+      "Edit(.claude/**)",
+      "Write(squads/**)",
+      "Edit(squads/**)",
+      "Write(MEMORY.md)",
+      "Edit(MEMORY.md)",
+      "Write(AGENTS.md)",
+      "Edit(AGENTS.md)",
+      "Write(segundo-cerebro/**)",
+      "Edit(segundo-cerebro/**)",
+      "Write(CLAUDE.md)",
+      "Edit(CLAUDE.md)",
+      "mcp__d6c253d0-63c2-43de-892f-7871607b8589__list_calendars",
+      "mcp__d6c253d0-63c2-43de-892f-7871607b8589__list_events",
+      "mcp__d6c253d0-63c2-43de-892f-7871607b8589__get_event",
+      "mcp__a817b38c-6fb0-426b-b91b-3b2edf8bcb83__search_threads",
+      "mcp__a817b38c-6fb0-426b-b91b-3b2edf8bcb83__get_thread",
+      "mcp__a817b38c-6fb0-426b-b91b-3b2edf8bcb83__list_labels",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Claude_in_Chrome__get_page_text",
+      "mcp__Claude_in_Chrome__read_page",
+      "mcp__Claude_in_Chrome__read_network_requests",
+      "mcp__Claude_in_Chrome__list_connected_browsers",
+      "mcp__Claude_Preview__preview_screenshot",
+      "mcp__ccd_session__mark_chapter",
+      "WebSearch",
+      "WebFetch(domain:docs.partnerstack.com)",
+      "WebFetch(domain:developers.make.com)",
+      "WebFetch(domain:support.partnerstack.com)",
+      "WebFetch(domain:community.vercel.com)",
+      "WebFetch(domain:community.cloudflare.com)",
+      "WebFetch(domain:dev.binance.vision)",
+      "WebFetch(domain:supabase.com)",
+      "WebFetch(domain:til.simonwillison.net)",
+      "WebFetch(domain:community.fly.io)",
+      "Bash(cp '$CLAUDE_PROJECT_DIR/codar-pagina.md' '$CLAUDE_PROJECT_DIR/codar-pagina.md.preFix131')",
+      "Bash(cp '$CLAUDE_PROJECT_DIR/revisar-codigo-pagina.md' '$CLAUDE_PROJECT_DIR/revisar-codigo-pagina.md.preFix131')",
+      "Bash(cp \"~/.claude/commands/rotina-gui-ausente.md\" \"~/.claude/commands/rotina-gui-ausente.md.preFix175\")",
+      "Read(/~/.claude/commands/**)",
+      "Skill(schedule)",
+      "Skill(schedule:*)",
+      "Bash(cat)",
+      "Bash(chmod +x \"$CLAUDE_PROJECT_DIR/.claude/hooks/check-bateria-testes-antes-entregue.sh\")",
+      "WebFetch(domain:notazz.com)",
+      "mcp__claude_ai_ClickUp__*",
+      "mcp__claude_ai_Gmail__*",
+      "mcp__claude_ai_Google_Calendar__*",
+      "mcp__claude_ai_Google_Drive__*",
+      "mcp__claude_ai_Canva__*",
+      "mcp__claude_ai_Supabase__*",
+      "mcp__meta-ads__*"
     ],
-    "deny": [
-      "Bash(rm -rf /:*)",
-      "Bash(sudo:*)"
+    "defaultMode": "bypassPermissions",
+    "additionalDirectories": [
+      "$CLAUDE_PROJECT_DIR/commands",
+      "~/.claude/commands"
     ]
   },
   "hooks": {
@@ -28,7 +75,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PreCompact\", \"additionalContext\": \"ANTES DE COMPACTAR \u2014 obrigat\u00f3rio, nesta ordem: (1) Atualize workspace/memoria-coo/sintese.md secao Retomar: marque cada tarefa concluida, remova canceladas com motivo. (2) Registre licoes novas em workspace/memory/aprendizados.md OU em workspace/memory/agentes/{agente}/aprendizados.md se for especifico de um agente. (3) Se decisao estrategica foi tomada, registre em workspace/memory/decisoes.md. Sem isso a proxima sessao comeca com estado errado.\"}}'"
+            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"PreCompact\", \"additionalContext\": \"ANTES DE COMPACTAR — obrigatório, nesta ordem: (1) Atualize workspace/memoria-coo/sintese.md secao Retomar: marque cada tarefa concluida, remova canceladas com motivo. (2) Registre licoes novas em workspace/memory/aprendizados.md OU em workspace/memory/agentes/{agente}/aprendizados.md se for especifico de um agente. (3) Se decisao estrategica foi tomada, registre em workspace/memory/decisoes.md. Sem isso a proxima sessao comeca com estado errado.\"}}'"
           }
         ]
       }
@@ -38,7 +85,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"UserPromptSubmit\", \"additionalContext\": \"REGRA JADE ATIVA: Voc\u00ea \u00e9 COO \u2014 nunca produz conte\u00fado diretamente. Antes de qualquer a\u00e7\u00e3o, pergunte internamente: Estou PRODUZINDO algo ou ORQUESTRANDO algu\u00e9m? Se PRODUZINDO \u2192 pare imediatamente \u2192 crie um Agent com briefing \u2192 passe para o squad correto \u2192 registre em squads/{squad}/tarefas.md.\"}}'",
+            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"UserPromptSubmit\", \"additionalContext\": \"REGRA JADE ATIVA: Você é COO — nunca produz conteúdo diretamente. Antes de qualquer ação, pergunte internamente: Estou PRODUZINDO algo ou ORQUESTRANDO alguém? Se PRODUZINDO → pare imediatamente → crie um Agent com briefing → passe para o squad correto → registre em squads/{squad}/tarefas.md.\"}}'",
             "statusMessage": "Verificando modo Jade..."
           }
         ]
@@ -50,7 +97,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR IA {{OPERADOR}} \u00c1vila/{{NOME_SQUAD}}heck-secret-creation.sh"
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-secret-creation.sh"
           }
         ]
       },
@@ -59,7 +106,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR IA {{OPERADOR}} \u00c1vila/{{NOME_SQUAD}}heck-pendencia-antes-trabalho-estrutural.sh"
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-pendencia-antes-trabalho-estrutural.sh"
           }
         ]
       },
@@ -68,7 +115,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR IA {{OPERADOR}} \u00c1vila/{{NOME_SQUAD}}heck-triple-check-antes-deploy.sh"
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-triple-check-antes-deploy.sh"
           }
         ]
       },
@@ -77,7 +124,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR IA {{OPERADOR}} \u00c1vila/{{NOME_SQUAD}}heck-bateria-testes-antes-entregue.sh"
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-bateria-testes-antes-entregue.sh"
           }
         ]
       },
@@ -145,10 +192,11 @@
         ]
       },
       {
+        "matcher": "mcp__{{CONTENT_PLATFORM}}__.*",
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-mcp-{{app_pessoal}}-deprecated.sh"
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-mcp-gimmick-deprecated.sh"
           }
         ]
       },
@@ -176,7 +224,7 @@
           {
             "type": "command",
             "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-bash-em-claude-paths.sh",
-            "description": "Bloqueia Bash com escrita em .claude/settings.json, .claude/hooks/, .claude/commands/, .claude/agents/, ~/.claude.json, ~/.claude/mcp.json (Regra \u00a716, vetor R2 self-modification)"
+            "description": "Bloqueia Bash com escrita em .claude/settings.json, .claude/hooks/, .claude/commands/, .claude/agents/, ~/.claude.json, ~/.claude/mcp.json (Regra §16, vetor R2 self-modification)"
           }
         ]
       },
@@ -186,7 +234,7 @@
           {
             "type": "command",
             "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-baseline-hash-claude.sh",
-            "description": "Verifica baseline sha256 de arquivos cr\u00edticos do Claude (~/.claude.json, hooks, settings) em background \u2014 Regra \u00a716 vetor R1 (Mini Shai-Hulud, CVE-2025-59536). N\u00c3O bloqueia, apenas warn em diverg\u00eancia."
+            "description": "Verifica baseline sha256 de arquivos críticos do Claude (~/.claude.json, hooks, settings) em background — Regra §16 vetor R1 (Mini Shai-Hulud, CVE-2025-59536). NÃO bloqueia, apenas warn em divergência."
           }
         ]
       },
@@ -233,11 +281,67 @@
           {
             "type": "command",
             "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/sessionstart-jade-autoload.sh",
-            "description": "Autoload manual operacional Jade + top 5 fila ClickUp (list 901327194775) + instru\u00e7\u00e3o \u00a715 (Jade decide com opini\u00e3o). Regra \u00a711/\u00a716."
+            "description": "Autoload manual operacional Jade + top 5 fila ClickUp (list 901327194775) + instrução §15 (Jade decide com opinião). Regra §11/§16."
           }
         ]
       }
     ]
   },
-  "skillOverrides": {}
+  "skipDangerousModePermissionPrompt": true,
+  "skillOverrides": {
+    "agenda": "on",
+    "atualizar-estrategia": "on",
+    "atualizar-template-alunos": "on",
+    "check-up-estrutura": "on",
+    "configurar-squad": "on",
+    "consolidar-sessao": "on",
+    "consultar-nf": "on",
+    "criar-carrossel": "on",
+    "criar-carrossel-de-video": "on",
+    "criar-criativo": "on",
+    "criar-pagina": "on",
+    "criar-pendencia": "on",
+    "escrever-copy": "on",
+    "escrever-estrategia": "on",
+    "escrever-linkedin": "on",
+    "escrever-newsletter": "on",
+    "escrever-pagina": "on",
+    "escrever-roteiro": "on",
+    "fechar-pendencia": "on",
+    "gerar-imagem": "on",
+    "jade": "on",
+    "listar-pendencias": "on",
+    "migrar-pagina": "on",
+    "publicar-pagina": "on",
+    "revisar-semana": "on",
+    "rotina-gui-ausente": "on",
+    "transcrever-video": "on",
+    "varrer-squads": "on",
+    "ver-agenda": "on",
+    "codar-pagina": "name-only",
+    "comentar-pendencia": "name-only",
+    "cortar-youtube": "name-only",
+    "executar-bateria-qa": "name-only",
+    "publicar-gimmick": "name-only",
+    "relatar-trafego-anual": "name-only",
+    "relatar-trafego-diario": "name-only",
+    "relatar-trafego-mensal": "name-only",
+    "relatar-trafego-trimestral": "name-only",
+    "renderizar-newsletter-html": "name-only",
+    "revisar-carrossel": "name-only",
+    "revisar-codigo-pagina": "name-only",
+    "revisar-estrategia": "name-only",
+    "revisar-newsletter": "name-only",
+    "revisar-newsletter-visual": "name-only",
+    "revisar-pagina": "name-only",
+    "revisar-visual": "name-only",
+    "revisor-pagina": "name-only",
+    "testar-pagina": "name-only",
+    "tweet-imagem": "name-only",
+    "ver-carrossel": "name-only",
+    "revisar-roteiro": "name-only",
+    "revisar-copy": "name-only",
+    "revisar-linkedin": "name-only",
+    "revisar-criativo": "name-only"
+  }
 }

@@ -25,7 +25,7 @@ Pra descobrir o UUID da sessão travada: nome da aba no header da janela Antigra
 ## Pré-requisitos OBRIGATÓRIOS
 
 1. **Aba fechada no Antigravity.** Senão tem handle aberto e write pode corromper.
-2. **Confirmar com {{OPERADOR}}** que aba foi fechada (uma confirmação explícita por execução).
+2. **Confirmar com {{NOME_OPERADOR}}** que aba foi fechada (uma confirmação explícita por execução).
 
 ## Fluxo
 
@@ -165,14 +165,14 @@ EOF
 
 ### Passo 5 — Preview e gate manual
 
-Reportar pro {{OPERADOR}} antes do `mv`:
+Reportar pro {{NOME_OPERADOR}} antes do `mv`:
 - Linhas antes/depois
 - Tamanho antes/depois
 - `"type":"image"` antes/depois (alvo: 0)
 - Validação JSONL: `python3 -c "import json; [json.loads(l) for l in open('$SESSION_ID.jsonl.new')]"`
 - Amostra antes/depois por categoria (base64 truncado em 50 chars)
 
-**PARAR. Aguardar "aprovado" explícito do {{OPERADOR}}.** Não executar `mv` sem aval.
+**PARAR. Aguardar "aprovado" explícito do {{NOME_OPERADOR}}.** Não executar `mv` sem aval.
 
 ### Passo 6 — Swap final
 
@@ -185,7 +185,7 @@ python3 -c "import json; [json.loads(l) for l in open('$SESSION_ID.jsonl')]; pri
 
 ### Passo 7 — Reabrir
 
-Instruir {{OPERADOR}}:
+Instruir {{NOME_OPERADOR}}:
 1. Reload Window no Antigravity: `Cmd+Shift+P` → `Reload Window`
 2. Reabrir a aba pelo histórico de conversas
 3. Confirmar que nova mensagem responde sem erro 400

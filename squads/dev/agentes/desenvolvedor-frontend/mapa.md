@@ -11,7 +11,7 @@ implementar páginas Astro a partir de copy aprovada.
 
 | Arquivo | Conteúdo |
 |---------|----------|
-| `aprendizados.md` | Lições do agente, especialmente registros de rejeições do {{OPERADOR}} (Regra #14). |
+| `aprendizados.md` | Lições do agente, especialmente registros de rejeições do {{NOME_OPERADOR}} (Regra #14). |
 | `mapa.md` | Este arquivo. |
 
 ## Skills relacionadas

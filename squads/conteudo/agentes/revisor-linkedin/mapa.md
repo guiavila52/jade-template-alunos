@@ -20,9 +20,9 @@
 
 ## Princípio inviolável
 
-Reprovar é melhor que aprovar com gap. Reputação do {{OPERADOR}} > qualquer cronograma.
+Reprovar é melhor que aprovar com gap. Reputação do {{NOME_OPERADOR}} > qualquer cronograma.
 
 ## Cross-reference
 
 - AGENTS.md Regras Invioláveis #19 (propagação) + #24 (bateria de testes obrigatória)
-- `segundo-cerebro/01-identidade/exemplos-copy-gui.md`
+- `segundo-cerebro/01-identidade/exemplos-copy-{{nome_operador}}.md`

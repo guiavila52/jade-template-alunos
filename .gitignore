@@ -77,11 +77,17 @@ app/
 **/__pycache__/
 *.pyc
 
+# Segurança — baseline hashes (Item 0.2 Fase 0 Hardening, ClickUp 86ahha462)
 # baseline-hashes.json muda toda vez que arquivos críticos legítimos mudam (localmachine)
 workspace/output/seguranca/baseline-hashes.json
 workspace/output/seguranca/last-check-status.txt
 workspace/output/seguranca/*.log
 
+# SigNoz observability (Item 0.4 Fase 0 Hardening, ClickUp 86ahha462)
 workspace/infra/signoz/data/
 
+# Pre-commit caches (Item 0.3 Fase 0 Hardening, ClickUp 86ahha462)
 .pre-commit-cache/
+privado/
+package-lock.json
+*.bak-*

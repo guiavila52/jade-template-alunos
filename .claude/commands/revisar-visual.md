@@ -16,11 +16,11 @@ type: skill
 
 - **tipo:** `carrossel` | `criativo` | `thumbnail` | `post` | `pagina`
 - **path:** caminho do arquivo visual (PNG/JPG/Figma URL/preview URL)
-- **contexto:** produto/campanha relacionada ({{EMPRESA_COFUNDADA}}, {{EMPRESA_NEGOCIO}}, Projeto {{OPERADOR}}, etc)
+- **contexto:** produto/campanha relacionada ({{EMPRESA_COFUNDADA}}, {{EMPRESA_NEGOCIO}}, Projeto {{NOME_OPERADOR}}, etc)
 
 **Exemplo:**
 ```bash
-/revisar-visual --tipo=carrossel --path=/workspace/output/conteudo/carrossel-2026-05-11.png --contexto="Projeto {{NOME_OPERADOR}}"
+/revisar-visual --tipo=carrossel --path=/workspace/output/conteudo/carrossel-2026-05-11.png --contexto="{{MARCA_PESSOAL}}"
 ```
 
 ---
@@ -51,13 +51,13 @@ Auditar 6 categorias visuais:
 - CTA se destaca (cor de ação diferente do resto)
 
 **Paletas conhecidas:**
-- **Projeto {{NOME_OPERADOR}}:** preto + dourado (#D4AF37) em LPs, Light Copy (#F5F5F5 bg, #1A1A1A text) em carrosséis
+- **{{MARCA_PESSOAL}}:** preto + dourado (#D4AF37) em LPs, Light Copy (#F5F5F5 bg, #1A1A1A text) em carrosséis
 - **{{EMPRESA_COFUNDADA}}:** azul (#0066CC) + branco
 - **{{EMPRESA_NEGOCIO}}:** vermelho (#E63946) + preto
 
 **Red flags:**
 - Texto low-contrast (cinza claro em branco, amarelo em branco)
-- Paleta errada ({{EMPRESA_COFUNDADA}} azul em LP do Projeto {{OPERADOR}})
+- Paleta errada ({{EMPRESA_COFUNDADA}} azul em LP do Projeto {{NOME_OPERADOR}})
 - Gradiente excessivo (degrada legibilidade)
 
 ### 3. **Tipografia**
@@ -81,16 +81,16 @@ Auditar 6 categorias visuais:
 - Logo presente (quando aplicável — carrossel/criativo/página hero)
 - Foto autor consistente (não foto A no carrossel, foto B na página)
 - Paleta coerente com produto (não misturar {{EMPRESA_COFUNDADA}}+Mágica)
-- Tom visual alinhado com {{OPERADOR}} (profissional-acessível, não corporativo-frio nem casual-meme)
+- Tom visual alinhado com {{NOME_OPERADOR}} (profissional-acessível, não corporativo-frio nem casual-meme)
 
 **Source of truth:**
-- `segundo-cerebro/01-identidade/` — tom visual {{OPERADOR}}
+- `segundo-cerebro/01-identidade/` — tom visual {{NOME_OPERADOR}}
 - `segundo-cerebro/02-negocios/` — paletas por produto
 
 **Red flags:**
 - Logomarcas de ferramentas via emoji (🔧) — usar SVG/PNG oficial
 - Foto autor inconsistente entre peças da mesma campanha
-- Visual não-alinhado com posicionamento ({{OPERADOR}} = especialista IA, não influencer fitness)
+- Visual não-alinhado com posicionamento ({{NOME_OPERADOR}} = especialista IA, não influencer fitness)
 
 ### 5. **Espaço pra respirar**
 - Margem segura >= 60px (não colar texto na borda)
@@ -106,7 +106,7 @@ Auditar 6 categorias visuais:
 ### 6. **Leitura mobile**
 - 320-360px largura ainda legível (iPhone SE, Android pequenos)
 - CTA visível sem scroll (above fold)
-- Imagens não cortam conteúdo crítico (rosto do {{OPERADOR}} cortado)
+- Imagens não cortam conteúdo crítico (rosto do {{NOME_OPERADOR}} cortado)
 - Touch targets >= 44x44px (botões grandes o suficiente)
 - Não exige zoom pra ler
 
@@ -170,7 +170,7 @@ Auditar 6 categorias visuais:
 - **BAIXO qualquer quantidade:** APROVAR (apenas anota sugestões)
 
 ### Regra Inviolável #14
-Toda correção do {{OPERADOR}} vira aprendizado permanente:
+Toda correção do {{NOME_OPERADOR}} vira aprendizado permanente:
 1. Skill do produtor atualizada (não errar de novo)
 2. Skill do revisor-visual atualizada (não passar batido de novo)
 3. Memória persistente salva (design_rules_paginas.md ou nova)
@@ -179,7 +179,7 @@ Toda correção do {{OPERADOR}} vira aprendizado permanente:
 - **NÃO corrige** — não é designer, não edita a peça
 - **NÃO redesenha** — só reporta com coordenadas + sugestão
 - **NÃO audita técnica** — peso, dimensões, alt text, 404 = job do @analista-qa
-- **NÃO publica** — publish só após APROVADO + {{OPERADOR}} OK
+- **NÃO publica** — publish só após APROVADO + {{NOME_OPERADOR}} OK
 
 ---
 
@@ -196,7 +196,7 @@ Quando invocar /revisar-visual (pra Jade):
 | Página nova | revisor-codigo-pagina (não revisor-visual) | Depois de build, antes de --prod |
 | Página migrada | revisor-codigo-pagina + revisor-visual | Migração = pixel-perfect = visual conta |
 
-**Nota:** Páginas Astro = revisor-codigo-pagina é responsável. Revisor-visual só entra se migração pixel-perfect OU se {{OPERADOR}} pedir explicitamente.
+**Nota:** Páginas Astro = revisor-codigo-pagina é responsável. Revisor-visual só entra se migração pixel-perfect OU se {{NOME_OPERADOR}} pedir explicitamente.
 
 ---
 
@@ -206,7 +206,7 @@ Antes de dar commit nesta skill, validar:
 
 ```bash
 # 1. Testa contra carrossel aprovado (deve APROVAR)
-/revisar-visual --tipo=carrossel --path=/workspace/output/conteudo/carrossel-exemplo-aprovado.png --contexto="Projeto {{OPERADOR}}"
+/revisar-visual --tipo=carrossel --path=/workspace/output/conteudo/carrossel-exemplo-aprovado.png --contexto="Projeto {{NOME_OPERADOR}}"
 
 # 2. Testa contra criativo com texto cortado (deve REPROVAR)
 /revisar-visual --tipo=criativo --path=/workspace/output/trafego/criativo-com-texto-cortado.png --contexto="{{EMPRESA_COFUNDADA}}"
@@ -232,7 +232,7 @@ grep -E "CRÍTICO|ALTO|MÉDIO|BAIXO" workspace/output/auditorias/revisao-visual-
 ## Source of truth
 
 Visual:
-- `segundo-cerebro/01-identidade/` — tom visual {{OPERADOR}}
+- `segundo-cerebro/01-identidade/` — tom visual {{NOME_OPERADOR}}
 - `segundo-cerebro/02-negocios/` — paletas por produto
 - `Páginas Astro {{NOME_OPERADOR}}/DESIGN-SYSTEM.md` — design system páginas
 
@@ -256,7 +256,7 @@ Estrutura:
 ## Input
 - Tipo: carrossel
 - Path: /workspace/output/conteudo/carrossel-2026-05-11.png
-- Contexto: Projeto {{NOME_OPERADOR}}
+- Contexto: {{MARCA_PESSOAL}}
 
 ---
 
@@ -275,7 +275,7 @@ Estrutura:
 ⚠️ [BAIXO] Letter-spacing hero poderia ser -0.025em (atualmente 0)
 
 ### 4. Brand consistency
-✅ Logo {{OPERADOR}} presente slide 1
+✅ Logo {{NOME_OPERADOR}} presente slide 1
 ✅ Foto autor consistente com última campanha
 
 ### 5. Espaço pra respirar
@@ -320,5 +320,5 @@ Data: 2026-05-11 14:32
 
 - Antes de executar trabalho estrutural, registrar pendência no ClickUp via `/criar-pendencia`
 - Ao concluir, comentar via `/comentar-pendencia` e fechar via `/fechar-pendencia`
-- Aprendizado real (correção do {{OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
+- Aprendizado real (correção do {{NOME_OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
 - Reincidência = falha de processo, escalar imediatamente

@@ -82,7 +82,7 @@ COMPONENTE RECEBIDO (caminho do arquivo .astro)
 
 Invoque com o caminho do arquivo:
 ```
-/revisar-codigo-pagina $CLAUDE_PROJECT_DIR Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
+/revisar-codigo-pagina /Users/{{SEU_USUARIO}}/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
 ```
 
 Ou sem argumento — o revisor pedirá o caminho.
@@ -137,18 +137,18 @@ Ou sem argumento — o revisor pedirá o caminho.
   - [ ] Rail horizontal interno **não rouba** scroll vertical
   - [ ] Comparei lado-a-lado com `/reverso` (referência fluida): sem regressão de fluidez
   - [ ] Bug HISTÓRICO: `/squad-time-ia` 06/05/2026 ficou tremendo no scroll vertical depois do collapse listener (#117). Revisor passou batido — não pode repetir.
-  - **Falhar = REPROVAR.** Inspecionar markup NÃO substitui scroll real. Citação {{OPERADOR}}: *"Bati scroll e o site ficou todo tremendo. Como é que isso passou na revisão? Uma coisa tão óbvia."*
+  - **Falhar = REPROVAR.** Inspecionar markup NÃO substitui scroll real. Citação {{NOME_OPERADOR}}: *"Bati scroll e o site ficou todo tremendo. Como é que isso passou na revisão? Uma coisa tão óbvia."*
 
 
 - [ ] **Fidelidade à referência visual aprovada (Regra #19, 06/05/2026):**
   - [ ] Se há referência (HTML/Figma/screenshot/protótipo) no briefing, a página renderizada tem a MESMA anatomia: sticky preservados, scroll horizontal preservado, linhas/SVG conectando blocos preservados, hierarquia preservada.
   - [ ] Comparei lado a lado: referência aberta no browser + página local em http://localhost:4321/[slug]. Anatomia bate.
   - [ ] Se há divergência estrutural intencional, está documentada e justificada na entrega.
-  - **Falhar = REPROVAR imediatamente.** Reinterpretar layout aprovado é desfazer a aprovação do {{OPERADOR}}. Histórico: `/squad-time-ia` v1 (06/05/2026) reprovada por trocar rail horizontal + Jade sticky por grid 2x2 + Jade central.
+  - **Falhar = REPROVAR imediatamente.** Reinterpretar layout aprovado é desfazer a aprovação do {{NOME_OPERADOR}}. Histórico: `/squad-time-ia` v1 (06/05/2026) reprovada por trocar rail horizontal + Jade sticky por grid 2x2 + Jade central.
 
 ### Auditoria de fontes (em migração — pixel perfect) — adicionado em 2026-05-06 (#102)
 - [ ] **Auditoria de fontes obrigatória** se a página é uma migração pixel perfect:
-  - [ ] Rodei `cd "Sites Astro {{OPERADOR}} Avila" && node scripts/audit-fonts.mjs <urlOriginal> http://localhost:4321/[slug]`
+  - [ ] Rodei `cd "Sites Astro {{NOME_OPERADOR}} Avila" && node scripts/audit-fonts.mjs <urlOriginal> http://localhost:4321/[slug]`
   - [ ] Pra cada elemento textual (hero, body, headings, links, footer, FAQ, badges, botões, labels): font-family local == original (computed style)
   - [ ] Resultado do script: `Mismatches: 0` (0 falhas)
   - [ ] Weights necessários estão carregados (Google Fonts URL ou @font-face)
@@ -165,16 +165,16 @@ Ou sem argumento — o revisor pedirá o caminho.
   - [ ] Iniciais decorativas grandes (`bio-photo-initials`, etc) com `font-size > 4rem` têm `font-weight ≤ 600`?
   - [ ] Letter-spacing em hero grande não passa de `-0.02em` (mais negativo comprime demais)?
   - [ ] Weight pedido está EXPLICITAMENTE carregado no `Base.astro` (Google Fonts URL contém o peso)? **NUNCA confiar em síntese de bold do browser.**
-  - [ ] Hero foi visualmente comparado com `/reverso` (referência aprovada pelo {{OPERADOR}}) e não está achatado/distorcido?
+  - [ ] Hero foi visualmente comparado com `/reverso` (referência aprovada pelo {{NOME_OPERADOR}}) e não está achatado/distorcido?
   - [ ] **Exceção:** números puros (`.vs-cta-main`, contadores) podem usar weight 700/800 — mas SEMPRE preferir `.price-number` em DM Sans com `tabular-nums`.
-- [ ] **Hiperlinks padronizados:** toda menção a {{EMPRESA_COFUNDADA}}, {{EMPRESA_NEGOCIO}}, YouTube, ClickUp 8x, Automações, Reverso, Imersão, Mentoria, Consultoria está com hiperlink seguindo padrão `https://{{handle}}.com/[slug]` (ver `DESIGN-SYSTEM.md` seção Hiperlinks). Reprovar se houver menção textual sem link.
+- [ ] **Hiperlinks padronizados:** toda menção a {{EMPRESA_COFUNDADA}}, {{EMPRESA_NEGOCIO}}, YouTube, ClickUp 8x, Automações, Reverso, Imersão, Mentoria, Consultoria está com hiperlink seguindo padrão `https://{{DOMINIO}}/[slug]` (ver `DESIGN-SYSTEM.md` seção Hiperlinks). Reprovar se houver menção textual sem link.
 - [ ] **Hiperlinks INLINE — link na palavra, NUNCA URL como texto (Regra #19, tarefa #110 — 06/05/2026):**
-  - [ ] grep `{{handle}}\.com` no `.astro` retorna 0 ocorrências em **texto puro/visível** (fora de `href=`, fora de comentários `//`, fora de strings JS de mapping de slug)
-  - [ ] Toda menção visível é `<a href="https://{{handle}}.com/[slug]" class="link-inline">palavra</a>` (palavra-âncora, não URL)
-  - [ ] **Sem URLs entre parênteses como texto pra copiar/colar** (ex: ❌ "consultoria ({{handle}}.com/consultoria)" → ✅ "consultoria" como anchor)
-  - [ ] Slugs respeitam padrão canônico (`magicaonline`, `manychat`, `clickup`, `clickup8x`, `level`, `automacoes`, `reverso`, `youtube`, `mentoria`, `consultoria`, `{{empresa_cofundada}}` — ver `project_hiperlinks_padrao.md`)
-  - [ ] Comando rápido de auditoria: `grep -nE '\({{handle}}\.com|{{handle}}\.com\)' src/pages/[slug]/index.astro` deve retornar **0 hits** em texto visível.
-  Falhar = REPROVAR. **Histórico:** /mentoria FAQ v2 (06/05/2026) tinha "consultoria ({{handle}}.com/consultoria)" — {{OPERADOR}} rejeitou. Citação: "não faz sentido botar entre parênteses como texto que a pessoa vai ter que copiar e colar."
+  - [ ] grep `{{github_user}}\.com` no `.astro` retorna 0 ocorrências em **texto puro/visível** (fora de `href=`, fora de comentários `//`, fora de strings JS de mapping de slug)
+  - [ ] Toda menção visível é `<a href="https://{{DOMINIO}}/[slug]" class="link-inline">palavra</a>` (palavra-âncora, não URL)
+  - [ ] **Sem URLs entre parênteses como texto pra copiar/colar** (ex: ❌ "consultoria ({{DOMINIO}}/consultoria)" → ✅ "consultoria" como anchor)
+  - [ ] Slugs respeitam padrão canônico (`{{SLUG_PRODUTO_PRINCIPAL}}`, `manychat`, `clickup`, `clickup8x`, `level`, `automacoes`, `reverso`, `youtube`, `mentoria`, `consultoria`, `{{slug_produto_parceiro}}` — ver `project_hiperlinks_padrao.md`)
+  - [ ] Comando rápido de auditoria: `grep -nE '\({{github_user}}\.com|{{github_user}}\.com\)' src/pages/[slug]/index.astro` deve retornar **0 hits** em texto visível.
+  Falhar = REPROVAR. **Histórico:** /mentoria FAQ v2 (06/05/2026) tinha "consultoria ({{DOMINIO}}/consultoria)" — {{NOME_OPERADOR}} rejeitou. Citação: "não faz sentido botar entre parênteses como texto que a pessoa vai ter que copiar e colar."
 - [ ] **Iframes/formulários — validação visual obrigatória (Regra #14, falha de 06/05/2026):** o iframe está fora de containers com padding/border/background restritivos? `overflow:visible` em todos os ancestrais? Altura inicial generosa + listener `postMessage` aceitando múltiplos formatos GHL (string, objeto, payload aninhado)? Validado em mobile (390px) E desktop (1440px) via `node scripts/validate-visual.mjs [slug]` (Playwright)? O relatório JSON do `validate-visual` mostra `iframeUrlMeasuredHeight` MENOR que `renderedHeight` do iframe (folga ≥ 100px)? **Sem essa validação visual REAL — não basta CSS no código —, o iframe NUNCA é aprovado.** Item crítico — reprovar imediatamente se algum campo ou o botão de submit estiver cortado.
 - [ ] **Rodapé padrão:** a página renderiza o componente `Footer.astro` (4 colunas, ícones YouTube+Instagram, copyright). Rodapé custom inline ou ausente = REPROVADO. Verificar que `Base.astro` está com `footer` true (default) e que a página NÃO declara um `<footer>` próprio.
 - [ ] **Iframe — altura SEM corte E SEM excesso (Regra #19, tarefa #109 06/05/2026):**
@@ -184,16 +184,16 @@ Ou sem argumento — o revisor pedirá o caminho.
   - [ ] Iframe medido via Playwright na /URL renderizada (mobile 390x844 + desktop 1440x900) — `getBoundingClientRect().height` está próximo da altura visível do form (folga ≤ 200px)
   - [ ] Gap visual entre iframe.bottom e próxima seção (#faq, etc) = `var(--space-section)` (~40-80px), nunca ≥ 200px
   - [ ] Mobile + desktop testados e screenshots salvos em `workspace/output/paginas/YYYY-MM-DD-NOME-screenshots/`
-  - [ ] Falhar = REPROVAR. Bug histórico: /mentoria 06/05/2026 com 1500-1600px de min-height gerou buraco gigante até FAQ — {{OPERADOR}} rejeitou.
+  - [ ] Falhar = REPROVAR. Bug histórico: /mentoria 06/05/2026 com 1500-1600px de min-height gerou buraco gigante até FAQ — {{NOME_OPERADOR}} rejeitou.
 - [ ] **Auditoria sistêmica de iframe — TODAS as páginas com iframe (Regra #19, tarefa #116 06/05/2026):**
   - [ ] Quando aprovar uma página, RODAR auditoria de iframe em TODAS as páginas com iframe (não só na página revisada).
   - [ ] Comando: `grep -rln "<iframe\b" "Páginas Astro {{NOME_OPERADOR}}/src/pages/" --include="*.astro"` → para cada página da lista, validar min-height vs altura real do form via Playwright.
   - [ ] Pra cada página: medir altura real do iframe (`getBoundingClientRect().height` no localhost) + comparar com min-height atual + ver se gap visual entre `iframe.bottom` e próxima seção está aceitável (≤ `var(--space-section)`, nunca ≥ 200px).
-  - [ ] Se uma regra de iframe foi adicionada por feedback do {{OPERADOR}}, RETROFITAR em TODAS as páginas com o mesmo padrão (ex: forms GHL/52fatorial), não só a que originou o feedback.
+  - [ ] Se uma regra de iframe foi adicionada por feedback do {{NOME_OPERADOR}}, RETROFITAR em TODAS as páginas com o mesmo padrão (ex: forms GHL/{{empresa_holding_slug}}), não só a que originou o feedback.
   - [ ] Validar visualmente cada página com `node scripts/validate-visual.mjs <slug>` (mobile + desktop).
   - Falhar = REPROVAR. Cobertura sistêmica é parte da Regra #19.
 
-  ⚠️ **Bug histórico (06/05/2026, tarefa #116):** Regra #109 sobre iframe gap (form_embed.js + min-height modesto) foi aplicada só em /mentoria. /consultoria continuou com listener custom + min-height 1600/1450px e gap até a próxima seção. {{OPERADOR}} detectou. Falha de cobertura — retrofit não foi sistêmico. Citação {{OPERADOR}}: "Novamente aquele problema do buraco. (...) deveria ter sido corrigido por quem fez a revisão dessa página. Porque é só passar pelo layout e ver que tem buraco aí."
+  ⚠️ **Bug histórico (06/05/2026, tarefa #116):** Regra #109 sobre iframe gap (form_embed.js + min-height modesto) foi aplicada só em /mentoria. /consultoria continuou com listener custom + min-height 1600/1450px e gap até a próxima seção. {{NOME_OPERADOR}} detectou. Falha de cobertura — retrofit não foi sistêmico. Citação {{NOME_OPERADOR}}: "Novamente aquele problema do buraco. (...) deveria ter sido corrigido por quem fez a revisão dessa página. Porque é só passar pelo layout e ver que tem buraco aí."
 
 - [ ] **Animações GSAP (sugestão, Onda 5):** se há movimento na página (reveal-on-scroll, contadores, micro-animações), está implementado com GSAP (https://gsap.com/)? Se não, justificar (ex: original usa CSS animations e a página é migração pixel perfect). GSAP é a lib **recomendada/sugerida** do squad — não reprovar por isso, apenas sinalizar.
 - [ ] **Pixel perfect (apenas em MIGRAÇÕES, Onda 5):** se a tarefa é migração via `/migrar-pagina`, a página renderizada é cópia idêntica da original em layout, cores, fontes, espaçamentos e animações? Validado por diff visual via `node scripts/validate-visual.mjs --compare --slug=[slug] --original=[URL] --novo=http://localhost:4321/[slug]`. Diff > 5% em mobile ou desktop = REPROVAR. Em criação de página nova (`/criar-pagina-nova`) este item não se aplica.
@@ -201,7 +201,7 @@ Ou sem argumento — o revisor pedirá o caminho.
 
 ---
 
-- [ ] **Sliders — modo correto pra contexto (Regra #19, decisão {{OPERADOR}} 06/05/2026):**
+- [ ] **Sliders — modo correto pra contexto (Regra #19, decisão {{NOME_OPERADOR}} 06/05/2026):**
   - [ ] **Marquee** = logos / depoimentos curtos / fileiras de itens pequenos.
   - [ ] **Rail** = cards GRANDES (squads, produtos, galerias de seções).
   - [ ] Se rail de cards usa `<Slider mode="marquee">` (ou rail inline custom replicando marquee): **REPROVAR**.
@@ -257,7 +257,7 @@ Ou sem argumento — o revisor pedirá o caminho.
   - JS com erro silencioso não inicializa (verificar console.error)
   - Event listeners no elemento errado (wrap vs track)
   - CSS pai com `overflow: hidden` no eixo errado, `pointer-events: none` ou `z-index` baixo
-  - `<script is:inline>{`...`}</script>` sintaxe quebrada — emite template literal como statement, código nunca executa (bug encontrado em #103, afetava `inscricao-aula-{{handle}}-{{empresa_cofundada}}` e `oferta-irresistivel-{{empresa_cofundada}}`)
+  - `<script is:inline>{`...`}</script>` sintaxe quebrada — emite template literal como statement, código nunca executa (bug encontrado em #103, afetava `inscricao-aula-{{NOME_OPERADOR_SLUG}}-{{slug_produto_parceiro}}` e `oferta-irresistivel-{{slug_produto_parceiro}}`)
   - `touch-action: auto` (default do browser) — mobile o gesto vai pro scroll vertical antes do JS pegar
   - CSS `animation` em vez de rAF + JS — sem `dragging=true` para pausar, drag briga com keyframe e move 20-30px só
 
@@ -289,12 +289,12 @@ Ou sem argumento — o revisor pedirá o caminho.
   - [ ] JS usa `element.style.cursor = 'grabbing'` em vez de `classList.add('is-grabbing')` — inline style ignora a `@media`, quebra desktop-only.
   - [ ] `test-slider-drag.mjs` reporta `Cursor: grab` na coluna durante drag desktop em vez de `grabbing` (handler `mousedown` não disparou ou inline style errado).
 
-  **Histórico:** {{OPERADOR}} rejeitou 07/05/2026 (#139) sliders /reverso por falta de affordance. Causa-raiz: `.testi-card { cursor: default }` sobrescrevia `cursor: grab` do `.testi-track`. Solução canônica: filhos do track usam `cursor: inherit`, regras dentro de `@media (hover: hover) and (pointer: fine)`, JS usa classList.
+  **Histórico:** {{NOME_OPERADOR}} rejeitou 07/05/2026 (#139) sliders /reverso por falta de affordance. Causa-raiz: `.testi-card { cursor: default }` sobrescrevia `cursor: grab` do `.testi-track`. Solução canônica: filhos do track usam `cursor: inherit`, regras dentro de `@media (hover: hover) and (pointer: fine)`, JS usa classList.
 
 
-  **Bug histórico:** 3 rejeições do {{OPERADOR}} em sliders sem drag funcional. Sempre que o revisor confiou em grep de markup ("vejo o JS no arquivo, parece OK"), passou batido. Esse teste funcional é o GATE — se passar aqui, drag está garantido em produção.
+  **Bug histórico:** 3 rejeições do {{NOME_OPERADOR}} em sliders sem drag funcional. Sempre que o revisor confiou em grep de markup ("vejo o JS no arquivo, parece OK"), passou batido. Esse teste funcional é o GATE — se passar aqui, drag está garantido em produção.
 
-  **Citação {{OPERADOR}} (rail, 06/05/2026):** "Tem que ser fluido, leve. Eu tenho que pegar card e arrastar pra lado, pro outro, de jeito gostoso, de jeito macio."
+  **Citação {{NOME_OPERADOR}} (rail, 06/05/2026):** "Tem que ser fluido, leve. Eu tenho que pegar card e arrastar pra lado, pro outro, de jeito gostoso, de jeito macio."
 
 - [ ] **Auditoria de TODO container horizontal scrollável (Regra #19, Tarefa #146 — 07/05/2026):**
 
@@ -333,18 +333,18 @@ Ou sem argumento — o revisor pedirá o caminho.
 
   **Páginas snapshot externo (Framer/Webflow) — REGRA HARDCODE:** se o `index.astro` foi gerado via snapshot pós-hidratação de plataforma externa, REPROVAR automaticamente se algum container horizontal scrollável detectado **não** estiver implementado via `Slider.astro` canônico. Markup Framer com `<ul>` `display:flex` + `transform:matrix(1,0,0,1,0,0)` em filhos = slider que dependia de framer-motion → 100% das vezes vira foto sem o runtime React.
 
-  **Histórico:** {{OPERADOR}} rejeitou `/automacoes` em 07/05/2026 (#146) — 2 sliders de módulos (40 cards 232x309 cada, "MÓDULO 1 Primeiros passos / MÓDULO 2 Ferramentas / MÓDULO 3 Inteligência artificial" + 17 outros) congelados em produção porque o snapshot Framer não trouxe o runtime React/framer-motion. Citação: *"Esses slides dos módulos não estão de acordo com o que a gente já combinou. Todo slider tem que estar em movimento, sutil movimento, leve e contínuo, e quando colocar o cursor do mouse, tem que deixar a pessoa arrastar pra lado e pro outro. Como é que esse furo passou batido?"*. Causa-raiz: revisor verificou markup mas não detectou que não havia handler de drag/auto-scroll porque o pai era `<section overflow:hidden>` Framer-style (sem `overflow-x:auto`) — esse novo gate cobre exatamente esse caso.
+  **Histórico:** {{NOME_OPERADOR}} rejeitou `/automacoes` em 07/05/2026 (#146) — 2 sliders de módulos (40 cards 232x309 cada, "MÓDULO 1 Primeiros passos / MÓDULO 2 Ferramentas / MÓDULO 3 Inteligência artificial" + 17 outros) congelados em produção porque o snapshot Framer não trouxe o runtime React/framer-motion. Citação: *"Esses slides dos módulos não estão de acordo com o que a gente já combinou. Todo slider tem que estar em movimento, sutil movimento, leve e contínuo, e quando colocar o cursor do mouse, tem que deixar a pessoa arrastar pra lado e pro outro. Como é que esse furo passou batido?"*. Causa-raiz: revisor verificou markup mas não detectou que não havia handler de drag/auto-scroll porque o pai era `<section overflow:hidden>` Framer-style (sem `overflow-x:auto`) — esse novo gate cobre exatamente esse caso.
 
-- [ ] **Assets externos clonados em `public/` (Regra Inviolável #19, hotfix #86 — 06/05/2026):** toda imagem, vídeo, fonte, ícone, CSS ou JS referenciado pelo `.astro` (seja por URL absoluta `https://sites.{{handle}}.com/...` ou path relativo `/[slug]/img/...`) tem que existir em `Páginas Astro {{NOME_OPERADOR}}/public/[caminho-relativo]`. Não é opcional.
-  - [ ] Rodei: `grep -hoE 'src="https://sites\.{{handle}}\.com/[^"]+\.(jpg|jpeg|png|webp|svg|gif|mov|mp4|webm|woff|woff2|ttf|otf|css|js|ico)"' src/pages/[slug]/index.astro | sort -u` → tenho a lista de URLs absolutas.
+- [ ] **Assets externos clonados em `public/` (Regra Inviolável #19, hotfix #86 — 06/05/2026):** toda imagem, vídeo, fonte, ícone, CSS ou JS referenciado pelo `.astro` (seja por URL absoluta `https://sites.{{DOMINIO}}/...` ou path relativo `/[slug]/img/...`) tem que existir em `Páginas Astro {{NOME_OPERADOR}}/public/[caminho-relativo]`. Não é opcional.
+  - [ ] Rodei: `grep -hoE 'src="https://sites\.{{github_user}}\.com/[^"]+\.(jpg|jpeg|png|webp|svg|gif|mov|mp4|webm|woff|woff2|ttf|otf|css|js|ico)"' src/pages/[slug]/index.astro | sort -u` → tenho a lista de URLs absolutas.
   - [ ] Rodei: `grep -hoE '"/[a-z0-9_-]+/(img|assets|files|cdn|fonts|videos)/[^"]+"' src/pages/[slug]/index.astro | sort -u` → tenho a lista de paths relativos.
   - [ ] Para cada URL, asset existe em `Páginas Astro {{NOME_OPERADOR}}/public/[caminho-relativo]` (`ls public/[slug]/img/[arquivo]` retorna OK).
   - [ ] Para cada URL, `curl -s -o /dev/null -w "%{http_code}" "http://localhost:4321/[caminho]"` retorna **200** (não 404).
   - [ ] Para cada asset, `file public/[caminho]` mostra tipo binário correto (PNG/JPEG/WebP/MP4/WOFF2 — NUNCA "HTML document" — sinal de 404 mascarado).
   - [ ] Para cada asset, `test -s public/[caminho]` (tamanho > 0 bytes).
-  - [ ] **Validação cenário "Vercel novo":** rodei script Playwright que bloqueia `sites.{{handle}}.com` e contei `imgs.filter(i => !i.complete || i.naturalWidth === 0).length` → tem que ser **0**. Se for > 0, são exatamente os assets que vão quebrar em produção num projeto Vercel novo.
+  - [ ] **Validação cenário "Vercel novo":** rodei script Playwright que bloqueia `sites.{{DOMINIO}}` e contei `imgs.filter(i => !i.complete || i.naturalWidth === 0).length` → tem que ser **0**. Se for > 0, são exatamente os assets que vão quebrar em produção num projeto Vercel novo.
 
-  **Falhar em qualquer item = REPROVAR a página.** Migração SEM assets clonados não é entrega completa. Diff visual padrão MASCARA o problema (ambos os lados puxam da mesma CDN antiga e dão "PASS" enganoso). Hotfix histórico: #82 (clickup8x — vídeo .mov 36MB faltava, detectado pelo {{OPERADOR}}) + #86 (sistêmico — 46 assets em 4 páginas). Em produção via CDN antiga (`sites.{{handle}}.com`) carrega; em qualquer projeto Vercel novo OU se o domínio antigo cair, tudo 404.
+  **Falhar em qualquer item = REPROVAR a página.** Migração SEM assets clonados não é entrega completa. Diff visual padrão MASCARA o problema (ambos os lados puxam da mesma CDN antiga e dão "PASS" enganoso). Hotfix histórico: #82 (clickup8x — vídeo .mov 36MB faltava, detectado pelo {{NOME_OPERADOR}}) + #86 (sistêmico — 46 assets em 4 páginas). Em produção via CDN antiga (`sites.{{DOMINIO}}`) carrega; em qualquer projeto Vercel novo OU se o domínio antigo cair, tudo 404.
 
 - [ ] **Logomarcas em ferramentas/parceiros (Regra Inviolável #19, hotfix #91 — 06/05/2026):** toda menção a ferramenta, plataforma, parceiro, integração ou produto terceiro renderiza com `<img>` apontando para logo oficial. Não pode haver emoji, letra-num-quadrado-dourado, ou texto-só representando a marca.
   - [ ] Cada item em listas tipo `mcps`, `ferramentas`, `integracoes`, `parceiros` tem propriedade `logo: "/logos/<slug>.svg"` (não `letter:` ou `emoji:`).
@@ -360,13 +360,13 @@ Ou sem argumento — o revisor pedirá o caminho.
   **Falhar em qualquer item = REPROVAR a página.** Logo oficial dá legitimidade visual; emoji/letra dá amadorismo. Histórico: `/squad-time-ia` v2 (06/05/2026) reprovada por usar `letter:` em vez de logo real na seção MCPs.
 
 
-- [ ] **Slugs WordPress NÃO são páginas a migrar (Regra Inviolável #19, hotfix #98 — 06/05/2026):** os slugs públicos `{{handle}}.com/[slug]` (`/magicaonline`, `/manychat`, `/clickup`, `/level`, `/automacoes`, `/reverso`, `/youtube`, `/{{empresa_cofundada}}`) são **redirects do WordPress**, NÃO páginas próprias do Astro. Exceção: `/clickup8x` É página Astro real.
-  - [ ] Verifiquei: nenhum link tipo `<a href="/magicaonline">` está sendo tratado como rota Astro (esses slugs são redirects públicos do WordPress, não páginas próprias).
-  - [ ] Hiperlinks pra empresas/parceiros usam `https://{{handle}}.com/[slug]` com `target="_blank" rel="noopener"` (ex: `{{handle}}.com/magicaonline`, `{{handle}}.com/clickup`) — NÃO `sites.{{handle}}.com/[slug]` (esse domínio é só o sistema Astro do squad).
-  - [ ] Lista canônica de slugs WP: `magicaonline`, `manychat`, `clickup`, `clickup8x` (← ESSE É PÁGINA), `level`, `automacoes`, `reverso`, `youtube`, `{{empresa_cofundada}}`, `consultoria`, `palestras`, `shortcuts`, `percepcao`.
-  - [ ] Padrão de hiperlink pra produto/parceiro do {{OPERADOR}} é SEMPRE via `{{handle}}.com/[slug]` (memória `project_hiperlinks_padrao.md` + `project_redirects_wordpress.md`), porque o roteamento fica centralizado no WordPress.
+- [ ] **Slugs WordPress NÃO são páginas a migrar (Regra Inviolável #19, hotfix #98 — 06/05/2026):** os slugs públicos `{{DOMINIO}}/[slug]` (`/{{SLUG_PRODUTO_PRINCIPAL}}`, `/manychat`, `/clickup`, `/level`, `/automacoes`, `/reverso`, `/youtube`, `/{{slug_produto_parceiro}}`) são **redirects do WordPress**, NÃO páginas próprias do Astro. Exceção: `/clickup8x` É página Astro real.
+  - [ ] Verifiquei: nenhum link tipo `<a href="/{{SLUG_PRODUTO_PRINCIPAL}}">` está sendo tratado como rota Astro (esses slugs são redirects públicos do WordPress, não páginas próprias).
+  - [ ] Hiperlinks pra empresas/parceiros usam `https://{{DOMINIO}}/[slug]` com `target="_blank" rel="noopener"` (ex: `{{DOMINIO}}/{{SLUG_PRODUTO_PRINCIPAL}}`, `{{DOMINIO}}/clickup`) — NÃO `sites.{{DOMINIO}}/[slug]` (esse domínio é só o sistema Astro do squad).
+  - [ ] Lista canônica de slugs WP: `{{SLUG_PRODUTO_PRINCIPAL}}`, `manychat`, `clickup`, `clickup8x` (← ESSE É PÁGINA), `level`, `automacoes`, `reverso`, `youtube`, `{{slug_produto_parceiro}}`, `consultoria`, `palestras`, `shortcuts`, `percepcao`.
+  - [ ] Padrão de hiperlink pra produto/parceiro do {{NOME_OPERADOR}} é SEMPRE via `{{DOMINIO}}/[slug]` (memória `project_hiperlinks_padrao.md` + `project_redirects_wordpress.md`), porque o roteamento fica centralizado no WordPress.
 
-  **Falhar em qualquer item = REPROVAR a página.** Slug WP tratado como rota Astro vai 404 em produção. Hiperlink pra produto via `sites.{{handle}}.com/[slug]` quebra a estratégia de centralização de redirects ({{OPERADOR}} muda destino no WP sem precisar redeployar páginas).
+  **Falhar em qualquer item = REPROVAR a página.** Slug WP tratado como rota Astro vai 404 em produção. Hiperlink pra produto via `sites.{{DOMINIO}}/[slug]` quebra a estratégia de centralização de redirects ({{NOME_OPERADOR}} muda destino no WP sem precisar redeployar páginas).
 
 ---
 
@@ -416,7 +416,7 @@ Registrar resultado em `squads/dev/aprendizados.md`:
 Auditoria via curl no HTML servido em produção (não basta inspecionar fonte do `.astro`):
 
 ```bash
-HTML=$(curl -s https://sites.{{handle}}.com/[slug])
+HTML=$(curl -s https://sites.{{DOMINIO}}/[slug])
 GTM_COUNT=$(echo "$HTML" | grep -o 'GTM-NN36ZRZ'              | wc -l)   # >= 2
 JS_COUNT=$(echo "$HTML"  | grep -o 'googletagmanager.com/gtm.js'  | wc -l)   # >= 1
 NS_COUNT=$(echo "$HTML"  | grep -o 'googletagmanager.com/ns.html' | wc -l)   # >= 1
@@ -439,19 +439,19 @@ Fonte: tarefa #147 (07/05/2026).
 
 **Regra #19 / aprendizado #149 — 07/05/2026:**
 
-Toda página em `sites.{{handle}}.com/*` DEVE servir o mesmo favicon canônico do squad:
+Toda página em `sites.{{DOMINIO}}/*` DEVE servir o mesmo favicon canônico do squad:
 - `<link rel="icon" type="image/x-icon" href="/images/favicon-gui.ico">`
 - `<link rel="apple-touch-icon" href="/images/favicon-gui.png">`
 
 Auditar via curl no HTML servido em produção:
 
 ```bash
-HTML=$(curl -s https://sites.{{handle}}.com/[slug])
+HTML=$(curl -s https://sites.{{DOMINIO}}/[slug])
 # Extrair href do favicon
 echo "$HTML" | grep -oE '<link[^>]*rel=["\']?(icon|shortcut icon)["\']?[^>]*>' | head -3
 # Comparar com canônico (referência: home / ou outra página validada)
-REF=$(curl -s https://sites.{{handle}}.com/ | grep -oE '<link[^>]*rel=["\']?icon["\']?[^>]*>' | head -1)
-TARGET=$(curl -s https://sites.{{handle}}.com/[slug] | grep -oE '<link[^>]*rel=["\']?icon["\']?[^>]*>' | head -1)
+REF=$(curl -s https://sites.{{DOMINIO}}/ | grep -oE '<link[^>]*rel=["\']?icon["\']?[^>]*>' | head -1)
+TARGET=$(curl -s https://sites.{{DOMINIO}}/[slug] | grep -oE '<link[^>]*rel=["\']?icon["\']?[^>]*>' | head -1)
 [[ "$REF" == "$TARGET" ]] && echo "OK" || echo "REJEITAR — favicon divergente"
 ```
 
@@ -459,8 +459,8 @@ Páginas com favicon divergente do canônico = REJEITAR a entrega.
 
 Verificar também que o asset retorna 200:
 ```bash
-curl -sI "https://sites.{{handle}}.com/images/favicon-gui.ico" | head -1  # esperado: HTTP/2 200
-curl -sI "https://sites.{{handle}}.com/images/favicon-gui.png" | head -1  # esperado: HTTP/2 200
+curl -sI "https://sites.{{DOMINIO}}/images/favicon-gui.ico" | head -1  # esperado: HTTP/2 200
+curl -sI "https://sites.{{DOMINIO}}/images/favicon-gui.png" | head -1  # esperado: HTTP/2 200
 ```
 
 Atenção especial: páginas com snapshot Framer/Webflow tendem a vir com favicon da plataforma (ex: `default-favicon-light.v1.png`). Buscar explicitamente por padrões como `default-favicon`, `default-touch-icon`, `framer.com`, `webflow.com` no HTML servido — se aparecer, REJEITAR.
@@ -475,7 +475,7 @@ Não basta verificar que drag funciona. Tem que medir SUAVIDADE.
 **Script canônico:** `scripts/test-rail-smoothness-165.mjs`
 
 ```bash
-node scripts/test-rail-smoothness-165.mjs https://sites.{{handle}}.com/<pagina>
+node scripts/test-rail-smoothness-165.mjs https://sites.{{DOMINIO}}/<pagina>
 ```
 
 **3 testes obrigatórios:**
@@ -488,7 +488,7 @@ node scripts/test-rail-smoothness-165.mjs https://sites.{{handle}}.com/<pagina>
 
 4. **Código de momentum no bundle** — fetch raw HTML, regex `requestAnimationFrame` + `0.94`/`0.95` (decay literal, minifier remove zero à esquerda → `.94`) + `setPointerCapture`. Se faltar, drag não tem inércia = REPROVAÇÃO.
 
-**Caveat headless:** drag programático pode não disparar momentum runtime mesmo com código presente (PointerCapture rejeita events sintéticos). Por isso o teste de runtime pós-mouseup é WARN (informacional), não FAIL — o teste estrutural (código no bundle) é o gate. Drag manual real precisa ser testado pelo {{OPERADOR}} antes de marcar entregue.
+**Caveat headless:** drag programático pode não disparar momentum runtime mesmo com código presente (PointerCapture rejeita events sintéticos). Por isso o teste de runtime pós-mouseup é WARN (informacional), não FAIL — o teste estrutural (código no bundle) é o gate. Drag manual real precisa ser testado pelo {{NOME_OPERADOR}} antes de marcar entregue.
 
 REPROVAR a entrega se qualquer um dos 4 testes estruturais falhar.
 
@@ -511,12 +511,12 @@ Fonte: tarefa #182 (07/05/2026).
 
 Cormorant Garamond é PROIBIDO em qualquer elemento que renderize dígito (número, ano, data, preço, percentual, cupom, telefone, CNPJ). Sem exceção. Mesmo que pareça "semântico" ou "destaque elegante" — visualmente fica distorcido.
 
-Histórico: tarefa #182 abriu exceção indevida pra "ano semântico" em /natal (`<span class="year-accent">2027</span>` com Cormorant italic). {{OPERADOR}} reprovou imediatamente em #188 (07/05/2026): "nunca nunca nunca usar essa fonte para números — fica distorcido demais".
+Histórico: tarefa #182 abriu exceção indevida pra "ano semântico" em /natal (`<span class="year-accent">2027</span>` com Cormorant italic). {{NOME_OPERADOR}} reprovou imediatamente em #188 (07/05/2026): "nunca nunca nunca usar essa fonte para números — fica distorcido demais".
 
 Validação obrigatória via curl no HTML servido em produção:
 
 ```bash
-HTML=$(curl -s https://sites.{{handle}}.com/[slug])
+HTML=$(curl -s https://sites.{{DOMINIO}}/[slug])
 # Procurar elementos com Cormorant que tenham dígito ao redor
 echo "$HTML" | grep -oE '<[^>]*font-family[^>]*Cormorant[^>]*>[^<]*[0-9]+[^<]*</' | head -5
 echo "$HTML" | grep -oE '<[^>]*class="[^"]*\b(year|cupom|numero|preco|data|cormorant)[^"]*"[^>]*>[^<]*[0-9]+[^<]*</' | head -5
@@ -574,9 +574,9 @@ grep -c '<Header\b' src/pages/$SLUG/index.astro  # esperado: 0
 
 # Após build:
 npx astro build
-grep -c 'Copyright 2026 {{OPERADOR}}' dist/$SLUG/index.html  # esperado: 1 (não 2)
+grep -c 'Copyright 2026 {{NOME_OPERADOR}}' dist/$SLUG/index.html  # esperado: 1 (não 2)
 ```
 
 Se algum grep der ≥ 1 no source OU ≥ 2 no HTML built → **REPROVAR**.
 
-**Bug histórico:** /mentoria redesign 2026-05-14 — passou batido pelo revisor código + revisor visual + bug-hunter. {{OPERADOR}} detectou. Esse item é GATE permanente daqui pra frente.
+**Bug histórico:** /mentoria redesign 2026-05-14 — passou batido pelo revisor código + revisor visual + bug-hunter. {{NOME_OPERADOR}} detectou. Esse item é GATE permanente daqui pra frente.

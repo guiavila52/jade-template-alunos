@@ -31,9 +31,9 @@ PROD_PATTERNS=(
 
 # APIs de conteúdo (via curl PATCH)
 API_PATTERNS=(
-  "{{app_pessoal}}.{{handle}}.com/api/content/newsletters"
-  "{{app_pessoal}}.{{handle}}.com/api/content/carrosseis"
-  "{{app_pessoal}}.{{handle}}.com/api/content/ideias"
+  "gimmick.{{DOMINIO}}/api/content/newsletters"
+  "gimmick.{{DOMINIO}}/api/content/carrosseis"
+  "gimmick.{{DOMINIO}}/api/content/ideias"
   "rest.gohighlevel.com"
   "services.leadconnectorhq.com"
 )

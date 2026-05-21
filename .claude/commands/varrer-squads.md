@@ -1,6 +1,6 @@
 ---
 name: varrer-squads
-description: Skill autônoma que varre workspace/memory/pendencias.md, detecta Ondas atacáveis sem dependência do {{OPERADOR}} ou APIs externas, prioriza por caminho crítico (Regra M3), executa via Jade direta ou subagents, e gera relatório de progresso. Disparada por /rotina-gui-ausente OU /schedule cron.
+description: Skill autônoma que varre workspace/memory/pendencias.md, detecta Ondas atacáveis sem dependência do {{NOME_OPERADOR}} ou APIs externas, prioriza por caminho crítico (Regra M3), executa via Jade direta ou subagents, e gera relatório de progresso. Disparada por /rotina-{{nome_operador}}-ausente OU /schedule cron.
 model: claude-opus-4-5
 ---
 
@@ -8,7 +8,7 @@ model: claude-opus-4-5
 
 ## Propósito
 
-Skill autônoma que faz Jade trabalhar SOZINHA enquanto {{OPERADOR}} está fora. Diferente de `/rotina-gui-ausente` (rotina manual com {{OPERADOR}} presente no início), esta é otimizada pra ser disparada por cron (`/schedule`) ou wake-up — gera plano + executa + reporta + reagenda.
+Skill autônoma que faz Jade trabalhar SOZINHA enquanto {{NOME_OPERADOR}} está fora. Diferente de `/rotina-{{nome_operador}}-ausente` (rotina manual com {{NOME_OPERADOR}} presente no início), esta é otimizada pra ser disparada por cron (`/schedule`) ou wake-up — gera plano + executa + reporta + reagenda.
 
 ## Memórias relevantes (ler antes)
 
@@ -21,9 +21,9 @@ Skill autônoma que faz Jade trabalhar SOZINHA enquanto {{OPERADOR}} está fora.
 
 - **Cron diário** via `/schedule` (ex: matinal 8h BRT)
 - **Wake-up** dentro de rotina autônoma longa
-- **Disparada por {{OPERADOR}}** quando quer ver "o que tem pra fazer agora"
+- **Disparada por {{NOME_OPERADOR}}** quando quer ver "o que tem pra fazer agora"
 
-NÃO usar quando {{OPERADOR}} está ativo na sessão (use `/rotina-gui-ausente` que tem mais etapas).
+NÃO usar quando {{NOME_OPERADOR}} está ativo na sessão (use `/rotina-{{nome_operador}}-ausente` que tem mais etapas).
 
 ## Fluxo
 
@@ -43,7 +43,7 @@ NÃO usar quando {{OPERADOR}} está ativo na sessão (use `/rotina-gui-ausente` 
         ↓
 [ 3. Filtrar Ondas atacáveis ]
    - Status 📋 ou 🚧 (não ✅, não bloqueada)
-   - Sem dependência de {{OPERADOR}} (não "Aguarda {{OPERADOR}}...", "Bloqueado pelo {{OPERADOR}}...")
+   - Sem dependência de {{NOME_OPERADOR}} (não "Aguarda {{NOME_OPERADOR}}...", "Bloqueado pelo {{NOME_OPERADOR}}...")
    - Sem dependência de API externa down (consultando health-check)
         ↓
 [ 4. Priorizar por caminho crítico (M3) ]
@@ -66,7 +66,7 @@ NÃO usar quando {{OPERADOR}} está ativo na sessão (use `/rotina-gui-ausente` 
    - Ondas atacadas (✅/🚧/❌)
    - Quota estimada consumida
    - Próximas Ondas atacáveis no próximo ciclo
-   - Bloqueios novos detectados (precisam {{OPERADOR}})
+   - Bloqueios novos detectados (precisam {{NOME_OPERADOR}})
         ↓
 [ 7. Atualizar dashboard performance Jade (M5) ]
    workspace/output/metricas/jade-performance.md
@@ -82,7 +82,7 @@ NÃO usar quando {{OPERADOR}} está ativo na sessão (use `/rotina-gui-ausente` 
 
 ## Critérios de "Onda atacável autônoma"
 
-✅ Pode atacar SEM {{OPERADOR}}:
+✅ Pode atacar SEM {{NOME_OPERADOR}}:
 - Atualizar skills/regras/memórias
 - Refatorar docs
 - Criar skills novas (com spec clara)
@@ -96,8 +96,8 @@ NÃO usar quando {{OPERADOR}} está ativo na sessão (use `/rotina-gui-ausente` 
 - Aprovação de output final
 - Decisão de produto (preço, escopo, nome)
 - Input externo (chave API nova, conta de terceiro)
-- Trabalho que precisa {{OPERADOR}} gravar/produzir (clipes "outro", apontar bugs)
-- Deploy production (requer triple-check + {{OPERADOR}} aprovar quando possível)
+- Trabalho que precisa {{NOME_OPERADOR}} gravar/produzir (clipes "outro", apontar bugs)
+- Deploy production (requer triple-check + {{NOME_OPERADOR}} aprovar quando possível)
 
 ## Comandos auxiliares (executados pela skill)
 
@@ -112,7 +112,7 @@ for n in $(grep -oE "ONDA [0-9]+" workspace/memory/pendencias.md | sort -u); do
 done
 
 # 3. Bloqueio detectado?
-grep -B 1 -A 5 "Aguarda {{OPERADOR}}\|Bloqueado pelo {{OPERADOR}}\|Bloqueio:" workspace/memory/pendencias.md
+grep -B 1 -A 5 "Aguarda {{NOME_OPERADOR}}\|Bloqueado pelo {{NOME_OPERADOR}}\|Bloqueio:" workspace/memory/pendencias.md
 
 # 4. Commit padrão da varredura
 git add <arquivos específicos>
@@ -159,9 +159,9 @@ workspace/output/varreduras/YYYY-MM-DD-HHMM-varredura.md
 ├── Ondas listadas + status
 ├── Plano priorizado (caminho crítico)
 ├── Execução (Ondas atacadas)
-├── Bloqueios detectados (precisam {{OPERADOR}})
+├── Bloqueios detectados (precisam {{NOME_OPERADOR}})
 ├── Quota estimada
-└── Próxima ação (re-agendar / aguardar {{OPERADOR}})
+└── Próxima ação (re-agendar / aguardar {{NOME_OPERADOR}})
 ```
 
 ## Bateria de testes (Regra Inviolável #24)
@@ -172,4 +172,4 @@ ANTES de marcar entregue:
 3. REPROVADO → corrige + re-revisa até APROVADO
 4. SÓ aí marca entregue em pendencias.md + commita
 
-Jade NUNCA pede pro {{OPERADOR}} testar — testa antes.
+Jade NUNCA pede pro {{NOME_OPERADOR}} testar — testa antes.

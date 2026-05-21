@@ -1,5 +1,5 @@
 #!/bin/bash
-# Hook PreToolUse — Bloqueia push direto pro repo público {{github_user}}/jade
+# Hook PreToolUse — Bloqueia push direto pro repo público {{GITHUB_USER}}/jade
 # Regra §18 (Território público — só via /publicar-jade)
 
 INPUT=$(cat)
@@ -14,7 +14,7 @@ CMD=$(echo "$INPUT" | python3 -c "import sys,json; d=json.load(sys.stdin); print
 
 # Detecção em 2 passos pra capturar ambas ordens de gh api
 TARGET_REPO=""
-if echo "$CMD" | grep -qE '{{github_user}}/(jade|squad-template)'; then
+if echo "$CMD" | grep -qE '{{GITHUB_USER}}/(jade|squad-template)'; then
   TARGET_REPO=1
 fi
 
@@ -28,17 +28,17 @@ REASON=""
 
 # git push pra remote do repo
 if echo "$CMD" | grep -qE 'git\s+push'; then
-  BLOCK=1; REASON="git push pra {{github_user}}/jade"
+  BLOCK=1; REASON="git push pra {{GITHUB_USER}}/jade"
 fi
 
 # gh api -X (PUT|POST|PATCH|DELETE)
 if echo "$CMD" | grep -qE 'gh\s+api.*-X\s+(PUT|POST|PATCH|DELETE)|gh\s+api\s+-X\s+(PUT|POST|PATCH|DELETE)'; then
-  BLOCK=1; REASON="gh api write em {{github_user}}/jade (PUT/POST/PATCH/DELETE)"
+  BLOCK=1; REASON="gh api write em {{GITHUB_USER}}/jade (PUT/POST/PATCH/DELETE)"
 fi
 
 # gh repo edit/rename/delete
 if echo "$CMD" | grep -qE 'gh\s+repo\s+(edit|rename|delete|archive|transfer)'; then
-  BLOCK=1; REASON="gh repo destructive em {{github_user}}/jade"
+  BLOCK=1; REASON="gh repo destructive em {{GITHUB_USER}}/jade"
 fi
 
 if [ "$BLOCK" = "1" ]; then

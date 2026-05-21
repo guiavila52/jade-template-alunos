@@ -29,7 +29,7 @@ Toda revisão executa bateria SISTEMÁTICA antes de aprovar:
 
 1. **Markup correto** — HTML/Astro válido, sem tags soltas
 2. **Light Copy aplicado** — sem 3 Ps na abertura, frases-âncora honradas
-3. **Cormorant NUNCA em dígitos** — número/ano/preço/data/cupom em Inter
+3. **Fonte display (Syne, Fraunces, Cormorant) JAMAIS em números/preços/datas/cupons** — sempre Inter Tight com `font-variant-numeric: tabular-nums` OU JetBrains Mono. Display em números gera kerning estranho e baseline desalinhada. Reincidência banida pelo {{NOME_OPERADOR}} em 18/05/2026 — ver memória `feedback_fonte_display_jamais_em_numeros.md`
 4. **GTM-NN36ZRZ presente** — 2+ ocorrências (head + noscript body)
 5. **Favicon canônico** — 
 6. **Astro nativo** —  > 0, zero 
@@ -100,15 +100,15 @@ Ou sem argumento — o revisor pedirá o caminho.
 - [ ] **Urgência:** Existe uma razão para agir agora? (prazo, bônus, escassez real — não inventada)
 - [ ] **Prova social:** Depoimentos ou credibilidade presente? Com detalhes específicos (nome, resultado, contexto)?
 - [ ] **Métricas públicas — sem faturamento**:
-  - [ ] grep `-E "(R\\$|fatura|faturamento|MRR|receita)"` no `.astro` retorna 0 menções relacionadas a empresas do {{OPERADOR}} ({{EMPRESA_COFUNDADA}}, {{EMPRESA_NEGOCIO}}, Projeto {{NOME_OPERADOR}}, {{EMPRESA_HOLDING}})
+  - [ ] grep `-E "(R\\$|fatura|faturamento|MRR|receita)"` no `.astro` retorna 0 menções relacionadas a empresas do {{NOME_OPERADOR}} ({{EMPRESA_COFUNDADA}}, {{EMPRESA_NEGOCIO}}, {{MARCA_PESSOAL}}, {{EMPRESA_HOLDING}})
   - [ ] Se houver prova social numérica, usa: usuários ativos, alunos, criadores, cases, tempo de mercado, marcas atendidas
-  - [ ] Nenhuma menção a faturamento, MRR, lucro, ARR de {{EMPRESA_COFUNDADA}}, {{EMPRESA_NEGOCIO}}, Projeto {{NOME_OPERADOR}}
+  - [ ] Nenhuma menção a faturamento, MRR, lucro, ARR de {{EMPRESA_COFUNDADA}}, {{EMPRESA_NEGOCIO}}, {{MARCA_PESSOAL}}
   Falhar = REPROVAR.
 - [ ] **Hiperlinks INLINE — link na palavra**:
-  - [ ] grep `{{handle}}\.com` no `.astro` retorna 0 ocorrências em texto puro (sem `href=` e fora de comentários `//`)
-  - [ ] Toda URL é `<a href="https://{{handle}}.com/[slug]">palavra</a>` com classe `.link-inline`
-  - [ ] Sem URLs entre parênteses como texto pra copiar (ex: ❌ "consultoria ({{handle}}.com/consultoria)")
-  - [ ] Slugs seguem padrão canônico (magicaonline, manychat, clickup, clickup8x, level, automacoes, reverso, youtube, mentoria, consultoria, {{empresa_cofundada}} — ver `project_hiperlinks_padrao.md`)
+  - [ ] grep `{{github_user}}\.com` no `.astro` retorna 0 ocorrências em texto puro (sem `href=` e fora de comentários `//`)
+  - [ ] Toda URL é `<a href="https://{{DOMINIO}}/[slug]">palavra</a>` com classe `.link-inline`
+  - [ ] Sem URLs entre parênteses como texto pra copiar (ex: ❌ "consultoria ({{DOMINIO}}/consultoria)")
+  - [ ] Slugs seguem padrão canônico ({{SLUG_PRODUTO_PRINCIPAL}}, manychat, clickup, clickup8x, level, automacoes, reverso, youtube, mentoria, consultoria, {{slug_produto_parceiro}} — ver `project_hiperlinks_padrao.md`)
   Falhar = REPROVAR.
 - [ ] **Vocabulário aproxima o lead — não afasta**:
   - [ ] grep `-E "(qualifica|pré-sel|screening|triagem|avaliar se|tem fit|encaixa no perfil|se você passar|for aprovado)"` no `.astro` retorna 0 ocorrências em copy visível ao lead
@@ -157,10 +157,10 @@ Registrar resultado em `squads/copy/aprendizados.md`:
 - Se aprovada: o que estava certo (padrão para replicar)
 - Se reprovada: o que falhou (padrão para evitar)
 
-- [ ] **Posicionamento de comunidade** (em produtos com mentor — mentoria, consultoria, eventos, cursos com presença do {{OPERADOR}}):
+- [ ] **Posicionamento de comunidade** (em produtos com mentor — mentoria, consultoria, eventos, cursos com presença do {{NOME_OPERADOR}}):
   - [ ] Comunidade NÃO está posicionada como "segredo", "verdadeiro valor", "chave", ou "core" do produto
   - [ ] Comunidade aparece como BENEFÍCIO COMPLEMENTAR (envolvimento, troca, networking)
-  - [ ] O {{OPERADOR}} (mentor/consultor) é claramente o protagonista de valor
+  - [ ] O {{NOME_OPERADOR}} (mentor/consultor) é claramente o protagonista de valor
   - [ ] Sem frases tipo "você aprende com os outros mais do que imagina" ou "a turma é o que vale"
   - Falhar = REPROVAR copy.
 
@@ -168,12 +168,12 @@ Registrar resultado em `squads/copy/aprendizados.md`:
 ### Checklist — Prova social honesta, sobre o GUI, inequívoca (Tarefa #113)
 
 - [ ] **Prova social — honesta, sobre o GUI, inequívoca**:
-  - [ ] grep `400 ?k|400 ?mil` retorna 0 ocorrências como métrica do {{OPERADOR}} (pode aparecer descrevendo a {{EMPRESA_COFUNDADA}} em contexto claro: "plataforma com 400k+ usuários hospedando cursos")
+  - [ ] grep `400 ?k|400 ?mil` retorna 0 ocorrências como métrica do {{NOME_OPERADOR}} (pode aparecer descrevendo a {{EMPRESA_COFUNDADA}} em contexto claro: "plataforma com 400k+ usuários hospedando cursos")
   - [ ] Sem "N+ empresas" sem precisão
   - [ ] Sem "N continentes" / "globalmente"
   - [ ] Métricas usadas são sobre o GUI: CEO {{EMPRESA_COFUNDADA}}, autor 2 livros, ~15 mil inscritos YouTube, avaliações cursos
   - [ ] Cada número tem fonte verificável (não inventado)
-  - [ ] Leitor não consegue confundir o que pertence ao {{OPERADOR}} vs ao produto que ele cofundou
+  - [ ] Leitor não consegue confundir o que pertence ao {{NOME_OPERADOR}} vs ao produto que ele cofundou
   Falhar = REPROVAR.
 
 

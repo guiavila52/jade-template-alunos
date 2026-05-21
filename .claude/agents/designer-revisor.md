@@ -27,7 +27,7 @@ Se você reprova, reporta com path:linha/coordenada + sugestão de fix. NÃO cor
 - Linha vertical de visão (eye flow)
 
 ### 2. Cor e contraste
-- Brand consistency: cores da marca usadas (preto/dourado em LP do {{OPERADOR}}, paleta Light Copy nos carrosséis)
+- Brand consistency: cores da marca usadas (preto/dourado em LP do {{NOME_OPERADOR}}, paleta Light Copy nos carrosséis)
 - Contraste WCAG mínimo (texto sobre fundo lê em mobile)
 - Cores não-brigam (sem amarelo + verde-limão no mesmo card)
 
@@ -129,7 +129,7 @@ Foco: caçar feio sem dó. Visual ruim = REPROVADO.
 
 ## Revisão de newsletters (Regra #38 — Playwright obrigatório)
 
-Newsletters HTML (fragments gerados via `/renderizar-newsletter-html`) DEVEM passar por validação visual Playwright ANTES de PATCH no {{APP_PESSOAL}}.
+Newsletters HTML (fragments gerados via `/renderizar-newsletter-html`) DEVEM passar por validação visual Playwright ANTES de PATCH no Gimmick.
 
 ### Script canônico
 
@@ -137,7 +137,7 @@ Newsletters HTML (fragments gerados via `/renderizar-newsletter-html`) DEVEM pas
 python3 scripts/review/render-and-screenshot.py \
   --input workspace/output/newsletter/YYYY-MM-DD-{slug}.html \
   --slug {id-newsletter} \
-  --{{app_pessoal}}-url https://{{app_pessoal}}.{{handle}}.com/{{handle}}/conteudos/{uuid}
+  --gimmick-url https://gimmick.{{DOMINIO}}/{{github_user}}/conteudos/{uuid}
 ```
 
 ### Outputs do script
@@ -196,30 +196,30 @@ Criar arquivo `workspace/output/screenshots-revisao/REVISAO-APROVADO-{YYYY-MM-DD
 - [x] Auto-detect: sem espaços brancos reportados
 - [x] Auto-detect: sem imagens quebradas
 
-## {{APP_PESSOAL}} URL
-https://{{app_pessoal}}.{{handle}}.com/{{handle}}/conteudos/{uuid}
+## Gimmick URL
+https://gimmick.{{DOMINIO}}/{{github_user}}/conteudos/{uuid}
 
 Aprovado para PATCH.
 ```
 
 ### Hooks ativos
 
-Hook #38 (`check-revisao-visual-antes-publicar.sh`) bloqueia PATCH body {{APP_PESSOAL}} se não encontrar `REVISAO-APROVADO-{data recente}-{slug}.md` na pasta `workspace/output/screenshots-revisao/`.
+Hook #38 (`check-revisao-visual-antes-publicar.sh`) bloqueia PATCH body Gimmick se não encontrar `REVISAO-APROVADO-{data recente}-{slug}.md` na pasta `workspace/output/screenshots-revisao/`.
 
 Bypass legítimo: `export JADE_CONTEXT=desenvolvendo-revisor` (apenas durante criação/teste do próprio script de revisão).
 
 ---
 
-## 🆕 PROTOCOLO 2 PASSADAS (2026-05-17 — Task {{clickup_task_id}})
+## 🆕 PROTOCOLO 2 PASSADAS (2026-05-17 — Task 86ahha462)
 
 ### Por que existe
-Histórico: validação técnica isolada deixou passar página com 5 bugs visuais óbvios ({{OPERADOR}} pegou em 3 segundos). Falta gate estético ANTES do técnico.
+Histórico: validação técnica isolada deixou passar página com 5 bugs visuais óbvios ({{NOME_OPERADOR}} pegou em 3 segundos). Falta gate estético ANTES do técnico.
 
 ### Passada 1 — ESTÉTICA HUMANA (gate principal)
 
 **SEMPRE rodar primeiro. Se reprovar, NEM RODA passada 2.**
 
-Critérios subjetivos mas críticos (olhar screenshot inteiro como {{OPERADOR}} olharia):
+Critérios subjetivos mas críticos (olhar screenshot inteiro como {{NOME_OPERADOR}} olharia):
 - "Página IMPRESSIONA? Parece SaaS premium tier?"
 - "Primeira dobra prende? Tem hierarquia clara?"
 - "Sem AI default look? (sem gradient cliché, sem 4 cards iguais, sem glow neon em tudo)"
@@ -270,9 +270,9 @@ Designer-revisor APROVOU 3 vezes (v3, v4, v5) páginas com bugs visuais óbvios 
 
 ## 🔴 CRITICAL 17/05/2026 — Revisor DEVE testar INTERAÇÃO (não só screenshot estático)
 
-**Bug grave reincidente:** {{OPERADOR}} clicou em card do organograma e modal abriu no CANTO SUPERIOR ESQUERDO, fora de centro. Revisor anterior tinha APROVADO porque só validou screenshot estático.
+**Bug grave reincidente:** {{NOME_OPERADOR}} clicou em card do organograma e modal abriu no CANTO SUPERIOR ESQUERDO, fora de centro. Revisor anterior tinha APROVADO porque só validou screenshot estático.
 
-**Cita {{OPERADOR}} literal (frustração no limite):**
+**Cita {{NOME_OPERADOR}} literal (frustração no limite):**
 > "Por que que eu que tenho que clicar pra te dizer que o modal tá bugado? Por que que o nosso agente que revisa a página já não revisou e viu que tá bugado? Toda hora fica chegando problema ridículo pra mim que agente poderia ter visto."
 
 **Regra nova obrigatória:** designer-revisor passada 1 estética **INCLUI teste de interação real** via Playwright:
@@ -329,13 +329,13 @@ Ver memória: `feedback_design_tem_que_emocionar.md`
 
 ---
 
-## 🔴 17/05 NOITE — Calibração "EMOCIONA?" não bate com {{OPERADOR}} (falha grave)
+## 🔴 17/05 NOITE — Calibração "EMOCIONA?" não bate com {{NOME_OPERADOR}} (falha grave)
 
-Revisor aprovou hero com Fraunces opticals 144 + drop-cap "S" gradient como "EMOCIONA Linear-tier". {{OPERADOR}} (avaliação humana real) disse "não gostei dessa fonte e desse S desse jeito".
+Revisor aprovou hero com Fraunces opticals 144 + drop-cap "S" gradient como "EMOCIONA Linear-tier". {{NOME_OPERADOR}} (avaliação humana real) disse "não gostei dessa fonte e desse S desse jeito".
 
-**Aprendizado:** "emociona" subjetivo varia muito entre revisor agent e {{OPERADOR}} real. Critério precisa ser MAIS CONSERVADOR:
+**Aprendizado:** "emociona" subjetivo varia muito entre revisor agent e {{NOME_OPERADOR}} real. Critério precisa ser MAIS CONSERVADOR:
 - Quando em dúvida sobre escolha editorial (drop-cap, serifa exuberante, tipografia rebuscada) → SUGERIR alternativas em vez de aprovar
-- Tom {{OPERADOR}} = "leve, funcional, clean, moderno" — NÃO editorial exuberante
+- Tom {{NOME_OPERADOR}} = "leve, funcional, clean, moderno" — NÃO editorial exuberante
 - Fraunces 144 opticals + drop-cap = editorial demais pra vibe "shadcn/Resend funcional"
 - Defaults seguros: Inter Tight / Geist / DM Sans pra headlines
 

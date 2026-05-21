@@ -33,6 +33,6 @@ Ver `segundo-cerebro/03-operacao/email-marketing-historico.md` (a criar quando w
 ## Bloqueios atuais
 
 Esqueleto. Aguardando:
-- Google Postmaster Tools cadastrar `empresa.{{handle}}.com` ({{OPERADOR}})
-- Plano warmup gradual confirmado ({{OPERADOR}})
+- Google Postmaster Tools cadastrar `empresa.{{DOMINIO}}` ({{NOME_OPERADOR}})
+- Plano warmup gradual confirmado ({{NOME_OPERADOR}})
 - Acesso Mailgun (via GHL)

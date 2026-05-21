@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # PreToolUse hook — Regra §3 (skill canonica obrigatoria pra producao)
 # Bloqueia despacho de agentes de producao sem skill canonica ativa
-# Criado: 2026-05-17 (Task ClickUp: {{clickup_task_id}})
+# Criado: 2026-05-17 (Task ClickUp: 86ahha462)
 
 set -uo pipefail
 

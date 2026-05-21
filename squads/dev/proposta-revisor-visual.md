@@ -1,7 +1,7 @@
 # Proposta — Upgrade do `/revisar-codigo-pagina` para validação visual headless
 
 > Data: 2026-05-06
-> Origem: REGRA INVIOLÁVEL #14 — rejeição do {{OPERADOR}} em /consultoria expôs que o revisor
+> Origem: REGRA INVIOLÁVEL #14 — rejeição do {{NOME_OPERADOR}} em /consultoria expôs que o revisor
 > atual aprova com base em leitura de código, sem nunca abrir a página renderizada.
 > Resultado: passou batido um iframe que cortava os últimos campos do formulário.
 > Status: PROPOSTA — não implementar agora, registrar como pendência para Onda 3+.

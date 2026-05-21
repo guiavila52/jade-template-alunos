@@ -31,7 +31,7 @@ tipografia, leitura mobile, hierarquia, espaçamento.
 |---------|----------|
 | `mapa.md` | Este arquivo |
 | `memoria.md` | Contexto operacional do agente (regras vivas, source of truth) |
-| `aprendizados.md` | Lições do agente (especialmente registros de rejeições do {{OPERADOR}} — Regra #14) |
+| `aprendizados.md` | Lições do agente (especialmente registros de rejeições do {{NOME_OPERADOR}} — Regra #14) |
 
 ## Skills relacionadas
 
@@ -51,4 +51,4 @@ O `revisor-visual` é despachado dentro do triple-check pelas skills:
 - `feedback_design_rico_contextual.md` (#182) — toda página/output tem alma
 - `feedback_metricas_publicas_gui.md` — sem expor faturamento
 - `design_rules_paginas.md` — Cormorant zero em números, fontes em preços
-- `segundo-cerebro/01-identidade/` — tom visual do {{OPERADOR}}
+- `segundo-cerebro/01-identidade/` — tom visual do {{NOME_OPERADOR}}

@@ -1,6 +1,6 @@
 ---
 name: revisar-newsletter
-description: Valida copy da newsletter (tom, Light Copy, fechamento canonico, acentuacao) antes do PATCH {{APP_PESSOAL}} e disparo GHL.
+description: Valida copy da newsletter (tom, Light Copy, fechamento canonico, acentuacao) antes do PATCH Gimmick e disparo GHL.
 type: skill
 ---
 
@@ -12,7 +12,7 @@ Skill de validação INDEPENDENTE de newsletter antes do disparo. Despachada pel
 ## Quando invocar
 
 - Imediatamente após `@copywriter` produzir/atualizar `workspace/output/newsletter/YYYY-MM-DD-{slug}.md`
-- Antes de qualquer PATCH no {{APP_PESSOAL}} com body novo
+- Antes de qualquer PATCH no Gimmick com body novo
 - Antes de qualquer disparo via GHL (skill `/disparar-newsletter`)
 - Sempre que houver mudança no body (mesmo correção pontual de acento)
 
@@ -24,7 +24,7 @@ Skill de validação INDEPENDENTE de newsletter antes do disparo. Despachada pel
 ## Antes de validar — leitura obrigatória
 
 1. `segundo-cerebro/01-identidade/tom-de-voz.md`
-2. `segundo-cerebro/01-identidade/exemplos-copy-gui.md`
+2. `segundo-cerebro/01-identidade/exemplos-copy-{{nome_operador}}.md`
 3. `segundo-cerebro/01-identidade/icp.md`
 4. `squads/conteudo/agentes/revisor-newsletter/aprendizados.md`
 5. Memórias persistentes correlatas (ver arquivo do agente)
@@ -111,7 +111,7 @@ CTAs secundários OK desde que hierarquicamente subordinados.
 
 ### 7. Tom alinhado com tom-de-voz + exemplos-copy-gui
 
-Comparar com amostras canônicas em `exemplos-copy-gui.md`:
+Comparar com amostras canônicas em `exemplos-copy-{{nome_operador}}.md`:
 - Saudação calorosa, não formal
 - "pra vocês" / "no seu negócio" (inclusivo, não distante)
 - Verbo no presente contínuo quando for obra viva
@@ -128,13 +128,13 @@ grep -c '{{contact.first_name}}' "$PATH"  # 1+ esperado em maioria das newslette
 
 **APROVADO COM RESSALVAS** se: ausente quando deveria estar (newsletter de relacionamento).
 
-### 9. Hiperlinks padrão {{handle}}.com/[slug]
+### 9. Hiperlinks padrão {{DOMINIO}}/[slug]
 
-Se newsletter menciona produto/parceiro do {{OPERADOR}}, link DEVE seguir padrão `{{handle}}.com/[slug]` (ver `project_hiperlinks_padrao.md` — slugs conhecidos: magicaonline, manychat, clickup, clickup8x, level, automacoes, reverso, youtube).
+Se newsletter menciona produto/parceiro do {{NOME_OPERADOR}}, link DEVE seguir padrão `{{DOMINIO}}/[slug]` (ver `project_hiperlinks_padrao.md` — slugs conhecidos: magicaonline, manychat, clickup, clickup8x, level, automacoes, reverso, youtube).
 
-Exceção: URLs externas mencionadas em contexto (ex: {{app_pessoal}}.{{handle}}.com inline).
+Exceção: URLs externas mencionadas em contexto (ex: gimmick.{{DOMINIO}} inline).
 
-**APROVADO COM RESSALVAS** se: link de produto sem padrão {{handle}}.com.
+**APROVADO COM RESSALVAS** se: link de produto sem padrão {{DOMINIO}}.
 
 ### 10. Sem métricas privadas
 
@@ -187,7 +187,7 @@ assert '**Preheader:**' not in body_email, "Body tem **Preheader:** inline"
 
 ### 15. Body NÃO contém assinatura nem separador `---` antes do marker
 
-**Regra desde 14/05/2026:** o markdown da newsletter NÃO carrega assinatura. O renderer (`scripts/newsletter/renderizar-html.py` → `renderizar_assinatura()`) monta automaticamente: foto 96x96 circular + 4 linhas canônicas ({{NOME_OPERADOR}} bold / Fundador e CEO da {{EMPRESA_COFUNDADA}} / Autor do {{NOME_CURSO}}, Automações PRO e ClickUp 8x / Fundador do {{EMPRESA_NEGOCIO}} · {{handle}}.com).
+**Regra desde 14/05/2026:** o markdown da newsletter NÃO carrega assinatura. O renderer (`scripts/newsletter/renderizar-html.py` → `renderizar_assinatura()`) monta automaticamente: foto 96x96 circular + 4 linhas canônicas ({{NOME_OPERADOR}} bold / Fundador e CEO da {{EMPRESA_COFUNDADA}} / Autor do Sistema Reverso, Automações PRO e ClickUp 8x / Fundador do {{EMPRESA_NEGOCIO}} · {{DOMINIO}}).
 
 Body deve terminar em `Um abraço,` (vírgula) e em seguida vir DIRETO o marker INTERNO, sem `---` e sem bloco de assinatura.
 
@@ -196,7 +196,7 @@ Body deve terminar em `Um abraço,` (vírgula) e em seguida vir DIRETO o marker 
 ultima_linha_body = [l for l in body_email.strip().split('\n') if l.strip()][-1]
 assert ultima_linha_body.strip() == 'Um abraço,', f'Body deveria terminar em "Um abraço," (vírgula), terminou em: {ultima_linha_body!r}'
 assert '**{{NOME_OPERADOR}}**' not in body_email, 'Assinatura no MD detectada — renderer monta sozinho, remover do markdown'
-assert 'Site: [{{handle}}.com]' not in body_email, 'Linha "Site: [{{handle}}.com]" detectada — formato antigo, renderer não usa isso'
+assert 'Site: [{{DOMINIO}}]' not in body_email, 'Linha "Site: [{{DOMINIO}}]" detectada — formato antigo, renderer não usa isso'
 ```
 
 **REPROVADO** se: body contém qualquer linha de assinatura OU separador `---` antes do marker INTERNO.
@@ -247,7 +247,7 @@ suspeitos = re.findall(r'\*\*(Camada|Etapa|Fase|Passo|Pilar|Nivel|Nível)\s+\w+:
 
 ### 20. Asset URL validado (imagem/vídeo)
 
-Toda URL de imagem (markdown `![](URL)` ou HTML `<img src>`) DEVE estar acessível (HTTP 200) antes da newsletter ir pro {{APP_PESSOAL}}.
+Toda URL de imagem (markdown `![](URL)` ou HTML `<img src>`) DEVE estar acessível (HTTP 200) antes da newsletter ir pro Gimmick.
 
 ```bash
 URLS=$(echo "$body_email" | grep -oE '!\[.*?\]\(https?://[^\)]+\)' | grep -oE 'https?://[^\)]+')
@@ -275,7 +275,7 @@ echo "$BODY" | grep -iE "responde.*palavra|envia.*palavra|comenta.*palavra|com a
 - "Comenta [PALAVRA]"
 - "Responda com X que..."
 
-Decisão {{OPERADOR}} 14/05/2026 — newsletter mapa-infoprodutos. Memória: `feedback_newsletter_sem_gatilho_resposta_palavra.md`.
+Decisão {{NOME_OPERADOR}} 14/05/2026 — newsletter mapa-infoprodutos. Memória: `feedback_newsletter_sem_gatilho_resposta_palavra.md`.
 
 ## Output canônico
 
@@ -302,7 +302,7 @@ Decisão {{OPERADOR}} 14/05/2026 — newsletter mapa-infoprodutos. Memória: `fe
 - **Ação requerida:** despachar `@copywriter` pra acentuar + re-revisar
 
 ### APROVADO COM RESSALVAS — item 9 (Hiperlinks padrão)
-- Linha 27: mencionou Manychat sem link padrão `{{handle}}.com/manychat`
+- Linha 27: mencionou Manychat sem link padrão `{{DOMINIO}}/manychat`
 - **Sugestão:** acrescentar link na 2ª menção (não bloqueia disparo)
 ```
 
@@ -356,7 +356,7 @@ Esta skill É a bateria de testes da newsletter. Não delega revisão pra outra 
 TODA newsletter termina com 4 blocos antes da assinatura:
 1. Bloco vídeo (quando origem é vídeo)
 2. Frase forte (max 20 palavras, moral da história)
-3. Bloco convite {{NOME_CURSO}} + Mentoria com hyperlinks
+3. Bloco convite Sistema Reverso + Mentoria com hyperlinks
 4. "Um abraço," (vírgula)
 
 Validações grep:
@@ -364,20 +364,20 @@ Validações grep:
 ```bash
 grep -c "Um abraço," "$PATH"                              # esperado: 1
 grep -c "Um abraço!" "$PATH"                              # esperado: 0 (exclamação proibida)
-grep -c "{{handle}}.com/reverso" "$PATH"                    # esperado: 1+
-grep -c "{{handle}}.com/mentoria" "$PATH"                   # esperado: 1+
+grep -c "{{DOMINIO}}/reverso" "$PATH"                    # esperado: 1+
+grep -c "{{DOMINIO}}/mentoria" "$PATH"                   # esperado: 1+
 grep -ciE "Bora aplicar|qualquer coisa.*chama|garanta.*vaga|últimas chances|espero que ajude" "$PATH"  # esperado: 0
 ```
 
 **REPROVADO** se:
-- ❌ Falta bloco convite {{NOME_CURSO}} + Mentoria com hyperlinks
+- ❌ Falta bloco convite Sistema Reverso + Mentoria com hyperlinks
 - ❌ "Um abraço!" (exclamação) — canônico é vírgula
 - ❌ Frase final genérica ("Bora aplicar?", "Qualquer coisa, me chama", "Espero que ajude")
 - ❌ Hard-sell ("garanta sua vaga", "últimas chances", "última oportunidade")
 - ❌ Hyperlink ausente em qualquer dos dois produtos
 - ❌ Frase forte vira pergunta retórica vaga ou CTA solto
 
-Decisão {{OPERADOR}} 14/05/2026. Ver memória `feedback_newsletter_fechamento_canonico_final.md`.
+Decisão {{NOME_OPERADOR}} 14/05/2026. Ver memória `feedback_newsletter_fechamento_canonico_final.md`.
 
 
 
@@ -413,14 +413,14 @@ REPROVAR newsletter que vier em UMA versão só. Toda newsletter precisa ter 2 o
 
 | Versão | Pitch obrigatório | Link único |
 |---|---|---|
-| Não-aluno | {{NOME_CURSO}} (curso + comunidade) | {{handle}}.com/reverso |
-| Aluno | Mentoria | {{handle}}.com/mentoria |
+| Não-aluno | Sistema Reverso (curso + comunidade) | {{DOMINIO}}/reverso |
+| Aluno | Mentoria | {{DOMINIO}}/mentoria |
 
 ### Checks adicionais
 
 - Corpo idêntico entre as 2 versões? (regra: só o fechamento muda)
 - Versão aluno NÃO menciona preço da Mentoria? (não é público)
-- Versão aluno NÃO vende {{NOME_CURSO}}? (pessoa já tem)
+- Versão aluno NÃO vende Sistema Reverso? (pessoa já tem)
 - Versão não-aluno menciona cupom ativo + preço?
 - Pitch sempre no último parágrafo (não no meio)?
 - 1 link único por versão (não 2-3)?

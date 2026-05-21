@@ -1,8 +1,8 @@
 #!/bin/bash
 # Hook: check-skill-nova-sem-aval.sh
 # Trigger: PreToolUse (Write em .claude/commands/*.md)
-# Bloqueia criação de skill nova sem aval explícito do {{OPERADOR}}.
-# Regra Inviolável §13 (AGENTS.md): "Skill nova exige aval explícito do {{OPERADOR}} antes de criar."
+# Bloqueia criação de skill nova sem aval explícito do {{NOME_OPERADOR}}.
+# Regra Inviolável §13 (AGENTS.md): "Skill nova exige aval explícito do {{NOME_OPERADOR}} antes de criar."
 # Bypass legítimo: export JADE_CONTEXT='skill-aprovada-pelo-gui=true' antes do Write.
 #
 # Input: JSON via stdin com tool_name e tool_input.file_path
@@ -24,12 +24,12 @@ case "$TOOL_NAME" in
           exit 0
         fi
         cat <<MSG >&2
-ALERTA REGRA INVIOLÁVEL §13 — Skill nova detectada sem aval explícito do {{OPERADOR}}.
+ALERTA REGRA INVIOLÁVEL §13 — Skill nova detectada sem aval explícito do {{NOME_OPERADOR}}.
 
 Arquivo: $FILE_PATH
 
-Antes de criar skill nova, Jade DEVE propor pro {{OPERADOR}} e aguardar OK explícito.
-Bypass legítimo (após aval do {{OPERADOR}}): export JADE_CONTEXT='skill-aprovada-pelo-gui=true'
+Antes de criar skill nova, Jade DEVE propor pro {{NOME_OPERADOR}} e aguardar OK explícito.
+Bypass legítimo (após aval do {{NOME_OPERADOR}}): export JADE_CONTEXT='skill-aprovada-pelo-gui=true'
 
 Ver AGENTS.md §13 + memória feedback_skills.md.
 MSG

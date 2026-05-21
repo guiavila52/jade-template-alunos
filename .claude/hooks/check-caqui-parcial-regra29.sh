@@ -1,27 +1,27 @@
 #!/bin/bash
 # Hook PreToolUse — Regra Inviolável #29
-# Bloqueia declarações de "Caqui parcial" ou "aguarda {{OPERADOR}}" sem o checklist obrigatório das 4 categorias.
+# Bloqueia declarações de "Caqui parcial" ou "aguarda {{NOME_OPERADOR}}" sem o checklist obrigatório das 4 categorias.
 
 # Lê o comando que vai ser executado (passado via stdin como JSON Claude Code)
 INPUT=$(cat)
 COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // .tool_input.content // ""' 2>/dev/null)
 
 # Detecta strings de bloqueio
-if echo "$COMMAND" | grep -qiE "Caqui parcial|aguarda {{OPERADOR}}|espera {{OPERADOR}} voltar|aguardando {{OPERADOR}}|aguardando aprovação"; then
+if echo "$COMMAND" | grep -qiE "Caqui parcial|aguarda {{NOME_OPERADOR}}|espera {{NOME_OPERADOR}} voltar|aguardando {{NOME_OPERADOR}}|aguardando aprovação"; then
     # Verifica se PROGRESS.md tem o checklist Regra #29 respondido nas últimas 50 linhas
-    PROGRESS="$CLAUDE_PROJECT_DIR
+    PROGRESS="/Users/{{SEU_USUARIO}}/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/PROGRESS.md"
     if [ -f "$PROGRESS" ] && tail -50 "$PROGRESS" | grep -qE "Regra #29|PRÉ-DECLARAÇÃO DE CAQUI"; then
         # Checklist presente — permitir
         exit 0
     fi
     
     # Bloqueio: falta checklist
-    echo "BLOQUEIO Regra Inviolável #29: você está prestes a declarar 'Caqui parcial' / 'aguarda {{OPERADOR}}' SEM ter respondido o checklist das 4 categorias de gate." >&2
+    echo "BLOQUEIO Regra Inviolável #29: você está prestes a declarar 'Caqui parcial' / 'aguarda {{NOME_OPERADOR}}' SEM ter respondido o checklist das 4 categorias de gate." >&2
     echo "" >&2
     echo "Antes de continuar, responda em PROGRESS.md:" >&2
     echo "  [ ] É DISPARO público irreversível? (cat 1)" >&2
     echo "  [ ] É DEPLOY em produção? (cat 2)" >&2
-    echo "  [ ] É INPUT EXTERNO físico que só {{OPERADOR}} tem? (cat 3)" >&2
+    echo "  [ ] É INPUT EXTERNO físico que só {{NOME_OPERADOR}} tem? (cat 3)" >&2
     echo "  [ ] É DECISÃO ESTRATÉGICA real entre opções? (cat 4)" >&2
     echo "" >&2
     echo "Se NENHUMA marcada → NÃO declarar Caqui parcial. Continue atacando." >&2

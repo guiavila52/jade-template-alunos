@@ -15,8 +15,8 @@ Lista pendências abertas da lista canônica "Tasks Jade COO" do ClickUp **via A
 
 ## Quando invocar
 
-- {{OPERADOR}} pergunta "o que tá pendente?"
-- Jade está fazendo priorização autônoma (rotina /varrer-squads ou /rotina-gui-ausente)
+- {{NOME_OPERADOR}} pergunta "o que tá pendente?"
+- Jade está fazendo priorização autônoma (rotina /varrer-squads ou /rotina-{{nome_operador}}-ausente)
 - Início de sessão: snapshot do que está em curso
 - Antes de despachar nova tarefa pra confirmar que não duplica
 
@@ -33,7 +33,7 @@ Lista pendências abertas da lista canônica "Tasks Jade COO" do ClickUp **via A
 ## IDs canônicos
 
 - **List ID:** `901327194775`
-- **Workspace:** {{WORKSPACE_ID}}
+- **Workspace:** `30978229`
 - **Statuses válidos:** `fila para fazer` (open) · `em progresso` · `aprovação` · `alterações` · `concluído` (closed)
 - **Prioridades ClickUp:** 1=urgent · 2=high · 3=normal · 4=low
 
@@ -136,7 +136,7 @@ normal = prio_counts.get("normal", 0)
 low = prio_counts.get("low", 0)
 
 print(f"\n**Resumo:** {total} abertas ({urgent} urgent · {high} high · {normal} normal · {low} low)")
-print(f"**URL lista:** https://app.clickup.com/{{WORKSPACE_ID}}/v/l/li/{list_id}")
+print(f"**URL lista:** https://app.clickup.com/30978229/v/l/li/{list_id}")
 PY
 ```
 
@@ -147,12 +147,12 @@ PY
 
 | ID | Título | Prio | Status | Tags |
 |---|---|---|---|---|
-| {{clickup_task_id}} | ONDA MESTRA Reverso | urgent | em progresso | onda-mestra |
-| {{clickup_task_id}} | Deixar skills funcionando | high | fila para fazer | skills |
+| 86ahedjxr | ONDA MESTRA Reverso | urgent | em progresso | onda-mestra |
+| 86ahedkmc | Deixar skills funcionando | high | fila para fazer | skills |
 | ... | ... | ... | ... | ... |
 
 **Resumo:** N abertas (X urgent · Y high · Z normal · W low)
-**URL lista:** https://app.clickup.com/{{WORKSPACE_ID}}/v/l/li/901327194775
+**URL lista:** https://app.clickup.com/30978229/v/l/li/901327194775
 ```
 
 ## Critério de aceitação
@@ -165,7 +165,7 @@ PY
 
 ## Tratamento de erros
 
-- HTTP 401 → token inválido/expirado → reportar pro {{OPERADOR}} pra rotacionar key
+- HTTP 401 → token inválido/expirado → reportar pro {{NOME_OPERADOR}} pra rotacionar key
 - HTTP 429 → rate limit → esperar 60s + retry uma vez
 - HTTP 5xx → ClickUp instável → reportar + tentar novamente em 30s
 
@@ -174,10 +174,10 @@ PY
 Quando chamada em rotina autônoma, ao invés de só listar:
 1. Listar → priorizar (caminho crítico Imersão → deadline → dependência)
 2. Detectar urgents sem assignee
-3. Sinalizar pendências bloqueadas por input do {{OPERADOR}} (tag `aprovacao-gui`)
+3. Sinalizar pendências bloqueadas por input do {{NOME_OPERADOR}} (tag `aprovacao-gui`)
 4. Sugerir próximas 3 a atacar autonomamente
 
 ## Aprendizado + pendência (Regra §5)
 
-- Se {{OPERADOR}} apontar inconsistência (task no painel mas não veio na lista): registrar em `squads/gestao/aprendizados.md` + criar pendência de fix de filtro
+- Se {{NOME_OPERADOR}} apontar inconsistência (task no painel mas não veio na lista): registrar em `squads/gestao/aprendizados.md` + criar pendência de fix de filtro
 - Se HTTP 401 acontecer: registrar em memória `feedback_clickup_api_nao_mcp.md` + abrir pendência rotacionar token

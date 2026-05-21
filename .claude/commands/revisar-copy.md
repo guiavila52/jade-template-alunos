@@ -32,7 +32,7 @@ Ver agente `.claude/agents/revisor-copy.md` (leitura obrigatória + checklist).
 3. CTA único e claro
 4. Tom alinhado com tom-de-voz + exemplos-copy-gui
 5. Sem métricas privadas
-6. Hiperlinks padrão `{{handle}}.com/[slug]`
+6. Hiperlinks padrão `{{DOMINIO}}/[slug]`
 7. Variáveis de personalização preservadas
 
 ### Específico do formato (Copy genérica curta (bio, headline, oneliner, descrição, anúncio curto))
@@ -41,7 +41,7 @@ Ver agente `.claude/agents/revisor-copy.md` (leitura obrigatória + checklist).
 10. Palavras-armadilha de tom checadas (`feedback_vocabulario_aproxima_lead.md`)
 11. Sem métricas privadas (R\$, MRR) — `feedback_metricas_publicas_gui.md`
 12. Sem promessas vagas — `feedback_vagueza_calibrada_copy.md`
-13. Tom alinhado com `exemplos-copy-gui.md` e `tom-de-voz.md`
+13. Tom alinhado com `exemplos-copy-{{nome_operador}}.md` e `tom-de-voz.md`
 
 ## Output canônico
 

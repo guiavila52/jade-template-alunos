@@ -1,6 +1,6 @@
 ---
 name: revisar-newsletter-visual
-description: Revisa HTML renderizado da newsletter (layout, contraste, espacamento, fontes) antes de PATCH no {{APP_PESSOAL}} e disparo.
+description: Revisa HTML renderizado da newsletter (layout, contraste, espacamento, fontes) antes de PATCH no Gimmick e disparo.
 type: skill
 ---
 
@@ -19,16 +19,16 @@ Input (HTML preview FIEL renderizado)
 5. Comparar com markdown source (enumeráveis viraram bullets?)
 6. Gerar relatório: APROVADO (30/30 ✅) ou REPROVADO (lista bugs + root cause + correção)
   ↓
-Output (REVISAO-APROVADO → libera PATCH {{APP_PESSOAL}} | REVISAO-REPROVADO → volta pro renderer)
+Output (REVISAO-APROVADO → libera PATCH Gimmick | REVISAO-REPROVADO → volta pro renderer)
 ```
 
 ## Propósito
-Revisor especialista em HTML de email, frontend e design visual. Garante que o HTML renderizado da newsletter está perfeito ANTES de PATCH no {{APP_PESSOAL}}.
+Revisor especialista em HTML de email, frontend e design visual. Garante que o HTML renderizado da newsletter está perfeito ANTES de PATCH no Gimmick.
 
 **Regra Inviolável #30 (12/05/2026):** Newsletter NUNCA vai pra PATCH sem aprovação visual explícita. Caso histórico: v5 disparada com 6 bugs visuais porque revisão de copy ≠ revisão visual/HTML/frontend.
 
 ## Quando rodar
-Após `/renderizar-newsletter-html`, ANTES de `/disparar-newsletter`. Bloqueia PATCH no {{APP_PESSOAL}} até aprovação explícita.
+Após `/renderizar-newsletter-html`, ANTES de `/disparar-newsletter`. Bloqueia PATCH no Gimmick até aprovação explícita.
 
 ## Pré-requisitos
 - HTML preview fiel em `workspace/output/newsletter/{slug}-PREVIEW-FIEL.html`
@@ -61,16 +61,16 @@ Após `/renderizar-newsletter-html`, ANTES de `/disparar-newsletter`. Bloqueia P
 - [ ] Hierarquia tipográfica clara (h2 > p > li)
 
 ### Capitalização (Regra Inviolável)
-- [ ] **Title** começa com MAIÚSCULA (validar via GET {{APP_PESSOAL}} após PATCH)
+- [ ] **Title** começa com MAIÚSCULA (validar via GET Gimmick após PATCH)
 - [ ] **Preheader** começa com MAIÚSCULA (validar via GET)
 - [ ] **Email_subject** começa com MAIÚSCULA (validar via GET)
 - [ ] Regex obrigatório: `^[A-ZÁÉÍÓÚÂÊÔÃÕÇ]`
 - [ ] **Assinatura canônica 4 linhas** com capitalização correta:
   ```
   {{NOME_OPERADOR}} — fundador e CEO da {{EMPRESA_COFUNDADA}}
-  Autor do {{NOME_CURSO}}, Automações PRO e ClickUp 8x
+  Autor do Sistema Reverso, Automações PRO e ClickUp 8x
   Fundador do {{EMPRESA_NEGOCIO}}
-  Site: {{handle}}.com
+  Site: {{DOMINIO}}
   ```
 
 ### Imagens e assets
@@ -96,17 +96,17 @@ Após `/renderizar-newsletter-html`, ANTES de `/disparar-newsletter`. Bloqueia P
 - [ ] Texto LITERAL (sem variação):
   ```
   {{NOME_OPERADOR}} — fundador e CEO da {{EMPRESA_COFUNDADA}}
-  Autor do {{NOME_CURSO}}, Automações PRO e ClickUp 8x
+  Autor do Sistema Reverso, Automações PRO e ClickUp 8x
   Fundador do {{EMPRESA_NEGOCIO}}
-  Site: {{handle}}.com
+  Site: {{DOMINIO}}
   ```
-- [ ] Hyperlink ativo em `{{handle}}.com`
+- [ ] Hyperlink ativo em `{{DOMINIO}}`
 - [ ] Separador `---` (visual divider) ANTES da assinatura
 - [ ] Mobile: foto centralizada em cima, texto abaixo (responsivo)
 
 ### Links e interatividade
 - [ ] Hyperlinks com cor azul (`#2563eb` ou similar) + `text-decoration: underline` inline
-- [ ] Hyperlink ativo em palavras-chave ({{EMPRESA_COFUNDADA}}, {{handle}}.com, produtos)
+- [ ] Hyperlink ativo em palavras-chave ({{EMPRESA_COFUNDADA}}, {{DOMINIO}}, produtos)
 - [ ] Todos links testados (curl -I retorna 200/301/302)
 - [ ] Sem links quebrados (`href="#"` ou `href="javascript:void(0)"`)
 
@@ -154,12 +154,12 @@ Destaques:
 - Enumeráveis: ✅ bullets em conceitos listados
 - Marker INTERNO: ✅ presente e correto
 
-Liberado para PATCH no {{APP_PESSOAL}}.
+Liberado para PATCH no Gimmick.
 ```
 
 ### Se REPROVADO:
 ```
-REPROVADO — BLOQUEIA PATCH no {{APP_PESSOAL}}
+REPROVADO — BLOQUEIA PATCH no Gimmick
 
 Bugs encontrados (N/30):
 1. [Bug] — [root cause] — [linha do markdown que origina] — [correção necessária]
@@ -177,8 +177,8 @@ Próximos passos:
 
 ## Validação pré-disparo (após PATCH, antes de agendar)
 
-**Após PATCH no {{APP_PESSOAL}}, antes de disparar:**
-1. GET no {{APP_PESSOAL}} pra conferir `data.newsletter_content.preheader`, `data.newsletter_content.email_subject`, `data.title`
+**Após PATCH no Gimmick, antes de disparar:**
+1. GET no Gimmick pra conferir `data.newsletter_content.preheader`, `data.newsletter_content.email_subject`, `data.title`
 2. Validar regex `^[A-ZÁÉÍÓÚÂÊÔÃÕÇ]` na primeira letra de cada um
 3. Se algum minúsculo: **PATCH corretivo automático** capitalizando primeira letra:
    ```json
@@ -198,18 +198,18 @@ Próximos passos:
 ## Email teste obrigatório (Regra Inviolável #30)
 
 ANTES de disparar pra base:
-1. Enviar email teste pra `gui@{{handle}}.com` via Resend
+1. Enviar email teste pra `{{SEU_EMAIL}}` via Resend
 2. Usar attachment CID pro avatar (`<img src="cid:avatar-gui">`)
-3. {{OPERADOR}} abre no **Gmail real** (não preview do painel)
+3. {{NOME_OPERADOR}} abre no **Gmail real** (não preview do painel)
 4. Valida:
    - Avatar circular visível (não bloqueado)
    - Bullets renderizados
    - Hyperlinks azul + underline
    - Assinatura completa
    - Sem buracos/distorções
-5. {{OPERADOR}} dá **GO explícito** pra disparar pra base
+5. {{NOME_OPERADOR}} dá **GO explícito** pra disparar pra base
 
-**Sem GO do {{OPERADOR}} no Gmail real = NÃO disparar.**
+**Sem GO do {{NOME_OPERADOR}} no Gmail real = NÃO disparar.**
 
 ---
 
@@ -218,7 +218,7 @@ ANTES de disparar pra base:
 - `/escrever-newsletter` — produz markdown source
 - `/revisar-newsletter` — revisa copy/conteúdo
 - `/renderizar-newsletter-html` — gera preview HTML fiel
-- `/disparar-newsletter` — PATCH no {{APP_PESSOAL}} (bloqueado sem aprovação visual)
+- `/disparar-newsletter` — PATCH no Gimmick (bloqueado sem aprovação visual)
 - Memória: `feedback_newsletter_template_padrao_assinatura.md`
 - Memória: `feedback_newsletter_skill_consolidada_v20.md`
 - AGENTS.md Regra Inviolável #30 (revisão visual obrigatória)
@@ -235,7 +235,7 @@ Newsletter v5 12/05/2026 disparada com **6 bugs visuais**:
 5. Hyperlinks sem cor azul nem underline
 6. Assinatura incompleta
 
-**Root cause:** PATCH no {{APP_PESSOAL}} foi feito após revisão de COPY sem revisão VISUAL/HTML/FRONTEND.
+**Root cause:** PATCH no Gimmick foi feito após revisão de COPY sem revisão VISUAL/HTML/FRONTEND.
 
 **Solução:** Regra Inviolável #30 + esta skill blindam esse caminho. Nenhuma newsletter vai pra PATCH sem aprovação visual explícita de revisor frontend independente.
 
@@ -243,7 +243,7 @@ Newsletter v5 12/05/2026 disparada com **6 bugs visuais**:
 
 ## Aprendizados consolidados jornada v6→v20 (12-13/05/2026)
 
-### Bugs {{APP_PESSOAL}} corrigidos (commits 6ef59c9 + 2f9c581)
+### Bugs Gimmick corrigidos (commits 6ef59c9 + 2f9c581)
 - Sanitizer removia `<ul>/<li>` → corrigido
 - Parser convertia `<ul>` em `-` → corrigido
 - Template wrappava em `<p>` adicional → corrigido
@@ -258,7 +258,7 @@ Newsletter v5 12/05/2026 disparada com **6 bugs visuais**:
 - Avatar PNG pré-recortado + CID attachment (não data URI)
 - Capitalização title/preheader/email_subject obrigatória
 - Assinatura canônica 4 linhas literais
-- Bullets semânticos `<ul><li>` ({{APP_PESSOAL}} agora respeita)
+- Bullets semânticos `<ul><li>` (Gimmick agora respeita)
 - Hyperlinks azul + underline inline
 - Compatibilidade: tableado, inline CSS, <100KB
 
@@ -277,7 +277,7 @@ Newsletter v5 12/05/2026 disparada com **6 bugs visuais**:
 
 ### Caso histórico que motivou esta seção
 
-Newsletter `cadc4df0-21e2-4b0b-84d8-adb517ab1275` (13/05/2026) chegou pro {{OPERADOR}} com 4 problemas:
+Newsletter `cadc4df0-21e2-4b0b-84d8-adb517ab1275` (13/05/2026) chegou pro {{NOME_OPERADOR}} com 4 problemas:
 1. Buraco branco excessivo no topo
 2. Buraco branco excessivo no fim
 3. Sem bloco vídeo embed (newsletter era de transcrição YouTube)
@@ -352,7 +352,7 @@ Abrir screenshots gerados e validar VISUALMENTE:
 #### Assinatura
 - [ ] Avatar circular presente e dimensionado corretamente (80×80px, não distorcido)
 - [ ] 4 linhas texto literais presentes e corretas
-- [ ] Hyperlink `{{handle}}.com` azul + underline
+- [ ] Hyperlink `{{DOMINIO}}` azul + underline
 
 #### Compatibilidade
 - [ ] Max-width 600px respeitado (não vaza lateral em desktop)
@@ -365,7 +365,7 @@ Abrir screenshots gerados e validar VISUALMENTE:
 **Output de reprovação obrigatório:**
 
 ```
-REPROVADO — BLOQUEIA PATCH no {{APP_PESSOAL}}
+REPROVADO — BLOQUEIA PATCH no Gimmick
 
 Bugs encontrados (N/30):
 1. Buraco branco 120px no topo — `<body>` tem `padding-top: 100px` — corrigir pra máximo 32px
@@ -399,7 +399,7 @@ workspace/output/newsletter/screenshots/
 
 Retention: manter últimas 10 newsletters (limpeza manual periódica).
 
-**Propósito:** rastreabilidade. Se {{OPERADOR}} reportar bug visual em produção, comparar com screenshot pré-PATCH pra identificar se regressão foi introduzida no PATCH ou já estava no preview.
+**Propósito:** rastreabilidade. Se {{NOME_OPERADOR}} reportar bug visual em produção, comparar com screenshot pré-PATCH pra identificar se regressão foi introduzida no PATCH ou já estava no preview.
 
 ---
 
@@ -420,7 +420,7 @@ Retention: manter últimas 10 newsletters (limpeza manual periódica).
 
 - `/renderizar-newsletter-html` — gera HTML preview ANTES desta skill
 - `/escrever-newsletter` — produz markdown source
-- `/disparar-newsletter` — PATCH no {{APP_PESSOAL}} (bloqueado sem aprovação visual)
+- `/disparar-newsletter` — PATCH no Gimmick (bloqueado sem aprovação visual)
 - Memória: `feedback_newsletter_video_embed_e_revisao_visual_real.md` (criada 13/05/2026)
 - Memória: `feedback_smoke_test_funcional_revisor.md` (princípio geral: markup ≠ comportamento)
 
@@ -430,5 +430,5 @@ Retention: manter últimas 10 newsletters (limpeza manual periódica).
 
 - Antes de executar trabalho estrutural, registrar pendência no ClickUp via `/criar-pendencia`
 - Ao concluir, comentar via `/comentar-pendencia` e fechar via `/fechar-pendencia`
-- Aprendizado real (correção do {{OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
+- Aprendizado real (correção do {{NOME_OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
 - Reincidência = falha de processo, escalar imediatamente

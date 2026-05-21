@@ -3,7 +3,7 @@
 # Regra §16 (Segurança first) — estende Regra §11
 # Vetor R2: self-modification de settings via Bash.
 # Vetores 2026: CVE-2025-59536, CVE-2026-21852, Mini Shai-Hulud (~/.claude.json).
-# Pendência mãe: ClickUp {{clickup_task_id}}
+# Pendência mãe: ClickUp 86ahha462
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 RESULT=$(cat | python3 "$DIR/_check-bash-em-claude-paths-detect.py")
@@ -39,7 +39,7 @@ documentado de auto-modificação (modelo adicionando Bash(*) em allowedTools
 pra bypass próprio hook). Bloqueado por padrão.
 
 BYPASS LEGITIMO:
-- export JADE_CONTEXT=skill-aprovada=true   (Regra §13 — skill nova com aval {{OPERADOR}})
+- export JADE_CONTEXT=skill-aprovada=true   (Regra §13 — skill nova com aval {{NOME_OPERADOR}})
 - export JADE_CONTEXT=fase-0-hardening=true (durante execução da Fase 0)
 - export JADE_CONTEXT=regra-aprovada-gui=true (mudança de regra com aval explícito)
 - export JADE_CONTEXT=rotina-autonoma       (rotina autônoma da Jade)
@@ -48,7 +48,7 @@ Vetores ativos 2026 (consultar Regra §16 / AGENTS.md):
 - CVE-2025-59536, CVE-2026-21852
 - Mini Shai-Hulud (worm modifica ~/.claude.json)
 
-Pendencia mae: ClickUp {{clickup_task_id}}
+Pendencia mae: ClickUp 86ahha462
 MSG
   exit 2
 fi

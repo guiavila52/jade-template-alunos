@@ -6,7 +6,7 @@ model: claude-sonnet-4-5
 
 # /configurar-squad — onboarding do aluno
 
-Você acabou de clonar `{{github_user}}/squad-template`. Bem-vindo ao seu squad de agentes IA.
+Você acabou de clonar `{{GITHUB_USER}}/squad-template`. Bem-vindo ao seu squad de agentes IA.
 
 Esta skill faz **uma vez só** a configuração inicial: pergunta o que precisa saber sobre você e seu negócio, substitui placeholders, e deixa o squad operacional.
 
@@ -65,7 +65,7 @@ O template usa 18 placeholders. Divididos em 3 tiers:
 
 ### TIER 4 — Runtime (NÃO substituir aqui)
 
-Estes são placeholders **dinâmicos** usados pela skill e outros. Permanecem como estão:
+Estes são placeholders **dinâmicos** usados pela skill `/tweet-imagem` e outros. Permanecem como estão:
 - `{{TEXTO}}`, `{{FOTO_HTML}}`, `{{NUMERO}}`, `{{DATA}}`
 
 ## Fluxo de execução
@@ -338,7 +338,7 @@ Squad operacional. Bom uso!
 
 - Aluno consegue chamar `/jade` e ela responde com nome dele
 - `grep -rE '{{[A-Z_]+}}' .` retorna só placeholders de runtime (TEXTO, NUMERO, etc)
-- Sem nada de "{{NOME_OPERADOR}}", "{{github_user}}", "{{EMPRESA_COFUNDADA}}", "{{EMPRESA_NEGOCIO}}" remanescente (exceto em exemplos/comentários)
+- Sem nada de "{{NOME_OPERADOR}}", "{{GITHUB_USER}}", "{{EMPRESA_COFUNDADA}}", "{{EMPRESA_NEGOCIO}}" remanescente (exceto em exemplos/comentários)
 
 ## Lições aplicadas
 

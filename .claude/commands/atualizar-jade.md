@@ -1,13 +1,13 @@
 <!-- Modelo recomendado: claude-sonnet-4-5 -->
 # Skill: /atualizar-jade — Atualiza framework do squad preservando identidade do aluno
 
-Aplica updates do upstream (`{{github_user}}/squad-template`) preservando dados pessoais do aluno. Inspirado em `shadcn-ui add`, `next codemod`, `rails app:update`.
+Aplica updates do upstream (`{{GITHUB_USER}}/squad-template`) preservando dados pessoais do aluno. Inspirado em `shadcn-ui add`, `next codemod`, `rails app:update`.
 
 ## Quando invocar
 
 - Aluno quer puxar últimas atualizações do squad (novas skills, agentes melhorados, hooks novos)
 - Após semanas sem atualizar
-- Quando ver no LinkedIn/YouTube/Newsletter do {{OPERADOR}} que tem nova feature no squad
+- Quando ver no LinkedIn/YouTube/Newsletter do {{NOME_OPERADOR}} que tem nova feature no squad
 
 ## Conceito-chave: framework vs persona
 
@@ -89,7 +89,7 @@ echo "✅ Backup tag: pre-atualizar-jade-$ts (rollback: git reset --hard pre-atu
 
 ```bash
 git remote get-url upstream 2>/dev/null || \
-  git remote add upstream https://github.com/{{github_user}}/squad-template.git
+  git remote add upstream https://github.com/{{GITHUB_USER}}/squad-template.git
 
 git fetch upstream main
 ```
@@ -185,7 +185,7 @@ done
 UPSTREAM_SHA=$(git rev-parse --short upstream/main)
 git add -A
 git commit -m "$(cat <<EOF
-chore(jade): /atualizar-jade — sync upstream {{github_user}}/squad-template@$UPSTREAM_SHA
+chore(jade): /atualizar-jade — sync upstream {{GITHUB_USER}}/squad-template@$UPSTREAM_SHA
 
 Framework atualizado. Persona preservada.
 
@@ -219,7 +219,7 @@ echo "  - Se algo quebrou: git reset --hard pre-atualizar-jade-$ts"
 | Sintoma | Causa provável | Solução |
 |---|---|---|
 | "Há mudanças não-commitadas" | Aluno tem trabalho em andamento | Commitar ou stash antes |
-| "Persona modificada" warning | Upstream tentou tocar persona (bug do template) | Revert do arquivo + report {{OPERADOR}} |
+| "Persona modificada" warning | Upstream tentou tocar persona (bug do template) | Revert do arquivo + report {{NOME_OPERADOR}} |
 | Hook quebrou (sintaxe) | Atualização introduziu bug | Rollback: `git reset --hard pre-atualizar-jade-TIMESTAMP` |
 | Skill não funciona | Path antigo hardcoded | Update do squad parou no meio — rollback + reportar |
 

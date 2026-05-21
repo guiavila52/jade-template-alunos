@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# PreToolUse hook — Regra §1 (reforço 16/05/2026, Task {{clickup_task_id}})
+# PreToolUse hook — Regra §1 (reforço 16/05/2026, Task 86ahha49r)
 # BLOQUEANTE: detecta trabalho estrutural (.claude/commands/, squads/, AGENTS.md, etc)
 # sem pendência ClickUp registrada e BLOQUEIA com exit 2.
 #
 # Bypass legítimos (exit 0):
 # - JADE_CONTEXT=rotina-autonoma (rotinas Jade conhecidas, ex: /preparar-clear-jade)
-# - JADE_CONTEXT=skill-aprovada=* (criação de skill com aval do {{OPERADOR}}, Regra §13)
+# - JADE_CONTEXT=skill-aprovada=* (criação de skill com aval do {{NOME_OPERADOR}}, Regra §13)
 # - Subagent com briefing Jade contendo Task ClickUp ID (detectado via stdin)
 # - Arquivos de work state (tarefas.md, aprendizados.md, memory.md)
 
@@ -133,7 +133,7 @@ ANTES de prosseguir:
 
 Bypass legítimos:
 - JADE_CONTEXT=rotina-autonoma (rotinas Jade conhecidas)
-- JADE_CONTEXT=skill-aprovada={id} (skill nova com aval {{OPERADOR}}, Regra §13)
+- JADE_CONTEXT=skill-aprovada={id} (skill nova com aval {{NOME_OPERADOR}}, Regra §13)
 - Briefing de subagent contendo "Task ClickUp: 86ah..." (detectado via stdin)
 
 Ver memória: feedback_registrar_pendencia_antes_de_executar.md

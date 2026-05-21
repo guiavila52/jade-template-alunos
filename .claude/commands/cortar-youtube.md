@@ -10,7 +10,7 @@ type: skill
 
 Skill canônica do squad-midia. Pega URL YouTube, extrai primeiro minuto (ou duração custom), converte pra 9:16 vertical (1080×1920) e adiciona gancho de texto nos últimos ~5s. Output em `workspace/output/videos-verticais/`.
 
-Disparo: pega URL do {{OPERADOR}}, escolhe defaults se {{OPERADOR}} não passou parâmetros, executa, abre o resultado.
+Disparo: pega URL do {{NOME_OPERADOR}}, escolhe defaults se {{NOME_OPERADOR}} não passou parâmetros, executa, abre o resultado.
 
 ## Parâmetros
 
@@ -64,7 +64,7 @@ workspace/output/videos-verticais/{nome|timestamp}.mp4
 python3 "scripts/video/cortar-youtube.py" \
   --url "https://www.youtube.com/watch?v=ID" \
   --duracao 60 \
-  --gancho-texto "Aprenda squad de IA — {{handle}}.com/youtube"
+  --gancho-texto "Aprenda squad de IA — {{DOMINIO}}/youtube"
 ```
 
 Output:
@@ -98,7 +98,7 @@ Output:
 ## Cross-reference
 
 - Script: [scripts/video/cortar-youtube.py](../../scripts/video/cortar-youtube.py)
-- Task ClickUp: `{{clickup_task_id}}` — tag `imersao-14-05`
+- Task ClickUp: `86ahedmmf` — tag `imersao-14-05`
 - Regra #22 confiabilidade — timeout/stderr/exit code
 
 ---
@@ -107,5 +107,5 @@ Output:
 
 - Antes de executar trabalho estrutural, registrar pendência no ClickUp via `/criar-pendencia`
 - Ao concluir, comentar via `/comentar-pendencia` e fechar via `/fechar-pendencia`
-- Aprendizado real (correção do {{OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
+- Aprendizado real (correção do {{NOME_OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
 - Reincidência = falha de processo, escalar imediatamente

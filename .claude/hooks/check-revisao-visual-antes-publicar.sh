@@ -16,11 +16,11 @@ BYPASS="${JADE_CONTEXT:-}"
 NEEDS_REVIEW=0
 CTX=""
 
-# 1. PATCH/POST body {{APP_PESSOAL}}
-if echo "$COMMAND" | grep -qE '{{app_pessoal}}.{{handle}}.com/api/content/(newsletters|car[a-z]+|ideias)'; then
+# 1. PATCH/POST body Gimmick
+if echo "$COMMAND" | grep -qE 'gimmick.{{DOMINIO}}/api/content/(newsletters|car[a-z]+|ideias)'; then
   if echo "$COMMAND" | grep -qE '"body"' && echo "$COMMAND" | grep -qE '(PATCH|POST)'; then
     NEEDS_REVIEW=1
-    CTX="PATCH/POST body {{APP_PESSOAL}}"
+    CTX="PATCH/POST body Gimmick"
   fi
 fi
 
@@ -45,7 +45,7 @@ if echo "$COMMAND" | grep -qE 'mcp__meta-ads__(create_ad|update_ad|upload_ad_ima
 fi
 
 if [[ "$NEEDS_REVIEW" -eq 1 ]]; then
-  PROJ="$CLAUDE_PROJECT_DIR
+  PROJ="/Users/{{SEU_USUARIO}}/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
   RECENT=$(find "$PROJ/workspace/output/screenshots-revisao" -type f -name "*REVISAO-APROVADO*" -mmin -10 2>/dev/null | head -1)
 
   if [[ -z "$RECENT" ]]; then

@@ -28,11 +28,11 @@ Use as skills REST (curl direto em api.clickup.com):
   - /listar-pendencias     — lista tasks da lista Tasks Jade COO
   - /comentar-pendencia    — adiciona comentário em task Jade COO
   - /fechar-pendencia      — encerra task Jade COO com sumário
-  - /{{app_pessoal}}-add-task      — cria task na lista Tasks App {{APP_PESSOAL}} (901327200673)
-  - /{{app_pessoal}}-tasks         — consulta lista Tasks App {{APP_PESSOAL}}
-  - /clickup-task-done     — encerra task na lista {{APP_PESSOAL}} dev (901327190242)
+  - /gimmick-add-task      — cria task na lista Tasks App Gimmick (901327200673)
+  - /gimmick-tasks         — consulta lista Tasks App Gimmick
+  - /clickup-task-done     — encerra task na lista Gimmick dev (901327190242)
   - /sincronizar-clickup   — sync estado entregas → ClickUp
-  -        — comentário ClickUp + Slack pro {{NOME_SUPORTE}}
+  - /responder-{{NOME_SUPORTE_LOWER}}       — comentário ClickUp + Slack pro {{NOME_SUPORTE}}
 
 Setup: token em app/.env.local var CLICKUP_API_TOKEN (sem "Bearer" no header).
 Ver: segundo-cerebro/03-operacao/clickup-historico.md

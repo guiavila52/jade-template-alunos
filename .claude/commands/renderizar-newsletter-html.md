@@ -7,7 +7,7 @@ type: skill
 # Skill: Renderizar Newsletter HTML
 
 **Papel:** Desenvolvedor de newsletters
-**Output:** HTML fragment determinístico (body {{APP_PESSOAL}})
+**Output:** HTML fragment determinístico (body Gimmick)
 **Squad:** conteudo
 **Maturidade:** 🟢 MADURA — template canônico v5 codificado + regression test passa (14/05/2026)
 
@@ -24,12 +24,12 @@ Input (config JSON: saudação, corpo_secoes[], assinatura_padrao)
 5. Regression test (diff vs v5 baseline) — exit 1 se regressão
 6. Salvar HTML fragment em workspace/output/newsletter/YYYY-MM-DD-slug.html
   ↓
-Output (HTML fragment determinístico pronto pra PATCH {{APP_PESSOAL}})
+Output (HTML fragment determinístico pronto pra PATCH Gimmick)
 ```
 
 ## Propósito
 
-Renderiza newsletter em HTML fragment a partir de config JSON, seguindo **template canônico v5** (newsletter `62bec9ff-1abd-4190-be01-f79f64a5b9fc`, aprovada por {{OPERADOR}} em 13/05/2026).
+Renderiza newsletter em HTML fragment a partir de config JSON, seguindo **template canônico v5** (newsletter `62bec9ff-1abd-4190-be01-f79f64a5b9fc`, aprovada por {{NOME_OPERADOR}} em 13/05/2026).
 
 Produção é **100% determinística** — assinatura/header/footer fixos, corpo via placeholders. Diff zero contra v5 baseline garantido por regression test.
 
@@ -48,7 +48,7 @@ Produção é **100% determinística** — assinatura/header/footer fixos, corpo
 
 - Após copywriter entregar markdown aprovado (ou config JSON pronta)
 - Para regerar newsletter com correções no corpo
-- Antes de PATCH no {{APP_PESSOAL}} (body)
+- Antes de PATCH no Gimmick (body)
 
 ## Comando canônico
 
@@ -84,7 +84,7 @@ Exit 0 = template íntegro. Exit 1 = REGRESSÃO (diff vs v5 baseline) — invest
       "Outro bullet"
     ]},
     {"tipo": "video_embed", "youtube_id": "cVm18LNG3mE", "gancho": "Gravei um vídeo curto."},
-    {"tipo": "cta_botao_link", "texto": "Cria sua conta aqui", "url": "https://{{handle}}.com/clickup"}
+    {"tipo": "cta_botao_link", "texto": "Cria sua conta aqui", "url": "https://{{DOMINIO}}/clickup"}
   ],
   "assinatura_padrao": true
 }
@@ -112,19 +112,19 @@ Exit 0 = template íntegro. Exit 1 = REGRESSÃO (diff vs v5 baseline) — invest
 
 ## Assinatura canônica — IMUTÁVEL
 
-**NUNCA editar.** Mudança aqui = ciclo completo (aprovação {{OPERADOR}} + nova versão template v6 + atualizar baseline + atualizar regression test).
+**NUNCA editar.** Mudança aqui = ciclo completo (aprovação {{NOME_OPERADOR}} + nova versão template v6 + atualizar baseline + atualizar regression test).
 
 Estrutura (literal):
-- Foto perfil 96×96 circular → `https://sites.{{handle}}.com/assets-gui/foto-gui-barcelona-circular.png`
+- Foto perfil 96×96 circular → `https://sites.{{DOMINIO}}/assets-gui/foto-gui-barcelona-circular.png`
   - `border-radius:50%` + `object-fit:cover` + `object-position:center 25%`
 - 4 linhas (literal — capitalização exata):
   1. **{{NOME_OPERADOR}}**
-  2. Fundador e CEO da [{{EMPRESA_COFUNDADA}}](https://{{handle}}.com/{{empresa_cofundada}})
-  3. Autor do {{NOME_CURSO}}, Automações PRO e ClickUp 8x
-  4. Fundador do {{EMPRESA_NEGOCIO}} · [{{handle}}.com](https://{{handle}}.com)
+  2. Fundador e CEO da [{{EMPRESA_COFUNDADA}}](https://{{DOMINIO}}/{{SLUG_EMPRESA_COFUNDADA}})
+  3. Autor do Sistema Reverso, Automações PRO e ClickUp 8x
+  4. Fundador do {{EMPRESA_NEGOCIO}} · [{{DOMINIO}}](https://{{DOMINIO}})
 - `<hr>` separador acima do bloco
 
-**Foto — técnica:** URL pública (sites.{{handle}}.com Astro deploy). Validada live 14/05/2026 (HTTP 200). v5 aprovada visual Gmail. Para envio via Resend direto (sem {{APP_PESSOAL}}): usar CID via `/enviar-email` (memória `feedback_email_avatar_via_cid_attachment.md`).
+**Foto — técnica:** URL pública (sites.{{DOMINIO}} Astro deploy). Validada live 14/05/2026 (HTTP 200). v5 aprovada visual Gmail. Para envio via Resend direto (sem Gimmick): usar CID via `/enviar-email` (memória `feedback_email_avatar_via_cid_attachment.md`).
 
 ## Estilos canônicos (inline — extraídos de v5)
 
@@ -141,7 +141,7 @@ Estrutura (literal):
 
 ## Output
 
-**HTML fragment** — sem `<!DOCTYPE>`, sem `<html>`, sem `<body>`. Começa em `<p>` ou `<h2>`. {{APP_PESSOAL}} wrappa.
+**HTML fragment** — sem `<!DOCTYPE>`, sem `<html>`, sem `<body>`. Começa em `<p>` ou `<h2>`. Gimmick wrappa.
 
 ## Checklist de qualidade
 
@@ -157,7 +157,7 @@ Estrutura (literal):
 ## Próximo passo após render
 
 1. `/revisar-newsletter-visual` (screenshot Playwright real + checklist visual)
-2. Após aprovação visual: PATCH no {{APP_PESSOAL}} (body) via API REST
+2. Após aprovação visual: PATCH no Gimmick (body) via API REST
 3. Disparo apenas via `/disparar-newsletter`
 
 ## Regras invioláveis cruzadas
@@ -177,13 +177,13 @@ Estrutura (literal):
 - `feedback_newsletter_video_embed_e_revisao_visual_real.md`
 
 
-## Integração com {{APP_PESSOAL}} (POST / PATCH)
+## Integração com Gimmick (POST / PATCH)
 
-Após renderizar o HTML, publicar/atualizar no {{APP_PESSOAL}} via REST.
+Após renderizar o HTML, publicar/atualizar no Gimmick via REST.
 
 **Endpoints:**
-- POST `https://{{app_pessoal}}.{{handle}}.com/api/content/newsletters` — criar
-- PATCH `https://{{app_pessoal}}.{{handle}}.com/api/content/newsletters/{id}` — atualizar
+- POST `https://gimmick.{{DOMINIO}}/api/content/newsletters` — criar
+- PATCH `https://gimmick.{{DOMINIO}}/api/content/newsletters/{id}` — atualizar
 
 **Auth:** `Authorization: Bearer $CONTENT_API_KEY` (em `app/.env.local`)
 
@@ -191,7 +191,7 @@ Após renderizar o HTML, publicar/atualizar no {{APP_PESSOAL}} via REST.
 - `ideia_crua`
 - `proximos`
 - `escrevendo`
-- `aprovacao` ← padrão pra newsletter pronta esperando OK do {{OPERADOR}}
+- `aprovacao` ← padrão pra newsletter pronta esperando OK do {{NOME_OPERADOR}}
 - `fila_para_publicar`
 
 ⚠️ **`draft` NÃO é válido.** Rejeitado com HTTP 400.
@@ -207,11 +207,11 @@ Após renderizar o HTML, publicar/atualizar no {{APP_PESSOAL}} via REST.
 }
 ```
 
-**Body do payload é HTML completo, não markdown.** O {{APP_PESSOAL}} guarda e exibe direto.
+**Body do payload é HTML completo, não markdown.** O Gimmick guarda e exibe direto.
 
 ## Pipeline canônico ponta-a-ponta
 
-1. Input do {{OPERADOR}} (link YouTube, tema solto, briefing)
+1. Input do {{NOME_OPERADOR}} (link YouTube, tema solto, briefing)
 2. `/transcrever-video` se for YouTube
 3. Despachar copywriter → MD em `workspace/output/newsletter/YYYY-MM-DD-slug.md`
 4. Despachar revisor-newsletter (independente) → APROVADO
@@ -224,9 +224,9 @@ Após renderizar o HTML, publicar/atualizar no {{APP_PESSOAL}} via REST.
    - `assinatura_padrao: true` SEMPRE (renderer monta a assinatura — NÃO incluir no JSON)
 6. Salvar config em `/tmp/newsletter-YYYY-MM-DD-config.json`
 7. Rodar `python3 scripts/newsletter/renderizar-html.py --input /tmp/newsletter-YYYY-MM-DD-config.json --output workspace/output/newsletter/YYYY-MM-DD-slug-preview.html`
-8. POST {{APP_PESSOAL}} (primeira vez) com status `aprovacao` → guardar ID retornado
-9. Apresentar URL `https://{{app_pessoal}}.{{handle}}.com/{{handle}}/conteudos/{id}` pro {{OPERADOR}}
-10. Se {{OPERADOR}} pedir ajuste → editar config JSON → re-renderizar → PATCH no MESMO ID (não criar novo)
+8. POST Gimmick (primeira vez) com status `aprovacao` → guardar ID retornado
+9. Apresentar URL `https://gimmick.{{DOMINIO}}/{{github_user}}/conteudos/{id}` pro {{NOME_OPERADOR}}
+10. Se {{NOME_OPERADOR}} pedir ajuste → editar config JSON → re-renderizar → PATCH no MESMO ID (não criar novo)
 
 ## Parser inline do renderer (correção 14/05/2026)
 
@@ -236,7 +236,7 @@ O script `scripts/newsletter/renderizar-html.py` agora converte automaticamente 
 - `*texto*` → `<em>texto</em>`
 - `{{contact.first_name}}` preservado intacto
 
-Antes da correção, links saiam como texto bruto no email (bug detectado por {{OPERADOR}} em 14/05/2026 — newsletter Claude Code).
+Antes da correção, links saiam como texto bruto no email (bug detectado por {{NOME_OPERADOR}} em 14/05/2026 — newsletter Claude Code).
 
 ---
 
@@ -244,5 +244,5 @@ Antes da correção, links saiam como texto bruto no email (bug detectado por {{
 
 - Antes de executar trabalho estrutural, registrar pendência no ClickUp via `/criar-pendencia`
 - Ao concluir, comentar via `/comentar-pendencia` e fechar via `/fechar-pendencia`
-- Aprendizado real (correção do {{OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
+- Aprendizado real (correção do {{NOME_OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
 - Reincidência = falha de processo, escalar imediatamente

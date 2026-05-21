@@ -3,7 +3,7 @@
 useDefault = true
 
 [allowlist]
-description = "{{NOME_SQUAD}}— false positives conhecidos"
+description = "Squad Empresa {{NOME_OPERADOR}} — false positives conhecidos"
 
 # .secrets.baseline contém hashes de secrets já tratados (não são keys reais).
 # Gitleaks confunde os hashes com generic-api-key — false positive arquitetural.

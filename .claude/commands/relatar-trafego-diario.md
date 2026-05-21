@@ -25,7 +25,7 @@ Input (Hoje (cron 9h))
 6. Detectar alertas e decisões automáticas (se aplicável)
 7. Salvar output em workspace/output/trafego/diarios/{YYYY-MM-DD}.md
   ↓
-Output (relatório estratégico + decisões pra {{OPERADOR}})
+Output (relatório estratégico + decisões pra {{NOME_OPERADOR}})
 ```
 
 ## Input
@@ -47,10 +47,10 @@ Análise diária do tráfego pago — health-check + alertas.
 
 ### Decisões automáticas (Jade decide, executa)
 - Pausar criativo com CTR < 0.3% após >5k impressões + CPM acima da média
-- Notificar {{OPERADOR}} se conta de ads suspensa
-- Notificar {{OPERADOR}} se saldo < 3 dias
+- Notificar {{NOME_OPERADOR}} se conta de ads suspensa
+- Notificar {{NOME_OPERADOR}} se saldo < 3 dias
 
-### Decisões pra {{OPERADOR}} aprovar
+### Decisões pra {{NOME_OPERADOR}} aprovar
 - Mudar orçamento > 30%
 - Criar criativo novo
 - Mudar público estrutural
@@ -62,8 +62,8 @@ Análise diária do tráfego pago — health-check + alertas.
 ## Dependências
 
 - Meta Ads token funcional ✅ (validado 11/05/2026)
-- Conta de ads `act_1321128045938616` acessível ✅
-- MCP Meta Ads {{mcp_provider}} OU integração direta via Marketing API
+- Conta de ads `act_{{META_AD_ACCOUNT_ID}}` acessível ✅
+- MCP Meta Ads armavita OU integração direta via Marketing API
 
 ## Bateria de testes #24
 
@@ -81,7 +81,7 @@ Análise diária do tráfego pago — health-check + alertas.
 
 ## Bloqueio atual
 
-Esqueleto. A implementar pós-validação ponta-a-ponta do MCP Meta Ads {{mcp_provider}} v1.1.0.
+Esqueleto. A implementar pós-validação ponta-a-ponta do MCP Meta Ads armavita v1.1.0.
 
 ---
 
@@ -89,5 +89,5 @@ Esqueleto. A implementar pós-validação ponta-a-ponta do MCP Meta Ads {{mcp_pr
 
 - Antes de executar trabalho estrutural, registrar pendência no ClickUp via `/criar-pendencia`
 - Ao concluir, comentar via `/comentar-pendencia` e fechar via `/fechar-pendencia`
-- Aprendizado real (correção do {{OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
+- Aprendizado real (correção do {{NOME_OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
 - Reincidência = falha de processo, escalar imediatamente

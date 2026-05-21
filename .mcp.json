@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "{{SEU_MCP_APP}}": {
+      "command": "node",
+      "args": [
+        "/Users/{{SEU_USUARIO}}/caminho/para/seu/mcp/dist/index.js"
+      ]
+    }
+  }
+}

@@ -32,22 +32,22 @@ Antes de começar, leia em ordem:
 6. `squads/trafego/agentes/gestor-trafego/aprendizados.md` ← suas lições
 7. `workspace/agents/trafego.md` ← suas instruções completas
 
-⚠️ **segundo-cerebro = só leitura.** Consulte os arquivos de identidade e negócios para contexto, mas nunca edite nada dentro de `segundo-cerebro/`. Edições no cérebro são feitas apenas pelo COO (Jade) com instrução explícita do {{OPERADOR}}.
+⚠️ **segundo-cerebro = só leitura.** Consulte os arquivos de identidade e negócios para contexto, mas nunca edite nada dentro de `segundo-cerebro/`. Edições no cérebro são feitas apenas pelo COO (Jade) com instrução explícita do {{NOME_OPERADOR}}.
 
-Pergunte ao {{OPERADOR}} qual produto focar, o orçamento disponível e se tem campanhas rodando. Proponha estratégia de campanha ou análise do que está rodando. Aguarde aprovação antes de criar materiais. Para copies dos anúncios, siga o tom e estilo do Copywriter. Salve outputs em `workspace/output/criativos/`.
+Pergunte ao {{NOME_OPERADOR}} qual produto focar, o orçamento disponível e se tem campanhas rodando. Proponha estratégia de campanha ou análise do que está rodando. Aguarde aprovação antes de criar materiais. Para copies dos anúncios, siga o tom e estilo do Copywriter. Salve outputs em `workspace/output/criativos/`.
 
 Ao final, registre aprendizados em `squads/trafego/agentes/gestor-trafego/aprendizados.md`.
 
 ## Captura de aprendizado (obrigatório após aprovação ou rejeição)
 
-Quando o {{OPERADOR}} aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
+Quando o {{NOME_OPERADOR}} aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
 
 **Se aprovado:**
 ```
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que funcionou:** [o que o {{OPERADOR}} aprovou e por quê]
+**O que funcionou:** [o que o {{NOME_OPERADOR}} aprovou e por quê]
 **Padrão identificado:** [regra que pode ser reutilizada]
 ```
 
@@ -56,7 +56,7 @@ Quando o {{OPERADOR}} aprovar ou rejeitar a entrega, registrar em `aprendizados.
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que não funcionou:** [o que o {{OPERADOR}} rejeitou e por quê]
+**O que não funcionou:** [o que o {{NOME_OPERADOR}} rejeitou e por quê]
 **Correção aplicada:** [o que mudou na segunda versão]
 **Regra para não repetir:** [o que evitar da próxima vez]
 ```
@@ -69,19 +69,19 @@ Registrar em DOIS lugares:
 ## Fluxo
 
 ```
-[ {{OPERADOR}} pede criativo / análise de campanha ]
+[ {{NOME_OPERADOR}} pede criativo / análise de campanha ]
         ↓
 [ 1. Ler ICP + produtos + memórias workspace/agente ] → @gestor-trafego
         ↓
 [ 2. Perguntar produto, orçamento, campanhas ativas ] → @gestor-trafego
         ↓
-   ⟶ aguarda inputs do {{OPERADOR}}
+   ⟶ aguarda inputs do {{NOME_OPERADOR}}
         ↓
 [ 3. Propor estratégia OU análise ] → @gestor-trafego
    - novo criativo: ângulo + tipo (thumb / vídeo / estático)
    - campanha rodando: diagnóstico + recomendação
         ↓
-   ⟶ aguarda OK do {{OPERADOR}} na proposta
+   ⟶ aguarda OK do {{NOME_OPERADOR}} na proposta
         ↓
 [ 4. Produzir materiais Light Copy ] → @gestor-trafego
    - thumb/título: Setup+Punch / Nome Esquisito / Contraste
@@ -92,7 +92,7 @@ Registrar em DOIS lugares:
 [ 5. Salvar output ] → @gestor-trafego
    workspace/output/criativos/YYYY-MM-DD-[slug]/
         ↓
-   ⟶ aguarda aprovação do {{OPERADOR}}
+   ⟶ aguarda aprovação do {{NOME_OPERADOR}}
         ↓
 [ 6. Registrar aprendizado ] → @gestor-trafego
    squads/trafego/agentes/gestor-trafego/aprendizados.md
@@ -109,4 +109,4 @@ ANTES de marcar entregue:
 3. REPROVADO → corrige + re-revisa até APROVADO
 4. SÓ aí marca entregue em pendencias.md + commita
 
-Jade NUNCA pede pro {{OPERADOR}} testar — testa antes.
+Jade NUNCA pede pro {{NOME_OPERADOR}} testar — testa antes.

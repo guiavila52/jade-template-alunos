@@ -1,6 +1,6 @@
 ---
 name: criar-carrossel-de-video
-description: Atalho ponta-a-ponta. Input = URL YouTube. Encadeia transcrição → estratégia → copy slide-a-slide → lâminas HTML→PNG → triple-check. Output: pasta workspace/output/carrosseis/YYYY-MM-DD-[slug]/ completa. Sem fricção, sem perguntar — {{OPERADOR}} delegou.
+description: Atalho ponta-a-ponta. Input = URL YouTube. Encadeia transcrição → estratégia → copy slide-a-slide → lâminas HTML→PNG → triple-check. Output: pasta workspace/output/carrosseis/YYYY-MM-DD-[slug]/ completa. Sem fricção, sem perguntar — {{NOME_OPERADOR}} delegou.
 model: claude-opus-4-5
 ---
 
@@ -8,7 +8,7 @@ model: claude-opus-4-5
 
 ## Quando usar
 
-{{OPERADOR}} manda URL YouTube e quer carrossel pronto SEM ser perguntado nada. Atalho:
+{{NOME_OPERADOR}} manda URL YouTube e quer carrossel pronto SEM ser perguntado nada. Atalho:
 
 ```
 /criar-carrossel-de-video https://youtu.be/XXX
@@ -18,13 +18,13 @@ Skill encadeia: /transcrever-video → /escrever-estrategia → /escrever-copy c
 
 **Diferente da `/criar-carrossel`:**
 - `/criar-carrossel` é genérica e pergunta quando input vago
-- `/criar-carrossel-de-video` é específica e NÃO pergunta — {{OPERADOR}} já delegou
+- `/criar-carrossel-de-video` é específica e NÃO pergunta — {{NOME_OPERADOR}} já delegou
 
 Pra tema solto (sem URL), usar `/criar-carrossel`.
 
 ## Memórias relevantes (ler antes)
 
-1. `~/.claude/projects/-Users-{{handle}}-Documents-Projetos-IA-{{OPERADOR}}--vila-Squad-Empresa-{{OPERADOR}}--vila/memory/project_foco_carrossel_youtube_e_meta_ads.md` — foco macro
+1. `~/.claude/projects/-Users-{{github_user}}-Documents-Projetos-IA-{{NOME_OPERADOR}}--vila-Squad-Empresa-{{NOME_OPERADOR}}--vila/memory/project_foco_carrossel_youtube_e_meta_ads.md` — foco macro
 2. `~/.claude/.../memory/feedback_propagacao_correcoes.md` — Regra #19
 3. `~/.claude/.../memory/design_rules_paginas.md` — Cormorant proibida em dígitos (Regra #188)
 4. `segundo-cerebro/01-identidade/banco-de-historias.md`
@@ -47,9 +47,9 @@ Se input não for URL válida: skill aborta com erro claro ("input não é URL Y
 | De → Pra | Recebe | Entrega |
 |---|---|---|
 | **Jade → /transcrever-video** | URL YouTube | `transcricao.txt` em pasta de output |
-| **Jade → estrategista** | transcrição completa + ICP do {{OPERADOR}} | briefing-estrategista.md (ângulo + narrativa + payoff + qtd lâminas + estrutura + tom + refs) |
+| **Jade → estrategista** | transcrição completa + ICP do {{NOME_OPERADOR}} | briefing-estrategista.md (ângulo + narrativa + payoff + qtd lâminas + estrutura + tom + refs) |
 | **estrategista → carrossel (copywriter)** | briefing-estrategista.md | roteiro.md (Light Copy slide-a-slide) + briefing-visual.md (template/texto/flags por slide) |
-| **carrossel → squad-imagem** | briefing-visual.md | comandos `{{skill_imagem}}.mjs` por slide → PNGs 1080x1350 |
+| **carrossel → squad-imagem** | briefing-visual.md | comandos `tweet-imagem.mjs` por slide → PNGs 1080x1350 |
 | **squad-imagem → revisor-visual** | pasta PNGs | aprovação ou lista de defeitos |
 | **carrossel → /revisar-carrossel** | roteiro.md | aprovação ou lista de fixes |
 
@@ -111,12 +111,12 @@ Se qualquer reprovar: corrige + re-roda. Sem exceção.
 - Aborta se input não-URL → instrui usar `/criar-carrossel`
 - Aborta se transcrição vazia/<200 chars → "vídeo sem áudio detectável"
 - NÃO pergunta nada no caminho (ao contrário da `/criar-carrossel`)
-- Se algum agente reprovar 2x seguidas: pausa e relata ao {{OPERADOR}} (Regra #9 — segundo fracasso muda perspectiva)
+- Se algum agente reprovar 2x seguidas: pausa e relata ao {{NOME_OPERADOR}} (Regra #9 — segundo fracasso muda perspectiva)
 
 ## Fluxo
 
 ```
-[ {{OPERADOR}} dispara /criar-carrossel-de-video <URL> ]
+[ {{NOME_OPERADOR}} dispara /criar-carrossel-de-video <URL> ]
         ↓
 [ Jade valida URL ]
    │
@@ -129,7 +129,7 @@ Se qualquer reprovar: corrige + re-roda. Sem exceção.
    ⟶ se transcrição < 200 chars: ABORTA ("vídeo sem áudio")
         ↓
 [ estrategista (squad-gestao) ]
-   recebe: transcricao.txt + ICP {{OPERADOR}} + memórias
+   recebe: transcricao.txt + ICP {{NOME_OPERADOR}} + memórias
    define: ângulo único + narrativa + payoff + qtd lâminas + tom
    output: briefing-estrategista.md
         ↓
@@ -142,7 +142,7 @@ Se qualquer reprovar: corrige + re-roda. Sem exceção.
    ⟶ /revisar-carrossel (loop até APROVADO)
         ↓
 [ squad-imagem ]
-   pra cada slide: roda {{skill_imagem}}.mjs com flags do briefing-visual
+   pra cada slide: roda tweet-imagem.mjs com flags do briefing-visual
    output: slide-01.png ... slide-NN.png
         ↓
 [ revisor-visual (Agent squad-dev) ]
@@ -152,7 +152,7 @@ Se qualquer reprovar: corrige + re-roda. Sem exceção.
         ↓
 [ Atualizar MAPA + aprendizados (Regra #10 + #19) ]
         ↓
-[ Apresenta ao {{OPERADOR}} ]
+[ Apresenta ao {{NOME_OPERADOR}} ]
    pasta completa + sumário: copy + thumbs PNGs + URL fonte
    notif macOS: "Carrossel pronto — [slug]"
         ↓
@@ -161,7 +161,7 @@ Se qualquer reprovar: corrige + re-roda. Sem exceção.
 
 ## Captura de aprendizado (Regra #19)
 
-Quando {{OPERADOR}} aprovar/rejeitar:
+Quando {{NOME_OPERADOR}} aprovar/rejeitar:
 - `squads/conteudo/agentes/designer-conteudo/aprendizados.md` (nível agente)
 - `squads/conteudo/aprendizados.md` (se for padrão do squad)
 
@@ -170,7 +170,7 @@ Template aprovado:
 ### [título curto]
 **Data:** YYYY-MM-DD | **Slug:** [slug] | **URL:** [url]
 **Contexto:** [tema da transcrição]
-**O que funcionou:** [o que {{OPERADOR}} aprovou]
+**O que funcionou:** [o que {{NOME_OPERADOR}} aprovou]
 **Padrão identificado:** [regra reutilizável]
 ```
 
@@ -178,7 +178,7 @@ Template rejeitado:
 ```
 ### [título curto]
 **Data:** YYYY-MM-DD | **Slug:** [slug]
-**O que não funcionou:** [o que {{OPERADOR}} rejeitou]
+**O que não funcionou:** [o que {{NOME_OPERADOR}} rejeitou]
 **Correção aplicada:** [o que mudou]
 **Regra para não repetir:** [Regra #19 → propaga skill produtor + skill revisor + memória + retrofit]
 ```
@@ -197,4 +197,4 @@ ANTES de marcar entregue:
 3. REPROVADO → corrige + re-revisa até APROVADO
 4. SÓ aí marca entregue em pendencias.md + commita
 
-Jade NUNCA pede pro {{OPERADOR}} testar — testa antes.
+Jade NUNCA pede pro {{NOME_OPERADOR}} testar — testa antes.

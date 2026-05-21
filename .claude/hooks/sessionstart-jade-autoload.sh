@@ -19,8 +19,8 @@
 
 set -uo pipefail
 
-MANUAL_PATH="$HOME/.claude/projects/-Users-{{handle}}-Documents-Projetos-IA-{{OPERADOR}}--vila-Squad-Empresa-{{OPERADOR}}--vila/memory/feedback_jade_comportamento.md"
-ENV_FILE="$CLAUDE_PROJECT_DIR
+MANUAL_PATH="/Users/{{SEU_USUARIO}}/.claude/projects/-Users-guiavila-Documents-Projetos-IA-{{NOME_OPERADOR}}--vila-Squad-Empresa-{{NOME_OPERADOR}}--vila/memory/feedback_jade_comportamento.md"
+ENV_FILE="/Users/{{SEU_USUARIO}}/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/app/.env.local"
 LIST_ID="901327194775"
 
 echo "<jade-autoload>"
@@ -92,7 +92,7 @@ echo ""
 echo "Esta é uma sessão nova. Antes da primeira resposta, NÃO pergunte 'o que quer atacar' nem 'qual prefere'."
 echo "Apresente os top 3 da fila acima, ESCOLHA UM com justificativa em 1 frase, e diga que está executando."
 echo "Padrão correto: 'Vou começar por X porque [motivo]. Executando agora.'"
-echo "Banido: listar A/B/C esperando {{OPERADOR}} decidir."
+echo "Banido: listar A/B/C esperando {{NOME_OPERADOR}} decidir."
 echo "</jade-autoload>"
 
 exit 0
