@@ -33,7 +33,7 @@ Lista pendências abertas da lista canônica "Tasks Jade COO" do ClickUp **via A
 ## IDs canônicos
 
 - **List ID:** `901327194775`
-- **Workspace:** `30978229`
+- **Workspace:** `{{WORKSPACE_ID}}`
 - **Statuses válidos:** `fila para fazer` (open) · `em progresso` · `aprovação` · `alterações` · `concluído` (closed)
 - **Prioridades ClickUp:** 1=urgent · 2=high · 3=normal · 4=low
 
@@ -136,7 +136,7 @@ normal = prio_counts.get("normal", 0)
 low = prio_counts.get("low", 0)
 
 print(f"\n**Resumo:** {total} abertas ({urgent} urgent · {high} high · {normal} normal · {low} low)")
-print(f"**URL lista:** https://app.clickup.com/30978229/v/l/li/{list_id}")
+print(f"**URL lista:** https://app.clickup.com/{{WORKSPACE_ID}}/v/l/li/{list_id}")
 PY
 ```
 
@@ -147,12 +147,12 @@ PY
 
 | ID | Título | Prio | Status | Tags |
 |---|---|---|---|---|
-| 86ahedjxr | ONDA MESTRA Reverso | urgent | em progresso | onda-mestra |
-| 86ahedkmc | Deixar skills funcionando | high | fila para fazer | skills |
+| {{CLICKUP_TASK_ID}} | ONDA MESTRA Reverso | urgent | em progresso | onda-mestra |
+| {{CLICKUP_TASK_ID}} | Deixar skills funcionando | high | fila para fazer | skills |
 | ... | ... | ... | ... | ... |
 
 **Resumo:** N abertas (X urgent · Y high · Z normal · W low)
-**URL lista:** https://app.clickup.com/30978229/v/l/li/901327194775
+**URL lista:** https://app.clickup.com/{{WORKSPACE_ID}}/v/l/li/901327194775
 ```
 
 ## Critério de aceitação

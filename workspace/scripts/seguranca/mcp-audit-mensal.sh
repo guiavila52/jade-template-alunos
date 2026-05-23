@@ -2,17 +2,17 @@
 # mcp-audit-mensal.sh
 # Audit recorrente dos MCP servers ativos no Claude Code.
 # Fecha vetor R8 (MCP tool poisoning) em ritmo mensal.
-# Pendência mãe (origem): ClickUp 86ahha462 (Item 0.5 hardening Fase 0).
+# Pendência mãe (origem): ClickUp {{CLICKUP_TASK_ID}} (Item 0.5 hardening Fase 0).
 #
 # Uso manual:
 #   ./workspace/scripts/seguranca/mcp-audit-mensal.sh
 #
 # Cron (NÃO instalar automaticamente — exige aval Gui):
-#   0 9 1 * * cd "/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila" && ./workspace/scripts/seguranca/mcp-audit-mensal.sh
+#   0 9 1 * * cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}" && ./workspace/scripts/seguranca/mcp-audit-mensal.sh
 
 set -euo pipefail
 
-REPO_ROOT="/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila"
+REPO_ROOT="{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 TODAY="$(date +%Y-%m-%d)"
 OUTPUT_DIR="${REPO_ROOT}/workspace/output/auditorias"
 OUTPUT_FILE="${OUTPUT_DIR}/${TODAY}-mcp-audit-auto.md"
@@ -59,7 +59,7 @@ cat > "${OUTPUT_FILE}" <<EOF
 # MCP Security Audit — ${TODAY} (auto)
 
 **Gerado por:** \`workspace/scripts/seguranca/mcp-audit-mensal.sh\`
-**Origem:** Item 0.5 hardening Fase 0 (ClickUp 86ahha462), Regra §16
+**Origem:** Item 0.5 hardening Fase 0 (ClickUp {{CLICKUP_TASK_ID}}), Regra §16
 **Ferramenta:** snyk-agent-scan ${VERSION}
 
 ---

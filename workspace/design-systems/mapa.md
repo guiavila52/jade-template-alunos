@@ -1,7 +1,7 @@
 # MAPA — Design Systems
 
 **Propósito:**  
-Documentar design systems implícitos do Gui Ávila extraídos de páginas em produção. Cada design system congela tokens (paleta, tipografia, spacing, motion) de uma linguagem visual específica, permitindo replicação fiel em novas páginas.
+Documentar design systems implícitos do {{NOME_OPERADOR}} extraídos de páginas em produção. Cada design system congela tokens (paleta, tipografia, spacing, motion) de uma linguagem visual específica, permitindo replicação fiel em novas páginas.
 
 ---
 
@@ -10,20 +10,20 @@ Documentar design systems implícitos do Gui Ávila extraídos de páginas em pr
 ```
 workspace/design-systems/
 ├── mapa.md                          [este arquivo — índice dos design systems]
-├── guiavila-premium.md              [design system extraído de /mentoria e /reverso]
-├── guiavila-premium/
+├── {{operador_slug}}-premium.md              [design system extraído de /mentoria e /reverso]
+├── {{operador_slug}}-premium/
 │   └── screenshots/
 │       ├── mentoria.png             [desktop 1440x900]
 │       ├── mentoria-mobile.png      [mobile 390x844]
 │       ├── reverso.png              [desktop 1440x900]
 │       └── reverso-mobile.png       [mobile 390x844]
-├── guiavila-{{plataforma_conteudo}}.md              [design system extraído de {{plataforma_conteudo}}.{{DOMINIO}}]
-├── guiavila-{{plataforma_conteudo}}/
+├── {{operador_slug}}-{{plataforma_conteudo}}.md              [design system extraído de {{plataforma_conteudo}}.{{DOMINIO}}]
+├── {{operador_slug}}-{{plataforma_conteudo}}/
 │   └── screenshots/
 │       ├── {{plataforma_conteudo}}-desktop.png      [desktop 1440x900]
 │       └── {{plataforma_conteudo}}-mobile.png       [mobile 390x844]
-├── guiavila-clean.md                [design system baseado em Resend — técnico-acolhedor]
-└── guiavila-clean/
+├── {{operador_slug}}-clean.md                [design system baseado em Resend — técnico-acolhedor]
+└── {{operador_slug}}-clean/
     └── screenshots/
         ├── resend-home-desktop.png  [desktop 1440x900]
         ├── resend-home-mobile.png   [mobile 390x844]
@@ -35,7 +35,7 @@ workspace/design-systems/
 
 ## Design Systems Ativos
 
-### 1. **guiavila-premium**
+### 1. **{{operador_slug}}-premium**
 
 - **Páginas de referência:**
   - https://sites.{{DOMINIO}}/mentoria
@@ -54,17 +54,17 @@ workspace/design-systems/
   Premium, editorial, denso, sofisticado, confiável
 
 - **Documentação:**  
-  `guiavila-premium.md` (completo, 500+ linhas)
+  `{{operador_slug}}-premium.md` (completo, 500+ linhas)
 
 - **Screenshots:**  
-  4 arquivos em `guiavila-premium/screenshots/`
+  4 arquivos em `{{operador_slug}}-premium/screenshots/`
 
 - **Status:**  
   ✅ Completo e validado (2026-05-14)
 
 ---
 
-### 2. **guiavila-{{plataforma_conteudo}}**
+### 2. **{{operador_slug}}-{{plataforma_conteudo}}**
 
 - **Páginas de referência:**
   - https://{{plataforma_conteudo}}.{{DOMINIO}}
@@ -83,17 +83,17 @@ workspace/design-systems/
   SaaS moderno, energético, tech/produto, ousado, focado
 
 - **Documentação:**  
-  `guiavila-{{plataforma_conteudo}}.md` (completo, 500+ linhas)
+  `{{operador_slug}}-{{plataforma_conteudo}}.md` (completo, 500+ linhas)
 
 - **Screenshots:**  
-  2 arquivos em `guiavila-{{plataforma_conteudo}}/screenshots/`
+  2 arquivos em `{{operador_slug}}-{{plataforma_conteudo}}/screenshots/`
 
 - **Status:**  
   ✅ Completo e validado (2026-05-14)
 
 ---
 
-### 3. **guiavila-clean**
+### 3. **{{operador_slug}}-clean**
 
 - **Página de referência:**  
   https://resend.com
@@ -113,10 +113,10 @@ workspace/design-systems/
   Contemporâneo, técnico-acolhedor, respirável, preciso, confiável
 
 - **Documentação:**  
-  `guiavila-clean.md` (completo, 700+ linhas)
+  `{{operador_slug}}-clean.md` (completo, 700+ linhas)
 
 - **Screenshots:**  
-  4 arquivos em `guiavila-clean/screenshots/`
+  4 arquivos em `{{operador_slug}}-clean/screenshots/`
 
 - **Status:**  
   ✅ Completo e validado (2026-05-14)
@@ -148,7 +148,7 @@ workspace/design-systems/
 6. **Descrever voz visual** (3-5 adjetivos com justificativa técnica/visual)
 7. **Criar seção "Como usar"** (guia rápido dev/copywriter/designer)
 8. **Criar pasta `{nome}/screenshots/`** e salvar os PNGs
-9. **Criar `{nome}.md`** no formato do `guiavila-premium.md`
+9. **Criar `{nome}.md`** no formato do `{{operador_slug}}-premium.md`
 10. **Atualizar este mapa.md** com entrada do novo design system
 
 ---

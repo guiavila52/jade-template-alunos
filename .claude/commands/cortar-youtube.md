@@ -98,7 +98,7 @@ Output:
 ## Cross-reference
 
 - Script: [scripts/video/cortar-youtube.py](../../scripts/video/cortar-youtube.py)
-- Task ClickUp: `86ahedmmf` — tag `imersao-14-05`
+- Task ClickUp: `{{CLICKUP_TASK_ID}}` — tag `imersao-14-05`
 - Regra #22 confiabilidade — timeout/stderr/exit code
 
 ---

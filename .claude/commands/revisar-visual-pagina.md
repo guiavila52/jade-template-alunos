@@ -57,11 +57,11 @@ Reprovar é melhor que aprovar com gap. Auto-checklist do produtor NÃO substitu
 - **url_local:** URL local pra renderizar (ex: `http://localhost:4321/[slug]`) — dev deve subir `astro dev` antes
 - **url_prod_atual:** URL produção atual (ex: `https://sites.{{DOMINIO}}/[slug]`) — opcional pra antes/depois
 - **briefing:** path do briefing estratégico que originou a copy (pra validar voz visual vs estratégia)
-- **design_system:** path do design system aplicado (ex: `workspace/design-systems/guiavila-premium.md`)
+- **design_system:** path do design system aplicado (ex: `workspace/design-systems/{{operador_slug}}-premium.md`)
 
 **Exemplo:**
 ```
-/revisar-visual-pagina --path=src/pages/mentoria/index.astro --url_local=http://localhost:4321/mentoria --url_prod_atual=https://sites.{{DOMINIO}}/mentoria --briefing=workspace/output/estrategia/2026-05-14-mentoria-redesign-briefing.md --design_system=workspace/design-systems/guiavila-premium.md
+/revisar-visual-pagina --path=src/pages/mentoria/index.astro --url_local=http://localhost:4321/mentoria --url_prod_atual=https://sites.{{DOMINIO}}/mentoria --briefing=workspace/output/estrategia/2026-05-14-mentoria-redesign-briefing.md --design_system=workspace/design-systems/{{operador_slug}}-premium.md
 ```
 
 ---

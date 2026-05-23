@@ -253,7 +253,7 @@ Após renderizar o HTML, publicar/atualizar no {{Plataforma_Conteudo}} via REST.
    open workspace/output/newsletter/YYYY-MM-DD-slug-edit.html
    ```
 8. POST {{Plataforma_Conteudo}} (primeira vez) com status `aprovacao` → guardar ID retornado
-9. Apresentar URL `https://{{plataforma_conteudo}}.{{DOMINIO}}/guiavila/conteudos/{id}` pro Gui
+9. Apresentar URL `https://{{plataforma_conteudo}}.{{DOMINIO}}/{{operador_slug}}/conteudos/{id}` pro Gui
 10. Se Gui pedir ajuste → editar config JSON → re-renderizar → PATCH no MESMO ID (não criar novo)
 
 ## Parser inline do renderer (correção 14/05/2026)

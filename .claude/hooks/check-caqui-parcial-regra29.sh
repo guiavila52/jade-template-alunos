@@ -9,7 +9,7 @@ COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // .tool_input.content // "
 # Detecta strings de bloqueio
 if echo "$COMMAND" | grep -qiE "Caqui parcial|aguarda Gui|espera Gui voltar|aguardando Gui|aguardando aprovação"; then
     # Verifica se PROGRESS.md tem o checklist Regra #29 respondido nas últimas 50 linhas
-    PROGRESS="~/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/PROGRESS.md"
+    PROGRESS="~/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/PROGRESS.md"
     if [ -f "$PROGRESS" ] && tail -50 "$PROGRESS" | grep -qE "Regra #29|PRÉ-DECLARAÇÃO DE CAQUI"; then
         # Checklist presente — permitir
         exit 0

@@ -48,10 +48,10 @@ Toda migração DEVE clonar TODOS os assets referenciados pelo HTML para `Págin
 cd "Páginas Astro {{NOME_OPERADOR}}"
 
 # 1. Extrair TODAS as URLs absolutas do .astro (e relativas, se houver)
-grep -hoE 'https://sites\.guiavila\.com/[a-z0-9_-]+/(img|assets|files|cdn|fonts|videos)/[^"\)]+\.(jpg|jpeg|png|webp|svg|gif|mov|mp4|webm|woff|woff2|ttf|otf|css|js|ico)' src/pages/[slug]/index.astro | sort -u
+grep -hoE 'https://sites\.{{operador_slug}}\.com/[a-z0-9_-]+/(img|assets|files|cdn|fonts|videos)/[^"\)]+\.(jpg|jpeg|png|webp|svg|gif|mov|mp4|webm|woff|woff2|ttf|otf|css|js|ico)' src/pages/[slug]/index.astro | sort -u
 
 # 1b. Reforçar com grep que aceita espaço em nome de arquivo (logos com nomes "banco do brasil.png")
-grep -hoE 'src="https://sites\.guiavila\.com/[^"]+\.(jpg|jpeg|png|webp|svg|gif|mov|mp4|webm|woff|woff2|ttf|otf|css|js|ico)"' src/pages/[slug]/index.astro | sort -u
+grep -hoE 'src="https://sites\.{{operador_slug}}\.com/[^"]+\.(jpg|jpeg|png|webp|svg|gif|mov|mp4|webm|woff|woff2|ttf|otf|css|js|ico)"' src/pages/[slug]/index.astro | sort -u
 
 # 2. Pra cada URL: criar pasta + baixar
 mkdir -p public/[slug]/img public/[slug]/img/logos

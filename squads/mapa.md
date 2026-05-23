@@ -1,6 +1,6 @@
 # MAPA — squads
 
-**Propósito:** Arquitetura de squads do Gui Ávila — cada subpasta é um squad especializado coordenado pela Jade (COO).
+**Propósito:** Arquitetura de squads do {{NOME_OPERADOR}} — cada subpasta é um squad especializado coordenado pela Jade (COO).
 
 **Última atualização:** 2026-05-16 (Onda 2 housekeeping — agentes fantasmas removidos, tabela legacy eliminada)
 

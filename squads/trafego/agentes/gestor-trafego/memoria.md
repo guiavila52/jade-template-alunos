@@ -56,7 +56,7 @@ trafego sobe via Meta Ads API → campanha_id
 
 ## Memórias relevantes (ler ao despachar)
 
-- `~/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/project_foco_carrossel_youtube_e_meta_ads.md` — foco macro
+- `~/.claude/projects/-Users-{{operador_slug}}-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/project_foco_carrossel_youtube_e_meta_ads.md` — foco macro
 - `~/.claude/.../memory/feedback_metricas_publicas_gui.md` — banido faturamento
 - `~/.claude/.../memory/feedback_vocabulario_aproxima_lead.md` — banidas qualif/avaliação/screening
 - `~/.claude/.../memory/feedback_propagacao_correcoes.md` — Regra #19

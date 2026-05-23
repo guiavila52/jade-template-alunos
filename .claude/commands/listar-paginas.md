@@ -17,7 +17,7 @@ Skill operacional pra Jade ou subagent listar rapidamente todas as paginas do re
 ## Execucao (deterministica)
 
 ```bash
-REPO="/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}"
+REPO="{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}"
 echo "| Slug | URL | Status |"
 echo "|---|---|---|"
 for dir in "$REPO/src/pages"/*/; do

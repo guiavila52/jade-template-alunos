@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Infraestrutura local de observabilidade, monitoramento e ferramentas operacionais self-hosted do squad. Pasta criada em 2026-05-16 (Item 0.4 / Fase 0 hardening, pendência mãe ClickUp 86ahha462).
+Infraestrutura local de observabilidade, monitoramento e ferramentas operacionais self-hosted do squad. Pasta criada em 2026-05-16 (Item 0.4 / Fase 0 hardening, pendência mãe ClickUp {{CLICKUP_TASK_ID}}).
 
 ## Estrutura
 
@@ -28,4 +28,4 @@ Dados ClickHouse ficam em `workspace/infra/signoz/data/` (gitignored).
 
 ## Última atualização
 
-2026-05-16 — criação inicial via Item 0.4 hardening (pendência ClickUp 86ahha462).
+2026-05-16 — criação inicial via Item 0.4 hardening (pendência ClickUp {{CLICKUP_TASK_ID}}).

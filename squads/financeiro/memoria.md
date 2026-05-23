@@ -9,7 +9,7 @@ Responsável por: extrato bancário, emissão de NF, rotinas financeiras, integr
 ## Ferramentas
 
 - **{{BANCO_PJ}}:** conta PJ — extrato disponível via API (token já configurado no Dashboard app)
-- **App Dashboard:** `/Users/guiavila/Documents/Projetos IA Gui Ávila/` — já tem integração com {{BANCO_PJ}}
+- **App Dashboard:** `{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/` — já tem integração com {{BANCO_PJ}}
 - **Sistema de NF:** {{PLATAFORMA_NF}} (app.{{PLATAFORMA_NF_URL}}) — conta {{EMPRESA_HOLDING_ID}}, duas empresas ({{EMPRESA1}} + {{EMPRESA2}}), API integrada
 
 ## Skills operacionais

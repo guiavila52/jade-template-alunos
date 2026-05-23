@@ -3,7 +3,7 @@
 # Regra §16 (Segurança first) — estende Regra §11
 # Vetor R2: self-modification de settings via Bash.
 # Vetores 2026: CVE-2025-59536, CVE-2026-21852, Mini Shai-Hulud (~/.claude.json).
-# Pendência mãe: ClickUp 86ahha462
+# Pendência mãe: ClickUp {{CLICKUP_TASK_ID}}
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 RESULT=$(cat | python3 "$DIR/_check-bash-em-claude-paths-detect.py")
@@ -48,7 +48,7 @@ Vetores ativos 2026 (consultar Regra §16 / AGENTS.md):
 - CVE-2025-59536, CVE-2026-21852
 - Mini Shai-Hulud (worm modifica ~/.claude.json)
 
-Pendencia mae: ClickUp 86ahha462
+Pendencia mae: ClickUp {{CLICKUP_TASK_ID}}
 MSG
   exit 2
 fi

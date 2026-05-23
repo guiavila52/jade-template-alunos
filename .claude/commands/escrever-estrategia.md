@@ -34,7 +34,7 @@ type: skill
 4. **`squads/gestao/agentes/estrategista-marketing/aprendizados.md`**
    - Lições anteriores do estrategista (não repetir erro corrigido).
 
-5. **MEMORY.md index** em `~/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/MEMORY.md` + memórias relevantes pra essa estratégia específica:
+5. **MEMORY.md index** em `~/.claude/projects/-Users-{{operador_slug}}-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/MEMORY.md` + memórias relevantes pra essa estratégia específica:
    - SEMPRE: `user_posicionamento_gui.md`, `project_empresas_cnpj.md`, `project_posicionamento_squads.md`
    - SE MENCIONAR FUNIL: `project_jornada_cliente_reverso.md`
    - SE MENCIONAR {{LMS}}: `{{lms}}_comercial.md`

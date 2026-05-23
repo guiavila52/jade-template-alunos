@@ -262,11 +262,11 @@ Skills que precisam de auditoria de propósito antes de atacar:
 
 **Última atualização:** 2026-05-11  
 **Auditado por:** paginas-dev (squad-dev)  
-**Aprovação pendente:** Gui Ávila
+**Aprovação pendente:** {{NOME_OPERADOR}}
 
 ---
 
-## Arquivamento — 2026-05-14 (refactor task 86ahfpn9r)
+## Arquivamento — 2026-05-14 (refactor task {{CLICKUP_TASK_ID}})
 
 Skills ⚪ não-maduras movidas pra `workspace/skills-arquivadas/` (fora do escaneio do Claude Code). Lista:
 

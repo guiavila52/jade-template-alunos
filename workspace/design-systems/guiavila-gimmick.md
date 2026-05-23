@@ -1,4 +1,4 @@
-# Design System Gui Ávila — {{Plataforma_Conteudo}}
+# Design System {{NOME_OPERADOR}} — {{Plataforma_Conteudo}}
 
 **Versão:** 1.0  
 **Última atualização:** 2026-05-14  
@@ -24,7 +24,7 @@
 
 ## Voz Visual
 
-O design system {{Plataforma_Conteudo}} é caracterizado por **5 adjetivos visuais**, distintos do design-system-guiavila-premium:
+O design system {{Plataforma_Conteudo}} é caracterizado por **5 adjetivos visuais**, distintos do design-system-{{operador_slug}}-premium:
 
 ### 1. **SaaS Moderno**
 - **Evidências:** paleta violeta-rosa-laranja vibrante (#a78bfa, #f0abfc, #fb923c), gradientes multi-cor (120deg), cards com borda sutil, tipografia tech-friendly (Inter como fallback), UI patterns de dashboard/produto (não editorial).
@@ -817,7 +817,7 @@ Antes de publicar página {{Plataforma_Conteudo}}, verificar:
 
 ## Screenshots de Referência
 
-Armazenados em `workspace/design-systems/guiavila-{{plataforma_conteudo}}/screenshots/`:
+Armazenados em `workspace/design-systems/{{operador_slug}}-{{plataforma_conteudo}}/screenshots/`:
 
 - `{{plataforma_conteudo}}-desktop.png` — Desktop (1440x900)
 - `{{plataforma_conteudo}}-mobile.png` — Mobile (390x844)

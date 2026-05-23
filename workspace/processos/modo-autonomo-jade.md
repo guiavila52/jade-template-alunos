@@ -172,7 +172,7 @@ Gui (ou Jade) cria routine:
 | Rotina diária recorrente | **`/schedule`** |
 | Resposta a evento externo (webhook Telegram, etc) | **Hook custom** (futuro) |
 
-## Combinação ideal pro caso Gui Ávila
+## Combinação ideal pro caso {{NOME_OPERADOR}}
 
 ```
                     JADE AUTÔNOMA

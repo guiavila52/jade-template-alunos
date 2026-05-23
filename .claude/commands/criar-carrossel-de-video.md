@@ -24,7 +24,7 @@ Pra tema solto (sem URL), usar `/criar-carrossel`.
 
 ## Memórias relevantes (ler antes)
 
-1. `~/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/project_foco_carrossel_youtube_e_meta_ads.md` — foco macro
+1. `~/.claude/projects/-Users-{{operador_slug}}-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/project_foco_carrossel_youtube_e_meta_ads.md` — foco macro
 2. `~/.claude/.../memory/feedback_propagacao_correcoes.md` — Regra #19
 3. `~/.claude/.../memory/design_rules_paginas.md` — Cormorant proibida em dígitos (Regra #188)
 4. `segundo-cerebro/01-identidade/banco-de-historias.md`

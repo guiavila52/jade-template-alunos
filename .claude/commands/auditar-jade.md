@@ -30,7 +30,7 @@ Roda **auditoria adversarial completa** do repo público `{{GITHUB_USER}}/jade` 
 | 3 | Nomes pessoais | `Luiz Fosc\|{{NOME_SUPORTE}}\|{{NOME_PARCEIRO_PLATAFORMA}}\|\|{{NOME_BACKUP_ADMIN}}\|{{CONTADORA}}\|cliente_exemplo` | Parceiros, suporte, clientes |
 | 4 | Empresas reais | `{{EMPRESA_COFUNDADA}}\|{{EMPRESA_HOLDING}}\|{{EMPRESA_NEGOCIO}}\|{{plataforma_conteudo}}` (case insensitive, não-placeholder) | Empresas do operador |
 | 5 | ClickUp Task IDs | `\b86[a-z0-9]{7,8}\b` | IDs rastreáveis de tasks internas |
-| 6 | MCP privados | `armavita` (e qualquer outro registrado) | MCP servers proprietários |
+| 6 | MCP privados | `{{mcp_privado}}` (e qualquer outro registrado) | MCP servers proprietários |
 | 7 | Emails reais | `@(gmail\|hotmail\|outlook)\.com` (exceto `@exemplo`) | Endereços reais |
 | 8 | CNPJs reais | `[0-9]{2}\.[0-9]{3}\.[0-9]{3}/[0-9]{4}-[0-9]{2}` (exceto `00.000.000`) | Documentos fiscais reais |
 | 9 | Workspace IDs | `\b30978229\b` (e outros IDs ClickUp/{{PLATAFORMA_NF}}) | Identificadores de contas externas |
@@ -74,7 +74,7 @@ CHECKS[4_empresas]=$(grep -rEi '\b({{lms_slug}}|fatorial|magica online|magica_on
 CHECKS[5_clickup_ids]=$(grep -rE '\b86[a-z0-9]{7,8}\b' . 2>/dev/null | grep -v '.git/' | wc -l | tr -d ' ')
 
 # 6. MCP privados
-CHECKS[6_mcp_privado]=$(grep -rEi 'armavita' . 2>/dev/null | grep -v '.git/' | wc -l | tr -d ' ')
+CHECKS[6_mcp_privado]=$(grep -rEi '{{mcp_privado}}' . 2>/dev/null | grep -v '.git/' | wc -l | tr -d ' ')
 
 # 7. Emails reais
 CHECKS[7_emails]=$(grep -rE '@(gmail|hotmail|outlook)\.com' . 2>/dev/null | grep -v '@exemplo' | grep -v '.git/' | wc -l | tr -d ' ')
@@ -137,7 +137,7 @@ done
   echo ""
   if [ "$TOTAL" != "0" ]; then
     echo '```'
-    grep -rEi '\bgui\s?[áa]vila\b|/Users/[a-z]+|Luiz Fosc|{{NOME_SUPORTE}}|\b{{lms_slug}}\b|\bfatorial\b|\b{{plataforma_conteudo}}\b|\b86[a-z0-9]{7,8}\b|armavita|consultar-nf|publicar-{{plataforma_conteudo}}|responder-{{suporte}}|\b(PRD|business-rules|database|integrations)\.md\b' . 2>/dev/null | grep -v '.git/' | grep -v '{{' | head -20
+    grep -rEi '\bgui\s?[áa]vila\b|/Users/[a-z]+|Luiz Fosc|{{NOME_SUPORTE}}|\b{{lms_slug}}\b|\bfatorial\b|\b{{plataforma_conteudo}}\b|\b86[a-z0-9]{7,8}\b|{{mcp_privado}}|consultar-nf|publicar-{{plataforma_conteudo}}|responder-{{suporte}}|\b(PRD|business-rules|database|integrations)\.md\b' . 2>/dev/null | grep -v '.git/' | grep -v '{{' | head -20
     echo '```'
   else
     echo "_Nenhum vazamento detectado._"
@@ -217,7 +217,7 @@ Quando descobrir novo dado sensível (ex: cliente novo, parceiro novo, MCP novo,
 
 ## Histórico
 
-- **2026-05-18:** Skill criada após red team encontrar 78 vazamentos em primeira publicação do `{{GITHUB_USER}}/jade` (PRD, paths absolutos, Luiz Fosc, ClickUp IDs, memórias `feedback_*.md`, MCP `armavita`, etc). Decisão Gui: "Eu quero que você crie uma skill pra eu rodar ela de tempos em tempos pra garantir que é uma auditoria completa."
+- **2026-05-18:** Skill criada após red team encontrar 78 vazamentos em primeira publicação do `{{GITHUB_USER}}/jade` (PRD, paths absolutos, Luiz Fosc, ClickUp IDs, memórias `feedback_*.md`, MCP `{{mcp_privado}}`, etc). Decisão Gui: "Eu quero que você crie uma skill pra eu rodar ela de tempos em tempos pra garantir que é uma auditoria completa."
 
 ## Como agendar pra rodar semanal
 

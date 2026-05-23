@@ -1,4 +1,4 @@
-# Squad de Agentes — Gui Ávila
+# Squad de Agentes — {{NOME_OPERADOR}}
 
 Agentes especializados nos gargalos do negócio. Cada agente conhece o Cérebro (tom de voz, produtos, contexto) e opera com checkpoints de aprovação antes de qualquer entrega.
 
@@ -20,7 +20,7 @@ Agentes especializados nos gargalos do negócio. Cada agente conhece o Cérebro 
 
 ## Como usar
 
-1. Abra o Claude Code na raiz do projeto (`Squad Empresa Gui Ávila/`)
+1. Abra o Claude Code na raiz do projeto (`Squad Empresa {{NOME_OPERADOR}}/`)
 2. Digite o slash command do agente (ex: `/escrever-newsletter`)
 3. O agente lê o Cérebro e inicia o workflow
 4. Aprove ou redirecione em cada checkpoint

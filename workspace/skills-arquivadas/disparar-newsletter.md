@@ -151,7 +151,7 @@ import yaml
 frontmatter = yaml.safe_load(parts[1]) if len(parts) >= 3 else {}
 
 payload = {
-    "title": frontmatter.get("title", "Newsletter Gui Ávila"),
+    "title": frontmatter.get("title", "Newsletter {{NOME_OPERADOR}}"),
     "body": body_clean,  # Top-level (funciona)
     "newsletter_content": {
         "preheader": frontmatter.get("preheader", ""),
@@ -173,7 +173,7 @@ data = r.json()
 newsletter_id = data.get("data", {}).get("id") or data.get("id")
 ```
 
-**Bug conhecido:** `{ "newsletter_content": { "body": ... } }` (nested) = silently ignored — bug GIMMICK-005. Sempre usar `body` top-level.
+**Bug conhecido:** `{ "newsletter_content": { "body": ... } }` (nested) = silently ignored — bug {{PLATAFORMA_BUG_ID}}. Sempre usar `body` top-level.
 
 #### 6.3. Validar via GET subsequente que body persistiu
 
@@ -348,7 +348,7 @@ Atualizar `workspace/memory/newsletter-disparos.md` com entry de histórico:
 - Nunca em config versionado
 - Carregar via:
   ```bash
-  source "/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/app/.env.local"
+  source "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/app/.env.local"
   ```
 
 ### Timeouts (Regra #22: confiabilidade)
@@ -379,7 +379,7 @@ Retry com backoff exponencial (5s, 15s, 60s).
 #### Body não persistiu após PATCH
 ```
 ❌ GET retornou body com apenas X chars (esperado ~2500+).
-Possível causa: nested body bug GIMMICK-005.
+Possível causa: nested body bug {{PLATAFORMA_BUG_ID}}.
 Correção: re-PATCH com body top-level (não nested em newsletter_content).
 ```
 

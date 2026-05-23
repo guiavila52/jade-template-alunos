@@ -105,7 +105,7 @@ Ou sem argumento — o revisor pedirá o caminho.
   - [ ] Nenhuma menção a faturamento, MRR, lucro, ARR de {{EMPRESA_COFUNDADA}}, {{EMPRESA_NEGOCIO}}, {{MARCA_PESSOAL}}
   Falhar = REPROVAR.
 - [ ] **Hiperlinks INLINE — link na palavra**:
-  - [ ] grep `guiavila\.com` no `.astro` retorna 0 ocorrências em texto puro (sem `href=` e fora de comentários `//`)
+  - [ ] grep `{{operador_slug}}\.com` no `.astro` retorna 0 ocorrências em texto puro (sem `href=` e fora de comentários `//`)
   - [ ] Toda URL é `<a href="https://{{DOMINIO}}/[slug]">palavra</a>` com classe `.link-inline`
   - [ ] Sem URLs entre parênteses como texto pra copiar (ex: ❌ "consultoria ({{DOMINIO}}/consultoria)")
   - [ ] Slugs seguem padrão canônico ({{produto_slug}}, manychat, clickup, clickup8x, level, automacoes, reverso, youtube, mentoria, consultoria, {{lms_slug}} — ver `project_hiperlinks_padrao.md`)

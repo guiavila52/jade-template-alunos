@@ -12,13 +12,13 @@
 
 ## Fluxo automático ({{LMS}} → {{PLATAFORMA_NF}})
 
-1. Cliente compra pela plataforma {{LMS}} (guiavila ou {{produto_slug}})
+1. Cliente compra pela plataforma {{LMS}} ({{operador_slug}} ou {{produto_slug}})
 2. **15 dias após a data da compra**, a {{LMS}} envia os dados automaticamente para o {{PLATAFORMA_NF}}
 3. {{PLATAFORMA_NF}} emite a NFS-e automaticamente para o cliente
 4. Nenhuma ação manual é necessária
 
 **Plataformas com esse fluxo:**
-- {{LMS}} Gui Ávila (`guiavila`)
+- {{LMS}} {{NOME_OPERADOR}} (`{{operador_slug}}`)
 - {{LMS}} {{EMPRESA_NEGOCIO}} (`{{produto_slug}}`)
 
 ---
@@ -26,7 +26,7 @@
 ## O que NÃO precisa de NF manual
 
 - Saques da {{LMS}} que caem no {{BANCO_PJ}} — a NF já foi emitida para o cliente no momento da compra (15 dias depois)
-- Essas entradas no Inter vêm identificadas como transferências da {{LMS}} (guiavila ou {{produto_slug}})
+- Essas entradas no Inter vêm identificadas como transferências da {{LMS}} ({{operador_slug}} ou {{produto_slug}})
 
 ---
 

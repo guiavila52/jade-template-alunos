@@ -69,4 +69,4 @@ echo "=== Fallback: git push origin main ==="
 git push origin main
 echo ""
 echo "✅ Push feito. Vercel detecta e builda em ~30-90s."
-echo "   Monitore em: vercel.com/<team>/paginas-guiavila-astro/deployments"
+echo "   Monitore em: vercel.com/<team>/paginas-{{operador_slug}}-astro/deployments"

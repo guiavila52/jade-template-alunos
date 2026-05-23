@@ -8,7 +8,7 @@
 
 Responsável pelo {{Plataforma_Conteudo}} (App Reverso), integração via API REST do {{Plataforma_Conteudo}} (Bearer `sk-sq-*`, endpoints em `segundo-cerebro/03-operacao/{{plataforma_conteudo}}-historico.md`) e infraestrutura de código. **Nota:** o antigo MCP server do {{Plataforma_Conteudo}} foi descontinuado em 12/05/2026 — retorna 401.
 
-**Projeto principal:** `/Users/guiavila/Documents/Projetos IA Gui Ávila/App Reverso/` — Next.js + Supabase + Claude API
+**Projeto principal:** `{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/App Reverso/` — Next.js + Supabase + Claude API
 **Status:** squad a estruturar — agentes a criar
 
 ---
@@ -20,11 +20,11 @@ Responsável pelo {{Plataforma_Conteudo}} (App Reverso), integração via API RE
 
 ---
 
-## Projeto Astro do squad — `Páginas Astro Gui Ávila/` (registrado 06/05/2026)
+## Projeto Astro do squad — `Páginas Astro {{NOME_OPERADOR}}/` (registrado 06/05/2026)
 
-**Caminho absoluto:** `/Users/guiavila/Documents/Projetos IA Gui Ávila/Páginas Astro Gui Ávila/`
+**Caminho absoluto:** `{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/`
 
-Projeto paralelo ao Next legado (`Sites Gui Ávila/`). Roda em `localhost:4321`. Toda página nova (criada via `/criar-pagina-nova` ou migrada via `/migrar-pagina`) vai para `src/pages/[slug]/index.astro`.
+Projeto paralelo ao Next legado (`Sites {{NOME_OPERADOR}}/`). Roda em `localhost:4321`. Toda página nova (criada via `/criar-pagina-nova` ou migrada via `/migrar-pagina`) vai para `src/pages/[slug]/index.astro`.
 
 **Stack final escolhida (T1 — Onda 1):**
 - Astro 6.2.2

@@ -1,4 +1,4 @@
-# Design System Gui Ávila — Clean
+# Design System {{NOME_OPERADOR}} — Clean
 
 **Versão:** 1.0  
 **Última atualização:** 2026-05-14  
@@ -24,7 +24,7 @@
 
 ## Voz Visual
 
-O design system clean do Gui Ávila é caracterizado por **5 adjetivos visuais**, distintos do premium (editorial/dourado) e do {{plataforma_conteudo}} (SaaS energético):
+O design system clean do {{NOME_OPERADOR}} é caracterizado por **5 adjetivos visuais**, distintos do premium (editorial/dourado) e do {{plataforma_conteudo}} (SaaS energético):
 
 ### 1. **Contemporâneo**
 - **Evidências:** paleta cinza escuro (#09090b, não puro preto), tipografia Inter moderna (weights 400-600), accent único funcional (#3b82f6 azul), bordas ultra-sutis (rgba 0.06), cards com rounded moderado (12px), gradientes monocromáticos suaves.
@@ -851,4 +851,4 @@ Todas as classes começam mobile e escalam com `@media (min-width: ...)`.
 
 **Última atualização:** 2026-05-14  
 **Autor:** Jade (COO) via squad dev  
-**Aprovação:** Pendente Gui Ávila
+**Aprovação:** Pendente {{NOME_OPERADOR}}

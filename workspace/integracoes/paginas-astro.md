@@ -1,11 +1,11 @@
-# Páginas Astro Gui Ávila — Repo de produção
+# Páginas Astro {{NOME_OPERADOR}} — Repo de produção
 
 > **Decisão (18/05/2026):** páginas continuam em repo SEPARADO do squad Jade. Razão: Vercel já aponta pra esse repo, separação framework (Jade) vs produto (páginas), histórico git preservado.
 
 ## Path canônico
 
 ```
-/Users/guiavila/Documents/Projetos IA Gui Ávila/Páginas Astro Gui Ávila/
+{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/
 ```
 
 Páginas individuais ficam em:
@@ -29,7 +29,7 @@ Exemplos atuais:
 ## Comandos úteis (rodar dentro do repo)
 
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA Gui Ávila/Páginas Astro Gui Ávila"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}"
 npm run dev      # localhost preview
 npm run build    # build estático
 vercel --prod    # deploy produção (só após triple-check + designer-revisor APROVADO)

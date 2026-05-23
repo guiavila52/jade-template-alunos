@@ -14,7 +14,7 @@ Exemplos:
 - `/consultar-leads 30 dias` — últimos 30 dias
 - `/consultar-leads tag:mentoria` — leads com tag específica
 - `/consultar-leads pipeline:reverso` — leads de pipeline específico
-- `/consultar-leads email:gui@x.com` — busca por email
+- `/consultar-leads email:{{EMAIL_OPERADOR}}` — busca por email
 - `/consultar-leads telefone:+5511...` — busca por telefone
 
 Sem filtro: últimos 7 dias.
@@ -24,7 +24,7 @@ Sem filtro: últimos 7 dias.
 ### 1. Carregar credenciais
 
 ```bash
-source "/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/app/.env.local"
+source "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/app/.env.local"
 ```
 
 Vars necessárias:
@@ -138,7 +138,7 @@ print(json.dumps(resultado, indent=2, ensure_ascii=False, default=str))
 
 **Executar:**
 ```bash
-source "/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/app/.env.local" && \
+source "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/app/.env.local" && \
 python3 /tmp/consultar_leads.py "[FILTRO]"
 ```
 

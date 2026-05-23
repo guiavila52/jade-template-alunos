@@ -95,7 +95,7 @@ Cada categoria é independente. Ordem alfabética A–M2. Severidade quando falh
 
 **Comando:**
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 for f in .claude/commands/*.md; do
   case "$f" in
     *.preFix*|*.bak|*mapa.md) continue ;;
@@ -118,7 +118,7 @@ done
 
 **Comando:**
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 find squad squads "segundo-cerebro" -type d \
   -not -path '*/.*' \
   -not -path '*/node_modules*' \
@@ -141,7 +141,7 @@ find squad squads "segundo-cerebro" -type d \
 
 **Comando:**
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 for sq in squads/*/; do
   [ -d "$sq" ] || continue
   for arq in memoria.md aprendizados.md tarefas.md mapa.md; do
@@ -167,7 +167,7 @@ done
 
 **Comando:**
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 find squads -type d -path '*/agentes/*' -mindepth 3 -maxdepth 3 | while read ag; do
   for arq in memoria.md aprendizados.md mapa.md; do
     if [ ! -f "${ag}/${arq}" ]; then
@@ -189,7 +189,7 @@ done
 
 **Comando:**
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 DUPS=$(grep -E '^## §[0-9]' AGENTS.md \
   | grep -oE '§[0-9]+' \
   | sort | uniq -d)
@@ -210,7 +210,7 @@ fi
 
 **Comando:**
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 # Lista de squads reais
 EXISTING=$(ls -d squads/*/ 2>/dev/null | xargs -n1 basename | sort -u)
 echo "EXISTING: $EXISTING"
@@ -229,13 +229,13 @@ echo "MENTIONED: $MENTIONED"
 
 ### G) Memórias persistentes válidas (auto-memory)
 
-**Critério:** Cada `*.md` em `~/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/` (exceto `MEMORY.md`):
+**Critério:** Cada `*.md` em `~/.claude/projects/-Users-{{operador_slug}}-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/` (exceto `MEMORY.md`):
 - Tem frontmatter (linhas 1-N entre `---`) com `name`, `description`, `type` — OU formato livre claro com `# nome` no topo
 - Está indexada em `MEMORY.md` (linha `[arquivo.md](arquivo.md)`)
 
 **Comando:**
 ```bash
-MEMDIR="$HOME/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory"
+MEMDIR="$HOME/.claude/projects/-Users-{{operador_slug}}-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory"
 [ -d "$MEMDIR" ] || { echo "MEMDIR ausente: $MEMDIR"; exit 0; }
 INDEX="$MEMDIR/MEMORY.md"
 for f in "$MEMDIR"/*.md; do
@@ -260,11 +260,11 @@ done
 
 **Comando:**
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}" 2>/dev/null \
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}" 2>/dev/null \
   && find . -type f \( -name '*.preFix*' -o -name '*.preMigracao' -o -name '*.bloqueado' -o -name '*.bak' \) \
        -not -path '*/node_modules/*' \
        2>/dev/null
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/.claude/commands"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/.claude/commands"
 ls *.preFix* *.preMigracao *.bloqueado *.bak 2>/dev/null
 ```
 
@@ -345,7 +345,7 @@ done
 
 **Comando:**
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}" 2>/dev/null || exit 0
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}" 2>/dev/null || exit 0
 for f in src/pages/*/index.astro; do
   [ -f "$f" ] || continue
   # 1) tem sinais de slider custom?
@@ -381,7 +381,7 @@ done
 
 **Comando:**
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 # 1) .env tracked?
 git ls-files | grep -E '\.env(\.|$)' | grep -v '\.example$'
 # 2) padrão de chave de API no histórico?
@@ -406,7 +406,7 @@ git ls-files | grep -E '^mcp/\.env\.local$'
 
 **Comando:**
 ```bash
-SQUAD="/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+SQUAD="{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 
 echo "=== 1) Arquivos com nome suspeito dentro do projeto ==="
 find "$SQUAD" -type f \
@@ -467,7 +467,7 @@ Todo agente em `squads/{sq}/agentes/{ag}/` deve ter entry correspondente em `.cl
 
 **Comando:**
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 # Pasta de agentes em squads/
 SQUAD_AGENTS=$(ls -d squads/*/agentes/*/ 2>/dev/null | xargs -n1 basename | sort -u)
 # Cadastros em .claude/agents/
@@ -508,8 +508,8 @@ Por quê: source of truth canônica desacoplada de páginas vivas vira "doc fant
 
 **Comando:**
 ```bash
-SQUAD_ROOT="/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
-ASTRO_ROOT="/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}"
+SQUAD_ROOT="{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+ASTRO_ROOT="{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}"
 
 # 1) Decisões canônicas em 04-decisoes/ sem referência em src/pages/
 echo "=== Decisões canônicas sem referência em página viva ==="
@@ -557,7 +557,7 @@ Skills exceptas (orquestradoras puras / não-produtoras):
 
 **Comando:**
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 for f in .claude/commands/*.md; do
   case "$(basename $f)" in
     *.preFix*|*.bak|mapa.md|jade.md|preparar-clear-jade.md|consolidar-sessao.md|check-up-estrutura.md|ver-agenda.md|ver-carrossel.md|transcrever-video.md|configurar-squad.md|publicar-jade.md|atualizar-voz-gui-avila.md) continue ;;
@@ -592,7 +592,7 @@ Skills que devem ter:
 
 **Comando:**
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 for skill in publicar-pagina codar-pagina migrar-pagina publicar-{{plataforma_conteudo}}; do
   if [ -f ".claude/commands/${skill}.md" ]; then
     if ! grep -q "Triple-check.*Regra §6" ".claude/commands/${skill}.md"; then
@@ -650,7 +650,7 @@ done
 
 **Comando:**
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 
 echo "=== Arquivos criados/modificados nas últimas 24h em zonas de produção ==="
 find workspace/output public src/pages Downloads scripts -type f -mtime -1 -size +2k 2>/dev/null | head -20

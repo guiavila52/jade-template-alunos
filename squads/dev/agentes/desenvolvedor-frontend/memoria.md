@@ -8,10 +8,10 @@
 
 - Squad: dev
 - Função: implementação de páginas Astro a partir de copy aprovada
-- Implementa em `Páginas Astro Gui Ávila/src/pages/`
-- Usa Slider canônico (`Páginas Astro Gui Ávila/src/components/Slider.astro`) — modos `marquee` e `rail`
+- Implementa em `Páginas Astro {{NOME_OPERADOR}}/src/pages/`
+- Usa Slider canônico (`Páginas Astro {{NOME_OPERADOR}}/src/components/Slider.astro`) — modos `marquee` e `rail`
 - Backup `.preFix{tarefa}` obrigatório antes de mudar arquivo existente (AGENTS.md #18)
-- Deploy via `vercel --prod --yes` na pasta `Páginas Astro Gui Ávila/`
+- Deploy via `vercel --prod --yes` na pasta `Páginas Astro {{NOME_OPERADOR}}/`
 
 ## Skills associadas
 
@@ -25,8 +25,8 @@
 
 ## Source of truth
 
-- `Páginas Astro Gui Ávila/DESIGN-SYSTEM.md` — fonte única visual
-- `Páginas Astro Gui Ávila/mapa.md` — estrutura do projeto Astro
+- `Páginas Astro {{NOME_OPERADOR}}/DESIGN-SYSTEM.md` — fonte única visual
+- `Páginas Astro {{NOME_OPERADOR}}/mapa.md` — estrutura do projeto Astro
 - `workspace/output/paginas/mapa.md` — lista de páginas produzidas
 
 ## Regras críticas vivas

@@ -114,7 +114,7 @@ done
 
 # 4. Git working trees — quais repos têm mudanças não-commitadas?
 for repo in "Squad Empresa {{NOME_OPERADOR}}" "Páginas Astro {{NOME_OPERADOR}}" "App Reverso"; do
-  cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/$repo" 2>/dev/null &&     echo "$repo: $(git status --short | wc -l | tr -d ' ') arquivos não-commitados"
+  cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/$repo" 2>/dev/null &&     echo "$repo: $(git status --short | wc -l | tr -d ' ') arquivos não-commitados"
 done
 
 # 5. Hooks ativos

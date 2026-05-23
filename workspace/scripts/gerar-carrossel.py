@@ -25,7 +25,7 @@ CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 FOTO_PERFIL_DRIVE_ID = "1hqoDrRVFMVfbMxla4U8QikRkD6Tg_t-W"
 FOTO_CACHE = Path("/tmp/gui_foto_perfil.png")
 
-NOME = "Gui Ávila"
+NOME = "{{NOME_OPERADOR}}"
 HANDLE = "@{{GITHUB_USER}}"
 
 

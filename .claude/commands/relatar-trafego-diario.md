@@ -63,7 +63,7 @@ Análise diária do tráfego pago — health-check + alertas.
 
 - Meta Ads token funcional ✅ (validado 11/05/2026)
 - Conta de ads `act_{{META_AD_ACCOUNT_ID}}` acessível ✅
-- MCP Meta Ads armavita OU integração direta via Marketing API
+- MCP Meta Ads {{mcp_privado}} OU integração direta via Marketing API
 
 ## Bateria de testes #24
 
@@ -81,7 +81,7 @@ Análise diária do tráfego pago — health-check + alertas.
 
 ## Bloqueio atual
 
-Esqueleto. A implementar pós-validação ponta-a-ponta do MCP Meta Ads armavita v1.1.0.
+Esqueleto. A implementar pós-validação ponta-a-ponta do MCP Meta Ads {{mcp_privado}} v1.1.0.
 
 ---
 

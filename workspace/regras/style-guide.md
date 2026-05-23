@@ -6,7 +6,7 @@ Convenções de output. Não são regras invioláveis (essas vivem em `AGENTS.md
 
 Toda URL mencionada em qualquer resposta, doc, comentário ou mensagem **vira link clicável** no formato markdown `[texto](https://url)`. Sem URL "crua". Sub-regra: quando pedir pro Gui abrir / clicar / verificar / validar / conferir qualquer coisa que tenha URL (task ClickUp, newsletter no {{Plataforma_Conteudo}}, página, pasta Drive), o link clicável DEVE estar na MESMA frase do pedido, com URL completa. Sem mandar só ID/nome/caminho esperando que Gui monte.
 
-- ✅ `[a newsletter](https://{{DOMINIO_NEWSLETTER}}/guiavila/conteudos/62bec9ff-1abd-4190-be01-f79f64a5b9fc)`
+- ✅ `[a newsletter](https://{{DOMINIO_NEWSLETTER}}/{{operador_slug}}/conteudos/62bec9ff-1abd-4190-be01-f79f64a5b9fc)`
 - ❌ `Confere a newsletter 62bec9ff`
 
 ## Citações

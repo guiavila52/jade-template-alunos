@@ -1,6 +1,6 @@
 # MAPA — contador
 
-**Propósito:** Agente de contabilidade técnica e planejamento fiscal do Gui Ávila (2 CNPJs: {{LMS}} + {{EMPRESA_HOLDING}}).
+**Propósito:** Agente de contabilidade técnica e planejamento fiscal do {{NOME_OPERADOR}} (2 CNPJs: {{LMS}} + {{EMPRESA_HOLDING}}).
 
 **Status:** ⚪ ESQUELETO — estrutura criada em 11/05/2026, sem implementação funcional ainda.
 
@@ -50,7 +50,7 @@
 
 - `project_banco_inter.md` — Data de abertura da conta PJ (19/08/2024 — limite histórico)
 - `project_{{plataforma_nf}}.md` — Sistema de NF ({{PLATAFORMA_NF}}), conta {{EMPRESA_HOLDING_ID}}, duas empresas
-- `project_empresas_cnpj.md` — Estrutura empresarial: {{LMS}} + {{EMPRESA_HOLDING}} (Projeto Gui Ávila + {{EMPRESA_NEGOCIO}})
+- `project_empresas_cnpj.md` — Estrutura empresarial: {{LMS}} + {{EMPRESA_HOLDING}} (Projeto {{NOME_OPERADOR}} + {{EMPRESA_NEGOCIO}})
 
 ---
 

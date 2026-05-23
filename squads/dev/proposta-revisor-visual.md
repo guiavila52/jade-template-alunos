@@ -50,7 +50,7 @@ Adicionar etapa headless de validação visual ao revisor:
 ## Stack proposta
 
 - **Playwright** (`@playwright/test`) — já roda em CI Vercel, suporte oficial.
-- Script Node em `Páginas Astro Gui Ávila/scripts/visual-review.mjs`.
+- Script Node em `Páginas Astro {{NOME_OPERADOR}}/scripts/visual-review.mjs`.
 - Saída: 2 PNGs (`mobile.png`, `desktop.png`) + JSON com diagnostics.
 
 ## Esboço do script
@@ -117,7 +117,7 @@ await browser.close();
 
 1. Adicionar tarefa nova em `squads/dev/tarefas.md`: "T_x — Implementar validação visual headless no revisor".
 2. Instalar Playwright + Chromium no projeto Astro.
-3. Criar `Páginas Astro Gui Ávila/scripts/visual-review.mjs`.
+3. Criar `Páginas Astro {{NOME_OPERADOR}}/scripts/visual-review.mjs`.
 4. Atualizar `.claude/commands/revisar-codigo-pagina.md` chamando o script via Bash antes do checklist final.
 5. Validar em /consultoria, /reverso (já existe), nova migração.
 

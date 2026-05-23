@@ -60,7 +60,7 @@ Conteúdo do log:
 
 ## Passo 3 — Salvar memórias persistentes (auto-memory)
 
-Verifique o que surgiu nesta sessão que vale guardar em `~/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/`:
+Verifique o que surgiu nesta sessão que vale guardar em `~/.claude/projects/-Users-{{operador_slug}}-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/`:
 
 | Tipo | Arquivo | Conteúdo |
 |---|---|---|
@@ -145,7 +145,7 @@ Antes de mandar a resposta padronizada (Passo 9), executar bateria de verificaç
 **Bateria obrigatória (rodar em sequência):**
 
 ```bash
-cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+cd "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 
 # 1. Git working tree limpo (sem arquivos modificados não-commitados; untracked OK)
 MODIFIED=$(git status --short 2>/dev/null | grep -E '^( M| D| A|MM|AM|AD|UU)' | wc -l | tr -d ' ')
@@ -158,12 +158,12 @@ set -a; source app/.env.local; set +a
 CLICKUP_OK=$(curl -s -o /dev/null -w "%{http_code}"   -H "Authorization: $CLICKUP_API_TOKEN"   "https://api.clickup.com/api/v2/list/901327194775/task?archived=false&include_closed=false&page=0")
 
 # 4. Memória persistente acessível (auto-memory MEMORY.md existe)
-MEMORY_INDEX="$HOME/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/MEMORY.md"
+MEMORY_INDEX="$HOME/.claude/projects/-Users-{{operador_slug}}-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/MEMORY.md"
 MEMORY_OK=$([ -f "$MEMORY_INDEX" ] && echo "1" || echo "0")
 
 # 5. Pelo menos 1 aprendizado/memória tocado nas últimas 6h
 RECENT_LEARN=$(find squads -name "aprendizados.md" -mmin -360 2>/dev/null | wc -l | tr -d ' ')
-RECENT_MEM=$(find "$HOME/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory" -name "*.md" -mmin -360 2>/dev/null | wc -l | tr -d ' ')
+RECENT_MEM=$(find "$HOME/.claude/projects/-Users-{{operador_slug}}-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory" -name "*.md" -mmin -360 2>/dev/null | wc -l | tr -d ' ')
 
 echo "MODIFIED=$MODIFIED COMMITS_HOJE=$COMMITS_HOJE CLICKUP=$CLICKUP_OK MEMORY=$MEMORY_OK RECENT_LEARN=$RECENT_LEARN RECENT_MEM=$RECENT_MEM"
 ```

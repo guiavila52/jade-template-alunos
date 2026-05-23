@@ -1,4 +1,4 @@
-# Design System Gui Ávila — Premium
+# Design System {{NOME_OPERADOR}} — Premium
 
 **Versão:** 1.0  
 **Última atualização:** 2026-05-14  
@@ -27,7 +27,7 @@
 
 ## Voz Visual
 
-O design system premium do Gui Ávila é caracterizado por **5 adjetivos visuais**, cada um com evidências técnicas:
+O design system premium do {{NOME_OPERADOR}} é caracterizado por **5 adjetivos visuais**, cada um com evidências técnicas:
 
 ### 1. **Premium**
 - **Evidências:** paleta escura (#000 bg) + dourado sofisticado (#c9a961), glassmorphism com backdrop-filter, sombras sutis com glow dourado, tipografia editorial com weights altos (Syne 700/800).
@@ -135,7 +135,7 @@ Loaded via Google Fonts: `DM Sans:ital,wght@0,300;0,400;0,500;1,400`
 
 ### Regras Específicas
 
-- **Dígitos/cifras:** manter em `DM Sans` ou `Syne` (não usar Cormorant — este design system premium não usa Cormorant para dígitos, diferente de outras páginas Gui Ávila).
+- **Dígitos/cifras:** manter em `DM Sans` ou `Syne` (não usar Cormorant — este design system premium não usa Cormorant para dígitos, diferente de outras páginas {{NOME_OPERADOR}}).
 - **Strong/Bold:** sempre `font-weight: 600` ou `700` (nunca 400 bold).
 - **Letterspacing negativo:** `-0.02em` ou `-0.04em` em display headings grandes (acima de 40px).
 - **Line-height:** body copy sempre ≥1.6, headings entre 1.08-1.3.
@@ -909,7 +909,7 @@ Antes de publicar página premium, verificar:
 
 ## Screenshots de Referência
 
-Armazenados em `workspace/design-systems/guiavila-premium/screenshots/`:
+Armazenados em `workspace/design-systems/{{operador_slug}}-premium/screenshots/`:
 
 - `mentoria.png` — Desktop (1440x900)
 - `mentoria-mobile.png` — Mobile (390x844)
@@ -922,7 +922,7 @@ Consultar screenshots pra replicar spacing exato, hierarquia visual, densidade d
 
 ## Notas Finais
 
-- **Este design system NÃO usa Cormorant** em dígitos/cifras (diferente de outras páginas Gui Ávila).
+- **Este design system NÃO usa Cormorant** em dígitos/cifras (diferente de outras páginas {{NOME_OPERADOR}}).
 - **Motion é suave e elegante**, não agressivo (easing cubic-bezier .22,1,.36,1).
 - **Glassmorphism é sutil**, não exagerado (4% bg alpha, 8% border alpha, 12px blur).
 - **Prova social é densa**, não esparsa (múltiplos depoimentos, logos, métricas).

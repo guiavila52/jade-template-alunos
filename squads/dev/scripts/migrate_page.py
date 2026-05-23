@@ -127,7 +127,7 @@ const pageStyles = `{esc(css)}`;
 {ext_scripts_block}{inline_scripts_block}</Base>
 '''
 
-out_dir = f'/Users/guiavila/Documents/Projetos IA Gui Ávila/Páginas Astro Gui Ávila/src/pages/{slug}'
+out_dir = f'{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/src/pages/{slug}'
 os.makedirs(out_dir, exist_ok=True)
 out = f'{out_dir}/index.astro'
 open(out, 'w').write(template)

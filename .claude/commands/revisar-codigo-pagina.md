@@ -82,7 +82,7 @@ COMPONENTE RECEBIDO (caminho do arquivo .astro)
 
 Invoque com o caminho do arquivo:
 ```
-/revisar-codigo-pagina /Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
+/revisar-codigo-pagina {{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
 ```
 
 Ou sem argumento — o revisor pedirá o caminho.
@@ -169,11 +169,11 @@ Ou sem argumento — o revisor pedirá o caminho.
   - [ ] **Exceção:** números puros (`.vs-cta-main`, contadores) podem usar weight 700/800 — mas SEMPRE preferir `.price-number` em DM Sans com `tabular-nums`.
 - [ ] **Hiperlinks padronizados:** toda menção a {{EMPRESA_COFUNDADA}}, {{EMPRESA_NEGOCIO}}, YouTube, ClickUp 8x, Automações, Reverso, Imersão, Mentoria, Consultoria está com hiperlink seguindo padrão `https://{{DOMINIO}}/[slug]` (ver `DESIGN-SYSTEM.md` seção Hiperlinks). Reprovar se houver menção textual sem link.
 - [ ] **Hiperlinks INLINE — link na palavra, NUNCA URL como texto (Regra #19, tarefa #110 — 06/05/2026):**
-  - [ ] grep `guiavila\.com` no `.astro` retorna 0 ocorrências em **texto puro/visível** (fora de `href=`, fora de comentários `//`, fora de strings JS de mapping de slug)
+  - [ ] grep `{{operador_slug}}\.com` no `.astro` retorna 0 ocorrências em **texto puro/visível** (fora de `href=`, fora de comentários `//`, fora de strings JS de mapping de slug)
   - [ ] Toda menção visível é `<a href="https://{{DOMINIO}}/[slug]" class="link-inline">palavra</a>` (palavra-âncora, não URL)
   - [ ] **Sem URLs entre parênteses como texto pra copiar/colar** (ex: ❌ "consultoria ({{DOMINIO}}/consultoria)" → ✅ "consultoria" como anchor)
   - [ ] Slugs respeitam padrão canônico (`{{produto_slug}}`, `manychat`, `clickup`, `clickup8x`, `level`, `automacoes`, `reverso`, `youtube`, `mentoria`, `consultoria`, `{{lms_slug}}` — ver `project_hiperlinks_padrao.md`)
-  - [ ] Comando rápido de auditoria: `grep -nE '\(guiavila\.com|guiavila\.com\)' src/pages/[slug]/index.astro` deve retornar **0 hits** em texto visível.
+  - [ ] Comando rápido de auditoria: `grep -nE '\({{operador_slug}}\.com|{{operador_slug}}\.com\)' src/pages/[slug]/index.astro` deve retornar **0 hits** em texto visível.
   Falhar = REPROVAR. **Histórico:** /mentoria FAQ v2 (06/05/2026) tinha "consultoria ({{DOMINIO}}/consultoria)" — Gui rejeitou. Citação: "não faz sentido botar entre parênteses como texto que a pessoa vai ter que copiar e colar."
 - [ ] **Iframes/formulários — validação visual obrigatória (Regra #14, falha de 06/05/2026):** o iframe está fora de containers com padding/border/background restritivos? `overflow:visible` em todos os ancestrais? Altura inicial generosa + listener `postMessage` aceitando múltiplos formatos GHL (string, objeto, payload aninhado)? Validado em mobile (390px) E desktop (1440px) via `node scripts/validate-visual.mjs [slug]` (Playwright)? O relatório JSON do `validate-visual` mostra `iframeUrlMeasuredHeight` MENOR que `renderedHeight` do iframe (folga ≥ 100px)? **Sem essa validação visual REAL — não basta CSS no código —, o iframe NUNCA é aprovado.** Item crítico — reprovar imediatamente se algum campo ou o botão de submit estiver cortado.
 - [ ] **Rodapé padrão:** a página renderiza o componente `Footer.astro` (4 colunas, ícones YouTube+Instagram, copyright). Rodapé custom inline ou ausente = REPROVADO. Verificar que `Base.astro` está com `footer` true (default) e que a página NÃO declara um `<footer>` próprio.
@@ -336,7 +336,7 @@ Ou sem argumento — o revisor pedirá o caminho.
   **Histórico:** Gui rejeitou `/automacoes` em 07/05/2026 (#146) — 2 sliders de módulos (40 cards 232x309 cada, "MÓDULO 1 Primeiros passos / MÓDULO 2 Ferramentas / MÓDULO 3 Inteligência artificial" + 17 outros) congelados em produção porque o snapshot Framer não trouxe o runtime React/framer-motion. Citação: *"Esses slides dos módulos não estão de acordo com o que a gente já combinou. Todo slider tem que estar em movimento, sutil movimento, leve e contínuo, e quando colocar o cursor do mouse, tem que deixar a pessoa arrastar pra lado e pro outro. Como é que esse furo passou batido?"*. Causa-raiz: revisor verificou markup mas não detectou que não havia handler de drag/auto-scroll porque o pai era `<section overflow:hidden>` Framer-style (sem `overflow-x:auto`) — esse novo gate cobre exatamente esse caso.
 
 - [ ] **Assets externos clonados em `public/` (Regra Inviolável #19, hotfix #86 — 06/05/2026):** toda imagem, vídeo, fonte, ícone, CSS ou JS referenciado pelo `.astro` (seja por URL absoluta `https://sites.{{DOMINIO}}/...` ou path relativo `/[slug]/img/...`) tem que existir em `Páginas Astro {{NOME_OPERADOR}}/public/[caminho-relativo]`. Não é opcional.
-  - [ ] Rodei: `grep -hoE 'src="https://sites\.guiavila\.com/[^"]+\.(jpg|jpeg|png|webp|svg|gif|mov|mp4|webm|woff|woff2|ttf|otf|css|js|ico)"' src/pages/[slug]/index.astro | sort -u` → tenho a lista de URLs absolutas.
+  - [ ] Rodei: `grep -hoE 'src="https://sites\.{{operador_slug}}\.com/[^"]+\.(jpg|jpeg|png|webp|svg|gif|mov|mp4|webm|woff|woff2|ttf|otf|css|js|ico)"' src/pages/[slug]/index.astro | sort -u` → tenho a lista de URLs absolutas.
   - [ ] Rodei: `grep -hoE '"/[a-z0-9_-]+/(img|assets|files|cdn|fonts|videos)/[^"]+"' src/pages/[slug]/index.astro | sort -u` → tenho a lista de paths relativos.
   - [ ] Para cada URL, asset existe em `Páginas Astro {{NOME_OPERADOR}}/public/[caminho-relativo]` (`ls public/[slug]/img/[arquivo]` retorna OK).
   - [ ] Para cada URL, `curl -s -o /dev/null -w "%{http_code}" "http://localhost:4321/[caminho]"` retorna **200** (não 404).

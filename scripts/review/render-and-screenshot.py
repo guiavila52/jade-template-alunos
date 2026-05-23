@@ -184,7 +184,7 @@ def main():
     parser.add_argument("--input", required=True, help="Path do HTML fragment")
     parser.add_argument("--slug", required=True, help="Slug da newsletter (ex: cadc4df0)")
     parser.add_argument("--{{plataforma_conteudo}}-url", help="URL do painel {{Plataforma_Conteudo}} (opcional)")
-    parser.add_argument("--output-dir", default="/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/workspace/output/screenshots-revisao", help="Diretório de saída")
+    parser.add_argument("--output-dir", default="{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/workspace/output/screenshots-revisao", help="Diretório de saída")
     
     args = parser.parse_args()
     

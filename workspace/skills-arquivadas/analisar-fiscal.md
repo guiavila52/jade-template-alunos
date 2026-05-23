@@ -36,7 +36,7 @@ Fluxo:
 
 - NUNCA dar conselho sem fonte oficial citada (CTN, LC 123/06, IN RFB, etc)
 - SEMPRE preservar decisões fiscais em segundo-cerebro
-- Distinguir {{LMS}} (CNPJ próprio) de {{EMPRESA_HOLDING}} (engloba Gui Ávila + {{EMPRESA_NEGOCIO}})
+- Distinguir {{LMS}} (CNPJ próprio) de {{EMPRESA_HOLDING}} (engloba {{NOME_OPERADOR}} + {{EMPRESA_NEGOCIO}})
 - Se dúvida que envolve risco fiscal real → recomendar consulta com contador humano
 
 ## Bateria de testes #24

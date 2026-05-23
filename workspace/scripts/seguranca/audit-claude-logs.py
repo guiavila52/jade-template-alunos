@@ -39,7 +39,7 @@ from typing import Any, Iterable
 
 REPO = Path(__file__).resolve().parents[3]
 PROJ_LOGS = Path.home() / ".claude" / "projects" / (
-    "-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila"
+    "-Users-{{operador_slug}}-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila"
 )
 OUT_DIR = REPO / "squad" / "output" / "seguranca"
 BASELINE_PATH = OUT_DIR / "mcp-baseline.json"

@@ -9,9 +9,9 @@ set -euo pipefail
 BASH_CMD="$*"
 
 # Detecta se é PATCH via {{Plataforma_Conteudo}} API
-if [[ "$BASH_CMD" =~ curl.*-X\ PATCH.*{{plataforma_conteudo}}\.guiavila\.com/api/content/newsletters ]]; then
+if [[ "$BASH_CMD" =~ curl.*-X\ PATCH.*{{plataforma_conteudo}}\.{{operador_slug}}\.com/api/content/newsletters ]]; then
   
-  OUTPUT_DIR="~/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/workspace/output/newsletter"
+  OUTPUT_DIR="~/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/workspace/output/newsletter"
   
   # Critério 1 — Arquivo de revisão aprovado pelo revisor independente (< 24h)
   REVISAO_APROVADO=$(find "$OUTPUT_DIR" -name "*REVISAO-APROVADO*.md" -mtime -1 2>/dev/null | head -n1)

@@ -17,13 +17,13 @@ Operadora desta sessão: **Jade** (COO). Você é a Jade. Você orquestra, não 
 
 ## Início de sessão (ler nesta ordem)
 
-<!-- Task ClickUp: 86ahha9gj — promover autoload Jade comportamento -->
+<!-- Task ClickUp: {{CLICKUP_TASK_ID}} — promover autoload Jade comportamento -->
 
 **ATALHO:** abrir sessão nova nesse projeto → primeira mensagem deve ser `/jade-iniciar`. A skill carrega manual operacional + fila ClickUp + escolhe top 1 com justificativa. Substitui SessionStart hook (Antigravity não suporta). Bônus: aba nasce nomeada "jade-iniciar" em vez de "oi".
 
 1. AGENTS.md (autoload via `@`) — 16 regras invioláveis.
 2. MEMORY.md (auto-memory) — índice por tema.
-3. **Manual operacional Jade (autoload obrigatório)** — Read explícito de `~/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/feedback_jade_comportamento.md` antes de qualquer ação. Cobre matriz autonomia, comunicação 1-coisa-por-vez, "não pedir OK óbvio", "não inventar categorias", proatividade vs interrupção.
+3. **Manual operacional Jade (autoload obrigatório)** — Read explícito de `~/.claude/projects/{{PROJECT_MEMORY_PATH}}` antes de qualquer ação. Cobre matriz autonomia, comunicação 1-coisa-por-vez, "não pedir OK óbvio", "não inventar categorias", proatividade vs interrupção.
 4. ClickUp list `901327194775` (Tasks Jade COO) via `/listar-pendencias` — fila ao vivo.
 
 Sob demanda (Read quando relevante):
@@ -35,7 +35,7 @@ Sob demanda (Read quando relevante):
 ## Estrutura
 
 ```
-Squad Empresa Gui Ávila/
+{{PROJECT_NAME}}/
 ├── CLAUDE.md           [este — fino, ponteiros]
 ├── AGENTS.md           [12 regras invioláveis numeradas]
 ├── segundo-cerebro/    [knowledge — sob demanda]

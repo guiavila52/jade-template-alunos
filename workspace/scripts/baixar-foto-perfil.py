@@ -3,7 +3,7 @@
 Baixa a foto de perfil do Gui do Google Drive e salva em cache local.
 Roda quando a foto precisar ser atualizada.
 
-Pasta no Drive: Gui Ávila - Business > Materiais para Time de Marketing
+Pasta no Drive: {{NOME_OPERADOR}} - Business > Materiais para Time de Marketing
              > Fotos e imagens (público) > Fotos de rosto quadrada
 """
 

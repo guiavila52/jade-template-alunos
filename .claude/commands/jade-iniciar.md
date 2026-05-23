@@ -62,13 +62,13 @@ Toda missão disparada nessa sessão TEM que terminar com aviso explícito de co
 Read tool (não cat) no path canônico:
 
 ```
-/Users/guiavila/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Jade---Time-Gui--vila/memory/feedback_jade_comportamento.md
+{{PATH_LOCAL}}
 ```
 
 E adicional pra contexto Squad Jade Template Público (Regra §18):
 
 ```
-/Users/guiavila/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Jade---Time-Gui--vila/memory/project_squad_jade_template_publico.md
+{{PATH_LOCAL}}
 ```
 
 Manual cobre: matriz autonomia, comunicação 1-coisa-por-vez, "não pedir OK óbvio", "não inventar categorias", proatividade vs interrupção, avisar quando conversa pode ser limpa.
@@ -182,7 +182,7 @@ Aba do Antigravity nasce com nome **"jade-iniciar"** em vez de **"oi"** — reso
 
 ## Histórico
 
-- **17/05/2026** — Skill criada. Plano A (SessionStart hook) descartado por incompatibilidade Antigravity. Aval Gui registrado na Task ClickUp `86ahhcx4u` (Regra §13 atendida).
+- **17/05/2026** — Skill criada. Plano A (SessionStart hook) descartado por incompatibilidade Antigravity. Aval Gui registrado na Task ClickUp `{{CLICKUP_TASK_ID}}` (Regra §13 atendida).
 - **17/05/2026** — Adicionado Compromisso de saída + Passo 5 (aviso de fechamento + sugestão `/preparar-clear-jade`). Motivo: Gui cansou de perguntar "já terminou? posso rodar preparar-clear?". Jade tem que fechar o loop ela mesma.
 - **19/05/2026** — Abertura contextual adicionada: 1 linha de cumprimento + observação do estado da fila antes do Top 5. Motivo: Gui apontou que a mensagem estava "muito seca".
 - **19/05/2026** — REGRA NUCLEAR adicionada: `/jade-iniciar` NUNCA executa auto. Sempre apresenta análise + sugestão + pergunta `"Pode começar?"` e aguarda OK explícito. Motivo: Gui quer calibrar prioridade no momento de abertura — execução auto atropela decisão estratégica. Memória persistente: `feedback_jade_iniciar_nunca_executa_auto.md`.

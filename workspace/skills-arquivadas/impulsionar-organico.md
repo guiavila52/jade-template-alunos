@@ -18,7 +18,7 @@ Pra geração de criativo do zero (sem orgânico de referência), usar `/criar-c
 
 ## Memórias relevantes (ler antes)
 
-1. `~/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/project_foco_carrossel_youtube_e_meta_ads.md` — foco macro Onda 2
+1. `~/.claude/projects/-Users-{{operador_slug}}-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/project_foco_carrossel_youtube_e_meta_ads.md` — foco macro Onda 2
 2. `~/.claude/.../memory/feedback_metricas_publicas_gui.md` — copy nunca expõe faturamento
 3. `~/.claude/.../memory/feedback_vocabulario_aproxima_lead.md` — banidas: qualificação/avaliação/screening/triagem/fit
 4. `~/.claude/.../memory/feedback_propagacao_correcoes.md` — Regra #19

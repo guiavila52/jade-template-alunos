@@ -25,7 +25,7 @@ Adiciona comentário num task existente da lista "Tasks Jade COO" do ClickUp **v
 
 | Campo | Tipo | Obrigatório |
 |---|---|---|
-| `task_id` | string (ex: `86ahedjxr`) | sim |
+| `task_id` | string (ex: `{{CLICKUP_TASK_ID}}`) | sim |
 | `comment_text` | string (markdown OK) | sim |
 | `notify_all` | boolean | opcional (default `false`) |
 

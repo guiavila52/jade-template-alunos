@@ -8,7 +8,7 @@ Doc viva com cronologia, reforços datados, casos com citação literal do Gui e
 
 ## Refactor 2026-05-14 — 35 regras originais → 12 regras-mãe atemporais
 
-ClickUp task: `86ahfpn9r`. Decisão: AGENTS.md tinha virado documento histórico (35 regras, ~1014 linhas, datas "Reforço 11/05" e "Decisão 13/05" dentro das regras, redundâncias). Refatorado em 12 regras-mãe atemporais. Casos históricos + reforços datados saíram do AGENTS.md e vieram pra esta doc.
+ClickUp task: `{{CLICKUP_TASK_ID}}`. Decisão: AGENTS.md tinha virado documento histórico (35 regras, ~1014 linhas, datas "Reforço 11/05" e "Decisão 13/05" dentro das regras, redundâncias). Refatorado em 12 regras-mãe atemporais. Casos históricos + reforços datados saíram do AGENTS.md e vieram pra esta doc.
 
 ### Mapeamento original → novo
 
@@ -68,7 +68,7 @@ ClickUp task: `86ahfpn9r`. Decisão: AGENTS.md tinha virado documento histórico
 - **10/05/2026** — reforço #11/#12: "sem exceção pra demanda pequena. Atualizar 1 skill, renomear arquivo, mudar 1 linha — TUDO vai pra pendencias antes". Memória `feedback_registrar_pendencia_antes_de_executar.md`.
 - **12/05/2026** — Regra #28 codificada. Gui: *"A partir de agora, tudo que eu fizer eu vou pedir pra você primeiro. Não quero fazer nada por conta própria. Quero que você tenha skills corretas pra fazer as coisas."*
 - **12/05/2026** — migração `pendencias.md` → ClickUp `901327194775` (Tasks Jade COO). Source of truth virou ClickUp; `pendencias.md` virou ponteiro.
-- **13/05/2026** — Regra #35: comentário ANTES de mudança de status. Caso: Jade fechou tasks `86ahedgtc` e `86ahehuat` sem comentário, status órfão. Gui pediu regra explícita.
+- **13/05/2026** — Regra #35: comentário ANTES de mudança de status. Caso: Jade fechou tasks `{{CLICKUP_TASK_ID}}` e `{{CLICKUP_TASK_ID}}` sem comentário, status órfão. Gui pediu regra explícita.
 
 ### §2 — Jade orquestra; matriz 4-gates; nunca aprova
 - **11/05/2026 ~15h45** — reincidência da Regra #13. Gui: *"Eu já tinha falado isso e aí falou que fez hook, ou fez alguma coisa pra evitar que isso comece antes. Então como é que vai ser feito agora? Como é que a gente vai garantir que o que eu passo pra Jade, a Jade orquestra com o time e não executa sozinha?"* Sistema passou de educativo pra hook bloqueante (`check-jade-producao-direta.sh`, exit 2).

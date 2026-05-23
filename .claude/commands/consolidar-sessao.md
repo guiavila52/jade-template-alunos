@@ -41,7 +41,7 @@ Só salvar o que genuinamente **não existe ainda** ou está **desatualizado**. 
 Para cada item novo encontrado:
 
 **Memória persistente** (regras, feedback, preferências, contexto do negócio):
-- Criar arquivo em `/Users/guiavila/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/`
+- Criar arquivo em `{{PATH_LOCAL}}`
 - Adicionar no `MEMORY.md`
 - Tipos: `feedback`, `project`, `user`, `reference`
 
@@ -97,7 +97,7 @@ Se não encontrou nada novo: dizer isso diretamente. Não inventar itens para pa
    ┌──────────────────────────────┐
    ↓ (item novo)            (já existe / igual)
 [ 3a. Salvar ] → @jade            [ pular item ]
-   - memória persistente → /Users/guiavila/.claude/projects/.../memory/
+   - memória persistente → {{PATH_LOCAL}}
                           + entrada em MEMORY.md
    - pendência nova       → workspace/memory/pendencias.md
    - decisão estratégica  → workspace/memory/decisoes.md

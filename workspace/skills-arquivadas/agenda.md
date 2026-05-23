@@ -6,7 +6,7 @@ Ao ser chamado, execute em sequência sem pedir confirmação:
 
 Use o MCP do Google Calendar. Busque eventos de hoje nos seguintes calendários em paralelo:
 - `{{EMAIL_OPERADOR}}` — agenda principal
-- `c_5kb045kajbgk1mfe0if3uvs5ds@group.calendar.google.com` — Gui Ávila
+- `c_5kb045kajbgk1mfe0if3uvs5ds@group.calendar.google.com` — {{NOME_OPERADOR}}
 - `c_itvko53jtjt2dug34cjmc5qeu0@group.calendar.google.com` — {{LMS}}
 - `{{EMAIL_LMS}}` — {{LMS}}
 
@@ -50,7 +50,7 @@ AGENDA — [dia da semana], [data completa]
         ↓
 [ 1. Buscar eventos de hoje em PARALELO ] → @jade
    - {{EMAIL_OPERADOR}} (principal)
-   - c_5kb045kajbgk1mfe0if3uvs5ds@group (Gui Ávila)
+   - c_5kb045kajbgk1mfe0if3uvs5ds@group ({{NOME_OPERADOR}})
    - c_itvko53jtjt2dug34cjmc5qeu0@group ({{LMS}})
    - {{EMAIL_LMS}} ({{LMS}})
    ignorar: Semana ideal, Semana ideal 2,

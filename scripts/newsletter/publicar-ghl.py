@@ -26,7 +26,7 @@ import urllib.error
 
 LOCATION_ID   = os.environ.get("GHL_LOCATION_ID", "CsiBUbUirVZnXWpyDivf")
 USER_ID       = "NOOTHv2vbo1S52MK00Dm"
-FROM_NAME     = "Gui Ávila"
+FROM_NAME     = "{{NOME_OPERADOR}}"
 FROM_EMAIL    = "{{EMAIL_OPERADOR}}"
 TEST_EMAIL    = "{{EMAIL_OPERADOR}}"
 TIMEZONE      = "America/Sao_Paulo"

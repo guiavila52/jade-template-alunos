@@ -109,7 +109,7 @@ INVOCAR skill oficial Anthropic frontend-design ANTES de produzir.
 Input:
 - Template escolhido: {premium|clean|{{plataforma_conteudo}}}
 - Tipo pagina, audiencia, objetivo (do briefing Jade)
-- DS correspondente em workspace/design-systems/guiavila-{template}.md
+- DS correspondente em workspace/design-systems/{{operador_slug}}-{template}.md
 - Research best practices: workspace/output/research/2026-05-17-frontend-research-comunidade.md
 
 Output: workspace/output/paginas/YYYY-MM-DD-{slug}-design.md
@@ -275,7 +275,7 @@ Hooks bloqueantes ativos garantem cumprimento:
 
 ## Histórico
 
-- 2026-05-17 v2: refactor template-first apos incidente 8 iteracoes na /squad-time-ia-v2 (improviso de despacho). Aval Gui registrado. Task ClickUp 86ahha462.
+- 2026-05-17 v2: refactor template-first apos incidente 8 iteracoes na /squad-time-ia-v2 (improviso de despacho). Aval Gui registrado. Task ClickUp {{CLICKUP_TASK_ID}}.
 - (versoes anteriores em .preFix-template-first)
 
 ---

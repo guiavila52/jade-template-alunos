@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# PreToolUse hook — Regra §1 (reforço 16/05/2026, Task 86ahha49r)
+# PreToolUse hook — Regra §1 (reforço 16/05/2026, Task {{CLICKUP_TASK_ID}})
 # BLOQUEANTE: detecta trabalho estrutural (.claude/commands/, squads/, AGENTS.md, etc)
 # sem pendência ClickUp registrada e BLOQUEIA com exit 2.
 #

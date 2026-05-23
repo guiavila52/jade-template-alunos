@@ -116,7 +116,7 @@ Critério: `0` ocorrências de Cormorant. Presença de Syne e DM Sans no `<link>
 
 ### 7. Hiperlinks padronizados
 ```bash
-curl -s http://localhost:4321/[slug] | grep -oE 'https://guiavila\.com/[a-z0-9]+' | sort -u
+curl -s http://localhost:4321/[slug] | grep -oE 'https://{{operador_slug}}\.com/[a-z0-9]+' | sort -u
 ```
 Critério: toda menção a {{EMPRESA_COFUNDADA}}, {{EMPRESA_NEGOCIO}} (slug `{{produto_slug}}`, NÃO `magica`), YouTube, ClickUp 8x, Automações, Reverso, Imersão, Mentoria, Consultoria está com link no padrão `https://{{DOMINIO}}/[slug]`.
 
@@ -216,7 +216,7 @@ Saída: HTTP 200
 ```
 ou
 ```
-/testar-pagina /Users/guiavila/.../Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
+/testar-pagina {{PATH_LOCAL}} Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
 ```
 
 Sem argumento, o agente pergunta o slug.

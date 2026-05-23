@@ -1,5 +1,4 @@
 # Pre-commit hooks — fecha vetor R5 (secret leak via commit acidental)
-# Pendência mãe ClickUp: 86ahha462 / Regra §16 AGENTS.md
 # Item 0.3 do hardening de segurança — 2026-05-16
 repos:
   - repo: https://github.com/gitleaks/gitleaks

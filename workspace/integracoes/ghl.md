@@ -4,12 +4,12 @@
 
 | Variável | Descrição |
 |---|---|
-| `GHL_API_KEY` | PIT token da location Gui Ávila (renovar se der 401 em tudo) |
+| `GHL_API_KEY` | PIT token da location {{NOME_OPERADOR}} (renovar se der 401 em tudo) |
 | `GHL_LOCATION_ID` | `CsiBUbUirVZnXWpyDivf` |
 | `GHL_{{LMS}}_API_KEY` | PIT token da location {{LMS}} |
 | `GHL_{{LMS}}_LOCATION_ID` | — |
 
-**userId Gui Ávila na location:** `NOOTHv2vbo1S52MK00Dm`
+**userId {{NOME_OPERADOR}} na location:** `NOOTHv2vbo1S52MK00Dm`
 
 ## Token PIT — quando renovar
 
@@ -38,7 +38,7 @@ User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36
 {
   "name": "Título da campanha",
   "subject": "Assunto do email",
-  "fromName": "Gui Ávila",
+  "fromName": "{{NOME_OPERADOR}}",
   "fromAddress": "{{EMAIL_OPERADOR}}",
   "editorType": "html",
   "editorContent": "<HTML completo>",

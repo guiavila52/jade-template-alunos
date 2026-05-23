@@ -137,7 +137,7 @@ Newsletters HTML (fragments gerados via `/renderizar-newsletter-html`) DEVEM pas
 python3 scripts/review/render-and-screenshot.py \
   --input workspace/output/newsletter/YYYY-MM-DD-{slug}.html \
   --slug {id-newsletter} \
-  --{{plataforma_conteudo}}-url https://{{plataforma_conteudo}}.{{DOMINIO}}/guiavila/conteudos/{uuid}
+  --{{plataforma_conteudo}}-url https://{{plataforma_conteudo}}.{{DOMINIO}}/{{operador_slug}}/conteudos/{uuid}
 ```
 
 ### Outputs do script
@@ -197,7 +197,7 @@ Criar arquivo `workspace/output/screenshots-revisao/REVISAO-APROVADO-{YYYY-MM-DD
 - [x] Auto-detect: sem imagens quebradas
 
 ## {{Plataforma_Conteudo}} URL
-https://{{plataforma_conteudo}}.{{DOMINIO}}/guiavila/conteudos/{uuid}
+https://{{plataforma_conteudo}}.{{DOMINIO}}/{{operador_slug}}/conteudos/{uuid}
 
 Aprovado para PATCH.
 ```
@@ -210,7 +210,7 @@ Bypass legítimo: `export JADE_CONTEXT=desenvolvendo-revisor` (apenas durante cr
 
 ---
 
-## 🆕 PROTOCOLO 2 PASSADAS (2026-05-17 — Task 86ahha462)
+## 🆕 PROTOCOLO 2 PASSADAS (2026-05-17 — Task {{CLICKUP_TASK_ID}})
 
 ### Por que existe
 Histórico: validação técnica isolada deixou passar página com 5 bugs visuais óbvios (Gui pegou em 3 segundos). Falta gate estético ANTES do técnico.

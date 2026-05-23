@@ -74,4 +74,4 @@ Ver `squads/dev/agentes/designer-ui/aprendizados.md` (inicialmente vazio — pre
 
 ## Histórico
 
-- 2026-05-17: agente criado após audit identificar gap "falta camada visual concreta entre copy e dev" — Task ClickUp 86ahha462
+- 2026-05-17: agente criado após audit identificar gap "falta camada visual concreta entre copy e dev" — Task ClickUp {{CLICKUP_TASK_ID}}

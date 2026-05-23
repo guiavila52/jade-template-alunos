@@ -1,6 +1,6 @@
 # Memória — @contador
 
-**Função:** Contabilidade técnica e planejamento fiscal do Gui Ávila (2 CNPJs: {{LMS}} + {{EMPRESA_HOLDING}}).
+**Função:** Contabilidade técnica e planejamento fiscal do {{NOME_OPERADOR}} (2 CNPJs: {{LMS}} + {{EMPRESA_HOLDING}}).
 
 **Status:** ⚪ ESQUELETO — criado em 11/05/2026, sem histórico operacional ainda.
 
@@ -27,7 +27,7 @@
 - **Função:** receita das empresas ({{LMS}} + {{EMPRESA_HOLDING}})
 - **API Key:** `{{PLATAFORMA_NF}}_API_KEY` em `app/.env.local`
 - **Conta:** {{EMPRESA_HOLDING_ID}}
-- **Duas empresas emissoras:** guiavila + {{produto_slug}}
+- **Duas empresas emissoras:** {{operador_slug}} + {{produto_slug}}
 
 ### {{BANCO_PJ}} PJ (extrato)
 - **Função:** movimentações financeiras (entradas, saídas, saldos)
@@ -56,7 +56,7 @@
 
 - `project_banco_inter.md` — Data de abertura da conta PJ (19/08/2024 — limite histórico)
 - `project_{{plataforma_nf}}.md` — Sistema de NF ({{PLATAFORMA_NF}}), conta {{EMPRESA_HOLDING_ID}}, duas empresas
-- `project_empresas_cnpj.md` — Estrutura empresarial: {{LMS}} + {{EMPRESA_HOLDING}} (Projeto Gui Ávila + {{EMPRESA_NEGOCIO}})
+- `project_empresas_cnpj.md` — Estrutura empresarial: {{LMS}} + {{EMPRESA_HOLDING}} (Projeto {{NOME_OPERADOR}} + {{EMPRESA_NEGOCIO}})
 - `feedback_metricas_publicas_gui.md` — PROIBIDO expor faturamento (R$, MRR, lucro) em copy pública. Usar usuários ativos, alunos, criadores, cases.
 
 ---

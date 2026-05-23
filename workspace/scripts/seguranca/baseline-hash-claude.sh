@@ -2,7 +2,7 @@
 # baseline-hash-claude.sh
 # Item 0.2 — Fase 0 Hardening Segurança (Regra §16, vetor R1)
 # Fecha vetor: Mini Shai-Hulud worm (TeamPCP) + CVE-2025-59536
-# Pendência mãe: ClickUp 86ahha462
+# Pendência mãe: ClickUp {{CLICKUP_TASK_ID}}
 #
 # Modos:
 #   init   — gera baseline de hashes dos arquivos críticos Claude
@@ -10,7 +10,7 @@
 #
 set -uo pipefail
 
-PROJECT_ROOT="/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila"
+PROJECT_ROOT="{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 BASELINE_JSON="$PROJECT_ROOT/workspace/output/seguranca/baseline-hashes.json"
 LAST_STATUS="$PROJECT_ROOT/workspace/output/seguranca/last-check-status.txt"
 LOG_FILE="$PROJECT_ROOT/workspace/output/seguranca/hash-check.log"
@@ -85,7 +85,7 @@ import json, sys, os, subprocess, hashlib
 mode_label = sys.argv[1]
 
 # Reproduz collect_files em Python pra evitar parsing frágil de bash array
-PROJECT_ROOT = "/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila"
+PROJECT_ROOT = "{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 HOME = os.path.expanduser("~")
 
 candidates = [
@@ -259,7 +259,7 @@ TOTAL=$((N_MOD + N_ADD + N_DEL))
   echo "- Mini Shai-Hulud (TeamPCP) — worm npm/PyPI com persistência em ~/.claude.json"
   echo "- CVE-2025-59536 — RCE via hooks em settings.json"
   echo ""
-  echo "Pendência mãe: ClickUp 86ahha462"
+  echo "Pendência mãe: ClickUp {{CLICKUP_TASK_ID}}"
 } >&2
 
 echo "$(now_iso) [check] DIVERGENTE — $TOTAL arquivos ($N_MOD mod, $N_ADD add, $N_DEL del)" >> "$LOG_FILE"

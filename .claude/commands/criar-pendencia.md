@@ -35,7 +35,7 @@ Cria nova task na lista canônica "Tasks Jade COO" do ClickUp **via API REST dir
 
 ## IDs canônicos (NÃO inventar)
 
-- **Workspace ID:** `30978229` (Empresa {{NOME_OPERADOR}})
+- **Workspace ID:** `{{WORKSPACE_ID}}` (Empresa {{NOME_OPERADOR}})
 - **List ID:** `901327194775` (Tasks Jade COO) — **single source of truth**
 - **NÃO CONFUNDIR com:** `901327190242` ({{Plataforma_Conteudo}} backlog — sessão {{Plataforma_Conteudo}} paralela, NÃO usar daqui)
 

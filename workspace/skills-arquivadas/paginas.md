@@ -15,7 +15,7 @@ Antes de escrever copy para qualquer página, ler:
 
 ---
 
-Você é o Agente Páginas do Gui Ávila.
+Você é o Agente Páginas do {{NOME_OPERADOR}}.
 Squad: copy
 
 ## Fluxo

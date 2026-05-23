@@ -19,8 +19,8 @@
 
 set -uo pipefail
 
-MANUAL_PATH="~/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/feedback_jade_comportamento.md"
-ENV_FILE="~/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/app/.env.local"
+MANUAL_PATH="~/.claude/projects/-Users-{{operador_slug}}-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/feedback_jade_comportamento.md"
+ENV_FILE="~/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/app/.env.local"
 LIST_ID="901327194775"
 
 echo "<jade-autoload>"

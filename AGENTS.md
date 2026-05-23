@@ -1,4 +1,4 @@
-# Regras invioláveis do Squad — Gui Ávila
+# Regras invioláveis do Squad — {{NOME_OPERADOR}}
 
 13 regras-mãe atemporais. Toda regra abaixo é lei do squad — quebrar gera prejuízo concreto. Casos históricos, reforços datados e detalhes implementacionais estão em `workspace/regras/historico.md`.
 
@@ -201,7 +201,7 @@ Toda decisão técnica (criar skill, hook, agente, integração, MCP, plugin, de
 6. **MCP novo** — está habilitando MCP server? Auditar via `mcp-scan` (invariantlabs-ai) antes. Sem MCP não-auditada em produção.
 7. **Plugin novo** — está instalando plugin marketplace? Review `hooks/hooks.json` + `skills/*/SKILL.md` do plugin antes do `/plugin install`. Sem `allowed-tools: Bash(*)` jamais.
 
-**Hook bloqueante runtime:** `check-seguranca-checklist.sh` (a criar na Fase 0 do plano de hardening — Task ClickUp `86ahha462`) roda em PreToolUse de Write/Edit/Bash em zonas críticas (`.claude/`, `package.json`, `requirements.txt`, `.mcp.json`, `~/.claude.json`) — exige confirmação explícita do checklist passou ou bloqueia com exit 2.
+**Hook bloqueante runtime:** `check-seguranca-checklist.sh` (a criar na Fase 0 do plano de hardening — Task ClickUp `{{CLICKUP_TASK_ID}}`) roda em PreToolUse de Write/Edit/Bash em zonas críticas (`.claude/`, `package.json`, `requirements.txt`, `.mcp.json`, `~/.claude.json`) — exige confirmação explícita do checklist passou ou bloqueia com exit 2.
 
 **Vetores ativos em 2026 (consultar antes de mexer em zona sensível):**
 - CVE-2025-59536 (CVSS 8.7) — RCE via hooks em settings.json não-trustado
@@ -214,7 +214,7 @@ Toda decisão técnica (criar skill, hook, agente, integração, MCP, plugin, de
 
 **Como aplicar:** ao receber demanda → rodar checklist mental (7 itens) → se algum gera dúvida → pausar, auditar, fechar, depois executar. Velocidade nunca justifica pular o checklist.
 
-**Histórico:** 16/05/2026, Gui consolidou após pesquisa Jade (2 subagents — Anthropic oficial + comunidade) identificar 11 riscos no squad, dos quais 4 críticos com CVEs ativas circulando. Decisão Gui: "Segurança não é brincadeira. Eu não quero fazer só o importante agora e deixar o resto pra depois. Eu quero fazer tudo de segurança até o fim. Tudo que a gente fizer tem que sempre ter uma noção de que não pode ter vacilos de segurança." Plano completo de hardening: Task ClickUp `86ahha462`.
+**Histórico:** 16/05/2026, Gui consolidou após pesquisa Jade (2 subagents — Anthropic oficial + comunidade) identificar 11 riscos no squad, dos quais 4 críticos com CVEs ativas circulando. Decisão Gui: "Segurança não é brincadeira. Eu não quero fazer só o importante agora e deixar o resto pra depois. Eu quero fazer tudo de segurança até o fim. Tudo que a gente fizer tem que sempre ter uma noção de que não pode ter vacilos de segurança." Plano completo de hardening: Task ClickUp `{{CLICKUP_TASK_ID}}`.
 
 ---
 

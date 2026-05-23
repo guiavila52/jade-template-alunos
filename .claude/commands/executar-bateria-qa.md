@@ -200,7 +200,7 @@ Antes de dar commit nesta skill, validar:
 # (não temos uma em prod — simular com preview quebrada)
 
 # 4. Valida que relatório é gerado em workspace/output/auditorias/
-ls -lh /Users/guiavila/Documents/Projetos\ IA\ Gui\ Ávila/Squad\ Empresa\ Gui\ Ávila/workspace/output/auditorias/bug-hunt-*.md
+ls -lh {{PATH_LOCAL}} IA\ Gui\ Ávila/Squad\ Empresa\ Gui\ Ávila/workspace/output/auditorias/bug-hunt-*.md
 
 # 5. Valida classificação de severidade (grep no relatório)
 grep -E "CRITICAL|HIGH|MEDIUM|LOW" workspace/output/auditorias/bug-hunt-*.md | head -20

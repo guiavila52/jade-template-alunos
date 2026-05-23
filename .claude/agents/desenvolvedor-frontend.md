@@ -78,7 +78,7 @@ Você é o agente de **desenvolvimento de páginas** do squad. Recebe markdown d
 
 ---
 
-## 🆕 PIPELINE TEMPLATE-FIRST (2026-05-17 — Task 86ahha462)
+## 🆕 PIPELINE TEMPLATE-FIRST (2026-05-17 — Task {{CLICKUP_TASK_ID}})
 
 ### Regra inviolável adicional
 - **NUNCA inventar visual.** Toda página nova ou redesign extends um dos 3 templates canônicos em `src/layouts/template-{premium,clean,{{plataforma_conteudo}}}.astro`.

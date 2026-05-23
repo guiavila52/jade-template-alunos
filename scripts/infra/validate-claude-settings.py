@@ -53,7 +53,7 @@ def normalize_old_format(data):
             if "hook" in item and "matchers" in item:
                 hook_path = item["hook"]
                 if not hook_path.startswith("/"):
-                    hook_path = f"/Users/guiavila/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/{hook_path}"
+                    hook_path = f"{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/{hook_path}"
                 new.append({
                     "matcher": "|".join(item["matchers"]),
                     "hooks": [{

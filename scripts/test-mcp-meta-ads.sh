@@ -16,17 +16,17 @@ echo -e "${YELLOW}=== Teste MCP Meta Ads ===${NC}\n"
 
 # 1. Verificar se comando está instalado
 MCP_CMD=""
-if command -v armavita-meta-ads-mcp &> /dev/null; then
-    MCP_CMD="armavita-meta-ads-mcp"
-elif [ -f "$HOME/.local/bin/armavita-meta-ads-mcp" ]; then
-    MCP_CMD="$HOME/.local/bin/armavita-meta-ads-mcp"
+if command -v {{mcp_privado}}-meta-ads-mcp &> /dev/null; then
+    MCP_CMD="{{mcp_privado}}-meta-ads-mcp"
+elif [ -f "$HOME/.local/bin/{{mcp_privado}}-meta-ads-mcp" ]; then
+    MCP_CMD="$HOME/.local/bin/{{mcp_privado}}-meta-ads-mcp"
 else
-    echo -e "${RED}✗ armavita-meta-ads-mcp não encontrado${NC}"
-    echo "Instale via: pipx install git+https://github.com/EfrainTorres/armavita-meta-ads-mcp.git"
+    echo -e "${RED}✗ {{mcp_privado}}-meta-ads-mcp não encontrado${NC}"
+    echo "Instale via: pipx install git+https://github.com/EfrainTorres/{{mcp_privado}}-meta-ads-mcp.git"
     exit 1
 fi
 
-echo -e "${GREEN}✓ armavita-meta-ads-mcp instalado em $MCP_CMD${NC}"
+echo -e "${GREEN}✓ {{mcp_privado}}-meta-ads-mcp instalado em $MCP_CMD${NC}"
 
 # 2. Verificar versão
 VERSION=$($MCP_CMD --version 2>&1 || echo "unknown")

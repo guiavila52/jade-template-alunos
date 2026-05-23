@@ -11,7 +11,7 @@ from datetime import datetime
 
 URL = "http://localhost:4322/reverso-beta"
 SLUG = "reverso-beta"
-OUTPUT_DIR = Path("/Users/guiavila/Documents/Projetos IA Gui Ávila/Jade - Time Gui Ávila/workspace/output/screenshots-revisao")
+OUTPUT_DIR = Path("{{PATH_LOCAL}} IA {{NOME_OPERADOR}}/Jade - Time {{NOME_OPERADOR}}/workspace/output/screenshots-revisao")
 
 def main():
     timestamp = datetime.now().strftime("%Y-%m-%d-%H%M")

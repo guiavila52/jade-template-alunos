@@ -1,4 +1,4 @@
-# Soul — Base dos Agentes do Squad Gui Ávila
+# Soul — Base dos Agentes do Squad {{NOME_OPERADOR}}
 
 > Documento de referência. Aplicar a todos os agentes, adaptando o contexto específico de cada um.
 
