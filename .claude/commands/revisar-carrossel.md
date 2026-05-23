@@ -40,7 +40,7 @@ Ou sem argumento — o revisor pedirá o caminho.
 ### Slides intermediários
 - [ ] Cada slide = **uma única premissa**? (se tem duas ideias, quebrar em dois)
 - [ ] Transição lógica: cada slide decorre do anterior?
-- [ ] Linguagem está no tom do {{OPERADOR}}? (direto, sem formalidade excessiva, sem jargão vazio)
+- [ ] Linguagem está no tom do Gui? (direto, sem formalidade excessiva, sem jargão vazio)
 - [ ] Usa detalhes específicos — não frases como "resultados incríveis" ou "transformação total"?
 - [ ] Texto caberia no template tweet-card? (máx. ~180 caracteres por slide — se exceder, truncará na imagem)
 
@@ -102,7 +102,7 @@ Registrar o resultado em `squads/conteudo/agentes/designer-conteudo/aprendizados
 [ 2. Aplicar checklist slide a slide ] → @revisor-carrossel
    - Slide 1 (Hook): sem 3 Ps + Setup+Punch/Escalada + específico
    - Intermediários: 1 premissa por slide + transição lógica
-                     + tom do {{OPERADOR}} + cabe em ~180 chars
+                     + tom do Gui + cabe em ~180 chars
    - Último (CTA): claro e específico, sem promessa vazia
    - Light Copy geral: parece conteúdo, não anúncio
         ↓
@@ -131,5 +131,5 @@ Registrar o resultado em `squads/conteudo/agentes/designer-conteudo/aprendizados
 
 - Antes de executar trabalho estrutural, registrar pendência no ClickUp via `/criar-pendencia`
 - Ao concluir, comentar via `/comentar-pendencia` e fechar via `/fechar-pendencia`
-- Aprendizado real (correção do {{OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
+- Aprendizado real (correção do Gui, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
 - Reincidência = falha de processo, escalar imediatamente

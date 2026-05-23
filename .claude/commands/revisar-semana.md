@@ -24,7 +24,7 @@ Para cada agente, pontue de 1-5 nos seguintes critérios:
 
 | Critério | Pergunta |
 |----------|----------|
-| **Quality Score** | Output precisou de retrabalho? Teve erros? Manteve o tom do {{OPERADOR}}? |
+| **Quality Score** | Output precisou de retrabalho? Teve erros? Manteve o tom do Gui? |
 | **Velocidade** | Entregou quando pedido? Respondeu rápido? |
 | **Proatividade** | Sugeriu melhorias? Antecipou problemas? Trouxe insights? |
 | **Aderência** | Seguiu guardrails? Respeitou o nível? Manteve contexto? |
@@ -68,8 +68,8 @@ Motivo: [1 frase]
 ## Regras
 
 - Não inflar pontuação por falta de dados — agente sem uso = sem histórico = manter em L1
-- Promoção sempre exige critério atingido + confirmação do {{OPERADOR}}
-- Desativação exige confirmação do {{OPERADOR}} antes de remover do TEAM.md
+- Promoção sempre exige critério atingido + confirmação do Gui
+- Desativação exige confirmação do Gui antes de remover do TEAM.md
 - Se a semana foi de estruturação (sem entregas reais), documentar isso e manter todos os níveis
 
 
@@ -90,10 +90,10 @@ Motivo: [1 frase]
         ↓
 [ 3. Decisão por agente ] → @jade
    ┌──────────────────────────────────────┐
-   ↓ 🏆 Promover (critério + consistência — exige OK {{OPERADOR}})
+   ↓ 🏆 Promover (critério + consistência — exige OK Gui)
    ↓ 📊 Manter
    ↓ 📉 Rebaixar (2 erros graves ou 2 retrabalhos)
-   ↓ ❌ Desativar (4+ semanas sem uso — exige OK {{OPERADOR}})
+   ↓ ❌ Desativar (4+ semanas sem uso — exige OK Gui)
         ↓
 [ 4. Registrar ] → @jade
    - niveis-agentes.md (novos níveis + data)
@@ -101,7 +101,7 @@ Motivo: [1 frase]
    - coo-lessons.md (resumo da semana)
    - diario/[data].md (se houve decisão importante)
         ↓
-[ 5. Entregar relatório ao {{OPERADOR}} ] → @jade
+[ 5. Entregar relatório ao Gui ] → @jade
    formato com destaque + atenção
         ↓
    ⟶ FIM
@@ -113,5 +113,5 @@ Motivo: [1 frase]
 
 - Antes de executar trabalho estrutural, registrar pendência no ClickUp via `/criar-pendencia`
 - Ao concluir, comentar via `/comentar-pendencia` e fechar via `/fechar-pendencia`
-- Aprendizado real (correção do {{OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
+- Aprendizado real (correção do Gui, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
 - Reincidência = falha de processo, escalar imediatamente

@@ -11,7 +11,7 @@ implementar páginas Astro a partir de copy aprovada.
 
 | Arquivo | Conteúdo |
 |---------|----------|
-| `aprendizados.md` | Lições do agente, especialmente registros de rejeições do {{OPERADOR}} (Regra #14). |
+| `aprendizados.md` | Lições do agente, especialmente registros de rejeições do Gui (Regra #14). |
 | `mapa.md` | Este arquivo. |
 
 ## Skills relacionadas
@@ -22,5 +22,5 @@ implementar páginas Astro a partir de copy aprovada.
 
 ## Referências
 
-- `Páginas Astro {{NOME_OPERADOR}}/DESIGN-SYSTEM.md` — fonte única de verdade visual
-- `Páginas Astro {{NOME_OPERADOR}}/mapa.md` — estrutura do projeto Astro
+- `Páginas Astro Gui Ávila/DESIGN-SYSTEM.md` — fonte única de verdade visual
+- `Páginas Astro Gui Ávila/mapa.md` — estrutura do projeto Astro

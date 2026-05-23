@@ -4,6 +4,18 @@ description: Revisao visual REAL de pagina LP antes do triple-check + deploy. Pl
 type: skill
 ---
 
+## ⚠️ Playwright SEMPRE headless (Regra §5 — memória feedback_playwright_sempre_headless)
+
+NUNCA `headless: false` nem `devtools: true`. Browser visível no Mac do Gui atrapalha trabalho dele.
+
+```js
+// ✅ Correto
+await chromium.launch({ headless: true });
+```
+
+Pra inspeção visual, usa `page.screenshot()` + leitura do arquivo. Pra inspecionar DOM ao vivo, usa `page.evaluate()` retornando valores computed.
+
+
 # Skill: /revisar-visual-pagina
 
 
@@ -43,13 +55,13 @@ Reprovar é melhor que aprovar com gap. Auto-checklist do produtor NÃO substitu
 
 - **path:** path do componente Astro (`src/pages/[slug]/index.astro` no repo Páginas Astro {{NOME_OPERADOR}})
 - **url_local:** URL local pra renderizar (ex: `http://localhost:4321/[slug]`) — dev deve subir `astro dev` antes
-- **url_prod_atual:** URL produção atual (ex: `https://sites.{{handle}}.com/[slug]`) — opcional pra antes/depois
+- **url_prod_atual:** URL produção atual (ex: `https://sites.{{DOMINIO}}/[slug]`) — opcional pra antes/depois
 - **briefing:** path do briefing estratégico que originou a copy (pra validar voz visual vs estratégia)
-- **design_system:** path do design system aplicado (ex: `workspace/design-systems/{{handle}}-premium.md`)
+- **design_system:** path do design system aplicado (ex: `workspace/design-systems/guiavila-premium.md`)
 
 **Exemplo:**
 ```
-/revisar-visual-pagina --path=src/pages/mentoria/index.astro --url_local=http://localhost:4321/mentoria --url_prod_atual=https://sites.{{handle}}.com/mentoria --briefing=workspace/output/estrategia/2026-05-14-mentoria-redesign-briefing.md --design_system=workspace/design-systems/{{handle}}-premium.md
+/revisar-visual-pagina --path=src/pages/mentoria/index.astro --url_local=http://localhost:4321/mentoria --url_prod_atual=https://sites.{{DOMINIO}}/mentoria --briefing=workspace/output/estrategia/2026-05-14-mentoria-redesign-briefing.md --design_system=workspace/design-systems/guiavila-premium.md
 ```
 
 ---
@@ -88,8 +100,8 @@ Auditar como humano olhando screenshot por screenshot:
    - CTA visível na 1ª dobra (mobile + desktop)
 
 2. **Tipografia**
-   - Syne em headings (não Cormorant)
-   - Cormorant SÓ em dígitos/cifras quando aplicável (regra histórica)
+   - Display (Syne/Fraunces) em headings; NUNCA em números
+   - Números/preços/datas SEMPRE em Inter Tight tabular-nums ou JetBrains Mono (display jamais em números — Gui 18/05/2026, memória feedback_fonte_display_jamais_em_numeros)
    - Letter-spacing em hero (-0.02em mín se >4rem)
    - Line-height 1.5-1.7 body, 1.2-1.3 headings
    - Sem texto cortado, sem overflow horizontal
@@ -240,7 +252,7 @@ Arquivo: `workspace/output/screenshots-revisao/[YYYY-MM-DD]-[slug]-revisao-visua
 ## Aprendizado + pendência (Regra §5)
 
 - Defeito visual recorrente (3+ páginas) → adicionar ao checklist como item permanente
-- Falsa aprovação detectada pelo {{OPERADOR}} → registrar em `squads/dev/agentes/designer-revisor/aprendizados.md` + atualizar critérios
+- Falsa aprovação detectada pelo Gui → registrar em `squads/dev/agentes/designer-revisor/aprendizados.md` + atualizar critérios
 - Bug bloqueante → criar pendência ClickUp via `/criar-pendencia` antes de reprovar (pra rastrear o loop dev→revisor)
 
 ---

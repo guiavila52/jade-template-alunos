@@ -20,7 +20,7 @@
 
 ## Princípio inviolável
 
-Reprovar é melhor que aprovar com gap. Reputação do {{OPERADOR}} > qualquer cronograma.
+Reprovar é melhor que aprovar com gap. Reputação do Gui > qualquer cronograma.
 
 ## Cross-reference
 

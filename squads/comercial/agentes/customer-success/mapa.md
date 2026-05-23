@@ -29,7 +29,7 @@ Aluno compra → recebe welcome → acessa primeira aula → check-in dia 3 → 
 
 ## Integrações futuras
 
-- **{{EMPRESA_COFUNDADA}}** — matrículas, enrollments, progresso do aluno
+- **{{LMS}}** — matrículas, enrollments, progresso do aluno
 - **GHL** — sequências de email de welcome, check-ins automáticos
 
 ---

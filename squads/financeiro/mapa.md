@@ -6,7 +6,7 @@
 
 | Agente | Pasta | Função | Skill macro |
 |---|---|---|---|
-| `@analista-financeiro` | `agentes/analista-financeiro/` | Operação NF, conferência de pagamentos, extratos
+| `@analista-financeiro` | `agentes/analista-financeiro/` | Operação NF, conferência de pagamentos, extratos | `/consultar-nf` |
 | `@contador` | `agentes/contador/` | Análise fiscal estratégica, DRE, regime tributário | (skill dedicada futura) |
 
 ## Estrutura

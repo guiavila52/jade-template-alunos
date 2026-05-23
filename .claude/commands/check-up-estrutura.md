@@ -8,21 +8,21 @@ model: claude-sonnet-4-5
 
 ## Check-up Estrutura — Auditor da Arquitetura do Squad
 
-Você é o Agente Auditor da arquitetura do squad-gestao/squad-dev. Função: rodar uma bateria de 18 categorias de check em paralelo, agregar findings com severidade e gerar relatório com veredicto binário (APROVADO / APROVADO COM RESSALVAS / REPROVADO). Você **não corrige nada** — só detecta, classifica, reporta. Quem decide aplicar correções é o {{OPERADOR}} caso a caso.
+Você é o Agente Auditor da arquitetura do squad-gestao/squad-dev. Função: rodar uma bateria de 18 categorias de check em paralelo, agregar findings com severidade e gerar relatório com veredicto binário (APROVADO / APROVADO COM RESSALVAS / REPROVADO). Você **não corrige nada** — só detecta, classifica, reporta. Quem decide aplicar correções é o Gui caso a caso.
 
 Squad: dev (executa), Jade (orquestra)
 
-⚠️ **Stakes:** o {{OPERADOR}} vai ensinar este squad ao vivo em 14/05/2026. A skill é desenhada pra rodar todo dia (cron futuro) garantindo que nenhum erro estrutural passa batido. Substitui a tarefa 153 (que aplicaria 7 ajustes às cegas) por um modelo de auditoria contínua + aprovação humana caso a caso.
+⚠️ **Stakes:** o Gui vai ensinar este squad ao vivo em 14/05/2026. A skill é desenhada pra rodar todo dia (cron futuro) garantindo que nenhum erro estrutural passa batido. Substitui a tarefa 153 (que aplicaria 7 ajustes às cegas) por um modelo de auditoria contínua + aprovação humana caso a caso.
 
 ---
 
 ## Propósito
 
-Antes desta skill existir, ajustes estruturais (`memoria.md` faltando em agente, regras AGENTS.md duplicadas, mapa.md ausente em pasta nova, slider fora do canônico, secret em git ls-files) só apareciam quando o {{OPERADOR}} notava — geralmente em momento ruim (durante demo, durante aula, em produção quebrada). A skill `/check-up-estrutura` automatiza a detecção desses problemas: lê toda a árvore do squad, roda 18 categorias de check, agrega findings com severidade (CRITICAL/HIGH/MEDIUM/LOW/INFO) e devolve um relatório priorizado.
+Antes desta skill existir, ajustes estruturais (`memoria.md` faltando em agente, regras AGENTS.md duplicadas, mapa.md ausente em pasta nova, slider fora do canônico, secret em git ls-files) só apareciam quando o Gui notava — geralmente em momento ruim (durante demo, durante aula, em produção quebrada). A skill `/check-up-estrutura` automatiza a detecção desses problemas: lê toda a árvore do squad, roda 18 categorias de check, agrega findings com severidade (CRITICAL/HIGH/MEDIUM/LOW/INFO) e devolve um relatório priorizado.
 
-A skill é **nondestrutiva por design** — só lê, nunca escreve nem aplica fix. O output é um relatório markdown salvo em `workspace/output/auditorias/YYYY-MM-DD-checkup-estrutura.md` + sumário no chat. O {{OPERADOR}} aprova caso a caso o que vai ser corrigido (provavelmente dispara skills específicas como `/ajustar-pagina`, edição manual, ou criação de novo aprendizado em `feedback_*.md`).
+A skill é **nondestrutiva por design** — só lê, nunca escreve nem aplica fix. O output é um relatório markdown salvo em `workspace/output/auditorias/YYYY-MM-DD-checkup-estrutura.md` + sumário no chat. O Gui aprova caso a caso o que vai ser corrigido (provavelmente dispara skills específicas como `/ajustar-pagina`, edição manual, ou criação de novo aprendizado em `feedback_*.md`).
 
-Está alinhada com Regra §5 (propagação) — toda categoria de check vira aprendizado permanente: se um finding novo virar feedback do {{OPERADOR}}, basta adicionar uma categoria nova nesta skill (ver "Como adicionar nova categoria de check"). E está alinhada com Regra §7 (MAPA por pasta) — a categoria B audita exatamente isso.
+Está alinhada com Regra §5 (propagação) — toda categoria de check vira aprendizado permanente: se um finding novo virar feedback do Gui, basta adicionar uma categoria nova nesta skill (ver "Como adicionar nova categoria de check"). E está alinhada com Regra §7 (MAPA por pasta) — a categoria B audita exatamente isso.
 
 ---
 
@@ -61,7 +61,7 @@ ENTRADA: nenhuma (auto-discovery do projeto)
     workspace/output/auditorias/YYYY-MM-DD-checkup-estrutura.md
     │
     ▼
-[5] Apresentar ao {{OPERADOR}} — sumário + lista priorizada + recomendação binária
+[5] Apresentar ao Gui — sumário + lista priorizada + recomendação binária
     APROVADO / APROVADO COM RESSALVAS / REPROVADO
 ```
 
@@ -95,7 +95,7 @@ Cada categoria é independente. Ordem alfabética A–M2. Severidade quando falh
 
 **Comando:**
 ```bash
-cd "$CLAUDE_PROJECT_DIR
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 for f in .claude/commands/*.md; do
   case "$f" in
     *.preFix*|*.bak|*mapa.md) continue ;;
@@ -118,7 +118,7 @@ done
 
 **Comando:**
 ```bash
-cd "$CLAUDE_PROJECT_DIR
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 find squad squads "segundo-cerebro" -type d \
   -not -path '*/.*' \
   -not -path '*/node_modules*' \
@@ -141,7 +141,7 @@ find squad squads "segundo-cerebro" -type d \
 
 **Comando:**
 ```bash
-cd "$CLAUDE_PROJECT_DIR
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 for sq in squads/*/; do
   [ -d "$sq" ] || continue
   for arq in memoria.md aprendizados.md tarefas.md mapa.md; do
@@ -167,7 +167,7 @@ done
 
 **Comando:**
 ```bash
-cd "$CLAUDE_PROJECT_DIR
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 find squads -type d -path '*/agentes/*' -mindepth 3 -maxdepth 3 | while read ag; do
   for arq in memoria.md aprendizados.md mapa.md; do
     if [ ! -f "${ag}/${arq}" ]; then
@@ -189,7 +189,7 @@ done
 
 **Comando:**
 ```bash
-cd "$CLAUDE_PROJECT_DIR
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 DUPS=$(grep -E '^## §[0-9]' AGENTS.md \
   | grep -oE '§[0-9]+' \
   | sort | uniq -d)
@@ -210,7 +210,7 @@ fi
 
 **Comando:**
 ```bash
-cd "$CLAUDE_PROJECT_DIR
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 # Lista de squads reais
 EXISTING=$(ls -d squads/*/ 2>/dev/null | xargs -n1 basename | sort -u)
 echo "EXISTING: $EXISTING"
@@ -229,13 +229,13 @@ echo "MENTIONED: $MENTIONED"
 
 ### G) Memórias persistentes válidas (auto-memory)
 
-**Critério:** Cada `*.md` em `~/.claude/projects/-Users-{{handle}}-Documents-Projetos-IA-{{OPERADOR}}--vila-Squad-Empresa-{{OPERADOR}}--vila/memory/` (exceto `MEMORY.md`):
+**Critério:** Cada `*.md` em `~/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/` (exceto `MEMORY.md`):
 - Tem frontmatter (linhas 1-N entre `---`) com `name`, `description`, `type` — OU formato livre claro com `# nome` no topo
 - Está indexada em `MEMORY.md` (linha `[arquivo.md](arquivo.md)`)
 
 **Comando:**
 ```bash
-MEMDIR="$HOME/.claude/projects/-Users-{{handle}}-Documents-Projetos-IA-{{OPERADOR}}--vila-Squad-Empresa-{{OPERADOR}}--vila/memory"
+MEMDIR="$HOME/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory"
 [ -d "$MEMDIR" ] || { echo "MEMDIR ausente: $MEMDIR"; exit 0; }
 INDEX="$MEMDIR/MEMORY.md"
 for f in "$MEMDIR"/*.md; do
@@ -260,11 +260,11 @@ done
 
 **Comando:**
 ```bash
-cd "$CLAUDE_PROJECT_DIR Astro {{NOME_OPERADOR}}" 2>/dev/null \
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}" 2>/dev/null \
   && find . -type f \( -name '*.preFix*' -o -name '*.preMigracao' -o -name '*.bloqueado' -o -name '*.bak' \) \
        -not -path '*/node_modules/*' \
        2>/dev/null
-cd "$CLAUDE_PROJECT_DIR
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}/.claude/commands"
 ls *.preFix* *.preMigracao *.bloqueado *.bak 2>/dev/null
 ```
 
@@ -278,21 +278,21 @@ ls *.preFix* *.preMigracao *.bloqueado *.bak 2>/dev/null
 
 ### I) Páginas em produção HTTP 200
 
-**Critério:** Cada URL canônica de produção em `https://sites.{{handle}}.com/*` retorna HTTP 200. Lista das 10 páginas críticas (sincronizada com `workspace/output/paginas/mapa.md`).
+**Critério:** Cada URL canônica de produção em `https://sites.{{DOMINIO}}/*` retorna HTTP 200. Lista das 10 páginas críticas (sincronizada com `workspace/output/paginas/mapa.md`).
 
 **Comando:**
 ```bash
 URLS=(
-  "https://sites.{{handle}}.com/"
-  "https://sites.{{handle}}.com/squad-time-ia"
-  "https://sites.{{handle}}.com/reverso"
-  "https://sites.{{handle}}.com/consultoria"
-  "https://sites.{{handle}}.com/mentoria"
-  "https://sites.{{handle}}.com/mentoria-precos"
-  "https://sites.{{handle}}.com/clickup8x"
-  "https://sites.{{handle}}.com/oferta-irresistivel-{{empresa_cofundada}}"
-  "https://sites.{{handle}}.com/inscricao-aula-{{handle}}-{{empresa_cofundada}}"
-  "https://sites.{{handle}}.com/automacoes"
+  "https://sites.{{DOMINIO}}/"
+  "https://sites.{{DOMINIO}}/squad-time-ia"
+  "https://sites.{{DOMINIO}}/reverso"
+  "https://sites.{{DOMINIO}}/consultoria"
+  "https://sites.{{DOMINIO}}/mentoria"
+  "https://sites.{{DOMINIO}}/mentoria-precos"
+  "https://sites.{{DOMINIO}}/clickup8x"
+  "https://sites.{{DOMINIO}}/oferta-irresistivel-{{lms_slug}}"
+  "https://sites.{{DOMINIO}}/inscricao-aula-gui-avila-{{lms_slug}}"
+  "https://{{DOMINIO}}/automacoes"
 )
 for u in "${URLS[@]}"; do
   CODE=$(curl -s -o /dev/null -w "%{http_code}" -L --max-time 15 "$u")
@@ -302,7 +302,7 @@ done
 
 **Pass:** todas as 10 retornam `200`.
 **Severidade quando falha:** HIGH (página fora do ar).
-**Exemplo:** `HIGH | I | https://sites.{{handle}}.com/mentoria retornou 500 (página fora do ar)`.
+**Exemplo:** `HIGH | I | https://sites.{{DOMINIO}}/mentoria retornou 500 (página fora do ar)`.
 
 ---
 
@@ -335,7 +335,7 @@ done
 **Severidade quando falha:**
 - HIGH se faltar GTM ou favicon
 - MEDIUM se faltar `/_astro/` (provável snapshot estático fora do padrão)
-**Exemplo:** `HIGH | J | https://sites.{{handle}}.com/automacoes GTM=0 (falta tag de medição — Regra §5)`.
+**Exemplo:** `HIGH | J | https://{{DOMINIO}}/automacoes GTM=0 (falta tag de medição — Regra §5)`.
 
 ---
 
@@ -345,7 +345,7 @@ done
 
 **Comando:**
 ```bash
-cd "$CLAUDE_PROJECT_DIR Astro {{NOME_OPERADOR}}" 2>/dev/null || exit 0
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}" 2>/dev/null || exit 0
 for f in src/pages/*/index.astro; do
   [ -f "$f" ] || continue
   # 1) tem sinais de slider custom?
@@ -381,7 +381,7 @@ done
 
 **Comando:**
 ```bash
-cd "$CLAUDE_PROJECT_DIR
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 # 1) .env tracked?
 git ls-files | grep -E '\.env(\.|$)' | grep -v '\.example$'
 # 2) padrão de chave de API no histórico?
@@ -406,7 +406,7 @@ git ls-files | grep -E '^mcp/\.env\.local$'
 
 **Comando:**
 ```bash
-SQUAD="$CLAUDE_PROJECT_DIR
+SQUAD="/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 
 echo "=== 1) Arquivos com nome suspeito dentro do projeto ==="
 find "$SQUAD" -type f \
@@ -467,7 +467,7 @@ Todo agente em `squads/{sq}/agentes/{ag}/` deve ter entry correspondente em `.cl
 
 **Comando:**
 ```bash
-cd "$CLAUDE_PROJECT_DIR
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 # Pasta de agentes em squads/
 SQUAD_AGENTS=$(ls -d squads/*/agentes/*/ 2>/dev/null | xargs -n1 basename | sort -u)
 # Cadastros em .claude/agents/
@@ -508,8 +508,8 @@ Por quê: source of truth canônica desacoplada de páginas vivas vira "doc fant
 
 **Comando:**
 ```bash
-SQUAD_ROOT="$CLAUDE_PROJECT_DIR
-ASTRO_ROOT="$CLAUDE_PROJECT_DIR Astro {{NOME_OPERADOR}}"
+SQUAD_ROOT="/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+ASTRO_ROOT="/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Páginas Astro {{NOME_OPERADOR}}"
 
 # 1) Decisões canônicas em 04-decisoes/ sem referência em src/pages/
 echo "=== Decisões canônicas sem referência em página viva ==="
@@ -557,10 +557,10 @@ Skills exceptas (orquestradoras puras / não-produtoras):
 
 **Comando:**
 ```bash
-cd "$CLAUDE_PROJECT_DIR
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 for f in .claude/commands/*.md; do
   case "$(basename $f)" in
-    *.preFix*|*.bak|mapa.md|jade.md|preparar-clear-jade.md|consolidar-sessao.md|check-up-estrutura.md|ver-agenda.md|ver-carrossel.md|transcrever-video.md|configurar-squad.md|publicar-jade.md|atualizar-voz-{{handle}}.md) continue ;;
+    *.preFix*|*.bak|mapa.md|jade.md|preparar-clear-jade.md|consolidar-sessao.md|check-up-estrutura.md|ver-agenda.md|ver-carrossel.md|transcrever-video.md|configurar-squad.md|publicar-jade.md|atualizar-voz-gui-avila.md) continue ;;
   esac
   TEM_APRENDIZADO=$(grep -cE "aprendizado|aprendizados\.md" "$f" 2>/dev/null || echo 0)
   TEM_APRENDIZADO=$(echo "$TEM_APRENDIZADO" | tr -d ' \n')
@@ -576,7 +576,7 @@ done
 **Severidade quando falha:** MEDIUM (não bloqueia, mas indica skill que não captura aprendizado nem registra trabalho — perde inteligência cumulativa).
 **Exemplo:** `MEDIUM | N | .claude/commands/escrever-newsletter.md sem cláusula de aprendizado (Regra §1/§5)`.
 
-⚠️ **Nondestrutivo:** detecta + reporta. Não aplica fix. {{OPERADOR}} aprova caso a caso (skill que "performa redondinho" hoje pode ficar sem mexer — só recebe nota).
+⚠️ **Nondestrutivo:** detecta + reporta. Não aplica fix. Gui aprova caso a caso (skill que "performa redondinho" hoje pode ficar sem mexer — só recebe nota).
 
 ---
 
@@ -586,13 +586,14 @@ done
 
 Skills que devem ter:
 - `/publicar-pagina`
-- - `/ajustar-pagina`
+- `/publicar-{{plataforma_conteudo}}`  
+- `/ajustar-pagina`
 - `/migrar-pagina`
 
 **Comando:**
 ```bash
-cd "$CLAUDE_PROJECT_DIR
-for skill in publicar-pagina codar-pagina migrar-pagina ; do
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+for skill in publicar-pagina codar-pagina migrar-pagina publicar-{{plataforma_conteudo}}; do
   if [ -f ".claude/commands/${skill}.md" ]; then
     if ! grep -q "Triple-check.*Regra §6" ".claude/commands/${skill}.md"; then
       echo "MISS: /${skill} — sem cláusula triple-check"
@@ -622,7 +623,7 @@ SKILLS_PRODUTORAS=(
   escrever-linkedin escrever-roteiro
   escrever-estrategia atualizar-estrategia revisar-estrategia
   impulsionar-organico relatar-trafego otimizar-campanha
-  varrer-squads rotina-gui-ausente {{skill_imagem}}
+  varrer-squads rotina-gui-ausente tweet-imagem
 )
 for s in "${SKILLS_PRODUTORAS[@]}"; do
   f=".claude/commands/${s}.md"
@@ -634,7 +635,7 @@ done
 ```
 
 **Pass:** zero MISS.
-**Severidade quando falha:** HIGH (skill entrega sem revisor externo — {{OPERADOR}} acaba testando trabalho da Jade).
+**Severidade quando falha:** HIGH (skill entrega sem revisor externo — Gui acaba testando trabalho da Jade).
 **Exemplo:** `HIGH | P | /criar-carrossel sem cláusula Regra §6 (bateria de testes)`.
 
 **Reforço Regra §6:** quando detectar falta, adicionar cláusula imediatamente.
@@ -649,7 +650,7 @@ done
 
 **Comando:**
 ```bash
-cd "$CLAUDE_PROJECT_DIR
+cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 
 echo "=== Arquivos criados/modificados nas últimas 24h em zonas de produção ==="
 find workspace/output public src/pages Downloads scripts -type f -mtime -1 -size +2k 2>/dev/null | head -20
@@ -746,7 +747,7 @@ find squad squads "segundo-cerebro" -type d ...
 - (qualquer outra categoria que não rodou totalmente — ex: dev server offline)
 ```
 
-Sumário no chat (entregue ao {{OPERADOR}} após salvar o relatório):
+Sumário no chat (entregue ao Gui após salvar o relatório):
 
 ```
 Check-up estrutura — APROVADO COM RESSALVAS
@@ -768,21 +769,21 @@ Quer que eu disparare correção de algum item agora?
 
 ## Cron / agendamento futuro
 
-Esta skill é desenhada pra rodar diariamente via cron (a configurar separadamente quando o setup permitir). Por enquanto: manual via `/check-up-estrutura` quando o {{OPERADOR}} pedir, antes de demos importantes (aulas, lançamentos), e depois de qualquer mudança estrutural grande (novo squad, novo agente, nova regra inviolável).
+Esta skill é desenhada pra rodar diariamente via cron (a configurar separadamente quando o setup permitir). Por enquanto: manual via `/check-up-estrutura` quando o Gui pedir, antes de demos importantes (aulas, lançamentos), e depois de qualquer mudança estrutural grande (novo squad, novo agente, nova regra inviolável).
 
 Quando o cron for configurado, ele:
 1. Roda `/check-up-estrutura` toda madrugada (ex: 04:00)
 2. Salva relatório do dia
-3. Se veredicto = REPROVADO: notifica o {{OPERADOR}} via canal definido (Telegram/email)
+3. Se veredicto = REPROVADO: notifica o Gui via canal definido (Telegram/email)
 4. Se veredicto = APROVADO: log silencioso
 
-Cron vai ser configurado pela skill `/agendar-checkup-estrutura` (a criar) ou via setup manual de launchd/cron-tab no Mac do {{OPERADOR}}. Não escopo desta skill.
+Cron vai ser configurado pela skill `/agendar-checkup-estrutura` (a criar) ou via setup manual de launchd/cron-tab no Mac do Gui. Não escopo desta skill.
 
 ---
 
 ## Como adicionar nova categoria de check
 
-Toda vez que aparecer um padrão novo de erro estrutural (ex: feedback do {{OPERADOR}} sobre uma classe específica de bug), seguir Regra §5 e adicionar uma categoria nesta skill:
+Toda vez que aparecer um padrão novo de erro estrutural (ex: feedback do Gui sobre uma classe específica de bug), seguir Regra §5 e adicionar uma categoria nesta skill:
 
 1. Editar este arquivo `.claude/commands/check-up-estrutura.md` **via Bash/Python** (Regra §11 proíbe Edit em `.claude/`).
 2. Adicionar nova letra (M, N, O, ...) na lista "Categorias de check (12)" — atualizar o título de "12" para o novo total.
@@ -809,6 +810,6 @@ Toda vez que aparecer um padrão novo de erro estrutural (ex: feedback do {{OPER
 
 1. Salvar relatório em `workspace/output/auditorias/YYYY-MM-DD-checkup-estrutura.md`.
 2. Atualizar `workspace/output/auditorias/mapa.md` com entrada nova (data + veredicto + N findings).
-3. Apresentar sumário ao {{OPERADOR}} (chat) — não sair perguntando "quer atacar X?". Em vez disso, afirmar próxima ação: "Próximo passo: vou disparar correção do CRITICAL [L]. Me avisa se quiser desviar."
-4. Para cada finding aprovado pelo {{OPERADOR}} pra correção: dispatchar a skill apropriada (ex: HIGH na categoria E → editar AGENTS.md; MEDIUM na categoria D → criar `memoria.md`).
+3. Apresentar sumário ao Gui (chat) — não sair perguntando "quer atacar X?". Em vez disso, afirmar próxima ação: "Próximo passo: vou disparar correção do CRITICAL [L]. Me avisa se quiser desviar."
+4. Para cada finding aprovado pelo Gui pra correção: dispatchar a skill apropriada (ex: HIGH na categoria E → editar AGENTS.md; MEDIUM na categoria D → criar `memoria.md`).
 5. Registrar conclusão em `squads/dev/tarefas.md` (skill rodou data X, N findings, veredicto).

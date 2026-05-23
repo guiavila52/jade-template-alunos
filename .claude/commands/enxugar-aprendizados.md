@@ -13,7 +13,7 @@ type: skill
 ## Quando invocar
 
 - Mensalmente (rotina manutenção)
-- Sob demanda do {{OPERADOR}} ("aprendizados tão grandes demais")
+- Sob demanda do Gui ("aprendizados tão grandes demais")
 - Quando algum `aprendizados.md` ultrapassar 200 linhas (alerta `/check-up-estrutura`)
 - Após onda de consolidação de agentes (fusão de pastas legacy)
 
@@ -25,7 +25,7 @@ type: skill
 **Por quê:** [1 frase — incidente histórico que originou]
 **Como aplicar:** [1 frase — gatilho/quando]
 **Skill que aplica:** [/skill-x, /skill-y]
-**Citação {{OPERADOR}} (opcional):** "[curta, ≤1 linha]"
+**Citação Gui (opcional):** "[curta, ≤1 linha]"
 ```
 
 ## O que ENXUGAR (vai pro backup)
@@ -33,14 +33,14 @@ type: skill
 - Exemplos antes/depois extensos (3+ casos)
 - Justificativas longas com cross-references explícitas
 - Lista exaustiva de skills atualizadas
-- Citações longas do {{OPERADOR}} (>1 linha) — preservar só essência
+- Citações longas do Gui (>1 linha) — preservar só essência
 - Histórico de versões / changelogs internos
 - Texto narrativo de contexto/motivação
 
 ## O que NUNCA descartar
 
 - Regra prescritiva (o "o que fazer")
-- Citação curta do {{OPERADOR}} (1 linha)
+- Citação curta do Gui (1 linha)
 - Skill que aplica (link curto)
 - Aprendizado novo/único que ainda não virou regra/skill
 
@@ -86,7 +86,7 @@ Sem args → varre todos os agentes e enxuga os que passarem do threshold.
 - Backup integral preservado
 - Reescrita ≤ 200 linhas
 - Zero aprendizado único perdido (cross-check com backup obrigatório)
-- Citações {{OPERADOR}} curtas mantidas
+- Citações Gui curtas mantidas
 - Skills/AGENTS.md referências mantidas
 - Commit limpo + comentário ClickUp
 
@@ -100,5 +100,5 @@ Sem args → varre todos os agentes e enxuga os que passarem do threshold.
 
 - Antes de executar: registrar pendência ClickUp via `/criar-pendencia`
 - Ao concluir: comentar via `/comentar-pendencia` e fechar via `/fechar-pendencia`
-- Aprendizado real (correção do {{OPERADOR}}, novo padrão de curadoria) → `squads/dev/agentes/devops/aprendizados.md`
+- Aprendizado real (correção do Gui, novo padrão de curadoria) → `squads/dev/agentes/devops/aprendizados.md`
 - Reincidência (mesmo arquivo inchando de novo após X meses) → revisar formato de input dos aprendizados (algum agente está escrevendo verbose demais — atualizar skill /escrever-... pra forçar formato enxuto desde o início)

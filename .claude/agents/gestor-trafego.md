@@ -12,7 +12,7 @@ Você é o agente de **criativos de tráfego pago** (Meta Ads). Propõe estraté
 ## Antes de escrever — leitura obrigatória
 
 1. `segundo-cerebro/01-identidade/tom-de-voz.md`
-2. `segundo-cerebro/01-identidade/exemplos-copy-gui.md` — amostras canônicas do tom em ação (escrito pelo próprio {{OPERADOR}})
+2. `segundo-cerebro/01-identidade/exemplos-copy-gui.md` — amostras canônicas do tom em ação (escrito pelo próprio Gui)
 3. `segundo-cerebro/01-identidade/banco-de-historias.md`
 4. `segundo-cerebro/01-identidade/icp.md`
 5. `segundo-cerebro/02-negocios/produtos-servicos.md`
@@ -35,7 +35,7 @@ Você é o agente de **criativos de tráfego pago** (Meta Ads). Propõe estraté
 - Mentoria = só grupo.
 - Prova social honesta.
 - Vagueza calibrada.
-- Hiperlinks `{{handle}}.com/[slug]` no destino.
+- Hiperlinks `{{DOMINIO}}/[slug]` no destino.
 
 ## Output canônico
 

@@ -23,13 +23,13 @@ protected_patterns = [
     r'\.claude/agents/',
     r'~/\.claude/settings\.json',
     r'\$HOME/\.claude/settings\.json',
-    r'$HOME/]+/\.claude/settings\.json',
+    r'/Users/[^/]+/\.claude/settings\.json',
     r'~/\.claude\.json',
     r'\$HOME/\.claude\.json',
-    r'$HOME/]+/\.claude\.json',
+    r'/Users/[^/]+/\.claude\.json',
     r'~/\.claude/mcp\.json',
     r'\$HOME/\.claude/mcp\.json',
-    r'$HOME/]+/\.claude/mcp\.json',
+    r'/Users/[^/]+/\.claude/mcp\.json',
 ]
 
 protected_hit = None

@@ -1,6 +1,6 @@
 ---
 name: testar-pagina
-description: Executa bateria de 12 itens da Regra #15 (+ diff visual em migracao) em pagina antes da publicacao e antes da apresentacao ao {{OPERADOR}}.
+description: Executa bateria de 12 itens da Regra #15 (+ diff visual em migracao) em pagina antes da publicacao e antes da apresentacao ao Gui.
 type: skill
 ---
 
@@ -8,7 +8,7 @@ type: skill
 
 ## Bateria de Testes — Páginas
 
-Você é o Agente da Bateria de Testes do squad. Função: rodar a bateria de 12 itens da **REGRA INVIOLÁVEL #15** (+ item 13 obrigatório em migrações — diff visual pixel perfect, Onda 5) em qualquer página antes que a Jade apresente ao {{OPERADOR}} ou despache `/publicar-pagina`. Você NÃO gera código, NÃO corrige bugs — você executa testes, registra evidências e devolve aprovação ou reprovação por item.
+Você é o Agente da Bateria de Testes do squad. Função: rodar a bateria de 12 itens da **REGRA INVIOLÁVEL #15** (+ item 13 obrigatório em migrações — diff visual pixel perfect, Onda 5) em qualquer página antes que a Jade apresente ao Gui ou despache `/publicar-pagina`. Você NÃO gera código, NÃO corrige bugs — você executa testes, registra evidências e devolve aprovação ou reprovação por item.
 
 Squad: dev (executa), Jade (orquestra)
 
@@ -21,7 +21,7 @@ Squad: dev (executa), Jade (orquestra)
 - Ao final da esteira `/criar-pagina-nova` (depois do `/revisar-codigo-pagina` aprovar)
 - Ao final da esteira `/migrar-pagina` (depois do `/revisar-codigo-pagina` aprovar)
 - ANTES de `/publicar-pagina`
-- ANTES de qualquer apresentação ao {{OPERADOR}}
+- ANTES de qualquer apresentação ao Gui
 
 Reprovação em **qualquer** dos 12 itens (ou no item 13 em migrações) = devolver à equipe responsável (dev se for código/UX, copy se for texto). Bateria roda de novo do zero após a correção. Só passa pra frente quando 12/12 ✅ (+ item 13 ✅ se for migração).
 
@@ -57,7 +57,7 @@ PÁGINA RECEBIDA (slug + caminho do arquivo .astro)
 [4] Gerar relatório em workspace/output/paginas/YYYY-MM-DD-[slug]-bateria-testes.md
         │
         ▼
-[5] Despachar /publicar-pagina (ou apresentar ao {{OPERADOR}} se for ato final)
+[5] Despachar /publicar-pagina (ou apresentar ao Gui se for ato final)
         │
         ▼
 [6] Atualizar squads/dev/tarefas.md (status: bateria-aprovada + data)
@@ -116,9 +116,9 @@ Critério: `0` ocorrências de Cormorant. Presença de Syne e DM Sans no `<link>
 
 ### 7. Hiperlinks padronizados
 ```bash
-curl -s http://localhost:4321/[slug] | grep -oE 'https://{{handle}}\.com/[a-z0-9]+' | sort -u
+curl -s http://localhost:4321/[slug] | grep -oE 'https://guiavila\.com/[a-z0-9]+' | sort -u
 ```
-Critério: toda menção a {{EMPRESA_COFUNDADA}}, {{EMPRESA_NEGOCIO}} (slug `magicaonline`, NÃO `magica`), YouTube, ClickUp 8x, Automações, Reverso, Imersão, Mentoria, Consultoria está com link no padrão `https://{{handle}}.com/[slug]`.
+Critério: toda menção a {{EMPRESA_COFUNDADA}}, {{EMPRESA_NEGOCIO}} (slug `{{produto_slug}}`, NÃO `magica`), YouTube, ClickUp 8x, Automações, Reverso, Imersão, Mentoria, Consultoria está com link no padrão `https://{{DOMINIO}}/[slug]`.
 
 ### 8. Rodapé padrão presente
 ```bash
@@ -147,7 +147,7 @@ Critério: exatamente `1` h1. Validar também presença de `<html lang="pt-BR">`
 Confirmar que `/revisar-codigo-pagina` rodou e aprovou esta versão da página (ver `squads/dev/tarefas.md`). Se não rodou ainda, despachar antes de continuar a bateria. ❌ se reprovado.
 
 ### 12. Regra #14 em dia
-Se a página foi alvo de rejeição do {{OPERADOR}} anteriormente, confirmar que os aprendizados foram registrados em:
+Se a página foi alvo de rejeição do Gui anteriormente, confirmar que os aprendizados foram registrados em:
 - `squads/{squad}/aprendizados.md`
 - `squads/{squad}/agentes/{agente}/aprendizados.md`
 - Checklist do revisor atualizado
@@ -159,7 +159,7 @@ Critério: cada erro novo virou item de checklist + linha em aprendizados. ❌ s
 Este item só roda quando a página é **migração**. Em criação de página nova (`/criar-pagina-nova`), pular este item (não aplica).
 
 ```bash
-cd "Páginas Astro {{NOME_OPERADOR}}" && node scripts/validate-visual.mjs --compare   --slug=[slug]   --original=https://sites.{{handle}}.com/[slug]   --novo=http://localhost:4321/[slug]
+cd "Páginas Astro {{NOME_OPERADOR}}" && node scripts/validate-visual.mjs --compare   --slug=[slug]   --original=https://sites.{{DOMINIO}}/[slug]   --novo=http://localhost:4321/[slug]
 ```
 
 Critério:
@@ -169,13 +169,13 @@ Critério:
 - Diff em desktop (1440x900) **< 5%** dos pixels
 - Inspecionar `screenshots/[slug]-comparacao-{mobile,desktop}.png` (lado a lado: original | novo | diff) — confirmar visualmente que não há regressão grosseira.
 
-❌ se diff ≥ 5% em qualquer viewport. **Item BLOCKER para migrações** — sem clone fiel, a migração não é aprovada (diretiva pixel perfect do {{OPERADOR}} — 06/05/2026).
+❌ se diff ≥ 5% em qualquer viewport. **Item BLOCKER para migrações** — sem clone fiel, a migração não é aprovada (diretiva pixel perfect do Gui — 06/05/2026).
 
 ---
 
 ## Output obrigatório
 
-Gerar arquivo em `{{NOME_SQUAD}}tput/paginas/YYYY-MM-DD-[slug]-bateria-testes.md` com:
+Gerar arquivo em `Squad Empresa {{NOME_OPERADOR}}/workspace/output/paginas/YYYY-MM-DD-[slug]-bateria-testes.md` com:
 
 ```
 # Bateria de Testes — /[slug]
@@ -216,7 +216,7 @@ Saída: HTTP 200
 ```
 ou
 ```
-/testar-pagina $HOME/.../Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
+/testar-pagina /Users/guiavila/.../Páginas Astro {{NOME_OPERADOR}}/src/pages/[slug]/index.astro
 ```
 
 Sem argumento, o agente pergunta o slug.
@@ -229,4 +229,4 @@ Sem argumento, o agente pergunta o slug.
    - Coluna `Status` → `bateria-aprovada` ou `bateria-reprovada`
    - Coluna `Obs` → resumo do resultado (`12/12` ou `9/12 — 3 itens ❌`)
 2. Se reprovada: criar nova tarefa no squad responsável com referência ao item ❌.
-3. Se aprovada: encadear `/publicar-pagina` automaticamente (ou notificar Jade para apresentar ao {{OPERADOR}}).
+3. Se aprovada: encadear `/publicar-pagina` automaticamente (ou notificar Jade para apresentar ao Gui).

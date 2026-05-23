@@ -4,6 +4,18 @@ description: Roda bateria automatizada de QA funcional em paginas (regressoes, c
 type: skill
 ---
 
+## ⚠️ Playwright SEMPRE headless (Regra §5 — memória feedback_playwright_sempre_headless)
+
+NUNCA `headless: false` nem `devtools: true`. Browser visível no Mac do Gui atrapalha trabalho dele.
+
+```js
+// ✅ Correto
+await chromium.launch({ headless: true });
+```
+
+Pra inspeção visual, usa `page.screenshot()` + leitura do arquivo. Pra inspecionar DOM ao vivo, usa `page.evaluate()` retornando valores computed.
+
+
 # Skill: /executar-bateria-qa
 
 **Agente:** @analista-qa (squad-dev)  
@@ -14,22 +26,22 @@ type: skill
 
 ## Input
 
-- **páginas:** lista de URLs em produção a testar (default: 10 páginas prioritárias em `sites.{{handle}}.com`)
+- **páginas:** lista de URLs em produção a testar (default: 10 páginas prioritárias em `sites.{{DOMINIO}}`)
 - **modo:** `pre-prod` (testa preview antes de --prod) ou `prod` (auditoria em produção)
 
 **Default (se não especificado):**
 ```json
 [
-  "https://sites.{{handle}}.com/",
-  "https://sites.{{handle}}.com/squad-time-ia",
-  "https://sites.{{handle}}.com/automacoes",
-  "https://sites.{{handle}}.com/mentoria",
-  "https://sites.{{handle}}.com/consultoria",
-  "https://sites.{{handle}}.com/imersao",
-  "https://sites.{{handle}}.com/ferramentas",
-  "https://sites.{{handle}}.com/sistema-reverso",
-  "https://sites.{{handle}}.com/sobre",
-  "https://sites.{{handle}}.com/templates"
+  "https://sites.{{DOMINIO}}/",
+  "https://sites.{{DOMINIO}}/squad-time-ia",
+  "https://{{DOMINIO}}/automacoes",
+  "https://sites.{{DOMINIO}}/mentoria",
+  "https://sites.{{DOMINIO}}/consultoria",
+  "https://sites.{{DOMINIO}}/imersao",
+  "https://sites.{{DOMINIO}}/ferramentas",
+  "https://sites.{{DOMINIO}}/sistema-reverso",
+  "https://sites.{{DOMINIO}}/sobre",
+  "https://sites.{{DOMINIO}}/templates"
 ]
 ```
 
@@ -179,16 +191,16 @@ Antes de dar commit nesta skill, validar:
 
 ```bash
 # 1. Testa contra página limpa (deve APROVAR)
-/executar-bateria-qa --paginas='["https://sites.{{handle}}.com/sobre"]' --modo=prod
+/executar-bateria-qa --paginas='["https://sites.{{DOMINIO}}/sobre"]' --modo=prod
 
 # 2. Testa contra página com warnings (deve APROVAR COM RESSALVAS)
-/executar-bateria-qa --paginas='["https://sites.{{handle}}.com/sistema-reverso"]' --modo=prod
+/executar-bateria-qa --paginas='["https://sites.{{DOMINIO}}/sistema-reverso"]' --modo=prod
 
 # 3. Testa contra página com erro crítico conhecido (deve REPROVAR)
 # (não temos uma em prod — simular com preview quebrada)
 
 # 4. Valida que relatório é gerado em workspace/output/auditorias/
-ls -lh $HOME/Documents/Projetos\ IA\ {{OPERADOR}}\ Ávila/Squad\ Empresa\ {{OPERADOR}}\ Ávila/workspace/output/auditorias/bug-hunt-*.md
+ls -lh /Users/guiavila/Documents/Projetos\ IA\ Gui\ Ávila/Squad\ Empresa\ Gui\ Ávila/workspace/output/auditorias/bug-hunt-*.md
 
 # 5. Valida classificação de severidade (grep no relatório)
 grep -E "CRITICAL|HIGH|MEDIUM|LOW" workspace/output/auditorias/bug-hunt-*.md | head -20
@@ -244,7 +256,7 @@ APROVADO COM RESSALVAS
 
 ---
 
-## Página: https://sites.{{handle}}.com/squad-time-ia
+## Página: https://sites.{{DOMINIO}}/squad-time-ia
 
 ### Console errors
 - [HIGH] Uncaught ReferenceError: foo is not defined (linha 42)
@@ -284,5 +296,5 @@ APROVADO COM RESSALVAS
 
 - Antes de executar trabalho estrutural, registrar pendência no ClickUp via `/criar-pendencia`
 - Ao concluir, comentar via `/comentar-pendencia` e fechar via `/fechar-pendencia`
-- Aprendizado real (correção do {{OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
+- Aprendizado real (correção do Gui, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
 - Reincidência = falha de processo, escalar imediatamente

@@ -1,6 +1,6 @@
 ---
 name: criar-pagina
-description: Orquestra criacao ponta-a-ponta de pagina Astro com pipeline template-first canonico. Anti-improviso. Template (premium/clean/{{app_pessoal}}) + frontend-design oficial Anthropic + designer-ui (DESIGN.md) + estrategista + copy + dev extends template + revisor visual real + triple-check + publicar.
+description: Orquestra criacao ponta-a-ponta de pagina Astro com pipeline template-first canonico. Anti-improviso. Template (premium/clean/{{plataforma_conteudo}}) + frontend-design oficial Anthropic + designer-ui (DESIGN.md) + estrategista + copy + dev extends template + revisor visual real + triple-check + publicar.
 type: skill
 ---
 
@@ -10,7 +10,7 @@ type: skill
 
 Voce eh a Jade, COO do squad. Esta skill orquestra pipeline canonico template-first pra criar pagina Astro do zero ou redesign completo. Cada step encadeia agentes especialistas via SKILL_INTERNAL=true (libera hook check-agent-sem-skill).
 
-**Stack alvo:** projeto `Paginas Astro {{OPERADOR}} Avila/` (Astro 6 + Tailwind v4 + 3 templates canonicos em `src/layouts/template-*.astro`).
+**Stack alvo:** projeto `Paginas Astro Gui Avila/` (Astro 6 + Tailwind v4 + 3 templates canonicos em `src/layouts/template-*.astro`).
 
 **Anti-improviso:** Jade nao despacha agente de producao sem rodar skill. Hooks bloqueantes (Regra 3 + 4) impedem fisicamente.
 
@@ -29,25 +29,25 @@ Voce eh a Jade, COO do squad. Esta skill orquestra pipeline canonico template-fi
 
 ## Pre-requisitos (verificar ANTES de iniciar)
 
-1. 3 templates Astro disponiveis em `Paginas Astro {{OPERADOR}} Avila/src/layouts/template-{premium,clean,{{app_pessoal}}}.astro` (se faltar algum, despachar criacao em branch separada antes)
+1. 3 templates Astro disponiveis em `Paginas Astro Gui Avila/src/layouts/template-{premium,clean,{{plataforma_conteudo}}}.astro` (se faltar algum, despachar criacao em branch separada antes)
 2. Estrategia viva atualizada em `Segundo Cerebro/04-decisoes/estrategia-viva.md`
 3. Skill oficial Anthropic `frontend-design` ativada (`/plugin list` deve mostrar)
 
-## Inputs (perguntar ao {{OPERADOR}} se faltar)
+## Inputs (perguntar ao Gui se faltar)
 
 1. Tipo de pagina (vitrine, venda high-ticket, captura lead, blog, docs, dashboard, vitrine SaaS)
 2. Audiencia primaria (ICP)
 3. Objetivo conversao (lead magnet, venda direta, awareness, login)
 4. URL slug
 5. Origem trafego esperada (organico, anuncio Meta, email, parceiro)
-6. Tem video pra embedar? URL do canal {{OPERADOR}} Avila
+6. Tem video pra embedar? URL do canal Gui Avila
 
 ---
 
 ## Pipeline (10 steps obrigatorios — Jade orquestra)
 
 ```
-[0] ESCOLHA TEMPLATE → Jade decide premium/clean/{{app_pessoal}} com justificativa
+[0] ESCOLHA TEMPLATE → Jade decide premium/clean/{{plataforma_conteudo}} com justificativa
         |
         v
 [1] DESIGN.md → designer-ui (invoca frontend-design oficial Anthropic)
@@ -56,8 +56,8 @@ Voce eh a Jade, COO do squad. Esta skill orquestra pipeline canonico template-fi
 [2] BRIEFING ESTRATEGICO → estrategista (11 secoes)
         |
         v
-[3] DESIGN.md + briefing VALIDADOS por revisor independente (NAO {{OPERADOR}})
-        |   {{OPERADOR}} valida APENAS codigo rodando localhost (Step 9)
+[3] DESIGN.md + briefing VALIDADOS por revisor independente (NAO Gui)
+        |   Gui valida APENAS codigo rodando localhost (Step 9)
         v
 [4] COPY → copywriter
         |
@@ -75,7 +75,7 @@ Voce eh a Jade, COO do squad. Esta skill orquestra pipeline canonico template-fi
 [8] TRIPLE-CHECK PARALELO → copywriter (revisao copy contextual) + dev-frontend (code review) + analista-qa (12 itens funcional)
         |
         v
-[9] PREVIEW VERCEL — PR + auto-deploy + URL pro {{OPERADOR}} (hook §4 libera quando REVISAO-APROVADO presente)
+[9] PREVIEW VERCEL — PR + auto-deploy + URL pro Gui (hook §4 libera quando REVISAO-APROVADO presente)
         |
         v
 [10] GATE GUI APROVA → merge main → producao
@@ -91,11 +91,11 @@ Matriz de decisao (Jade segue, Regra 15):
 
 | Template | Usar quando | Refs |
 |---|---|---|
-| premium | Venda high-ticket (mentoria, curso premium, consultoria) | sites.{{handle}}.com/mentoria, /reverso |
+| premium | Venda high-ticket (mentoria, curso premium, consultoria) | sites.{{DOMINIO}}/mentoria, /reverso |
 | clean | Vitrine tecnica, docs, captura lead tecnica (squad-template), tutoriais | resend.com, linear.app |
-| {{app_pessoal}} | Produto SaaS energetico, features/pricing | {{app_pessoal}}.{{handle}}.com |
+| {{plataforma_conteudo}} | Produto SaaS energetico, features/pricing | {{plataforma_conteudo}}.{{DOMINIO}} |
 
-Jade escolhe + justifica em 1 frase. Apresenta pro {{OPERADOR}} em mensagem curta. Se {{OPERADOR}} discordar, ajusta.
+Jade escolhe + justifica em 1 frase. Apresenta pro Gui em mensagem curta. Se Gui discordar, ajusta.
 
 ### Step 1 — DESIGN.md canonico
 
@@ -107,9 +107,9 @@ Agent(subagent_type="designer-ui", prompt="""
 INVOCAR skill oficial Anthropic frontend-design ANTES de produzir.
 
 Input:
-- Template escolhido: {premium|clean|{{app_pessoal}}}
+- Template escolhido: {premium|clean|{{plataforma_conteudo}}}
 - Tipo pagina, audiencia, objetivo (do briefing Jade)
-- DS correspondente em workspace/design-systems/{{handle}}-{template}.md
+- DS correspondente em workspace/design-systems/guiavila-{template}.md
 - Research best practices: workspace/output/research/2026-05-17-frontend-research-comunidade.md
 
 Output: workspace/output/paginas/YYYY-MM-DD-{slug}-design.md
@@ -131,24 +131,24 @@ Despachar `estrategista`:
 ```
 export SKILL_INTERNAL=true
 Agent(subagent_type="estrategista", prompt="""
-Input: DESIGN.md da Step 1 + tipo pagina + audiencia + objetivo {{OPERADOR}}
+Input: DESIGN.md da Step 1 + tipo pagina + audiencia + objetivo Gui
 Output: workspace/output/estrategia/YYYY-MM-DD-{slug}-estrategia.md
 Estrutura: 11 secoes canonicas (posicionamento, angulo, ICP, promessa, prova, jornada emocional, dores, objecoes, headlines, CTA, vinculo com produto principal)
 Ler antes: Segundo Cerebro/01-identidade/icp.md + tom-de-voz.md + 04-decisoes/estrategia-viva.md
 """)
 ```
 
-### Step 3 — Validacao independente (NAO {{OPERADOR}})
+### Step 3 — Validacao independente (NAO Gui)
 
-{{OPERADOR}} NAO revisa DESIGN.md nem briefing em markdown (aprendizado 17/05: ele valida APENAS codigo rodando, ver memoria `feedback_gui_valida_no_codigo_nao_markdown.md`).
+Gui NAO revisa DESIGN.md nem briefing em markdown (aprendizado 17/05: ele valida APENAS codigo rodando, ver memoria `feedback_gui_valida_no_codigo_nao_markdown.md`).
 
 DESIGN.md + briefing sao validados por:
 1. **Revisor independente do output** (revisor-pagina audita briefing; designer-ui audita proprio output via skill frontend-design oficial Anthropic)
 2. **Coerencia interna** (DESIGN.md cita template real, tokens OKLCH reais, refs visuais verificaveis)
 
-Se validacao interna OK, prosseguir DIRETAMENTE pra Step 4 sem pausar pra {{OPERADOR}}.
+Se validacao interna OK, prosseguir DIRETAMENTE pra Step 4 sem pausar pra Gui.
 
-**Gate {{OPERADOR}} acontece APENAS no Step 9** (preview localhost depois de tudo codado + revisado). {{OPERADOR}} reporta correcoes → aprendizado §5 vai pro agente que produziu o output original.
+**Gate Gui acontece APENAS no Step 9** (preview localhost depois de tudo codado + revisado). Gui reporta correcoes → aprendizado §5 vai pro agente que produziu o output original.
 
 ### Step 4 — Copy
 
@@ -159,7 +159,7 @@ export SKILL_INTERNAL=true
 Agent(subagent_type="copywriter", prompt="""
 Input: briefing estrategico aprovado + DESIGN.md (pra saber tom + tokens)
 Output: workspace/output/paginas/YYYY-MM-DD-{slug}-copy.md
-Aplicar: Light Copy + tom {{OPERADOR}} + Headline canonica (do briefing) + sem vocabulario banido
+Aplicar: Light Copy + tom Gui + Headline canonica (do briefing) + sem vocabulario banido
 """)
 ```
 
@@ -201,7 +201,7 @@ Agent(subagent_type="designer-revisor", prompt="""
 Auditoria 2 passadas obrigatorias:
 
 Passada 1 - ESTETICA HUMANA (gate principal):
-- Olhar screenshot inteiro como {{OPERADOR}} olharia
+- Olhar screenshot inteiro como Gui olharia
 - "Impressiona? Alinhado com DESIGN.md? Sem AI default look?"
 - Inspecionar hierarquia, composicao, atmosfera (subjetivo mas critico)
 - Se REPROVA passada 1: nem roda passada 2. Devolve dev com defeitos prosa.
@@ -225,23 +225,23 @@ Despachar 3 agents em paralelo:
 
 Se algum reprovar bloqueante, voltar step correspondente.
 
-### Step 9 — Preview Vercel + link pro {{OPERADOR}}
+### Step 9 — Preview Vercel + link pro Gui
 
 ```bash
-cd ../Paginas Astro {{OPERADOR}} Avila/
+cd ../Paginas Astro Gui Avila/
 git push origin feature/{slug}
 gh pr create --base main --head feature/{slug} --title "..." --body "..."
 # Vercel auto-cria preview do PR
 gh pr view --json comments | jq '.comments[] | select(.author.login=="vercel")'
 ```
 
-Link preview pro {{OPERADOR}}:
+Link preview pro Gui:
 - Hook `check-mostrar-pro-gui-sem-revisor.sh` libera se REVISAO-APROVADO recente presente
 - Senao bloqueia (forca nova auditoria)
 
-### Step 10 — Gate {{OPERADOR}} aprova → merge
+### Step 10 — Gate Gui aprova → merge
 
-{{OPERADOR}} valida visualmente preview Vercel. Se aprova: merge PR pra main → auto-deploy producao. Se rejeita: volta Step 4 ou 6 conforme escopo da mudanca.
+Gui valida visualmente preview Vercel. Se aprova: merge PR pra main → auto-deploy producao. Se rejeita: volta Step 4 ou 6 conforme escopo da mudanca.
 
 ---
 
@@ -249,9 +249,9 @@ Link preview pro {{OPERADOR}}:
 
 - Despachar dev sem DESIGN.md (designer-ui produz Step 1)
 - Despachar revisor sem code pronto
-- Mandar URL pro {{OPERADOR}} sem REVISAO-APROVADO
+- Mandar URL pro Gui sem REVISAO-APROVADO
 - Pular triple-check
-- Pular Step 3 (Gate {{OPERADOR}} no mockup)
+- Pular Step 3 (Gate Gui no mockup)
 - Improvisar briefing visual ("use Linear como ref" sem DESIGN.md formal)
 
 Hooks bloqueantes ativos garantem cumprimento:
@@ -262,33 +262,33 @@ Hooks bloqueantes ativos garantem cumprimento:
 
 ## Critério de aceitação da entrega final
 
-- DESIGN.md vivo (atualiza se {{OPERADOR}} mudar direcao)
+- DESIGN.md vivo (atualiza se Gui mudar direcao)
 - Pagina extends template (sem visual inventado)
 - Build limpo
 - Scripts validacao passam
 - Triple-check 3/3 aprovado
-- Preview Vercel APROVADO {{OPERADOR}}
+- Preview Vercel APROVADO Gui
 - Merge main → producao
-- Aprendizado §5 propagado se houve correcao do {{OPERADOR}} no caminho
+- Aprendizado §5 propagado se houve correcao do Gui no caminho
 
 ---
 
 ## Histórico
 
-- 2026-05-17 v2: refactor template-first apos incidente 8 iteracoes na /squad-time-ia-v2 (improviso de despacho). Aval {{OPERADOR}} registrado. Task ClickUp {{clickup_task_id}}.
+- 2026-05-17 v2: refactor template-first apos incidente 8 iteracoes na /squad-time-ia-v2 (improviso de despacho). Aval Gui registrado. Task ClickUp 86ahha462.
 - (versoes anteriores em .preFix-template-first)
 
 ---
 
 ## 🔴 CHECKLIST OBRIGATÓRIO BLOQUEANTE (anti-omissão)
 
-Criado 17/05/2026 (aprendizado §5 — {{OPERADOR}} pegou rodapé faltando + visual sem graça + logo invisível 4 vezes).
+Criado 17/05/2026 (aprendizado §5 — Gui pegou rodapé faltando + visual sem graça + logo invisível 4 vezes).
 
 **Dev NÃO entrega + revisor NÃO aprova sem TODOS estes itens validados via Playwright real.** Cada falha = REPROVADO automático, sem negociação.
 
 ### Estrutura essencial (NÃO PODE FALTAR)
 - [ ] **Header com logo visível:** `width >= 100px desktop / >= 90px mobile`, `height >= 24px`
-- [ ] **Footer presente:** componente Footer renderizado, com links institucionais ({{NOME_CURSO}}, GitHub, contato)
+- [ ] **Footer presente:** componente Footer renderizado, com links institucionais (Sistema Reverso, GitHub, contato)
 - [ ] **Hero acima da dobra:** headline + subheadline + CTA visível sem scroll
 - [ ] **Conteúdo principal:** todas as dobras do DESIGN.md implementadas (sem pular nenhuma)
 
@@ -378,5 +378,5 @@ if (failures.length) throw new Error(`CHECKLIST FAIL: ${JSON.stringify(failures)
 ### Validação dupla
 1. **Dev valida no Playwright local ANTES de commit** (não pode commitar sem)
 2. **Revisor revalida via Playwright independente** (passada 1 estética humana + passada 2 técnica com checklist)
-3. **Hook bloqueante** garante que nada vai pro {{OPERADOR}} sem REVISAO-APROVADO recente
+3. **Hook bloqueante** garante que nada vai pro Gui sem REVISAO-APROVADO recente
 

@@ -1,25 +1,73 @@
 {
+  "env": {
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "85"
+  },
   "permissions": {
     "allow": [
-      "Bash(git:*)",
-      "Bash(ls:*)",
-      "Bash(cat:*)",
-      "Bash(grep:*)",
-      "Bash(find:*)",
-      "Bash(sed:*)",
-      "Bash(python3:*)",
-      "Bash(curl:*)",
-      "Bash(gh:*)",
-      "Read(**)",
-      "Edit(**)",
-      "Write(**)",
-      "WebFetch(domain:github.com)",
-      "WebFetch(domain:claude.ai)",
-      "WebFetch(domain:anthropic.com)"
+      "Bash(*)",
+      "Read(*)",
+      "Edit(*)",
+      "Write(*)",
+      "Write(workspace/**)",
+      "Edit(workspace/**)",
+      "Write(.claude/**)",
+      "Edit(.claude/**)",
+      "Write(squads/**)",
+      "Edit(squads/**)",
+      "Write(MEMORY.md)",
+      "Edit(MEMORY.md)",
+      "Write(AGENTS.md)",
+      "Edit(AGENTS.md)",
+      "Write(segundo-cerebro/**)",
+      "Edit(segundo-cerebro/**)",
+      "Write(CLAUDE.md)",
+      "Edit(CLAUDE.md)",
+      "mcp__d6c253d0-63c2-43de-892f-7871607b8589__list_calendars",
+      "mcp__d6c253d0-63c2-43de-892f-7871607b8589__list_events",
+      "mcp__d6c253d0-63c2-43de-892f-7871607b8589__get_event",
+      "mcp__a817b38c-6fb0-426b-b91b-3b2edf8bcb83__search_threads",
+      "mcp__a817b38c-6fb0-426b-b91b-3b2edf8bcb83__get_thread",
+      "mcp__a817b38c-6fb0-426b-b91b-3b2edf8bcb83__list_labels",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Claude_in_Chrome__get_page_text",
+      "mcp__Claude_in_Chrome__read_page",
+      "mcp__Claude_in_Chrome__read_network_requests",
+      "mcp__Claude_in_Chrome__list_connected_browsers",
+      "mcp__Claude_Preview__preview_screenshot",
+      "mcp__ccd_session__mark_chapter",
+      "WebFetch(domain:{{LMS_DOCS_DOMAIN}})",
+      "WebSearch",
+      "WebFetch(domain:docs.partnerstack.com)",
+      "WebFetch(domain:developers.make.com)",
+      "WebFetch(domain:support.partnerstack.com)",
+      "WebFetch(domain:community.vercel.com)",
+      "WebFetch(domain:community.cloudflare.com)",
+      "WebFetch(domain:dev.binance.vision)",
+      "WebFetch(domain:supabase.com)",
+      "WebFetch(domain:til.simonwillison.net)",
+      "WebFetch(domain:community.fly.io)",
+      "Bash(cp '~/Documents/Projetos IA Gui \u00c1vila/Squad Empresa Gui \u00c1vila/.claude/commands/codar-pagina.md' '~/Documents/Projetos IA Gui \u00c1vila/Squad Empresa Gui \u00c1vila/.claude/commands/codar-pagina.md.preFix131')",
+      "Bash(cp '~/Documents/Projetos IA Gui \u00c1vila/Squad Empresa Gui \u00c1vila/.claude/commands/revisar-codigo-pagina.md' '~/Documents/Projetos IA Gui \u00c1vila/Squad Empresa Gui \u00c1vila/.claude/commands/revisar-codigo-pagina.md.preFix131')",
+      "Bash(cp \"~/.claude/commands/rotina-gui-ausente.md\" \"~/.claude/commands/rotina-gui-ausente.md.preFix175\")",
+      "Read(/~/.claude/commands/**)",
+      "Skill(schedule)",
+      "Skill(schedule:*)",
+      "Bash(cat)",
+      "Bash(chmod +x \"~/Documents/Projetos IA Gui \u00c1vila/Squad Empresa Gui \u00c1vila/.claude/hooks/check-bateria-testes-antes-entregue.sh\")",
+      "WebFetch(domain:{{PLATAFORMA_NF_DOMAIN}})",
+      "mcp__claude_ai_ClickUp__*",
+      "mcp__claude_ai_Gmail__*",
+      "mcp__claude_ai_Google_Calendar__*",
+      "mcp__claude_ai_Google_Drive__*",
+      "mcp__claude_ai_Canva__*",
+      "mcp__claude_ai_Supabase__*",
+      "mcp__meta-ads__*"
     ],
-    "deny": [
-      "Bash(rm -rf /:*)",
-      "Bash(sudo:*)"
+    "defaultMode": "bypassPermissions",
+    "additionalDirectories": [
+      "~/Documents/Projetos IA Gui \u00c1vila/Squad Empresa Gui \u00c1vila/.claude/commands",
+      "~/.claude/commands"
     ]
   },
   "hooks": {
@@ -50,7 +98,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR IA {{OPERADOR}} \u00c1vila/{{NOME_SQUAD}}heck-secret-creation.sh"
+            "command": "~/Documents/Projetos IA Gui \u00c1vila/Squad Empresa Gui \u00c1vila/.claude/hooks/check-secret-creation.sh"
           }
         ]
       },
@@ -59,7 +107,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR IA {{OPERADOR}} \u00c1vila/{{NOME_SQUAD}}heck-pendencia-antes-trabalho-estrutural.sh"
+            "command": "~/Documents/Projetos IA Gui \u00c1vila/Squad Empresa Gui \u00c1vila/.claude/hooks/check-pendencia-antes-trabalho-estrutural.sh"
           }
         ]
       },
@@ -68,7 +116,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR IA {{OPERADOR}} \u00c1vila/{{NOME_SQUAD}}heck-triple-check-antes-deploy.sh"
+            "command": "~/Documents/Projetos IA Gui \u00c1vila/Squad Empresa Gui \u00c1vila/.claude/hooks/check-triple-check-antes-deploy.sh"
           }
         ]
       },
@@ -77,7 +125,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR IA {{OPERADOR}} \u00c1vila/{{NOME_SQUAD}}heck-bateria-testes-antes-entregue.sh"
+            "command": "~/Documents/Projetos IA Gui \u00c1vila/Squad Empresa Gui \u00c1vila/.claude/hooks/check-bateria-testes-antes-entregue.sh"
           }
         ]
       },
@@ -145,10 +193,11 @@
         ]
       },
       {
+        "matcher": "mcp__{{CONTENT_PLATFORM}}__.*",
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-mcp-{{app_pessoal}}-deprecated.sh"
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/check-mcp-{{plataforma_conteudo}}-deprecated.sh"
           }
         ]
       },
@@ -239,5 +288,62 @@
       }
     ]
   },
-  "skillOverrides": {}
+  "skipDangerousModePermissionPrompt": true,
+  "skillOverrides": {
+    "agenda": "on",
+    "atualizar-estrategia": "on",
+    "atualizar-template-alunos": "on",
+    "check-up-estrutura": "on",
+    "configurar-squad": "on",
+    "consolidar-sessao": "on",
+    "consultar-nf": "on",
+    "criar-carrossel": "on",
+    "criar-carrossel-de-video": "on",
+    "criar-criativo": "on",
+    "criar-pagina": "on",
+    "criar-pendencia": "on",
+    "escrever-copy": "on",
+    "escrever-estrategia": "on",
+    "escrever-linkedin": "on",
+    "escrever-newsletter": "on",
+    "escrever-pagina": "on",
+    "escrever-roteiro": "on",
+    "fechar-pendencia": "on",
+    "gerar-imagem": "on",
+    "jade": "on",
+    "listar-pendencias": "on",
+    "migrar-pagina": "on",
+    "publicar-pagina": "on",
+    "revisar-semana": "on",
+    "rotina-gui-ausente": "on",
+    "transcrever-video": "on",
+    "varrer-squads": "on",
+    "ver-agenda": "on",
+    "codar-pagina": "name-only",
+    "comentar-pendencia": "name-only",
+    "cortar-youtube": "name-only",
+    "executar-bateria-qa": "name-only",
+    "publicar-{{plataforma_conteudo}}": "name-only",
+    "relatar-trafego-anual": "name-only",
+    "relatar-trafego-diario": "name-only",
+    "relatar-trafego-mensal": "name-only",
+    "relatar-trafego-trimestral": "name-only",
+    "renderizar-newsletter-html": "name-only",
+    "{{SKILL_SUPORTE}}": "name-only",
+    "revisar-carrossel": "name-only",
+    "revisar-codigo-pagina": "name-only",
+    "revisar-estrategia": "name-only",
+    "revisar-newsletter": "name-only",
+    "revisar-newsletter-visual": "name-only",
+    "revisar-pagina": "name-only",
+    "revisar-visual": "name-only",
+    "revisor-pagina": "name-only",
+    "testar-pagina": "name-only",
+    "tweet-imagem": "name-only",
+    "ver-carrossel": "name-only",
+    "revisar-roteiro": "name-only",
+    "revisar-copy": "name-only",
+    "revisar-linkedin": "name-only",
+    "revisar-criativo": "name-only"
+  }
 }

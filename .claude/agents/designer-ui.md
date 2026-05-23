@@ -1,6 +1,6 @@
 ---
 name: designer-ui
-description: Gera DESIGN.md + mockup visual ANTES do dev codar. Aplica skill oficial Anthropic frontend-design (anti-AI-slop). Curador do template escolhido (premium/clean/{{app_pessoal}}). Use quando precisar de spec visual concreto entre briefing estratégico e implementação Astro.
+description: Gera DESIGN.md + mockup visual ANTES do dev codar. Aplica skill oficial Anthropic frontend-design (anti-AI-slop). Curador do template escolhido (premium/clean/{{plataforma_conteudo}}). Use quando precisar de spec visual concreto entre briefing estratégico e implementação Astro.
 ---
 
 # designer-ui — Squad Dev
@@ -26,7 +26,7 @@ Eliminar gap entre "briefing conceitual" e "código quebrado". Decisões visuais
 ## Output esperado
 
 1. **DESIGN.md** em `workspace/output/paginas/{data}-{slug}-design.md` com:
-   - Template escolhido (premium/clean/{{app_pessoal}}) + por que
+   - Template escolhido (premium/clean/{{plataforma_conteudo}}) + por que
    - 4 dimensões (skill `frontend-design`): Propósito, Tone, Constraints, Differentiation
    - 3 refs visuais aprovadas (links + análise: o que copiar, o que NÃO copiar)
    - Tokens específicos da página (paleta OKLCH derivada do template, type scale, spacing scale, motion easings)
@@ -74,4 +74,4 @@ Ver `squads/dev/agentes/designer-ui/aprendizados.md` (inicialmente vazio — pre
 
 ## Histórico
 
-- 2026-05-17: agente criado após audit identificar gap "falta camada visual concreta entre copy e dev" — Task ClickUp {{clickup_task_id}}
+- 2026-05-17: agente criado após audit identificar gap "falta camada visual concreta entre copy e dev" — Task ClickUp 86ahha462

@@ -1,6 +1,6 @@
 ---
 name: revisar-newsletter
-description: Valida copy da newsletter (tom, Light Copy, fechamento canonico, acentuacao) antes do PATCH {{APP_PESSOAL}} e disparo GHL.
+description: Valida copy da newsletter (tom, Light Copy, fechamento canonico, acentuacao) antes do PATCH {{Plataforma_Conteudo}} e disparo GHL.
 type: skill
 ---
 
@@ -12,7 +12,7 @@ Skill de validação INDEPENDENTE de newsletter antes do disparo. Despachada pel
 ## Quando invocar
 
 - Imediatamente após `@copywriter` produzir/atualizar `workspace/output/newsletter/YYYY-MM-DD-{slug}.md`
-- Antes de qualquer PATCH no {{APP_PESSOAL}} com body novo
+- Antes de qualquer PATCH no {{Plataforma_Conteudo}} com body novo
 - Antes de qualquer disparo via GHL (skill `/disparar-newsletter`)
 - Sempre que houver mudança no body (mesmo correção pontual de acento)
 
@@ -128,13 +128,13 @@ grep -c '{{contact.first_name}}' "$PATH"  # 1+ esperado em maioria das newslette
 
 **APROVADO COM RESSALVAS** se: ausente quando deveria estar (newsletter de relacionamento).
 
-### 9. Hiperlinks padrão {{handle}}.com/[slug]
+### 9. Hiperlinks padrão {{DOMINIO}}/[slug]
 
-Se newsletter menciona produto/parceiro do {{OPERADOR}}, link DEVE seguir padrão `{{handle}}.com/[slug]` (ver `project_hiperlinks_padrao.md` — slugs conhecidos: magicaonline, manychat, clickup, clickup8x, level, automacoes, reverso, youtube).
+Se newsletter menciona produto/parceiro do Gui, link DEVE seguir padrão `{{DOMINIO}}/[slug]` (ver `project_hiperlinks_padrao.md` — slugs conhecidos: {{produto_slug}}, manychat, clickup, clickup8x, level, automacoes, reverso, youtube).
 
-Exceção: URLs externas mencionadas em contexto (ex: {{app_pessoal}}.{{handle}}.com inline).
+Exceção: URLs externas mencionadas em contexto (ex: {{plataforma_conteudo}}.{{DOMINIO}} inline).
 
-**APROVADO COM RESSALVAS** se: link de produto sem padrão {{handle}}.com.
+**APROVADO COM RESSALVAS** se: link de produto sem padrão {{DOMINIO}}.
 
 ### 10. Sem métricas privadas
 
@@ -187,7 +187,7 @@ assert '**Preheader:**' not in body_email, "Body tem **Preheader:** inline"
 
 ### 15. Body NÃO contém assinatura nem separador `---` antes do marker
 
-**Regra desde 14/05/2026:** o markdown da newsletter NÃO carrega assinatura. O renderer (`scripts/newsletter/renderizar-html.py` → `renderizar_assinatura()`) monta automaticamente: foto 96x96 circular + 4 linhas canônicas ({{NOME_OPERADOR}} bold / Fundador e CEO da {{EMPRESA_COFUNDADA}} / Autor do {{NOME_CURSO}}, Automações PRO e ClickUp 8x / Fundador do {{EMPRESA_NEGOCIO}} · {{handle}}.com).
+**Regra desde 14/05/2026:** o markdown da newsletter NÃO carrega assinatura. O renderer (`scripts/newsletter/renderizar-html.py` → `renderizar_assinatura()`) monta automaticamente: foto 96x96 circular + 4 linhas canônicas ({{NOME_OPERADOR}} bold / Fundador e CEO da {{EMPRESA_COFUNDADA}} / Autor do Sistema Reverso, Automações PRO e ClickUp 8x / Fundador do {{EMPRESA_NEGOCIO}} · {{DOMINIO}}).
 
 Body deve terminar em `Um abraço,` (vírgula) e em seguida vir DIRETO o marker INTERNO, sem `---` e sem bloco de assinatura.
 
@@ -196,7 +196,7 @@ Body deve terminar em `Um abraço,` (vírgula) e em seguida vir DIRETO o marker 
 ultima_linha_body = [l for l in body_email.strip().split('\n') if l.strip()][-1]
 assert ultima_linha_body.strip() == 'Um abraço,', f'Body deveria terminar em "Um abraço," (vírgula), terminou em: {ultima_linha_body!r}'
 assert '**{{NOME_OPERADOR}}**' not in body_email, 'Assinatura no MD detectada — renderer monta sozinho, remover do markdown'
-assert 'Site: [{{handle}}.com]' not in body_email, 'Linha "Site: [{{handle}}.com]" detectada — formato antigo, renderer não usa isso'
+assert 'Site: [{{DOMINIO}}]' not in body_email, 'Linha "Site: [{{DOMINIO}}]" detectada — formato antigo, renderer não usa isso'
 ```
 
 **REPROVADO** se: body contém qualquer linha de assinatura OU separador `---` antes do marker INTERNO.
@@ -247,7 +247,7 @@ suspeitos = re.findall(r'\*\*(Camada|Etapa|Fase|Passo|Pilar|Nivel|Nível)\s+\w+:
 
 ### 20. Asset URL validado (imagem/vídeo)
 
-Toda URL de imagem (markdown `![](URL)` ou HTML `<img src>`) DEVE estar acessível (HTTP 200) antes da newsletter ir pro {{APP_PESSOAL}}.
+Toda URL de imagem (markdown `![](URL)` ou HTML `<img src>`) DEVE estar acessível (HTTP 200) antes da newsletter ir pro {{Plataforma_Conteudo}}.
 
 ```bash
 URLS=$(echo "$body_email" | grep -oE '!\[.*?\]\(https?://[^\)]+\)' | grep -oE 'https?://[^\)]+')
@@ -275,7 +275,7 @@ echo "$BODY" | grep -iE "responde.*palavra|envia.*palavra|comenta.*palavra|com a
 - "Comenta [PALAVRA]"
 - "Responda com X que..."
 
-Decisão {{OPERADOR}} 14/05/2026 — newsletter mapa-infoprodutos. Memória: `feedback_newsletter_sem_gatilho_resposta_palavra.md`.
+Decisão Gui 14/05/2026 — newsletter mapa-infoprodutos. Memória: `feedback_newsletter_sem_gatilho_resposta_palavra.md`.
 
 ## Output canônico
 
@@ -302,7 +302,7 @@ Decisão {{OPERADOR}} 14/05/2026 — newsletter mapa-infoprodutos. Memória: `fe
 - **Ação requerida:** despachar `@copywriter` pra acentuar + re-revisar
 
 ### APROVADO COM RESSALVAS — item 9 (Hiperlinks padrão)
-- Linha 27: mencionou Manychat sem link padrão `{{handle}}.com/manychat`
+- Linha 27: mencionou Manychat sem link padrão `{{DOMINIO}}/manychat`
 - **Sugestão:** acrescentar link na 2ª menção (não bloqueia disparo)
 ```
 
@@ -334,9 +334,7 @@ Ao final de cada revisão (especialmente as que REPROVAM ou voltam pra refazer),
 
 ## Pendências registradas
 
-Toda execução desta skill registra entrada em `workspace/memory/pendencias.md` com:
-- Status: 🟢 revisão em curso | ✅ aprovada | 🔴 reprovada
-- Tarefa em `squads/conteudo/tarefas.md`
+Toda execução desta skill cria/atualiza task no ClickUp (lista `901327194775`) via `/criar-pendencia` ou `/comentar-pendencia`.
 
 ## Bateria de testes (Regra Inviolável #24)
 
@@ -351,33 +349,30 @@ Esta skill É a bateria de testes da newsletter. Não delega revisão pra outra 
 - [ ] email_subject geralmente igual ao title (salvo exceção justificada)
 
 
-### 13. Fechamento canônico v3 (desde 14/05/2026) — OBRIGATÓRIO
+### 13. Fechamento canônico (atualizado 21/05/2026)
 
-TODA newsletter termina com 4 blocos antes da assinatura:
-1. Bloco vídeo (quando origem é vídeo)
-2. Frase forte (max 20 palavras, moral da história)
-3. Bloco convite {{NOME_CURSO}} + Mentoria com hyperlinks
-4. "Um abraço," (vírgula)
+Toda newsletter termina com:
+1. Bloco vídeo embed (quando origem é YouTube)
+2. Frase forte (máx 20 palavras — síntese/moral)
+3. Pitch/CTA (OPCIONAL — só quando Gui pediu explicitamente)
+4. "Um abraço," (vírgula — nunca exclamação)
 
-Validações grep:
+Validações obrigatórias:
 
 ```bash
 grep -c "Um abraço," "$PATH"                              # esperado: 1
 grep -c "Um abraço!" "$PATH"                              # esperado: 0 (exclamação proibida)
-grep -c "{{handle}}.com/reverso" "$PATH"                    # esperado: 1+
-grep -c "{{handle}}.com/mentoria" "$PATH"                   # esperado: 1+
 grep -ciE "Bora aplicar|qualquer coisa.*chama|garanta.*vaga|últimas chances|espero que ajude" "$PATH"  # esperado: 0
 ```
 
 **REPROVADO** se:
-- ❌ Falta bloco convite {{NOME_CURSO}} + Mentoria com hyperlinks
 - ❌ "Um abraço!" (exclamação) — canônico é vírgula
-- ❌ Frase final genérica ("Bora aplicar?", "Qualquer coisa, me chama", "Espero que ajude")
-- ❌ Hard-sell ("garanta sua vaga", "últimas chances", "última oportunidade")
-- ❌ Hyperlink ausente em qualquer dos dois produtos
 - ❌ Frase forte vira pergunta retórica vaga ou CTA solto
+- ❌ Hard-sell ("garanta sua vaga", "últimas chances") mesmo quando há pitch
+- ❌ 2+ CTAs primários concorrentes no mesmo email
 
-Decisão {{OPERADOR}} 14/05/2026. Ver memória `feedback_newsletter_fechamento_canonico_final.md`.
+**APROVADO** sem pitch — newsletter de conhecimento puro não precisa de CTA.
+**REPROVADO** se pitch presente sem Gui ter pedido — verificar notas internas abaixo do marker.
 
 
 
@@ -405,24 +400,4 @@ REPROVAR newsletter que afirme "conhecimento é commodity" ou variações que de
 
 Memória: `feedback_copy_conhecimento_vs_informacao.md`
 
----
 
-## Newsletter — 2 versões (aluno vs não-aluno) — CHECK CANÔNICO (14/05/2026)
-
-REPROVAR newsletter que vier em UMA versão só. Toda newsletter precisa ter 2 outputs paralelos:
-
-| Versão | Pitch obrigatório | Link único |
-|---|---|---|
-| Não-aluno | {{NOME_CURSO}} (curso + comunidade) | {{handle}}.com/reverso |
-| Aluno | Mentoria | {{handle}}.com/mentoria |
-
-### Checks adicionais
-
-- Corpo idêntico entre as 2 versões? (regra: só o fechamento muda)
-- Versão aluno NÃO menciona preço da Mentoria? (não é público)
-- Versão aluno NÃO vende {{NOME_CURSO}}? (pessoa já tem)
-- Versão não-aluno menciona cupom ativo + preço?
-- Pitch sempre no último parágrafo (não no meio)?
-- 1 link único por versão (não 2-3)?
-
-Memória: `feedback_newsletter_duas_versoes_aluno_vs_nao_aluno.md`

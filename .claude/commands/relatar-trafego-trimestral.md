@@ -25,7 +25,7 @@ Input (Trimestre anterior fechado)
 6. Detectar alertas e decisões automáticas (se aplicável)
 7. Salvar output em workspace/output/trafego/trimestrais/{YYYY-QX}.md
   ↓
-Output (relatório estratégico + decisões pra {{OPERADOR}})
+Output (relatório estratégico + decisões pra Gui)
 ```
 
 ## Input
@@ -44,7 +44,7 @@ Análise estratégica trimestral — decisão de continuar/pivotar canais + comp
 5. Eficiência por persona/avatar
 6. Benchmarks de mercado/concorrência (squad-radar consulta CPM/CPL benchmarks)
 
-### Decisões executivas pra {{OPERADOR}}
+### Decisões executivas pra Gui
 - Apostar mais em X canal?
 - Matar Y canal?
 - Investir em canal novo (TikTok? LinkedIn? Pinterest?)
@@ -78,5 +78,5 @@ Esqueleto. A implementar pós-3 meses de dados acumulados.
 
 - Antes de executar trabalho estrutural, registrar pendência no ClickUp via `/criar-pendencia`
 - Ao concluir, comentar via `/comentar-pendencia` e fechar via `/fechar-pendencia`
-- Aprendizado real (correção do {{OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
+- Aprendizado real (correção do Gui, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
 - Reincidência = falha de processo, escalar imediatamente

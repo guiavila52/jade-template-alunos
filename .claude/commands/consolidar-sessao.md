@@ -6,11 +6,11 @@ type: skill
 
 # Skill: /consolidar-sessao
 
-Passa por toda a conversa atual e salva o que ainda não foi registrado: regras de negócio, decisões, preferências, pendências novas, informações sobre o {{OPERADOR}} ou o negócio.
+Passa por toda a conversa atual e salva o que ainda não foi registrado: regras de negócio, decisões, preferências, pendências novas, informações sobre o Gui ou o negócio.
 
 ## Quando usar
 
-Quando o {{OPERADOR}} sentir que deu muitas informações novas na sessão e quer garantir que nada foi perdido. Não tem limite de quantidade — usar sempre que o {{OPERADOR}} pedir.
+Quando o Gui sentir que deu muitas informações novas na sessão e quer garantir que nada foi perdido. Não tem limite de quantidade — usar sempre que o Gui pedir.
 
 ## O que fazer
 
@@ -20,8 +20,8 @@ Passar por todas as mensagens trocadas nesta sessão. Para cada trecho, identifi
 
 - **Regra de negócio nova** — como algo funciona operacionalmente (ex: "NF só sai 15 dias após a compra")
 - **Decisão estratégica** — escolha que afeta produtos, squads, arquitetura, prioridades
-- **Preferência ou feedback sobre o squad** — como o {{OPERADOR}} quer que o squad se comporte
-- **Informação nova sobre o {{OPERADOR}}, o negócio ou os produtos** — algo que não estava no segundo-cerebro
+- **Preferência ou feedback sobre o squad** — como o Gui quer que o squad se comporte
+- **Informação nova sobre o Gui, o negócio ou os produtos** — algo que não estava no segundo-cerebro
 - **Pendência nova** — tarefa, bloqueio ou demanda que surgiu na conversa e ainda não está em `workspace/memory/pendencias.md`
 - **Aprendizado técnico** — decisão de stack, padrão de código, integração
 
@@ -32,7 +32,7 @@ Antes de salvar qualquer coisa, verificar:
 - `MEMORY.md` — índice de memórias persistentes
 - `workspace/memory/pendencias.md` — fila de pendências
 - `workspace/memory/decisoes.md` — decisões estratégicas
-- `segundo-cerebro/mapa.md` — base de conhecimento do {{OPERADOR}}
+- `segundo-cerebro/mapa.md` — base de conhecimento do Gui
 
 Só salvar o que genuinamente **não existe ainda** ou está **desatualizado**. Não duplicar.
 
@@ -41,7 +41,7 @@ Só salvar o que genuinamente **não existe ainda** ou está **desatualizado**. 
 Para cada item novo encontrado:
 
 **Memória persistente** (regras, feedback, preferências, contexto do negócio):
-- Criar arquivo em `$HOME/.claude/projects/-Users-{{handle}}-Documents-Projetos-IA-{{OPERADOR}}--vila-Squad-Empresa-{{OPERADOR}}--vila/memory/`
+- Criar arquivo em `/Users/guiavila/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/`
 - Adicionar no `MEMORY.md`
 - Tipos: `feedback`, `project`, `user`, `reference`
 
@@ -55,7 +55,7 @@ Para cada item novo encontrado:
 **Regra de negócio de um squad específico**:
 - Adicionar no arquivo de regras do squad correspondente (ex: `squads/financeiro/regras-nf.md`)
 
-### 4. Reportar ao {{OPERADOR}}
+### 4. Reportar ao Gui
 
 Ao final, apresentar resumo claro:
 
@@ -84,7 +84,7 @@ Se não encontrou nada novo: dizer isso diretamente. Não inventar itens para pa
 ## Fluxo
 
 ```
-[ {{OPERADOR}} chama /consolidar-sessao ]
+[ Gui chama /consolidar-sessao ]
         ↓
 [ 1. Varrer conversa atual ] → @jade
    identifica regras, decisões, feedback,
@@ -97,14 +97,14 @@ Se não encontrou nada novo: dizer isso diretamente. Não inventar itens para pa
    ┌──────────────────────────────┐
    ↓ (item novo)            (já existe / igual)
 [ 3a. Salvar ] → @jade            [ pular item ]
-   - memória persistente → $HOME/.claude/projects/.../memory/
+   - memória persistente → /Users/guiavila/.claude/projects/.../memory/
                           + entrada em MEMORY.md
    - pendência nova       → workspace/memory/pendencias.md
    - decisão estratégica  → workspace/memory/decisoes.md
                           (+ segundo-cerebro/04-decisoes/ se relevante)
    - regra de squad       → squads/{squad}/regras-*.md
         ↓
-[ 4. Reportar resumo ao {{OPERADOR}} ] → @jade
+[ 4. Reportar resumo ao Gui ] → @jade
    "Salvo agora / Já estava salvo / Nada a salvar"
         ↓
    ⟶ FIM (sessão consolidada — ok pra /clear)

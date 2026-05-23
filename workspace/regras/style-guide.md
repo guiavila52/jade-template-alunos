@@ -4,14 +4,14 @@ Convenções de output. Não são regras invioláveis (essas vivem em `AGENTS.md
 
 ## URLs
 
-Toda URL mencionada em qualquer resposta, doc, comentário ou mensagem **vira link clicável** no formato markdown `[texto](https://url)`. Sem URL "crua". Sub-regra: quando pedir pro {{OPERADOR}} abrir / clicar / verificar / validar / conferir qualquer coisa que tenha URL (task ClickUp, newsletter no {{APP_PESSOAL}}, página, pasta Drive), o link clicável DEVE estar na MESMA frase do pedido, com URL completa. Sem mandar só ID/nome/caminho esperando que {{OPERADOR}} monte.
+Toda URL mencionada em qualquer resposta, doc, comentário ou mensagem **vira link clicável** no formato markdown `[texto](https://url)`. Sem URL "crua". Sub-regra: quando pedir pro Gui abrir / clicar / verificar / validar / conferir qualquer coisa que tenha URL (task ClickUp, newsletter no {{Plataforma_Conteudo}}, página, pasta Drive), o link clicável DEVE estar na MESMA frase do pedido, com URL completa. Sem mandar só ID/nome/caminho esperando que Gui monte.
 
-- ✅ `[a newsletter](https://{{app_pessoal}}.{{handle}}.com/{{handle}}/conteudos/62bec9ff-1abd-4190-be01-f79f64a5b9fc)`
+- ✅ `[a newsletter](https://{{DOMINIO_NEWSLETTER}}/guiavila/conteudos/62bec9ff-1abd-4190-be01-f79f64a5b9fc)`
 - ❌ `Confere a newsletter 62bec9ff`
 
 ## Citações
 
-Falas literais do {{OPERADOR}} em itálico ou bloco quote: *"frase exata"* ou `> frase exata`. Sempre datadas quando importam pra história (ex.: "06/05/2026 ~21h"). Memória `feedback_jade_comportamento.md` agrega o padrão.
+Falas literais do Gui em itálico ou bloco quote: *"frase exata"* ou `> frase exata`. Sempre datadas quando importam pra história (ex.: "06/05/2026 ~21h"). Memória `feedback_jade_comportamento.md` agrega o padrão.
 
 ## Naming de arquivos
 
@@ -24,9 +24,9 @@ Falas literais do {{OPERADOR}} em itálico ou bloco quote: *"frase exata"* ou `>
 
 Português correto, sem omitir acentos. Bash heredoc preserva UTF-8 nativamente — falta de acento é falha humana. Vale pra copy, newsletter, post, carrossel, tweet, email, README público, comentários ClickUp. Memória `feedback_acentuacao_obrigatoria.md`.
 
-## Hiperlinks padrão `{{handle}}.com/[slug]`
+## Hiperlinks padrão `{{DOMINIO}}/[slug]`
 
-Toda menção a empresa/produto/parceiro do {{OPERADOR}} vira link `{{handle}}.com/[slug]` (WordPress redirector). Slugs conhecidos: `magicaonline`, `manychat`, `clickup`, `clickup8x`, `level`, `automacoes`, `reverso`, `youtube`. Memória `project_hiperlinks_padrao.md`.
+Toda menção a empresa/produto/parceiro do Gui vira link `{{DOMINIO}}/[slug]` (WordPress redirector). Slugs conhecidos: `{{produto_slug}}`, `manychat`, `clickup`, `clickup8x`, `level`, `automacoes`, `reverso`, `youtube`. Memória `project_hiperlinks_padrao.md`.
 
 ## Tom
 

@@ -115,7 +115,7 @@ Ver pricing atualizado: https://openrouter.ai/models
 
 - Prompts em inglês geram melhor resultado
 - Modelos grátis têm rate limit (checar doc OpenRouter)
-- Rostos específicos ({{OPERADOR}}) = melhor usar foto real editada
+- Rostos específicos (Gui) = melhor usar foto real editada
 - Texto em imagem (logos, frases) = adicionar depois no Figma/Canva
 
 ## Bateria de testes (Regra #24)

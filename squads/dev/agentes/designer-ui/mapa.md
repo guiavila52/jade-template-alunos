@@ -9,4 +9,4 @@ Designer visual de página. Gera DESIGN.md + mockup ANTES do dev codar.
 - memoria.md — work state local (a criar conforme uso)
 
 ## Última atualização
-2026-05-17 — Agente criado (Task {{clickup_task_id}})
+2026-05-17 — Agente criado (Task 86ahha462)

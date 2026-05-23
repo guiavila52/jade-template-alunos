@@ -15,12 +15,12 @@ Cria nova task na lista canônica "Tasks Jade COO" do ClickUp **via API REST dir
 
 ## Quando invocar
 
-- {{OPERADOR}} passa uma demanda nova ("preciso que vc faça X")
+- Gui passa uma demanda nova ("preciso que vc faça X")
 - Jade detecta uma onda atacável que ainda não está registrada
 - Subagent reporta um achado/blocker que precisa virar pendência rastreável
 - Aprendizado em produção exigiu retrofit que ainda não foi feito
 
-**Regra §1 (AGENTS.md):** TODA demanda do {{OPERADOR}} (mesmo "pequena") vira pendência ANTES de executar. Sem exceção.
+**Regra §1 (AGENTS.md):** TODA demanda do Gui (mesmo "pequena") vira pendência ANTES de executar. Sem exceção.
 
 ## Inputs
 
@@ -35,9 +35,9 @@ Cria nova task na lista canônica "Tasks Jade COO" do ClickUp **via API REST dir
 
 ## IDs canônicos (NÃO inventar)
 
-- **Workspace ID:** {{WORKSPACE_ID}} (Empresa {{NOME_OPERADOR}})
+- **Workspace ID:** `30978229` (Empresa {{NOME_OPERADOR}})
 - **List ID:** `901327194775` (Tasks Jade COO) — **single source of truth**
-- **NÃO CONFUNDIR com:** `901327190242` ({{APP_PESSOAL}} backlog — sessão {{APP_PESSOAL}} paralela, NÃO usar daqui)
+- **NÃO CONFUNDIR com:** `901327190242` ({{Plataforma_Conteudo}} backlog — sessão {{Plataforma_Conteudo}} paralela, NÃO usar daqui)
 
 ## Mapeamento de prioridade (texto → int ClickUp)
 
@@ -51,10 +51,10 @@ Cria nova task na lista canônica "Tasks Jade COO" do ClickUp **via API REST dir
 ## Tags canônicas (catálogo evolutivo)
 
 - `imersao-14-05` — caminho crítico Imersão
-- `aprovacao-gui` — pendente input/decisão {{OPERADOR}}
+- `aprovacao-gui` — pendente input/decisão Gui
 - `skill-faltante` — skill a criar/refinar
 - `arquitetura` — mudança estrutural
-- `financeiro`, `nf`, `trafego`, `meta-ads`, `{{app_pessoal}}`, `paginas`, `astro`, `migracao`, `seguranca`, `infra`, `dns`
+- `financeiro`, `nf`, `trafego`, `meta-ads`, `{{plataforma_conteudo}}`, `paginas`, `astro`, `migracao`, `seguranca`, `infra`, `dns`
 - `onda-N` — quando faz parte de onda macro (ex: `onda-9`, `onda-mestra`)
 
 ## Setup
@@ -156,20 +156,20 @@ Pendência criada
 
 - Task aparece em `GET /list/901327194775/task?archived=false`
 - Title curto e acionável (verbo no início se for ação)
-- Description tem contexto suficiente pra outro agente executar sem voltar pro {{OPERADOR}}
+- Description tem contexto suficiente pra outro agente executar sem voltar pro Gui
 - Priority refletindo realidade (não tudo urgent)
 - Tags úteis pra filtragem futura
 - Sem jq/bash no caminho de payload (proteção contra parse error com backticks/unicode)
 
 ## Tratamento de erros
 
-- HTTP 401 → token inválido → reportar {{OPERADOR}} pra rotacionar
+- HTTP 401 → token inválido → reportar Gui pra rotacionar
 - HTTP 400 → payload inválido (status name não existe na lista, prioridade fora 1-4): mostrar body do erro
 - HTTP 429 → rate limit → esperar 60s + retry uma vez
 
 ## Anexar print (Regra §1 + memória `feedback_anexar_print_em_task_clickup.md`)
 
-Se a demanda **veio de um print/screenshot do {{OPERADOR}}**, anexar via REST:
+Se a demanda **veio de um print/screenshot do Gui**, anexar via REST:
 
 ```bash
 TS=$(date +"%Y-%m-%d-%H%M%S")
@@ -185,4 +185,4 @@ curl -s -X POST \
 ## Aprendizado + pendência (Regra §5)
 
 - Se erro REST durante criação: registrar em `squads/gestao/aprendizados.md` + memória `feedback_clickup_api_nao_mcp.md`
-- Se feedback do {{OPERADOR}} apontou skill faltando: criar pendência cascata (criar/ajustar a skill, com aval {{OPERADOR}} §13)
+- Se feedback do Gui apontou skill faltando: criar pendência cascata (criar/ajustar a skill, com aval Gui §13)

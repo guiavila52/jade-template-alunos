@@ -29,7 +29,7 @@ Receber lead qualificado → agendar call (se necessário) → apresentar oferta
 
 ## Integrações futuras
 
-- **{{EMPRESA_COFUNDADA}}** — registrar transação, ativar matrícula
+- **{{LMS}}** — registrar transação, ativar matrícula
 - **GHL** — atualizar pipeline, disparar sequências de follow-up
 
 ---

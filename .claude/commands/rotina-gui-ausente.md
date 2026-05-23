@@ -1,6 +1,6 @@
 ---
 name: rotina-gui-ausente
-description: Rotina autonoma do squad enquanto {{OPERADOR}} esta fora — pre-flight, priorizacao, execucao, triple-check, bateria, commits, aprendizados.
+description: Rotina autonoma do squad enquanto Gui esta fora — pre-flight, priorizacao, execucao, triple-check, bateria, commits, aprendizados.
 type: skill
 ---
 
@@ -8,7 +8,7 @@ type: skill
 
 > Consolidada em 10/05/2026 — esta é a ÚNICA skill de rotina autônoma agora. Versão genérica user-level movida pra `.legado-onda16` (Regra #18).
 
-Você (Jade) vai executar a rotina autônoma completa do squad enquanto o {{OPERADOR}} está fora. Volta com a palavra-chave **Caqui** quando estiver tudo redondo + testado + auditado + commitado + deployado.
+Você (Jade) vai executar a rotina autônoma completa do squad enquanto o Gui está fora. Volta com a palavra-chave **Caqui** quando estiver tudo redondo + testado + auditado + commitado + deployado.
 
 ## Regras invioláveis (não pode esquecer)
 - NUNCA pare pra perguntar — tome decisão técnica sozinha + registre raciocínio
@@ -51,8 +51,8 @@ ANTES de qualquer despacho que envolva criar/editar arquivo de config, secret, k
 1. `find . -name '.env*' -not -path '*/node_modules/*' -not -path '*/.git/*'` no projeto — listar `.env*` existentes
 2. Conferir memórias: `feedback_secrets_em_env_local.md` + `feedback_consultar_protocolo_antes_de_criar_secret.md` + `feedback_abrir_env_textedit_para_keys.md`
 3. **Path canônico ÚNICO do squad-empresa: `app/.env.local`** — toda nova key entra aí, com placeholder em `app/.env.example`
-4. Se {{OPERADOR}} precisa colar nova key: rodar `open -a TextEdit "<path>/app/.env.local"` automaticamente (Persistence já desativada — não vai pedir versão)
-5. NUNCA criar arquivo de secret em path novo (`~/.{tool}/`, `/tmp/`, etc) sem aprovar com {{OPERADOR}}
+4. Se Gui precisa colar nova key: rodar `open -a TextEdit "<path>/app/.env.local"` automaticamente (Persistence já desativada — não vai pedir versão)
+5. NUNCA criar arquivo de secret em path novo (`~/.{tool}/`, `/tmp/`, etc) sem aprovar com Gui
 
 Sem esse pre-flight, risco de repetir o erro `~/.openrouter/key` (08/05/2026).
 
@@ -60,7 +60,7 @@ Sem esse pre-flight, risco de repetir o erro `~/.openrouter/key` (08/05/2026).
 
 ANTES de executar QUALQUER demanda (mesmo pequena):
 
-1. Demanda do {{OPERADOR}} chegou → **REGISTRAR em `workspace/memory/pendencias.md` ANTES de fazer qualquer coisa**
+1. Demanda do Gui chegou → **REGISTRAR em `workspace/memory/pendencias.md` ANTES de fazer qualquer coisa**
 2. Sem exceção pra "demanda pequena", "trabalho meta", "só atualização" — TUDO vai pra fila primeiro
 3. Status inicial: `🚧 em curso`; ao final: `✅ entregue` com sumário
 4. Ler memória `feedback_registrar_pendencia_antes_de_executar.md` se em dúvida
@@ -73,7 +73,7 @@ Violação = "trabalho invisível" que não deixa rastro pra próximo turno reto
 ANTES de despachar agent ou rodar comando externo:
 
 1. Toda skill que executa Playwright, ffmpeg, yt-dlp, curl, API call → confiabilidade obrigatória (timeout + stderr + exit code + retry + graceful degradation)
-2. Bugs conhecidos hoje: `{{skill_imagem}}.mjs` trava silenciosamente (Onda 9 ataca)
+2. Bugs conhecidos hoje: `tweet-imagem.mjs` trava silenciosamente (Onda 9 ataca)
 3. Se subagent timeoutar / travar > 30min: **NÃO só skip** — diagnosticar causa (logs + stderr), aplicar fallback Bash direto (mesma estratégia das Ondas anteriores), registrar como aprendizado da Jade
 
 Ler memória `feedback_confiabilidade_skills.md` se em dúvida.
@@ -107,14 +107,14 @@ df -h ~ | awk 'NR==2 {gsub("G",""); if ($4 < 5) print "FAIL_DISK"; else print "O
 curl -s --max-time 5 -o /dev/null -w "%{http_code}" https://api.anthropic.com/ || echo "FAIL_NET"
 
 # 3. APIs externas críticas (health-check leve, GET de domínio)
-for api in "https://app.notazz.com" "https://cdpj.partners.bancointer.com.br" "https://graph.facebook.com"; do
+for api in "https://{{PLATAFORMA_NF_URL}}" "https://{{BANCO_PJ_API_URL}}" "https://graph.facebook.com"; do
   code=$(curl -s --max-time 5 -o /dev/null -w "%{http_code}" "$api")
   echo "$api → $code"
 done
 
 # 4. Git working trees — quais repos têm mudanças não-commitadas?
-for repo in "{{NOME_SQUAD}}" "Páginas Astro {{NOME_OPERADOR}}" "App Reverso"; do
-  cd "$CLAUDE_PROJECT_DIR 2>/dev/null &&     echo "$repo: $(git status --short | wc -l | tr -d ' ') arquivos não-commitados"
+for repo in "Squad Empresa {{NOME_OPERADOR}}" "Páginas Astro {{NOME_OPERADOR}}" "App Reverso"; do
+  cd "/Users/guiavila/Documents/Projetos IA {{NOME_OPERADOR}}/$repo" 2>/dev/null &&     echo "$repo: $(git status --short | wc -l | tr -d ' ') arquivos não-commitados"
 done
 
 # 5. Hooks ativos
@@ -124,7 +124,7 @@ ls .claude/hooks/*.sh 2>/dev/null | wc -l
 ```
 
 **Decisão baseada em health-check:**
-- Disco < 5GB → STOP, registra como bloqueio crítico, notifica {{OPERADOR}}
+- Disco < 5GB → STOP, registra como bloqueio crítico, notifica Gui
 - Internet down → STOP, registra, notifica
 - API externa down → REGISTRAR em PROGRESS.md "skip tarefas que dependem de [API]" + continuar com tarefas independentes
 - Working tree dirty → DECIDIR: commitar o que existe agora antes de começar, OU isolar trabalho da rotina em arquivos novos
@@ -230,7 +230,7 @@ Roda a skill (16 categorias: A-N). Esperado: 0 findings CRITICAL/HIGH. Se houver
 **7. Auditoria de segurança contextual**
 Detecta se mudou squad-empresa / sites-astro / App Reverso e roda auditoria adequada:
 - Squad/Astro só: leve (5-10min) — secrets, .env, headers, GTM, Astro nativo
-- {{APP_PESSOAL}}: `/security-audit` completa (overnight)
+- {{Plataforma_Conteudo}}: `/security-audit` completa (overnight)
 - Ambos: leve + completa
 Resolver CRITICAL/HIGH antes de prosseguir.
 
@@ -254,7 +254,7 @@ Template aprendizado em `/preparar-clear-jade` passo 4.
 **10. Relatório final + Caqui**
 Em `PROGRESS.md` final:
 - Concluído: lista
-- Bloqueado: lista (precisa {{OPERADOR}})
+- Bloqueado: lista (precisa Gui)
 - Decisões técnicas tomadas + raciocínio
 - Resultado dos testes
 - Resultado das auditorias
@@ -264,7 +264,7 @@ Em `PROGRESS.md` final:
 
 Notificar macOS: `osascript -e 'display notification "Caqui — squad pronto" with title "Jade — Squad" sound name "Glass"'`
 
-Encerrar com: **Caqui** (se 100% redondo) OU **Caqui parcial** + lista de bloqueios (se houve algum item que dependeu do {{OPERADOR}}).
+Encerrar com: **Caqui** (se 100% redondo) OU **Caqui parcial** + lista de bloqueios (se houve algum item que dependeu do Gui).
 
 ## Detecção de loop / 529 / timeout (Regra Inviolável #22 — confiabilidade)
 
@@ -280,7 +280,7 @@ Encerrar com: **Caqui** (se 100% redondo) OU **Caqui parcial** + lista de bloque
 ## Fluxo
 
 ```
-[ {{OPERADOR}} ausente chama /rotina-gui-ausente-do-squad ]
+[ Gui ausente chama /rotina-gui-ausente-do-squad ]
    regras: nunca para; usa agents registrados; atualiza memória/pendências sempre
         ↓
 [ 0. Setup ] — log + snapshot + notif macOS
@@ -291,7 +291,7 @@ Encerrar com: **Caqui** (se 100% redondo) OU **Caqui parcial** + lista de bloque
         ↓
 [ 3. Execução ] — item a item, agentes registrados, atualiza memória/pendências sempre
    ┌──────────────────────────────────────┐
-   ↓ (decisão técnica)         (só {{OPERADOR}})   ↓
+   ↓ (decisão técnica)         (só Gui)   ↓
    decide + registra           bloqueado + segue
    └──────────────┬───────────────────────┘
         ↓
@@ -320,7 +320,7 @@ ANTES de marcar entregue:
 3. REPROVADO → corrige + re-revisa até APROVADO
 4. SÓ aí marca entregue em pendencias.md + commita
 
-Jade NUNCA pede pro {{OPERADOR}} testar — testa antes.
+Jade NUNCA pede pro Gui testar — testa antes.
 
 
 ---
@@ -340,16 +340,16 @@ Jade só declara Caqui parcial quando os bloqueios pendentes caem em UMA destas 
 **Antes de declarar Caqui parcial, perguntar internamente:**
 
 - O item bloqueado cai em UMA das 5 categorias acima? Se NÃO → tem ação autônoma possível, continuar.
-- "Esperar revisão {{OPERADOR}}" antes do trabalho NEM TER SIDO produzido = falso bloqueio. Despacha produção, junta tudo pra revisão consolidada depois.
+- "Esperar revisão Gui" antes do trabalho NEM TER SIDO produzido = falso bloqueio. Despacha produção, junta tudo pra revisão consolidada depois.
 - "Sessão paralela não respondeu" = assíncrono via ClickUp, ataca outras Ondas.
-- "Mandar arquivo X pra {{OPERADOR}}" não trava produção atual.
+- "Mandar arquivo X pra Gui" não trava produção atual.
 
 **Padrão correto: pipeline com gates**
 
 ```
 Estratégia (autônomo) → Currículo (autônomo) → Copy (autônomo)
   → Implementação (autônomo) → Build + smoke (autônomo)
-  → ⛔ GATE {{OPERADOR}} aprova disparo/deploy → Caqui completo
+  → ⛔ GATE Gui aprova disparo/deploy → Caqui completo
 ```
 
 **Cross-reference:** `feedback_matriz_autonomia_jade.md`, AGENTS.md Regra #13.

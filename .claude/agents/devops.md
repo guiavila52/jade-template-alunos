@@ -13,9 +13,9 @@ model: claude-sonnet-4-5
 ## Papel
 
 Operação de infraestrutura:
-- DNS (Hostinger — todos os domínios `*.{{handle}}.com`)
+- DNS (Hostinger — todos os domínios `*.{{DOMINIO}}`)
 - SSL (Let's Encrypt + Cloudflare quando aplicável)
-- Deploys (Vercel — Astro + {{APP_PESSOAL}})
+- Deploys (Vercel — Astro + {{Plataforma_Conteudo}})
 - VPS (se aplicável — Hostinger)
 - Monitoramento de uptime (UptimeRobot, Better Stack)
 - Backup automático

@@ -10,7 +10,7 @@
 
 | Nível | Símbolo | Critério |
 |---|---|---|
-| **MADURA** | 🟢 | Funciona ponta-a-ponta, validada em produção com {{OPERADOR}}, sem gaps conhecidos, integração externa funcionando, bateria de testes #24 passando |
+| **MADURA** | 🟢 | Funciona ponta-a-ponta, validada em produção com Gui, sem gaps conhecidos, integração externa funcionando, bateria de testes #24 passando |
 | **FUNCIONAL** | 🟡 | Funciona o básico, falta polimento ou edge cases, pode ter rodado em produção 1-2x mas não consolidada |
 | **EM PROGRESSO** | 🔵 | Implementação parcial, gap claro pra fechar (ex: integração faltando 1 endpoint, skill chama API mas não trata erros) |
 | **ESQUELETO** | ⚪ | Só estrutura básica, precisa implementação real (ex: skills B1-B4 criadas recentemente) |
@@ -52,7 +52,7 @@
 | `/criar-carrossel-de-video` | carrossel | 🟢 MADURA | — | atalho ponta-a-ponta. URL YouTube → carrossel pronto. |
 | `/revisar-carrossel` | revisor-carrossel | 🟡 FUNCIONAL | falta consolidação de uso em múltiplos carrosseis | rodar em 3+ carrosseis |
 | `/ver-carrossel` | — | 🟡 FUNCIONAL | extrai imagens + copy de URL Instagram, mas sem integração API real (scraping manual?) | validar se funciona sem fricção |
-| `/disparar-newsletter` | newsletter | ⚪ ESQUELETO | integração Notazz/MailerLite/SMTP não implementada | atacar quando houver API key + plataforma definida |
+| `/disparar-newsletter` | newsletter | ⚪ ESQUELETO | integração {{PLATAFORMA_NF}}/MailerLite/SMTP não implementada | atacar quando houver API key + plataforma definida |
 
 ---
 
@@ -78,7 +78,7 @@
 | `/revisar-codigo-pagina` | paginas-dev | 🟡 FUNCIONAL | falta bateria #24 explícita | adicionar cláusula Regra #24 |
 | `/publicar-pagina` | paginas-dev | 🟢 MADURA | — | build + preview + prod, usado diariamente |
 | `/testar-pagina` | bug-hunter | 🟢 MADURA | — | bateria #15 (12/12), usado diariamente |
-| | paginas-dev | 🟡 FUNCIONAL | protocolo QA existe, mas falta uso real em 3+ deploys {{APP_PESSOAL}} | consolidar uso |
+| `/publicar-{{plataforma_conteudo}}` | paginas-dev | 🟡 FUNCIONAL | protocolo QA existe, mas falta uso real em 3+ deploys {{Plataforma_Conteudo}} | consolidar uso |
 | `/executar-bateria-qa` | bug-hunter | 🟡 FUNCIONAL | script genérico, mas falta uso em múltiplos contextos | consolidar matriz de baterias |
 
 ---
@@ -99,7 +99,7 @@
 | Skill | Agente | Maturidade | Bloqueios | Próximo passo |
 |---|---|---|---|---|
 | `/transcrever-video` | — | 🟡 FUNCIONAL | usa yt-dlp + Whisper, funciona mas sem tratamento de erro robusto | adicionar Regra #22 (timeout + retry) |
-| | — | 🔵 EM PROGRESSO | HTML→PNG via Playwright, funciona mas trava silenciosamente em alguns casos (bug conhecido Onda 9) | fix confiabilidade Regra #22 |
+| `/tweet-imagem` | — | 🔵 EM PROGRESSO | HTML→PNG via Playwright, funciona mas trava silenciosamente em alguns casos (bug conhecido Onda 9) | fix confiabilidade Regra #22 |
 | `/revisar-visual` | revisor-visual | 🟡 FUNCIONAL | falta uso em 3+ outputs visuais | consolidar padrões |
 
 ---
@@ -108,8 +108,8 @@
 
 | Skill | Agente | Maturidade | Bloqueios | Próximo passo |
 |---|---|---|---|---|
-| | financeiro | ⚪ MADURA | — | integração Notazz API funcional, em uso |
-| | financeiro | ⚪ ESQUELETO | integração Banco Inter API não implementada | aguarda chave API + endpoint |
+| `/consultar-nf` | financeiro | ⚪ MADURA | — | integração {{PLATAFORMA_NF}} API funcional, em uso |
+| `/analisar-fiscal` | financeiro | ⚪ ESQUELETO | integração {{BANCO_PJ}} API não implementada | aguarda chave API + endpoint |
 
 ---
 
@@ -162,7 +162,7 @@
 
 Skills com implementação parcial/esqueleto que NÃO dependem de API externa:
 
-1. **** (🔵 → 🟢) — fix confiabilidade Regra #22 (timeout + stderr + retry). Onda 9 já atacou, validar se resolveu.
+1. **`/tweet-imagem`** (🔵 → 🟢) — fix confiabilidade Regra #22 (timeout + stderr + retry). Onda 9 já atacou, validar se resolveu.
 2. **`/publicar-jade`** (🔵 → 🟢) — auditoria de PII + workflow completo.
 3. **`/configurar-squad`** (🔵 → 🟢) — testar com 1 aluno beta.
 4. **`/escrever-newsletter`** (🟡 → 🟢) — adicionar bateria #24 + rodar em 3+ edições.
@@ -171,7 +171,7 @@ Skills com implementação parcial/esqueleto que NÃO dependem de API externa:
 7. **`/escrever-roteiro`** (🟡 → 🟢) — rodar 1x em produção real pra validar.
 8. **`/escrever-linkedin`** (🟡 → 🟢) — rodar em 3+ posts pra consolidar.
 9. **`/revisar-visual`** (🟡 → 🟢) — rodar em 3+ outputs visuais.
-10. **** (🟡 → 🟢) — rodar em 3+ deploys {{APP_PESSOAL}}.
+10. **`/publicar-{{plataforma_conteudo}}`** (🟡 → 🟢) — rodar em 3+ deploys {{Plataforma_Conteudo}}.
 11. **`/executar-bateria-qa`** (🟡 → 🟢) — consolidar matriz de baterias.
 12. **`/transcrever-video`** (🟡 → 🟢) — adicionar Regra #22 (timeout + retry).
 13. **`/ver-agenda`** (🟡 → 🟢) — adicionar Regra #22.
@@ -192,14 +192,14 @@ Skills que aguardam integração externa funcionar:
 1. **`/impulsionar-organico`** (⚪ → 🟡) — aguarda MCP Meta Ads funcional.
 2. **`/relatar-trafego`** (⚪ → 🟡) — aguarda MCP Meta Ads + Google Ads.
 3. **`/otimizar-campanha`** (⚪ → 🟡) — aguarda MCP Meta Ads.
-4. **** (⚪ → 🟡) — aguarda chave API Banco Inter + endpoint.
+4. **`/analisar-fiscal`** (⚪ → 🟡) — aguarda chave API {{BANCO_PJ}} + endpoint.
 5. **`/monitorar-concorrentes`** (⚪ → 🟡) — aguarda definição de fontes de dados.
 6. **`/varrer-tendencias`** (⚪ → 🟡) — aguarda definição de fontes.
 7. **`/consultar-leads`** (⚪ → 🟡) — aguarda MCP GHL consolidado.
-8. **`/disparar-newsletter`** (⚪ → 🟡) — aguarda plataforma de email definida (Notazz/MailerLite/SMTP).
+8. **`/disparar-newsletter`** (⚪ → 🟡) — aguarda plataforma de email definida ({{PLATAFORMA_NF}}/MailerLite/SMTP).
 9. **`/auditar-entregabilidade-email`** (⚪ → 🟡) — aguarda plataforma de email.
 
-**Estimativa:** 9 skills. Dependem de decisões externas ({{OPERADOR}} aprovar ferramentas + chaves API).
+**Estimativa:** 9 skills. Dependem de decisões externas (Gui aprovar ferramentas + chaves API).
 
 ---
 
@@ -215,13 +215,13 @@ Skills que precisam de auditoria de propósito antes de atacar:
 6. **`/fechar-venda`** — definir fluxo de fechamento.
 7. **`/onboarding-aluno`** — definir checklist de onboarding.
 
-**Estimativa:** 7 skills. 1 sprint de auditoria + decisão {{OPERADOR}}.
+**Estimativa:** 7 skills. 1 sprint de auditoria + decisão Gui.
 
 ---
 
 ## Top 5 skills atacáveis AGORA (sem dependência externa)
 
-1. **** — bug conhecido (Onda 9), fix confiabilidade é crítico.
+1. **`/tweet-imagem`** — bug conhecido (Onda 9), fix confiabilidade é crítico.
 2. **`/revisar-copy-pagina`** — adicionar cláusula Regra #24 (30min).
 3. **`/revisar-codigo-pagina`** — adicionar cláusula Regra #24 (30min).
 4. **`/publicar-jade`** — auditoria PII + workflow (1-2h).
@@ -234,7 +234,7 @@ Skills que precisam de auditoria de propósito antes de atacar:
 1. **`/impulsionar-organico`** — aguarda MCP Meta Ads funcional.
 2. **`/relatar-trafego`** — aguarda MCP Meta Ads + Google Ads.
 3. **`/otimizar-campanha`** — aguarda MCP Meta Ads.
-4. **** — aguarda chave API Banco Inter.
+4. **`/analisar-fiscal`** — aguarda chave API {{BANCO_PJ}}.
 5. **`/disparar-newsletter`** — aguarda plataforma de email definida.
 
 ---
@@ -251,22 +251,22 @@ Skills que precisam de auditoria de propósito antes de atacar:
 
 **Sugestão:** atacar Onda A — 18 skills atacáveis sem dependência externa. Priorizar por caminho crítico:
 
-1. **** (bloqueia carrosseis) → ataca primeiro.
+1. **`/tweet-imagem`** (bloqueia carrosseis) → ataca primeiro.
 2. **`/revisar-copy-pagina` + `/revisar-codigo-pagina`** (Regra #24 obrigatória) → ataca segundo.
 3. **Resto da Onda A** em paralelo conforme disponibilidade.
 
-**Onda B** aguarda decisões externas do {{OPERADOR}} (chaves API, plataformas).  
+**Onda B** aguarda decisões externas do Gui (chaves API, plataformas).  
 **Onda C** aguarda auditoria de propósito.
 
 ---
 
 **Última atualização:** 2026-05-11  
 **Auditado por:** paginas-dev (squad-dev)  
-**Aprovação pendente:** {{NOME_OPERADOR}}
+**Aprovação pendente:** Gui Ávila
 
 ---
 
-## Arquivamento — 2026-05-14 (refactor task {{clickup_task_id}})
+## Arquivamento — 2026-05-14 (refactor task 86ahfpn9r)
 
 Skills ⚪ não-maduras movidas pra `workspace/skills-arquivadas/` (fora do escaneio do Claude Code). Lista:
 
@@ -274,6 +274,7 @@ Skills ⚪ não-maduras movidas pra `workspace/skills-arquivadas/` (fora do esca
 - impulsionar-organico
 - relatar-trafego
 - otimizar-campanha
+- analisar-fiscal
 - monitorar-concorrentes
 - varrer-tendencias
 - consultar-leads
@@ -286,4 +287,4 @@ Skills ⚪ não-maduras movidas pra `workspace/skills-arquivadas/` (fora do esca
 
 Pra retomar uma skill arquivada: `mv workspace/skills-arquivadas/{nome}.md .claude/commands/{nome}.md` + adicionar override em settings.json se aplicável.
 
-Nota: aparece marcada como `⚪ MADURA` na tabela do squad FINANCEIRO (linha 111) — classificação contraditória; texto confirma "integração Notazz API funcional, em uso" → mantida ativa (não arquivada).
+Nota: `/consultar-nf` aparece marcada como `⚪ MADURA` na tabela do squad FINANCEIRO (linha 111) — classificação contraditória; texto confirma "integração {{PLATAFORMA_NF}} API funcional, em uso" → mantida ativa (não arquivada).

@@ -16,6 +16,6 @@ Cada subpasta tem `memoria.md`, `aprendizados.md` e `mapa.md` próprios.
 
 ## Próximos a criar (backlog)
 
-- `{{app_pessoal}}/` — operação do {{APP_PESSOAL}} API REST
+- `{{plataforma_conteudo}}/` — operação do {{Plataforma_Conteudo}} API REST
 - `mcp/` — manutenção do MCP server
 - `infra-code/` — DNS, SSL, deploy, VPS (compartilhado com squad-infra)

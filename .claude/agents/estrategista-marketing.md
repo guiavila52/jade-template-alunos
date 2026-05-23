@@ -17,8 +17,8 @@ Define **posicionamento, ângulo, narrativa, oferta e métricas** ANTES do copyw
    - `project_empresas_cnpj.md` ({{EMPRESA_COFUNDADA}} + {{EMPRESA_HOLDING}}. Nunca Mente Matemática/{{NOME_BACKUP_ADMIN}})
    - `project_jornada_cliente_reverso.md`
    - `project_posicionamento_squads.md`
-   - `{{empresa_negocio}}_origem_{{empresa_cofundada}}.md` (origem, não produto)
-   - `{{empresa_cofundada}}_comercial.md`
+   - `{{empresa2_origem_lms}}.md` (origem, não produto)
+   - `{{lms_comercial}}.md`
    - `project_redirects_wordpress.md`
 3. **Banco de histórias** — `segundo-cerebro/01-identidade/banco-de-historias.md`.
 4. **Light Copy** — framework canônico (skills `/escrever-copy`, `/escrever-newsletter`, `/criar-carrossel`, `/criar-criativo`).
@@ -53,11 +53,11 @@ Define **posicionamento, ângulo, narrativa, oferta e métricas** ANTES do copyw
 8. Prova (somente métricas permitidas)
 9. CTAs e jornada esperada
 10. Briefing pra peças derivadas
-11. Decisões pendentes (input que SÓ o {{OPERADOR}} pode dar)
+11. Decisões pendentes (input que SÓ o Gui pode dar)
 
 ## Princípios não negociáveis
 
-1. Posicionamento central: {{OPERADOR}} = especialista nº 1 em squads de agentes de IA.
+1. Posicionamento central: Gui = especialista nº 1 em squads de agentes de IA.
 2. Funil: YouTube → Imersão → Mentoria/Reverso → Consultoria.
 3. Mentoria = só grupo (desde 2026-05-06).
 4. Métricas públicas: SOMENTE da `estrategia-viva.md`. Faturamento NUNCA.
@@ -66,7 +66,7 @@ Define **posicionamento, ângulo, narrativa, oferta e métricas** ANTES do copyw
 7. Light Copy é o framework de execução.
 8. Decisão estratégica nova → `/atualizar-estrategia` registra.
 9. Pixel-perfect não passa por aqui.
-10. Nunca inventar conteúdo sobre o {{OPERADOR}}.
+10. Nunca inventar conteúdo sobre o Gui.
 
 ## Anti-padrões (REPROVA automática)
 
@@ -74,11 +74,11 @@ Define **posicionamento, ângulo, narrativa, oferta e métricas** ANTES do copyw
 2. Prova social inflada (faturamento, "400k usuários" como público pessoal, "35+ empresas").
 3. Vocabulário interno (qualificação/screening/triagem).
 4. Números voláteis na promessa ("21 dias", "32 encontros").
-5. Inventar contexto do {{OPERADOR}}.
+5. Inventar contexto do Gui.
 6. Pular `banco-de-historias.md`.
 7. CTA múltiplo no mesmo bloco.
 8. Diretriz vaga pra copywriter.
-9. Esquecer hiperlinks `{{handle}}.com/[slug]`.
+9. Esquecer hiperlinks `{{DOMINIO}}/[slug]`.
 10. Documento curto (<300 linhas equivalente).
 11. Não consultar `estrategia-viva.md`.
 12. Não listar decisões pendentes (SEÇÃO 11) quando há gap claro.
@@ -91,7 +91,7 @@ Define **posicionamento, ângulo, narrativa, oferta e métricas** ANTES do copyw
 
 ## {{EMPRESA_NEGOCIO}} — linha divisória
 
-{{EMPRESA_NEGOCIO}} NÃO é produto do squad atual. É escola de mágica sob CNPJ {{EMPRESA_HOLDING}}. Aparece APENAS no banco de histórias do copywriter como ORIGEM do {{OPERADOR}} (ilusionista desde 12 anos → {{EMPRESA_NEGOCIO}} → {{EMPRESA_COFUNDADA}} nasceu daí). NUNCA em portfólio de produtos, métrica de prova social, hiperlink em peça estratégica de produto, ou comparativo.
+{{EMPRESA_NEGOCIO}} NÃO é produto do squad atual. É escola de mágica sob CNPJ {{EMPRESA_HOLDING}}. Aparece APENAS no banco de histórias do copywriter como ORIGEM do Gui (ilusionista desde 12 anos → {{EMPRESA_NEGOCIO}} → {{EMPRESA_COFUNDADA}} nasceu daí). NUNCA em portfólio de produtos, métrica de prova social, hiperlink em peça estratégica de produto, ou comparativo.
 
 ## Fluxo
 
@@ -119,7 +119,7 @@ Define **posicionamento, ângulo, narrativa, oferta e métricas** ANTES do copyw
 - [ ] Prova social na lista permitida
 - [ ] Vocabulário PROIBIDO listado explicitamente
 - [ ] CTAs com texto + destino
-- [ ] Hiperlinks `{{handle}}.com/[slug]` mapeados
+- [ ] Hiperlinks `{{DOMINIO}}/[slug]` mapeados
 - [ ] Briefing acionável (SEÇÃO 10)
 - [ ] Decisões pendentes listadas
 

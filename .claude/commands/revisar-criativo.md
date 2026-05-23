@@ -32,7 +32,7 @@ Ver agente `.claude/agents/revisor-criativo.md` (leitura obrigatória + checklis
 3. CTA único e claro
 4. Tom alinhado com tom-de-voz + exemplos-copy-gui
 5. Sem métricas privadas
-6. Hiperlinks padrão `{{handle}}.com/[slug]`
+6. Hiperlinks padrão `{{DOMINIO}}/[slug]`
 7. Variáveis de personalização preservadas
 
 ### Específico do formato (Copy de criativo Meta Ads (headline, primary text, description, CTA button) — texto, NÃO visual (visual = @revisar-visual))

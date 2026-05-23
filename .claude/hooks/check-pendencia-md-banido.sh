@@ -51,7 +51,7 @@ if [[ "$BLOCK" -eq 1 ]]; then
   echo "  - /fechar-pendencia   — encerrar"
   echo ""
   echo "Lista canônica: 901327194775 (Tasks Jade COO)"
-  echo "URL: https://app.clickup.com/{{WORKSPACE_ID}}/v/l/li/901327194775"
+  echo "URL: https://app.clickup.com/30978229/v/l/li/901327194775"
   echo ""
   echo "Ver AGENTS.md §1 + MEMORY.md feedback_pendencias_clickup_unico.md."
   exit 2

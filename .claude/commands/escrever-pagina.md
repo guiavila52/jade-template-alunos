@@ -4,6 +4,18 @@ description: Gera copy de pagina a partir de briefing estrategico aplicando Ligh
 type: skill
 ---
 
+## Tipografia obrigatória pra números
+
+**Regra inviolável (memória `feedback_fonte_display_jamais_em_numeros`):**
+Toda copy que inclua preço, parcelamento, ano, contador, percentual, idade, data, estatística usa fonte UI tabular ou monoespaçada. **JAMAIS fonte display** (Syne, Fraunces, Cormorant) em números — gera kerning estranho e baseline desalinhada.
+
+Quando entregar copy ao dev, sempre marcar números com tag/classe explícita:
+- `<span class="tabular">R$ 697</span>` (Inter Tight tabular-nums)
+- `<span class="mono">15.000</span>` (JetBrains Mono)
+
+Briefing pro dev SEMPRE inclui essa instrução. Reprovação automática do revisor se números renderizarem em display.
+
+
 <!-- Modelo recomendado: claude-sonnet-4-5 -->
 
 ## Copy — Light Copy (obrigatório)
@@ -20,13 +32,13 @@ Antes de escrever copy para qualquer página, ler:
 - FAQ resolve objeções com sinceridade — não tente "quebrar objeção" na força, isso cria mais objeção
 
 
-### Métricas públicas do {{OPERADOR}}
+### Métricas públicas do Gui
 
-Ver `/escrever-copy` seção "Métricas do {{OPERADOR}} — o que pode e o que NÃO pode mencionar publicamente". Regra crítica: **nunca expor faturamento** (R$, MRR, lucro). Sempre usar métricas alternativas (usuários, alunos, cases).
+Ver `/escrever-copy` seção "Métricas do Gui — o que pode e o que NÃO pode mencionar publicamente". Regra crítica: **nunca expor faturamento** (R$, MRR, lucro). Sempre usar métricas alternativas (usuários, alunos, cases).
 
 ### Hiperlinks INLINE
 
-Ver `/escrever-copy` seção "Hiperlinks INLINE — link na palavra, NUNCA URL como texto". Regra crítica: **URL nunca aparece como texto** que o usuário tenha que copiar/colar. Sempre `<a href="https://{{handle}}.com/[slug]" class="link-inline">palavra</a>`. Slugs canônicos: magicaonline, manychat, clickup, clickup8x, level, automacoes, reverso, youtube, mentoria, consultoria, {{empresa_cofundada}} (ver `project_hiperlinks_padrao.md`).
+Ver `/escrever-copy` seção "Hiperlinks INLINE — link na palavra, NUNCA URL como texto". Regra crítica: **URL nunca aparece como texto** que o usuário tenha que copiar/colar. Sempre `<a href="https://{{DOMINIO}}/[slug]" class="link-inline">palavra</a>`. Slugs canônicos: {{produto_slug}}, manychat, clickup, clickup8x, level, automacoes, reverso, youtube, mentoria, consultoria, {{lms_slug}} (ver `project_hiperlinks_padrao.md`).
 
 ---
 
@@ -37,7 +49,7 @@ Squad: copy
 ## Fluxo
 
 ```
-BRIEFING RECEBIDO (da Jade ou do {{OPERADOR}})
+BRIEFING RECEBIDO (da Jade ou do Gui)
         │
         ▼
 [1] Ler segundo-cerebro
@@ -62,7 +74,7 @@ BRIEFING RECEBIDO (da Jade ou do {{OPERADOR}})
         │
         ▼
 [5] Redigir copy completa
-    Tom do {{OPERADOR}} | Light Copy | sem 3 Ps | CTA único
+    Tom do Gui | Light Copy | sem 3 Ps | CTA único
         │
         ▼
 [6] Salvar output
@@ -166,14 +178,14 @@ Ao entregar, registrar em `squads/copy/tarefas.md`:
 
 ## Captura de aprendizado (obrigatório após aprovação ou rejeição)
 
-Quando o {{OPERADOR}} aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
+Quando o Gui aprovar ou rejeitar a entrega, registrar em `aprendizados.md`:
 
 **Se aprovado:**
 ```
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que funcionou:** [o que o {{OPERADOR}} aprovou e por quê]
+**O que funcionou:** [o que o Gui aprovou e por quê]
 **Padrão identificado:** [regra que pode ser reutilizada]
 ```
 
@@ -182,7 +194,7 @@ Quando o {{OPERADOR}} aprovar ou rejeitar a entrega, registrar em `aprendizados.
 ### [título curto do aprendizado]
 **Data:** YYYY-MM-DD
 **Contexto:** [qual era a tarefa]
-**O que não funcionou:** [o que o {{OPERADOR}} rejeitou e por quê]
+**O que não funcionou:** [o que o Gui rejeitou e por quê]
 **Correção aplicada:** [o que mudou na segunda versão]
 **Regra para não repetir:** [o que evitar da próxima vez]
 ```
@@ -193,11 +205,11 @@ Registrar em DOIS lugares:
 
 ### Posicionamento de comunidade
 
-Ver `/escrever-copy` seção "Posicionamento de comunidade/turma em produtos com mentor". Regra crítica em landing pages de mentoria/consultoria/eventos do {{OPERADOR}} — não posicionar comunidade como SEGREDO do produto.
+Ver `/escrever-copy` seção "Posicionamento de comunidade/turma em produtos com mentor". Regra crítica em landing pages de mentoria/consultoria/eventos do Gui — não posicionar comunidade como SEGREDO do produto.
 
 
 ### Prova social
-Ver `/escrever-copy` seção "Prova social — honesta, sobre o GUI, inequívoca". Regra crítica: prova social do {{OPERADOR}} em LP é sobre AUTORIDADE DELE (CEO {{EMPRESA_COFUNDADA}}, autor de livros, YouTube), não números de produto cofundado. Banido: "400k+ usuários" como métrica do {{OPERADOR}}, "N+ empresas" sem fonte, "N continentes".
+Ver `/escrever-copy` seção "Prova social — honesta, sobre o GUI, inequívoca". Regra crítica: prova social do Gui em LP é sobre AUTORIDADE DELE (CEO {{EMPRESA_COFUNDADA}}, autor de livros, YouTube), não números de produto cofundado. Banido: "400k+ usuários" como métrica do Gui, "N+ empresas" sem fonte, "N continentes".
 
 
 
@@ -207,7 +219,7 @@ Ver `/escrever-copy` seções "Vagueza calibrada — copy não afirma números v
 
 - Não afirmar números voláteis em copy (duração, quantidade encontros, valor, bônus, garantia em dias).
 - Info de outro produto não vive aqui — comparativo cross-página usa formato/abordagem, não duração/encontros/valor.
-- Contexto: tarefa #114 (06/05/2026) — {{OPERADOR}} rejeitou "4 meses, 32 encontros" da mentoria na tabela comparativa de /consultoria.
+- Contexto: tarefa #114 (06/05/2026) — Gui rejeitou "4 meses, 32 encontros" da mentoria na tabela comparativa de /consultoria.
 
 ## Bateria de testes (Regra Inviolável #24)
 
@@ -217,21 +229,21 @@ ANTES de marcar entregue:
 3. REPROVADO → corrige + re-revisa até APROVADO
 4. SÓ aí marca entregue em pendencias.md + commita
 
-Jade NUNCA pede pro {{OPERADOR}} testar — testa antes.
+Jade NUNCA pede pro Gui testar — testa antes.
 
 
 ---
 
-## Posicionamento canônico {{APP_PESSOAL}} (14/05/2026)
+## Posicionamento canônico {{Plataforma_Conteudo}} (14/05/2026)
 
-**Atribuição:** {{APP_PESSOAL}} é criação **pessoal do {{OPERADOR}}** — sempre referir em 1ª pessoa singular.
+**Atribuição:** {{Plataforma_Conteudo}} é criação **pessoal do Gui** — sempre referir em 1ª pessoa singular.
 
-- ✅ "{{APP_PESSOAL}} — ferramenta que **eu construí**"
-- ❌ "{{APP_PESSOAL}}, que **a gente construiu**" / "**construímos**" / "**nossa ferramenta**"
+- ✅ "{{Plataforma_Conteudo}} — ferramenta que **eu construí**"
+- ❌ "{{Plataforma_Conteudo}}, que **a gente construiu**" / "**construímos**" / "**nossa ferramenta**"
 
-**Função canônica:** ferramenta pra **facilitar produção de conteúdo + gerar coisas com IA sem precisar mergulhar em automação** (n8n, Make, Zapier — "a forma antiga"; {{APP_PESSOAL}} substitui).
+**Função canônica:** ferramenta pra **facilitar produção de conteúdo + gerar coisas com IA sem precisar mergulhar em automação** (n8n, Make, Zapier — "a forma antiga"; {{Plataforma_Conteudo}} substitui).
 
-**{{NOME_CURSO}} × {{APP_PESSOAL}}:** quando aparece em pitch do curso/mentoria — {{APP_PESSOAL}} **incluído** + **template multi-agentes prontinho** (não 1 agente solto, time de agentes operando junto).
+**Sistema Reverso × {{Plataforma_Conteudo}}:** quando aparece em pitch do curso/mentoria — {{Plataforma_Conteudo}} **incluído** + **template multi-agentes prontinho** (não 1 agente solto, time de agentes operando junto).
 
 **Anti-padrões:**
 - ❌ "plataforma de automação" — NÃO é, é produção de conteúdo
@@ -239,5 +251,5 @@ Jade NUNCA pede pro {{OPERADOR}} testar — testa antes.
 - ❌ Hype: "revolucionário", "primeiro do mercado", "único"
 - ❌ Atribuição coletiva ("a gente", "nós", "nossa equipe")
 
-Memória: `feedback_posicionamento_produto.md`
+Memória: `feedback_posicionamento_{{plataforma_conteudo}}.md`
 

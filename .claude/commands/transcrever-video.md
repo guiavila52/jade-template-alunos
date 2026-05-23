@@ -12,7 +12,7 @@ Skill de transcrição de vídeo (YouTube ou arquivo local) com timestamps por p
 
 ## Quando usar
 
-- {{OPERADOR}} manda URL de YouTube ou path de arquivo de vídeo/áudio e quer o conteúdo em texto.
+- Gui manda URL de YouTube ou path de arquivo de vídeo/áudio e quer o conteúdo em texto.
 - Outras skills (`/escrever-roteiro`, `/escrever-linkedin`, `/criar-carrossel`, `/criar-carrossel-de-video`) recebem URL de YouTube e precisam transcrever antes de processar.
 - `/criar-carrossel-de-video` (atalho ponta-a-ponta) chama `/transcrever-video` automaticamente como passo 1 do fluxo.
 - Captura de aulas, lives, reuniões, podcasts.
@@ -39,7 +39,7 @@ Argumento posicional após o slash command:
 Exemplos:
 - `/transcrever-video https://youtu.be/1U0g08yDg7M`
 - `/transcrever-video https://www.youtube.com/watch?v=abc123`
-- `/transcrever-video $HOME/Downloads/aula.mp4`
+- `/transcrever-video /Users/guiavila/Downloads/aula.mp4`
 - `/transcrever-video https://youtu.be/abc --whisper` → força Whisper e PULA a limpeza Claude (Whisper já é alta qualidade)
 
 Se invocada sem argumento, a Jade pede a URL/path antes de rodar.
@@ -208,7 +208,7 @@ Imprimir JSON com:
 }
 ```
 
-Mostrar ao {{OPERADOR}}: path do arquivo, duração, último timestamp, diff, e SUCESSO/FALHA.
+Mostrar ao Gui: path do arquivo, duração, último timestamp, diff, e SUCESSO/FALHA.
 
 ## Implementação
 
@@ -230,7 +230,7 @@ python3 squads/dev/scripts/transcribe_video.py "URL_OU_PATH" "$(pwd)"
 
 ## Quem chama
 
-- {{OPERADOR}} direto: `/transcrever-video URL` ou `/transcrever-video /path/file.mp4`
+- Gui direto: `/transcrever-video URL` ou `/transcrever-video /path/file.mp4`
 - Outras skills (futuras):
   - `/escrever-roteiro` → recebe URL → chama `/transcrever-video` antes
   - `/escrever-linkedin` → recebe URL → chama `/transcrever-video` antes
@@ -293,7 +293,7 @@ Ao terminar, sempre reportar:
    ↓ (diff <= tol)                (diff > tol)
 [ ✅ SUCESSO                        [ ❌ FALHA
    - linha de validação no fim         - 1 retry automático
-   - reporta JSON ao {{OPERADOR}} ]             - se retry falhar:
+   - reporta JSON ao Gui ]             - se retry falhar:
                                         salva [INCOMPLETA].md
                                         + alerta destacado ]
         ↓                                       ↓

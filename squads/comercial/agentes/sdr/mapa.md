@@ -1,14 +1,14 @@
 # Agente SDR — MAPA
 
 **Squad:** comercial  
-**Status:** ⚪ ESQUELETO (aguardando integração API {{EMPRESA_COFUNDADA}} AI)  
+**Status:** ⚪ ESQUELETO (aguardando integração API {{LMS}} AI)  
 **Última atualização:** 11/05/2026
 
 ---
 
 ## Propósito
 
-Qualificação inicial de lead via WhatsApp. **PROXY para o {{EMPRESA_COFUNDADA}} AI** (sistema que já atende no WhatsApp como SDR hoje).
+Qualificação inicial de lead via WhatsApp. **PROXY para o {{LMS}} AI** (sistema que já atende no WhatsApp como SDR hoje).
 
 ---
 
@@ -28,13 +28,13 @@ Receber lead novo → qualificar interesse/fit → encaminhar pro `@closer` OU d
 
 ## Integrações
 
-- **{{EMPRESA_COFUNDADA}} AI** (CRÍTICO) — proxy pra sistema de WhatsApp que já atende. Pendente: doc API do {{NOME_PARCEIRO_PLATAFORMA}} (CPO {{EMPRESA_COFUNDADA}})
+- **{{LMS}} AI** (CRÍTICO) — proxy pra sistema de WhatsApp que já atende. Pendente: doc API do {{PARCEIRO_PLATAFORMA}} (CPO {{LMS}})
 
 ---
 
 ## Bloqueio atual
 
-Sem doc API do {{EMPRESA_COFUNDADA}} AI, o agente fica esqueleto.
+Sem doc API do {{LMS}} AI, o agente fica esqueleto.
 
 ---
 
@@ -50,7 +50,7 @@ Sem doc API do {{EMPRESA_COFUNDADA}} AI, o agente fica esqueleto.
 
 ## Próximos passos
 
-1. {{NOME_PARCEIRO_PLATAFORMA}} entregar doc API
+1. {{PARCEIRO_PLATAFORMA}} entregar doc API
 2. Implementar `/qualificar-lead` funcional
 3. Testar fluxo lead → qualificação → closer
 4. Promover status → 🔵 EM PROGRESSO

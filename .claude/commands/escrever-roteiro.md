@@ -9,7 +9,7 @@ type: skill
 ## Copy — Light Copy (obrigatório)
 
 Antes de escrever qualquer roteiro, ler:
-1. `segundo-cerebro/01-identidade/banco-de-historias.md` — método Light Copy completo + histórias reais do {{OPERADOR}}
+1. `segundo-cerebro/01-identidade/banco-de-historias.md` — método Light Copy completo + histórias reais do Gui
 2. `segundo-cerebro/01-identidade/tom-de-voz.md` — tom e o que nunca fazer
 3. `segundo-cerebro/02-negocios/canal-youtube.md` — estratégia e contexto do canal
 
@@ -44,7 +44,7 @@ Antes de qualquer roteiro, ler em ordem:
 - CTA para o produto correto na escada de valor
 
 **Camada 2 — Bastidores / Opinionado (meio de funil)**
-- O {{OPERADOR}} mostrando o que está construindo na prática
+- O Gui mostrando o que está construindo na prática
 - Decisões reais, erros reais, bastidores de verdade
 - Gera conexão emocional: "esse cara faz de verdade"
 
@@ -79,7 +79,7 @@ Antes de qualquer roteiro, ler em ordem:
 ## Regras do canal
 
 - O protagonista é sempre o **sistema**, não a ferramenta — "esse é o sistema de banco de ideias, vou te mostrar uma ferramenta que uso dentro dele"
-- Nunca posicionar o {{OPERADOR}} como "especialista em IA" ou "o cara do ClickUp"
+- Nunca posicionar o Gui como "especialista em IA" ou "o cara do ClickUp"
 - A {{EMPRESA_COFUNDADA}} aparece naturalmente, nunca forçada
 - Narrativa da mágica pode aparecer organicamente — nunca forçada
 - Nunca conteúdo enciclopédia: cada vídeo resolve um problema específico
@@ -100,12 +100,12 @@ Entregar o roteiro com:
 - [ ] Tem pelo menos um detalhe específico em vez de afirmação genérica?
 - [ ] O sistema está em evidência (não a ferramenta)?
 - [ ] Um único CTA, adequado ao tipo de vídeo?
-- [ ] Tom bate com o {{OPERADOR}} (direto, acessível, sem "marketês")?
+- [ ] Tom bate com o Gui (direto, acessível, sem "marketês")?
 
 ## Fluxo
 
 ```
-[ {{OPERADOR}} pede roteiro de vídeo do YouTube ]
+[ Gui pede roteiro de vídeo do YouTube ]
         ↓
 [ 1. Ler banco-de-historias + tom + ICP + canal-youtube ] → @roteiro
         ↓
@@ -130,7 +130,7 @@ Entregar o roteiro com:
 [ 5. Checklist obrigatório (6 itens) ] → @roteiro
    sistema em evidência (não a ferramenta)
         ↓
-   ⟶ aguarda aprovação do {{OPERADOR}}
+   ⟶ aguarda aprovação do Gui
         ↓
    ⟶ FIM
 ```
@@ -143,7 +143,7 @@ ANTES de marcar entregue:
 3. REPROVADO → corrige + re-revisa até APROVADO
 4. SÓ aí marca entregue em pendencias.md + commita
 
-Jade NUNCA pede pro {{OPERADOR}} testar — testa antes.
+Jade NUNCA pede pro Gui testar — testa antes.
 
 ---
 
@@ -151,5 +151,5 @@ Jade NUNCA pede pro {{OPERADOR}} testar — testa antes.
 
 - Antes de executar trabalho estrutural, registrar pendência no ClickUp via `/criar-pendencia`
 - Ao concluir, comentar via `/comentar-pendencia` e fechar via `/fechar-pendencia`
-- Aprendizado real (correção do {{OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
+- Aprendizado real (correção do Gui, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
 - Reincidência = falha de processo, escalar imediatamente

@@ -15,7 +15,7 @@ if [[ "$TOOL_NAME" == "Edit" || "$TOOL_NAME" == "Write" || "$TOOL_NAME" == "Note
     echo "Path: $FILE_PATH"
     echo ""
     echo "Antigravity (VSCode extension) tem filtro hard-coded pra Edit/Write em .claude/ que ignora bypassPermissions."
-    echo "Modal de permissão aparece toda vez = atrito infinito pro {{OPERADOR}}."
+    echo "Modal de permissão aparece toda vez = atrito infinito pro Gui."
     echo ""
     echo "✅ USE Bash heredoc:"
     echo "   cat > '.claude/commands/skill.md' <<'EOF'"

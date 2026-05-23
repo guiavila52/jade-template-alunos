@@ -32,7 +32,7 @@ Ver agente `.claude/agents/revisor-copy.md` (leitura obrigatória + checklist).
 3. CTA único e claro
 4. Tom alinhado com tom-de-voz + exemplos-copy-gui
 5. Sem métricas privadas
-6. Hiperlinks padrão `{{handle}}.com/[slug]`
+6. Hiperlinks padrão `{{DOMINIO}}/[slug]`
 7. Variáveis de personalização preservadas
 
 ### Específico do formato (Copy genérica curta (bio, headline, oneliner, descrição, anúncio curto))

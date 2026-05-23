@@ -56,7 +56,7 @@ cat <<'JSONEOF'
 {
   "hookSpecificOutput": {
     "hookEventName": "PreToolUse",
-    "additionalContext": "ALERTA SECRET (Regra Inviolavel #21) — path suspeito detectado. ANTES de prosseguir: (1) rode `grep -rn \\\"\\.env\\\" --include=\\\".env*\\\" .` pra listar .env* existentes; (2) leia `~/.claude/projects/-Users-{{handle}}-Documents-Projetos-IA-{{OPERADOR}}--vila-Squad-Empresa-{{OPERADOR}}--vila/memory/feedback_secrets_em_env_local.md` E `feedback_consultar_protocolo_antes_de_criar_secret.md`; (3) padrao do squad: secret SEMPRE em .env.local + dotenv. Se ja existe .env.local no projeto, USAR esse path — NUNCA inventar caminho novo. Se mesmo assim este path for o correto pra este caso, prossiga; senao, redirecione pro .env.local."
+    "additionalContext": "ALERTA SECRET (Regra Inviolavel #21) — path suspeito detectado. ANTES de prosseguir: (1) rode `grep -rn \\\"\\.env\\\" --include=\\\".env*\\\" .` pra listar .env* existentes; (2) leia `~/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/feedback_secrets_em_env_local.md` E `feedback_consultar_protocolo_antes_de_criar_secret.md`; (3) padrao do squad: secret SEMPRE em .env.local + dotenv. Se ja existe .env.local no projeto, USAR esse path — NUNCA inventar caminho novo. Se mesmo assim este path for o correto pra este caso, prossiga; senao, redirecione pro .env.local."
   }
 }
 JSONEOF

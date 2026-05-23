@@ -25,7 +25,7 @@ Input (Ano anterior fechado)
 6. Detectar alertas e decisões automáticas (se aplicável)
 7. Salvar output em workspace/output/trafego/anuais/{YYYY}.md
   ↓
-Output (relatório estratégico + decisões pra {{OPERADOR}})
+Output (relatório estratégico + decisões pra Gui)
 ```
 
 ## Input
@@ -45,7 +45,7 @@ Análise estratégica anual + plano ano seguinte + budget allocation + metas + r
 6. Budget allocation pro ano seguinte
 7. Roadmap de canais novos a testar
 
-### Decisões estratégicas pra {{OPERADOR}}
+### Decisões estratégicas pra Gui
 - Budget total ano seguinte
 - Distribuição por canal/produto
 - Metas anuais (CPL, ROAS, leads, vendas)
@@ -80,5 +80,5 @@ Esqueleto. A implementar pós-12 meses de dados acumulados + outras 3 cadências
 
 - Antes de executar trabalho estrutural, registrar pendência no ClickUp via `/criar-pendencia`
 - Ao concluir, comentar via `/comentar-pendencia` e fechar via `/fechar-pendencia`
-- Aprendizado real (correção do {{OPERADOR}}, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
+- Aprendizado real (correção do Gui, padrão descoberto) → registrar em `squads/{squad}/agentes/{agente}/aprendizados.md` (Regra §5)
 - Reincidência = falha de processo, escalar imediatamente

@@ -8,15 +8,15 @@ model: claude-opus-4-5
 
 ## Quando usar
 
-- {{OPERADOR}} mandou URL do YouTube → carrossel a partir da transcrição
-- {{OPERADOR}} mandou tema/ângulo solto → estrategista define ângulo único antes da copy
+- Gui mandou URL do YouTube → carrossel a partir da transcrição
+- Gui mandou tema/ângulo solto → estrategista define ângulo único antes da copy
 - Tema vago/ambíguo → essa skill PERGUNTA antes de prosseguir
 
 Pra atalho ponta-a-ponta sem fricção (URL YouTube + tema bem definido), usar `/criar-carrossel-de-video`.
 
 ## Memórias relevantes (ler antes)
 
-1. `~/.claude/projects/-Users-{{handle}}-Documents-Projetos-IA-{{OPERADOR}}--vila-Squad-Empresa-{{OPERADOR}}--vila/memory/project_foco_carrossel_youtube_e_meta_ads.md` — foco macro
+1. `~/.claude/projects/-Users-guiavila-Documents-Projetos-IA-Gui--vila-Squad-Empresa-Gui--vila/memory/project_foco_carrossel_youtube_e_meta_ads.md` — foco macro
 2. `~/.claude/.../memory/feedback_propagacao_correcoes.md` — Regra #19
 3. `~/.claude/.../memory/design_rules_paginas.md` — Cormorant proibida em dígitos (Regra #188)
 4. `segundo-cerebro/01-identidade/banco-de-historias.md` — Light Copy + histórias reais
@@ -33,16 +33,16 @@ INPUT?
 ├─ URL YouTube (youtube.com/watch | youtu.be/...) → /transcrever-video → texto → estrategista
 ├─ Path arquivo de transcrição local → ler arquivo → estrategista
 ├─ Tema bem definido (>20 chars, contexto claro) → estrategista direto
-└─ Tema vago/curto → PERGUNTA ao {{OPERADOR}} antes (ângulo, ICP, qual produto)
+└─ Tema vago/curto → PERGUNTA ao Gui antes (ângulo, ICP, qual produto)
 ```
 
 ## Schema do briefing — passo a passo entre agentes
 
 | De → Pra | Recebe | Entrega |
 |---|---|---|
-| **Jade → estrategista** | input bruto (URL/tema) + transcrição (se vídeo) + ICP do {{OPERADOR}} | ângulo único + narrativa + payoff + qtd lâminas + estrutura hook→desenvolvimento→CTA + tom + refs segundo-cerebro |
+| **Jade → estrategista** | input bruto (URL/tema) + transcrição (se vídeo) + ICP do Gui | ângulo único + narrativa + payoff + qtd lâminas + estrutura hook→desenvolvimento→CTA + tom + refs segundo-cerebro |
 | **estrategista → carrossel (copywriter)** | briefing acima | copy slide-a-slide (Light Copy) + briefing visual por slide (template + texto + autor + número) |
-| **carrossel → squad-imagem** | briefing visual | comandos `{{skill_imagem}}.mjs --template X --texto "..."` por slide |
+| **carrossel → squad-imagem** | briefing visual | comandos `tweet-imagem.mjs --template X --texto "..."` por slide |
 | **squad-imagem → revisor-visual** | pasta com PNGs 1080x1350 | aprovação ou lista de defeitos estéticos |
 | **carrossel → /revisar-carrossel** | roteiro.md | aprovação ou lista de pontos de copy a corrigir |
 | **revisor-visual + revisor-carrossel → Jade** | duplo OK | desbloqueia entrega |
@@ -90,7 +90,7 @@ transcricao_bruta: "..." # só se input foi vídeo
 
 | # | Template | Texto exato | Autor | Handle | Número | Notas |
 |---|---|---|---|---|---|---|
-| 1 | quote | "..." | {{NOME_OPERADOR}} | @{{handle}} | 1/N | hook curto |
+| 1 | quote | "..." | {{NOME_OPERADOR}} | @{{HANDLE_INSTAGRAM}} | 1/N | hook curto |
 | 2 | default | "..." | — | — | 2/N | tweet-card padrão |
 | 3 | lista | título + 3 itens | — | — | 3/N | numerado |
 | 4 | antes-depois | antes/depois | — | — | 4/N | divisão 50/50 |
@@ -114,7 +114,7 @@ workspace/output/carrosseis/YYYY-MM-DD-[slug]/
 
 `[slug]` = 2-4 palavras do tema em kebab-case. Ex: `2026-05-08-orquestracao-vence-modelo`.
 
-## Triple-check obrigatório (antes de entregar ao {{OPERADOR}})
+## Triple-check obrigatório (antes de entregar ao Gui)
 
 1. **`/revisar-carrossel`** — texto/posicionamento. APROVADO ou lista de fixes.
 2. **`revisor-visual` (Agent)** — defeitos estéticos por PNG. APROVADO ou lista.
@@ -143,14 +143,14 @@ Skill detecta input, dispara fluxo. Pergunta se tema vago.
 ### Geração técnica das lâminas (após copywriter aprovar)
 ```bash
 cd "Páginas Astro {{NOME_OPERADOR}}"
-node scripts.mjs \
+node scripts/tweet-imagem.mjs \
   --template default \
   --texto "..." \
   --autor "{{NOME_OPERADOR}}" \
-  --handle "@{{handle}}" \
+  --handle "@{{HANDLE_INSTAGRAM}}" \
   --foto /caminho/foto-gui.jpg \
   --numero "1/5" \
-  --output "../{{NOME_SQUAD}}tput/carrosseis/YYYY-MM-DD-[slug]/slide-1.png"
+  --output "../Squad Empresa {{NOME_OPERADOR}}/workspace/output/carrosseis/YYYY-MM-DD-[slug]/slide-1.png"
 ```
 
 5 templates disponíveis: `default` (tweet card), `quote` (autoral grande), `lista` (numerada), `antes-depois` (50/50), `story` (número GIGANTE).
@@ -165,7 +165,7 @@ Ao finalizar:
 ## Fluxo
 
 ```
-[ {{OPERADOR}} dispara /criar-carrossel <input> ]
+[ Gui dispara /criar-carrossel <input> ]
         ↓
 [ Jade detecta tipo de input ]
    │
@@ -175,7 +175,7 @@ Ao finalizar:
    │                         ↓
    ├─ Tema definido → segue direto
    │                         ↓
-   └─ Tema vago → ⟶ PERGUNTA ao {{OPERADOR}}
+   └─ Tema vago → ⟶ PERGUNTA ao Gui
                             ↓
 [ estrategista (squad-gestao) ]
    define: ângulo único + narrativa + payoff + qtd lâminas + estrutura + tom
@@ -191,7 +191,7 @@ Ao finalizar:
    ⟶ /revisar-carrossel (loop até APROVADO)
         ↓
 [ squad-imagem ]
-   pra cada slide: roda {{skill_imagem}}.mjs com flags do briefing-visual
+   pra cada slide: roda tweet-imagem.mjs com flags do briefing-visual
    output: slide-01.png ... slide-NN.png em workspace/output/carrosseis/[slug]/
         ↓
 [ revisor-visual (Agent squad-dev) ]
@@ -202,16 +202,16 @@ Ao finalizar:
         ↓
 [ Atualizar MAPA + aprendizados (Regra #10 + #19) ]
         ↓
-[ Apresenta ao {{OPERADOR}} ]
+[ Apresenta ao Gui ]
    pasta workspace/output/carrosseis/[slug]/ completa
    sumário: copy + thumbs dos PNGs + path
         ↓
-   ⟶ FIM (aguarda aprovação final do {{OPERADOR}})
+   ⟶ FIM (aguarda aprovação final do Gui)
 ```
 
 ## Captura de aprendizado (Regra #19 — obrigatório após aprovação ou rejeição)
 
-Quando {{OPERADOR}} aprovar/rejeitar, registrar em DOIS lugares:
+Quando Gui aprovar/rejeitar, registrar em DOIS lugares:
 1. `squads/conteudo/agentes/designer-conteudo/aprendizados.md` (nível agente)
 2. `squads/conteudo/aprendizados.md` (se for padrão do squad inteiro)
 
@@ -222,7 +222,7 @@ Template:
 ### [título curto]
 **Data:** YYYY-MM-DD | **Slug:** [slug]
 **Contexto:** [tema + input]
-**O que funcionou:** [o que o {{OPERADOR}} aprovou e por quê]
+**O que funcionou:** [o que o Gui aprovou e por quê]
 **Padrão identificado:** [regra reutilizável]
 ```
 
@@ -230,7 +230,7 @@ Template:
 ```
 ### [título curto]
 **Data:** YYYY-MM-DD | **Slug:** [slug]
-**O que não funcionou:** [o que o {{OPERADOR}} rejeitou]
+**O que não funcionou:** [o que o Gui rejeitou]
 **Correção aplicada:** [o que mudou]
 **Regra para não repetir:** [Regra #19 → propaga em 4 lugares: skill produtor + skill revisor + memória + retrofit]
 ```
@@ -252,4 +252,4 @@ ANTES de marcar entregue:
 3. REPROVADO → corrige + re-revisa até APROVADO
 4. SÓ aí marca entregue em pendencias.md + commita
 
-Jade NUNCA pede pro {{OPERADOR}} testar — testa antes.
+Jade NUNCA pede pro Gui testar — testa antes.

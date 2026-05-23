@@ -8,10 +8,10 @@ set -euo pipefail
 # Captura o comando Bash completo sendo executado
 BASH_CMD="$*"
 
-# Detecta se é PATCH via {{APP_PESSOAL}} API
-if [[ "$BASH_CMD" =~ curl.*-X\ PATCH.*{{app_pessoal}}\.{{handle}}\.com/api/content/newsletters ]]; then
+# Detecta se é PATCH via {{Plataforma_Conteudo}} API
+if [[ "$BASH_CMD" =~ curl.*-X\ PATCH.*{{plataforma_conteudo}}\.guiavila\.com/api/content/newsletters ]]; then
   
-  OUTPUT_DIR="$CLAUDE_PROJECT_DIR
+  OUTPUT_DIR="~/Documents/Projetos IA Gui Ávila/Squad Empresa Gui Ávila/workspace/output/newsletter"
   
   # Critério 1 — Arquivo de revisão aprovado pelo revisor independente (< 24h)
   REVISAO_APROVADO=$(find "$OUTPUT_DIR" -name "*REVISAO-APROVADO*.md" -mtime -1 2>/dev/null | head -n1)
@@ -19,7 +19,7 @@ if [[ "$BASH_CMD" =~ curl.*-X\ PATCH.*{{app_pessoal}}\.{{handle}}\.com/api/conte
   # Critério 2 — Body HTML real do painel baixado após último PATCH (< 24h)
   EMAIL_REAL=$(find "$OUTPUT_DIR" -name "*EMAIL-REAL-INBOX*.html" -mtime -1 2>/dev/null | head -n1)
   
-  # Critério 3 — Screenshot Gmail real do {{OPERADOR}} (< 6h) — OPCIONAL mas avisa
+  # Critério 3 — Screenshot Gmail real do Gui (< 6h) — OPCIONAL mas avisa
   TESTE_INBOX=$(find "$OUTPUT_DIR" -name "*TESTE-INBOX-OK*.png" -mmin -360 2>/dev/null | head -n1)
   
   # Bloqueia se faltar 1 ou 2 (evidências obrigatórias)
@@ -40,7 +40,7 @@ if [[ "$BASH_CMD" =~ curl.*-X\ PATCH.*{{app_pessoal}}\.{{handle}}\.com/api/conte
   # Avisa se faltar critério 3 (soft warning, não bloqueia)
   if [[ -z "$TESTE_INBOX" ]]; then
     echo "⚠️  ATENÇÃO: Não encontrado screenshot Gmail real (*TESTE-INBOX-OK*.png < 6h)."
-    echo "Hook permite passar, mas recomenda aprovação visual do {{OPERADOR}} antes de produção."
+    echo "Hook permite passar, mas recomenda aprovação visual do Gui antes de produção."
   fi
   
   # Passou — evidências suficientes
