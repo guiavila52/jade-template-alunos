@@ -35,7 +35,7 @@ const wrappedHtml = `
   const pageDesktop = await browser.newPage({ viewport: { width: 700, height: 800 } });
   await pageDesktop.setContent(wrappedHtml, { waitUntil: 'networkidle' });
   await pageDesktop.screenshot({ 
-    path: `/Users/guiavila/Documents/Projetos IA Gui Ávila/Jade - Time Gui Ávila/workspace/output/newsletter/screenshots/${slug}-desktop-600.png`, 
+    path: `{{PROJECT_ROOT}}/workspace/output/newsletter/screenshots/${slug}-desktop-600.png`, 
     fullPage: true 
   });
   
@@ -43,7 +43,7 @@ const wrappedHtml = `
   const pageMobile = await browser.newPage({ viewport: { width: 375, height: 667 } });
   await pageMobile.setContent(wrappedHtml, { waitUntil: 'networkidle' });
   await pageMobile.screenshot({ 
-    path: `/Users/guiavila/Documents/Projetos IA Gui Ávila/Jade - Time Gui Ávila/workspace/output/newsletter/screenshots/${slug}-mobile-375.png`, 
+    path: `{{PROJECT_ROOT}}/workspace/output/newsletter/screenshots/${slug}-mobile-375.png`, 
     fullPage: true 
   });
   

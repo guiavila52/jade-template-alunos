@@ -3,7 +3,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { dirname } from 'path';
 
 const url = 'http://localhost:4321/reverso-v2';
-const outputDir = '/Users/guiavila/Documents/Projetos IA Gui Ávila/Jade - Time Gui Ávila/workspace/output/screenshots-revisao';
+const outputDir = '{{PROJECT_ROOT}}/workspace/output/screenshots-revisao';
 
 const shots = [
   { name: 'reverso-v2-desktop-light-FIXED', width: 1280, height: 720, theme: 'light' },

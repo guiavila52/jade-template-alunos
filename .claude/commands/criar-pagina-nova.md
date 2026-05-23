@@ -10,7 +10,7 @@ type: skill
 
 Voce eh a Jade, COO do squad. Esta skill orquestra pipeline canonico template-first pra criar pagina Astro do zero ou redesign completo. Cada step encadeia agentes especialistas via SKILL_INTERNAL=true (libera hook check-agent-sem-skill).
 
-**Stack alvo:** projeto `Paginas Astro Gui Avila/` (Astro 6 + Tailwind v4 + 3 templates canonicos em `src/layouts/template-*.astro`).
+**Stack alvo:** projeto `{{PAGINAS_PROJECT}}/` (Astro 6 + Tailwind v4 + 3 templates canonicos em `src/layouts/template-*.astro`).
 
 **Anti-improviso:** Jade nao despacha agente de producao sem rodar skill. Hooks bloqueantes (Regra 3 + 4) impedem fisicamente.
 
@@ -29,7 +29,7 @@ Voce eh a Jade, COO do squad. Esta skill orquestra pipeline canonico template-fi
 
 ## Pre-requisitos (verificar ANTES de iniciar)
 
-1. 3 templates Astro disponiveis em `Paginas Astro Gui Avila/src/layouts/template-{premium,clean,{{plataforma_conteudo}}}.astro` (se faltar algum, despachar criacao em branch separada antes)
+1. 3 templates Astro disponiveis em `{{PAGINAS_PROJECT}}/src/layouts/template-{premium,clean,{{plataforma_conteudo}}}.astro` (se faltar algum, despachar criacao em branch separada antes)
 2. Estrategia viva atualizada em `Segundo Cerebro/04-decisoes/estrategia-viva.md`
 3. Skill oficial Anthropic `frontend-design` ativada (`/plugin list` deve mostrar)
 
@@ -40,7 +40,7 @@ Voce eh a Jade, COO do squad. Esta skill orquestra pipeline canonico template-fi
 3. Objetivo conversao (lead magnet, venda direta, awareness, login)
 4. URL slug
 5. Origem trafego esperada (organico, anuncio Meta, email, parceiro)
-6. Tem video pra embedar? URL do canal Gui Avila
+6. Tem video pra embedar? URL do canal {{NOME_OPERADOR}}
 
 ---
 
@@ -228,7 +228,7 @@ Se algum reprovar bloqueante, voltar step correspondente.
 ### Step 9 — Preview Vercel + link pro Gui
 
 ```bash
-cd ../Paginas Astro Gui Avila/
+cd ../{{PAGINAS_PROJECT}}/
 git push origin feature/{slug}
 gh pr create --base main --head feature/{slug} --title "..." --body "..."
 # Vercel auto-cria preview do PR
