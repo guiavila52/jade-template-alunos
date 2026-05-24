@@ -71,13 +71,13 @@ Nenhum projeto ativo no momento (agente criado em 11/05/2026, ainda sem históri
 
 | Data | Evento |
 |---|---|
-| 11/05/2026 | Agente criado (Onda B2) — estrutura esqueleto + skill `/analisar-fiscal` |
+| 11/05/2026 | Agente criado (Onda B2) — estrutura esqueleto + skill `/analisar-resultados` |
 
 ---
 
 ## Próximos passos
 
-1. Implementar `/analisar-fiscal` funcional (integração {{PLATAFORMA_NF}} + {{BANCO_PJ}})
+1. Implementar `/analisar-resultados` funcional (integração {{PLATAFORMA_NF}} + {{BANCO_PJ}})
 2. Criar dashboard de DRE em Supabase + app/
 3. Criar skill `/relatar-financeiro` (relatório mensal/trimestral automático)
 4. Primeira análise fiscal manual com Gui para calibrar output esperado

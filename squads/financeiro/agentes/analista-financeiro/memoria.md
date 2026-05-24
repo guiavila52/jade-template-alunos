@@ -6,11 +6,11 @@ Consultar extrato bancário, emitir NF, monitorar entradas e saídas, gerar rela
 
 ## Status
 
-🟢 MADURA — Skill `/consultar-nf` testada ponta-a-ponta em caso real, 100% confiável (12/05/2026).
+🟢 MADURA — Skill `/registrar-financeiro` testada ponta-a-ponta em caso real, 100% confiável (12/05/2026).
 
 ## Skills operacionais
 
-### `/consultar-nf` (12/05/2026 — 🟢 MADURA)
+### `/registrar-financeiro` (12/05/2026 — 🟢 MADURA)
 
 Consulta NF via API {{PLATAFORMA_NF}} com busca por:
 - **CPF/CNPJ** — busca via paginação + filtro local
@@ -43,11 +43,11 @@ Consulta NF via API {{PLATAFORMA_NF}} com busca por:
 - Cliente: TSM FAé Treinamentos LTDA (CNPJ 00.000.000/0000-00, email cliente@exemplo.com)
 - Resultado: ✅ Skill 100% funcional — paginação OK, filtros OK, retry OK, rate limit tratado
 - NF não encontrada (possível: emitida pra outro email/CPF, ou período > 60 dias)
-- Transcript: `workspace/output/financeiro/teste-consultar-nf-{{contadora}}-2026-05-12.md`
+- Transcript: `workspace/output/financeiro/teste-registrar-financeiro-{{contadora}}-2026-05-12.md`
 
 **Doc completa:** 
-- Skill: `.claude/commands/consultar-nf.md`
-- Script: `scripts/financeiro/consultar-nf.py`
+- Skill: `.claude/commands/registrar-financeiro.md`
+- Script: `scripts/financeiro/registrar-financeiro.py`
 - Histórico {{PLATAFORMA_NF}}: `segundo-cerebro/03-operacao/{{plataforma_nf}}-historico.md`
 
 ## Contabilidade online (07/05/2026)

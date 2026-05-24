@@ -266,7 +266,7 @@ Repo público `github.com/{{GITHUB_USER}}/jade` é **território aluno**. Alunos
    - `segundo-cerebro/` (knowledge atemporal — só vai estrutura vazia)
    - `workspace/historico-mudancas/` (histórico interno)
    - Skill `/publicar-jade` em si (não tem por que aluno publicar pra si mesmo)
-   - Skills específicas do Gui: `/consultar-nf`, ``, ``, ``, ``
+   - Skills específicas do Gui: `/registrar-financeiro`, ``, ``, ``, ``
 
 3. **Vai pro template (sanitizado):**
    - Framework: `AGENTS.md`, `CLAUDE.md`, `IDENTIDADE.md` (com placeholders `{{NOME_OPERADOR}}` etc), `MEMORY.md` (vazio), `README.md`

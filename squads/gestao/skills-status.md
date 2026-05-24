@@ -99,7 +99,7 @@
 | Skill | Agente | Maturidade | Bloqueios | Próximo passo |
 |---|---|---|---|---|
 | `/transcrever-video` | — | 🟡 FUNCIONAL | usa yt-dlp + Whisper, funciona mas sem tratamento de erro robusto | adicionar Regra #22 (timeout + retry) |
-| `/tweet-imagem` | — | 🔵 EM PROGRESSO | HTML→PNG via Playwright, funciona mas trava silenciosamente em alguns casos (bug conhecido Onda 9) | fix confiabilidade Regra #22 |
+| `/gerar-imagem` | — | 🔵 EM PROGRESSO | HTML→PNG via Playwright, funciona mas trava silenciosamente em alguns casos (bug conhecido Onda 9) | fix confiabilidade Regra #22 |
 | `/revisar-visual` | revisor-visual | 🟡 FUNCIONAL | falta uso em 3+ outputs visuais | consolidar padrões |
 
 ---
@@ -108,8 +108,8 @@
 
 | Skill | Agente | Maturidade | Bloqueios | Próximo passo |
 |---|---|---|---|---|
-| `/consultar-nf` | financeiro | ⚪ MADURA | — | integração {{PLATAFORMA_NF}} API funcional, em uso |
-| `/analisar-fiscal` | financeiro | ⚪ ESQUELETO | integração {{BANCO_PJ}} API não implementada | aguarda chave API + endpoint |
+| `/registrar-financeiro` | financeiro | ⚪ MADURA | — | integração {{PLATAFORMA_NF}} API funcional, em uso |
+| `/analisar-resultados` | financeiro | ⚪ ESQUELETO | integração {{BANCO_PJ}} API não implementada | aguarda chave API + endpoint |
 
 ---
 
@@ -162,7 +162,7 @@
 
 Skills com implementação parcial/esqueleto que NÃO dependem de API externa:
 
-1. **`/tweet-imagem`** (🔵 → 🟢) — fix confiabilidade Regra #22 (timeout + stderr + retry). Onda 9 já atacou, validar se resolveu.
+1. **`/gerar-imagem`** (🔵 → 🟢) — fix confiabilidade Regra #22 (timeout + stderr + retry). Onda 9 já atacou, validar se resolveu.
 2. **`/publicar-jade`** (🔵 → 🟢) — auditoria de PII + workflow completo.
 3. **`/configurar-squad`** (🔵 → 🟢) — testar com 1 aluno beta.
 4. **`/escrever-newsletter`** (🟡 → 🟢) — adicionar bateria #24 + rodar em 3+ edições.
@@ -192,7 +192,7 @@ Skills que aguardam integração externa funcionar:
 1. **`/impulsionar-organico`** (⚪ → 🟡) — aguarda MCP Meta Ads funcional.
 2. **`/relatar-trafego`** (⚪ → 🟡) — aguarda MCP Meta Ads + Google Ads.
 3. **`/otimizar-campanha`** (⚪ → 🟡) — aguarda MCP Meta Ads.
-4. **`/analisar-fiscal`** (⚪ → 🟡) — aguarda chave API {{BANCO_PJ}} + endpoint.
+4. **`/analisar-resultados`** (⚪ → 🟡) — aguarda chave API {{BANCO_PJ}} + endpoint.
 5. **`/monitorar-concorrentes`** (⚪ → 🟡) — aguarda definição de fontes de dados.
 6. **`/varrer-tendencias`** (⚪ → 🟡) — aguarda definição de fontes.
 7. **`/consultar-leads`** (⚪ → 🟡) — aguarda MCP GHL consolidado.
@@ -221,7 +221,7 @@ Skills que precisam de auditoria de propósito antes de atacar:
 
 ## Top 5 skills atacáveis AGORA (sem dependência externa)
 
-1. **`/tweet-imagem`** — bug conhecido (Onda 9), fix confiabilidade é crítico.
+1. **`/gerar-imagem`** — bug conhecido (Onda 9), fix confiabilidade é crítico.
 2. **`/revisar-copy-pagina`** — adicionar cláusula Regra #24 (30min).
 3. **`/revisar-codigo-pagina`** — adicionar cláusula Regra #24 (30min).
 4. **`/publicar-jade`** — auditoria PII + workflow (1-2h).
@@ -234,7 +234,7 @@ Skills que precisam de auditoria de propósito antes de atacar:
 1. **`/impulsionar-organico`** — aguarda MCP Meta Ads funcional.
 2. **`/relatar-trafego`** — aguarda MCP Meta Ads + Google Ads.
 3. **`/otimizar-campanha`** — aguarda MCP Meta Ads.
-4. **`/analisar-fiscal`** — aguarda chave API {{BANCO_PJ}}.
+4. **`/analisar-resultados`** — aguarda chave API {{BANCO_PJ}}.
 5. **`/disparar-newsletter`** — aguarda plataforma de email definida.
 
 ---
@@ -251,7 +251,7 @@ Skills que precisam de auditoria de propósito antes de atacar:
 
 **Sugestão:** atacar Onda A — 18 skills atacáveis sem dependência externa. Priorizar por caminho crítico:
 
-1. **`/tweet-imagem`** (bloqueia carrosseis) → ataca primeiro.
+1. **`/gerar-imagem`** (bloqueia carrosseis) → ataca primeiro.
 2. **`/revisar-copy-pagina` + `/revisar-codigo-pagina`** (Regra #24 obrigatória) → ataca segundo.
 3. **Resto da Onda A** em paralelo conforme disponibilidade.
 
@@ -274,7 +274,7 @@ Skills ⚪ não-maduras movidas pra `workspace/skills-arquivadas/` (fora do esca
 - impulsionar-organico
 - relatar-trafego
 - otimizar-campanha
-- analisar-fiscal
+- analisar-resultados
 - monitorar-concorrentes
 - varrer-tendencias
 - consultar-leads
@@ -287,4 +287,4 @@ Skills ⚪ não-maduras movidas pra `workspace/skills-arquivadas/` (fora do esca
 
 Pra retomar uma skill arquivada: `mv workspace/skills-arquivadas/{nome}.md .claude/commands/{nome}.md` + adicionar override em settings.json se aplicável.
 
-Nota: `/consultar-nf` aparece marcada como `⚪ MADURA` na tabela do squad FINANCEIRO (linha 111) — classificação contraditória; texto confirma "integração {{PLATAFORMA_NF}} API funcional, em uso" → mantida ativa (não arquivada).
+Nota: `/registrar-financeiro` aparece marcada como `⚪ MADURA` na tabela do squad FINANCEIRO (linha 111) — classificação contraditória; texto confirma "integração {{PLATAFORMA_NF}} API funcional, em uso" → mantida ativa (não arquivada).

@@ -623,7 +623,7 @@ SKILLS_PRODUTORAS=(
   escrever-linkedin escrever-roteiro
   escrever-estrategia atualizar-estrategia revisar-estrategia
   impulsionar-organico relatar-trafego otimizar-campanha
-  varrer-squads rotina-gui-ausente tweet-imagem
+  varrer-squads rotina-gui-ausente gerar-imagem
 )
 for s in "${SKILLS_PRODUTORAS[@]}"; do
   f=".claude/commands/${s}.md"

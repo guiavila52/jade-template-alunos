@@ -63,7 +63,7 @@ Sob demanda (Read quando relevante):
 | copy | copywriter, copywriter | `/escrever-copy`, `/escrever-pagina` |
 | dev | desenvolvedor-frontend, devops | `/criar-pagina-nova`, `/publicar-pagina` |
 | trafego | gestor-trafego, especialista-email, revisor-criativo | `/criar-criativo`, `/relatar-trafego`, `/auditar-entregabilidade-email` |
-| financeiro | analista-financeiro, contador | `/consultar-nf`, `/analisar-fiscal` |
+| financeiro | analista-financeiro, contador | `/registrar-financeiro`, `/analisar-resultados` |
 | comercial | sdr, closer, customer-success | `/qualificar-lead`, `/fechar-venda` |
 | radar | analista-mercado, analista-tendencias | `/monitorar-concorrentes`, `/varrer-tendencias` |
 

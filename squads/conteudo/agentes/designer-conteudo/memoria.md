@@ -45,7 +45,7 @@ Output esperado do agente carrossel:
 ## Cadeia de despacho
 
 ```
-estrategista → carrossel (você) → squad-imagem (HTML→PNG via tweet-imagem.mjs) → revisor-visual + revisor-carrossel
+estrategista → carrossel (você) → squad-imagem (HTML→PNG via gerar-imagem.mjs) → revisor-visual + revisor-carrossel
 ```
 
 ---

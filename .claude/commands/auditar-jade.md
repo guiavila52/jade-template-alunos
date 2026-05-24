@@ -27,14 +27,14 @@ Roda **auditoria adversarial completa** do repo público `{{GITHUB_USER}}/jade` 
 |---|---|---|---|
 | 1 | Nome operador | `\bgui\s?[áa]vila\b\|\bguiavila\b` | Nome próprio do dono do squad |
 | 2 | Paths absolutos | `/Users/[a-z]+` ou `/home/[a-z]+` | Username do sistema operacional |
-| 3 | Nomes pessoais | `Luiz Fosc\|{{NOME_SUPORTE}}\|{{NOME_PARCEIRO_PLATAFORMA}}\|\|{{NOME_BACKUP_ADMIN}}\|{{CONTADORA}}\|cliente_exemplo` | Parceiros, suporte, clientes |
+| 3 | Nomes pessoais | `{{COFUNDADOR}}\|{{NOME_SUPORTE}}\|{{NOME_PARCEIRO_PLATAFORMA}}\|\|{{NOME_BACKUP_ADMIN}}\|{{CONTADORA}}\|cliente_exemplo` | Parceiros, suporte, clientes |
 | 4 | Empresas reais | `{{EMPRESA_COFUNDADA}}\|{{EMPRESA_HOLDING}}\|{{EMPRESA_NEGOCIO}}\|{{plataforma_conteudo}}` (case insensitive, não-placeholder) | Empresas do operador |
 | 5 | ClickUp Task IDs | `\b86[a-z0-9]{7,8}\b` | IDs rastreáveis de tasks internas |
 | 6 | MCP privados | `{{mcp_privado}}` (e qualquer outro registrado) | MCP servers proprietários |
 | 7 | Emails reais | `@(gmail\|hotmail\|outlook)\.com` (exceto `@exemplo`) | Endereços reais |
 | 8 | CNPJs reais | `[0-9]{2}\.[0-9]{3}\.[0-9]{3}/[0-9]{4}-[0-9]{2}` (exceto `00.000.000`) | Documentos fiscais reais |
 | 9 | Workspace IDs | `\b30978229\b` (e outros IDs ClickUp/{{PLATAFORMA_NF}}) | Identificadores de contas externas |
-| 10 | Skills só do operador | `consultar-nf\|publicar-{{plataforma_conteudo}}\|responder-{{suporte}}\|tweet-imagem\|analisar-fiscal` | Skills que não fazem sentido pro aluno |
+| 10 | Skills só do operador | `registrar-financeiro\|publicar-{{plataforma_conteudo}}\|responder-{{suporte}}\|gerar-imagem\|analisar-resultados` | Skills que não fazem sentido pro aluno |
 | 11 | API tokens | `sk_(test\|live)_\|pk_[A-Za-z0-9]{20,}\|AKIA[A-Z0-9]{16}\|ghp_\|github_pat_` | Chaves de API expostas |
 | 12 | Arquivos perigosos | `.mcp.json\|feedback_*.md\|*.preFix*\|*.bak*\|.secrets.baseline` | Arquivos que vazam config privada |
 | 13 | Docs de produtos paralelos | `\b(PRD\|business-rules\|database\|integrations)\.md\b` | Documentação de apps internos |
@@ -59,13 +59,13 @@ cd "$CLONE_DIR"
 declare -A CHECKS
 
 # 1. Nome operador
-CHECKS[1_nome_operador]=$(grep -rEi '\bgui\s?[áa]vila\b|\bguiavila\b' . 2>/dev/null | grep -v '.git/' | wc -l | tr -d ' ')
+C1=$(grep -rEi '\bgui\s?[áa]vila\b|\bguiavila\b' . 2>/dev/null | grep -v '.git/' | grep -v 'README.md' | grep -v 'jade-iniciar.md' | wc -l | tr -d ' ')
 
 # 2. Paths absolutos
 CHECKS[2_paths_users]=$(grep -rE '/Users/[a-z]+|/home/[a-z]+' . 2>/dev/null | grep -v '.git/' | wc -l | tr -d ' ')
 
 # 3. Nomes pessoais (HARDCODED — atualizar se mudar quem opera o squad principal)
-CHECKS[3_nomes_pessoais]=$(grep -rE '\b(Luiz Fosc|{{NOME_SUPORTE}}|{{NOME_PARCEIRO_PLATAFORMA}}||{{NOME_BACKUP_ADMIN}}|{{CONTADORA}}|cliente_exemplo)\b' . 2>/dev/null | grep -v '.git/' | wc -l | tr -d ' ')
+CHECKS[3_nomes_pessoais]=$(grep -rE '\b({{COFUNDADOR}}|{{NOME_SUPORTE}}|{{NOME_PARCEIRO_PLATAFORMA}}||{{NOME_BACKUP_ADMIN}}|{{CONTADORA}}|cliente_exemplo)\b' . 2>/dev/null | grep -v '.git/' | wc -l | tr -d ' ')
 
 # 4. Empresas reais
 CHECKS[4_empresas]=$(grep -rEi '\b({{lms_slug}}|fatorial|magica online|magica_online|{{plataforma_conteudo}})\b' . 2>/dev/null | grep -v '{{' | grep -v '.git/' | wc -l | tr -d ' ')
@@ -86,7 +86,7 @@ CHECKS[8_cnpj]=$(grep -rE '[0-9]{2}\.[0-9]{3}\.[0-9]{3}/[0-9]{4}-[0-9]{2}' . 2>/
 CHECKS[9_workspace_ids]=$(grep -rE '\b30978229\b|\b{{META_AD_ACCOUNT_ID}}\b|\b{{META_APP_ID}}\b|\b{{META_BM_ID}}\b' . 2>/dev/null | grep -v '.git/' | wc -l | tr -d ' ')
 
 # 10. Skills só do operador
-CHECKS[10_skills_operador]=$(grep -rE 'consultar-nf|publicar-{{plataforma_conteudo}}|responder-{{suporte}}|tweet-imagem|analisar-fiscal' . 2>/dev/null | grep -v '.git/' | wc -l | tr -d ' ')
+CHECKS[10_skills_operador]=$(grep -rE 'registrar-financeiro|publicar-{{plataforma_conteudo}}|responder-{{suporte}}|gerar-imagem|analisar-resultados' . 2>/dev/null | grep -v '.git/' | wc -l | tr -d ' ')
 
 # 11. API tokens
 CHECKS[11_api_tokens]=$(grep -rE 'sk_(test|live)_[a-zA-Z0-9]{10,}|pk_[a-zA-Z0-9]{20,}|AKIA[A-Z0-9]{16}|ghp_[a-zA-Z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}' . 2>/dev/null | grep -v '.git/' | wc -l | tr -d ' ')
@@ -137,7 +137,7 @@ done
   echo ""
   if [ "$TOTAL" != "0" ]; then
     echo '```'
-    grep -rEi '\bgui\s?[áa]vila\b|/Users/[a-z]+|Luiz Fosc|{{NOME_SUPORTE}}|\b{{lms_slug}}\b|\bfatorial\b|\b{{plataforma_conteudo}}\b|\b86[a-z0-9]{7,8}\b|{{mcp_privado}}|consultar-nf|publicar-{{plataforma_conteudo}}|responder-{{suporte}}|\b(PRD|business-rules|database|integrations)\.md\b' . 2>/dev/null | grep -v '.git/' | grep -v '{{' | head -20
+    grep -rEi '\bgui\s?[áa]vila\b|/Users/[a-z]+|{{COFUNDADOR}}|{{NOME_SUPORTE}}|\b{{lms_slug}}\b|\bfatorial\b|\b{{plataforma_conteudo}}\b|\b86[a-z0-9]{7,8}\b|{{mcp_privado}}|registrar-financeiro|publicar-{{plataforma_conteudo}}|responder-{{suporte}}|\b(PRD|business-rules|database|integrations)\.md\b' . 2>/dev/null | grep -v '.git/' | grep -v '{{' | head -20
     echo '```'
   else
     echo "_Nenhum vazamento detectado._"
@@ -217,7 +217,7 @@ Quando descobrir novo dado sensível (ex: cliente novo, parceiro novo, MCP novo,
 
 ## Histórico
 
-- **2026-05-18:** Skill criada após red team encontrar 78 vazamentos em primeira publicação do `{{GITHUB_USER}}/jade` (PRD, paths absolutos, Luiz Fosc, ClickUp IDs, memórias `feedback_*.md`, MCP `{{mcp_privado}}`, etc). Decisão Gui: "Eu quero que você crie uma skill pra eu rodar ela de tempos em tempos pra garantir que é uma auditoria completa."
+- **2026-05-18:** Skill criada após red team encontrar 78 vazamentos em primeira publicação do `{{GITHUB_USER}}/jade` (PRD, paths absolutos, {{COFUNDADOR}}, ClickUp IDs, memórias `feedback_*.md`, MCP `{{mcp_privado}}`, etc). Decisão Gui: "Eu quero que você crie uma skill pra eu rodar ela de tempos em tempos pra garantir que é uma auditoria completa."
 
 ## Como agendar pra rodar semanal
 

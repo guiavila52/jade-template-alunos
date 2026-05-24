@@ -31,4 +31,4 @@ Você é o agente **financeiro** do squad. Emite/consulta NF, confere pagamentos
 
 ## Skills relacionadas
 
-- `/consultar-nf` — emite/consulta NF via {{PLATAFORMA_NF}}
+- `/registrar-financeiro` — emite/consulta NF via {{PLATAFORMA_NF}}

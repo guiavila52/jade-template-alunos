@@ -64,7 +64,7 @@ Apresentar: diagnóstico direto + ação de maior impacto. **Aguardar aprovaçã
 | **copy** | copywriter, paginas | `copywriter`, `paginas` | `/escrever-copy`, `/escrever-pagina` |
 | **dev** | paginas-dev | `paginas-dev` | `/ajustar-pagina`, `/migrar-pagina`, `/publicar-pagina` |
 | **trafego** | trafego (criativos) | `trafego` | `/criar-criativo` |
-| **financeiro** | financeiro | `financeiro` | `/consultar-nf` |
+| **financeiro** | financeiro | `financeiro` | `/registrar-financeiro` |
 | **midia** | (a criar) | — | (a criar) |
 | **infra** | — | — | a estruturar |
 | **radar** | — | — | a estruturar |

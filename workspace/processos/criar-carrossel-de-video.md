@@ -63,7 +63,7 @@ Gui: "quero carrossel sobre [URL YouTube ou tema]"
 └─────────────────────────────────────────────────────┘
    ↓
 ┌─────────────────────────────────────────────────────┐
-│ SQUAD-IMAGEM (tweet-imagem.mjs)                     │
+│ SQUAD-IMAGEM (gerar-imagem.mjs)                     │
 │ - Pra cada slide: HTML→PNG (Playwright screenshot)  │
 │ - Dimensões: 1080x1350, ≤ 500KB                     │
 │ - Fontes: Syne+Inter (NUNCA Cormorant em números)  │
@@ -99,7 +99,7 @@ Gui aprova → Jade marca tarefa concluída em pendencias.md
 | `/criar-carrossel` | (skill mãe genérica) | encadeia estrategista→copywriter→imagem |
 | `/criar-carrossel-de-video` | (skill mãe ponta-a-ponta) | encadeia transcrição→estratégia→copy→imagem |
 | `/revisar-carrossel` | Jade | após copywriter entregar roteiro |
-| (script tweet-imagem.mjs) | carrossel agent | gera PNGs via Playwright |
+| (script gerar-imagem.mjs) | carrossel agent | gera PNGs via Playwright |
 | revisor-visual (Agent) | Jade | após PNGs prontos (estética) |
 
 ---

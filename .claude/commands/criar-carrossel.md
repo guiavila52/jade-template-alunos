@@ -42,7 +42,7 @@ INPUT?
 |---|---|---|
 | **Jade → estrategista** | input bruto (URL/tema) + transcrição (se vídeo) + ICP do Gui | ângulo único + narrativa + payoff + qtd lâminas + estrutura hook→desenvolvimento→CTA + tom + refs segundo-cerebro |
 | **estrategista → carrossel (copywriter)** | briefing acima | copy slide-a-slide (Light Copy) + briefing visual por slide (template + texto + autor + número) |
-| **carrossel → squad-imagem** | briefing visual | comandos `tweet-imagem.mjs --template X --texto "..."` por slide |
+| **carrossel → squad-imagem** | briefing visual | comandos `gerar-imagem.mjs --template X --texto "..."` por slide |
 | **squad-imagem → revisor-visual** | pasta com PNGs 1080x1350 | aprovação ou lista de defeitos estéticos |
 | **carrossel → /revisar-carrossel** | roteiro.md | aprovação ou lista de pontos de copy a corrigir |
 | **revisor-visual + revisor-carrossel → Jade** | duplo OK | desbloqueia entrega |
@@ -143,7 +143,7 @@ Skill detecta input, dispara fluxo. Pergunta se tema vago.
 ### Geração técnica das lâminas (após copywriter aprovar)
 ```bash
 cd "Páginas Astro {{NOME_OPERADOR}}"
-node scripts/tweet-imagem.mjs \
+node scripts/gerar-imagem.mjs \
   --template default \
   --texto "..." \
   --autor "{{NOME_OPERADOR}}" \
@@ -191,7 +191,7 @@ Ao finalizar:
    ⟶ /revisar-carrossel (loop até APROVADO)
         ↓
 [ squad-imagem ]
-   pra cada slide: roda tweet-imagem.mjs com flags do briefing-visual
+   pra cada slide: roda gerar-imagem.mjs com flags do briefing-visual
    output: slide-01.png ... slide-NN.png em workspace/output/carrosseis/[slug]/
         ↓
 [ revisor-visual (Agent squad-dev) ]

@@ -311,7 +311,7 @@ Toda migração DEVE incluir auditoria sistemática de `font-family` de cada ele
 2. **Capturar computed `font-family`** via Playwright em ambos (original + local). Script reutilizável já disponível em `Páginas Astro {{NOME_OPERADOR}}/scripts/audit-fonts.mjs`:
 
    ```bash
-   cd "Sites Astro Gui Avila" && node scripts/audit-fonts.mjs https://sites.{{DOMINIO}}/[slug] http://localhost:4321/[slug]
+   cd "{{PROJECT_ASTRO}}" && node scripts/audit-fonts.mjs https://sites.{{DOMINIO}}/[slug] http://localhost:4321/[slug]
    ```
 
    Imprime tabela markdown `seletor | original | local | match` e exit 1 se houver mismatch.

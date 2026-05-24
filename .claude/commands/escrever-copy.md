@@ -17,7 +17,7 @@ Antes de qualquer copy longa (email, página, roteiro), ler:
 
 ### Origem do Gui — narrativa canônica (banco de histórias #0)
 
-O Gui é ilusionista desde os 12 anos. Construiu a {{EMPRESA_NEGOCIO}} (maior plataforma de mágica do Brasil). Da {{EMPRESA_NEGOCIO}} nasceu a {{EMPRESA_COFUNDADA}} (plataforma de cursos online white-label, cofundada com Luiz Fosc — bootstrapped). Hoje o foco do {{MARCA_PESSOAL}} é construir squads de IA pra própria empresa + ensinar/aplicar isso pros alunos via YouTube, Imersão, Mentoria, Sistema Reverso e Consultoria.
+O Gui é ilusionista desde os 12 anos. Construiu a {{EMPRESA_NEGOCIO}} (maior plataforma de mágica do Brasil). Da {{EMPRESA_NEGOCIO}} nasceu a {{EMPRESA_COFUNDADA}} (plataforma de cursos online white-label, cofundada com {{COFUNDADOR}} — bootstrapped). Hoje o foco do {{MARCA_PESSOAL}} é construir squads de IA pra própria empresa + ensinar/aplicar isso pros alunos via YouTube, Imersão, Mentoria, Sistema Reverso e Consultoria.
 
 Fonte canônica: `segundo-cerebro/01-identidade/banco-de-historias.md` (história #0 — "Origem do Gui — {{EMPRESA_NEGOCIO}} → {{EMPRESA_COFUNDADA}}").
 
@@ -47,7 +47,7 @@ Fonte canônica: `segundo-cerebro/01-identidade/banco-de-historias.md` (históri
 ## Métricas do Gui — o que pode e o que NÃO pode mencionar publicamente
 
 **Pode mencionar livremente:**
-- {{EMPRESA_COFUNDADA}}: mais de 400 mil usuários ativos / centenas de criadores hospedando cursos / cofundada com Luiz Fosc
+- {{EMPRESA_COFUNDADA}}: mais de 400 mil usuários ativos / centenas de criadores hospedando cursos / cofundada com {{COFUNDADOR}}
 - {{EMPRESA_NEGOCIO}}: maior plataforma de mágica do Brasil
 - Tempo de mercado / origem (lojas físicas → digital → {{EMPRESA_COFUNDADA}})
 - Cases de clientes (com aprovação prévia do cliente)

@@ -65,7 +65,7 @@ O template usa 18 placeholders. Divididos em 3 tiers:
 
 ### TIER 4 — Runtime (NÃO substituir aqui)
 
-Estes são placeholders **dinâmicos** usados pela skill `/tweet-imagem` e outros. Permanecem como estão:
+Estes são placeholders **dinâmicos** usados pela skill `/gerar-imagem` e outros. Permanecem como estão:
 - `{{TEXTO}}`, `{{FOTO_HTML}}`, `{{NUMERO}}`, `{{DATA}}`
 
 ## Fluxo de execução

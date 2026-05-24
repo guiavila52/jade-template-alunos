@@ -14,7 +14,7 @@ Responsável por: extrato bancário, emissão de NF, rotinas financeiras, integr
 
 ## Skills operacionais
 
-### `/consultar-nf` (12/05/2026 — 🟢 MADURA)
+### `/registrar-financeiro` (12/05/2026 — 🟢 MADURA)
 
 Consulta NF via API {{PLATAFORMA_NF}} com busca por:
 - **Email** — busca parcial case insensitive
@@ -40,8 +40,8 @@ Consulta NF via API {{PLATAFORMA_NF}} com busca por:
 - Skill é ideal pra automação em lote (relatórios mensais, cross-reference {{BANCO_PJ}})
 
 **Doc completa:**
-- Script: `scripts/financeiro/consultar-nf.py`
-- Skill: `.claude/commands/consultar-nf.md`
+- Script: `scripts/financeiro/registrar-financeiro.py`
+- Skill: `.claude/commands/registrar-financeiro.md`
 - Histórico {{PLATAFORMA_NF}}: `segundo-cerebro/03-operacao/{{plataforma_nf}}-historico.md`
 
 ## Decisão pendente

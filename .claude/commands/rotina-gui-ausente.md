@@ -73,7 +73,7 @@ Violação = "trabalho invisível" que não deixa rastro pra próximo turno reto
 ANTES de despachar agent ou rodar comando externo:
 
 1. Toda skill que executa Playwright, ffmpeg, yt-dlp, curl, API call → confiabilidade obrigatória (timeout + stderr + exit code + retry + graceful degradation)
-2. Bugs conhecidos hoje: `tweet-imagem.mjs` trava silenciosamente (Onda 9 ataca)
+2. Bugs conhecidos hoje: `gerar-imagem.mjs` trava silenciosamente (Onda 9 ataca)
 3. Se subagent timeoutar / travar > 30min: **NÃO só skip** — diagnosticar causa (logs + stderr), aplicar fallback Bash direto (mesma estratégia das Ondas anteriores), registrar como aprendizado da Jade
 
 Ler memória `feedback_confiabilidade_skills.md` se em dúvida.

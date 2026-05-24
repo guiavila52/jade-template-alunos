@@ -85,7 +85,7 @@ Sincroniza estrutura, skills e agentes (sanitizados) do squad atual pro repo pú
 Pra cada `.claude/commands/*.md`:
 
 - [ ] **Genéricas (manter):** `/criar-pagina`, `/escrever-copy`, `/criar-carrossel`, `/escrever-newsletter`, `/codar-pagina`, `/revisar-pagina`, `/testar-pagina`, `/publicar-pagina`, `/migrar-pagina`, `/escrever-estrategia`, `/jade`, `/consolidar-sessao`
-- [ ] **Específicas do Gui (PERGUNTAR):** `/consultar-nf` ({{PLATAFORMA_NF}} dele), `/atualizar-voz-gui-avila`, `/publicar-{{plataforma_conteudo}}`
+- [ ] **Específicas do Gui (PERGUNTAR):** `/registrar-financeiro` ({{PLATAFORMA_NF}} dele), `/atualizar-voz-gui-avila`, `/publicar-{{plataforma_conteudo}}`
 - [ ] **Sanitizar exemplos:** trocar URLs `{{DOMINIO}}/*` por `{{DOMINIO}}/...` em todas as skills mantidas
 - [ ] **NÃO incluir:** `/atualizar-template-alunos` (esta skill é só do Gui — não vai pro template)
 

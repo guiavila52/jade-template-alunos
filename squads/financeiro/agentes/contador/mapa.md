@@ -42,7 +42,7 @@
 
 ## Skills disponíveis
 
-- `/analisar-fiscal` — ⚪ ESQUELETO (análise contábil/fiscal estruturada por período)
+- `/analisar-resultados` — ⚪ ESQUELETO (análise contábil/fiscal estruturada por período)
 
 ---
 
@@ -66,6 +66,6 @@
 
 ## Próximos passos
 
-1. Implementar `/analisar-fiscal` funcional (integração {{PLATAFORMA_NF}} + {{BANCO_PJ}})
+1. Implementar `/analisar-resultados` funcional (integração {{PLATAFORMA_NF}} + {{BANCO_PJ}})
 2. Criar dashboard de DRE em Supabase + app/
 3. Criar skill `/relatar-financeiro` (relatório mensal/trimestral automático)
