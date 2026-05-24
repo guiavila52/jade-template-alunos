@@ -88,3 +88,25 @@ workspace/infra/signoz/data/
 privado/
 package-lock.json
 *.bak-*
+
+# ============================================================
+# DADOS PESSOAIS DO OPERADOR — nunca commitar
+# Protege seus dados se você criar um repo pessoal deste squad
+# ============================================================
+
+# Segundo cérebro (conhecimento pessoal — fica só na sua máquina)
+segundo-cerebro/**
+!segundo-cerebro/
+!segundo-cerebro/*/
+!segundo-cerebro/**/README.md
+
+# Estado operacional (gerado em uso — não deve ser commitado)
+workspace/memory/
+workspace/output/
+
+# Aprendizados acumulados (específicos do seu negócio)
+squads/*/aprendizados.md
+squads/*/agentes/*/aprendizados.md
+
+# Histórico de mudanças pessoal
+workspace/historico-mudancas/

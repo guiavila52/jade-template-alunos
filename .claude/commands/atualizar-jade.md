@@ -1,7 +1,7 @@
 <!-- Modelo recomendado: claude-sonnet-4-5 -->
 # Skill: /atualizar-jade — Atualiza framework do squad preservando identidade do aluno
 
-Aplica updates do upstream (`{{GITHUB_USER}}/squad-template`) preservando dados pessoais do aluno. Inspirado em `shadcn-ui add`, `next codemod`, `rails app:update`.
+Aplica updates do upstream (`guiavila52/jade`) preservando dados pessoais do aluno. Inspirado em `shadcn-ui add`, `next codemod`, `rails app:update`.
 
 ## Quando invocar
 
@@ -89,7 +89,7 @@ echo "✅ Backup tag: pre-atualizar-jade-$ts (rollback: git reset --hard pre-atu
 
 ```bash
 git remote get-url upstream 2>/dev/null || \
-  git remote add upstream https://github.com/{{GITHUB_USER}}/squad-template.git
+  git remote add upstream https://github.com/guiavila52/jade.git
 
 git fetch upstream main
 ```
@@ -185,7 +185,7 @@ done
 UPSTREAM_SHA=$(git rev-parse --short upstream/main)
 git add -A
 git commit -m "$(cat <<EOF
-chore(jade): /atualizar-jade — sync upstream {{GITHUB_USER}}/squad-template@$UPSTREAM_SHA
+chore(jade): /atualizar-jade — sync upstream guiavila52/jade@$UPSTREAM_SHA
 
 Framework atualizado. Persona preservada.
 
