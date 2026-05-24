@@ -59,4 +59,4 @@ Quando cliente compra pela {{LMS}} com CPF mas quer NF para CNPJ da empresa:
 - A NF automática foi emitida para o CPF
 - É necessário cancelar a NF original e emitir nova para o CNPJ
 - Fazer manualmente no {{PLATAFORMA_NF}} por enquanto
-- Caso: {{CONTADORA}} — TSM FAé Treinamentos LTDA — CNPJ 00.000.000/0000-00 — cliente_exemplo@gmail.com
+- Caso: {{CONTADORA}} — TSM FAé Treinamentos LTDA — CNPJ 00.000.000/0000-00 — cliente@exemplo.com

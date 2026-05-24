@@ -31,7 +31,7 @@ Consulta NF via API {{PLATAFORMA_NF}} com busca por:
 - Exit code preciso (0 = sucesso, 1 = erro)
 
 **Teste real executado (12/05/2026):**
-- Cliente: TSM FAé Treinamentos LTDA (CNPJ 00.000.000/0000-00, email cliente_exemplo@gmail.com)
+- Cliente: TSM FAé Treinamentos LTDA (CNPJ 00.000.000/0000-00, email cliente@exemplo.com)
 - Resultado: ✅ 100% funcional — rate limit tratado, paginação OK, filtros OK
 - NF não encontrada (possível: emitida pra outro email/CPF, ou período > 60 dias)
 

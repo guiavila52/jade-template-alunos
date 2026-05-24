@@ -40,7 +40,7 @@ Consulta NF via API {{PLATAFORMA_NF}} com busca por:
 - Skill é ideal pra automação em lote (relatórios mensais, cross-reference {{BANCO_PJ}})
 
 **Teste real executado (12/05/2026 ~02h00):**
-- Cliente: TSM FAé Treinamentos LTDA (CNPJ 00.000.000/0000-00, email cliente_exemplo@gmail.com)
+- Cliente: TSM FAé Treinamentos LTDA (CNPJ 00.000.000/0000-00, email cliente@exemplo.com)
 - Resultado: ✅ Skill 100% funcional — paginação OK, filtros OK, retry OK, rate limit tratado
 - NF não encontrada (possível: emitida pra outro email/CPF, ou período > 60 dias)
 - Transcript: `workspace/output/financeiro/teste-consultar-nf-{{contadora}}-2026-05-12.md`

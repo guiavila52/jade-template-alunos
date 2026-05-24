@@ -258,7 +258,7 @@ Repo público `github.com/{{GITHUB_USER}}/jade` é **território aluno**. Alunos
    - Pastas `squads/*/agentes/{nome}/` batem com `.claude/agents/{nome}.md`
 
 2. **Não vai pro template:**
-   - Arquivos pessoais (PRD.md, business-rules.md, database.md — ficam em `app/docs/` do squad principal)
+   - Arquivos pessoais (documentação interna de apps (PRD, business-rules, database) — ficam em `app/docs/` do squad principal)
    - `app/.env.local` (secrets)
    - `.secrets.baseline` (regenerado por aluno via pre-commit)
    - `workspace/output/` (artefatos próprios)

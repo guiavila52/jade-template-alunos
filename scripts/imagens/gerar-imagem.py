@@ -78,7 +78,7 @@ def main():
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
         "HTTP-Referer": "https://{{DOMINIO}}",
-        "X-Title": "Squad Gui Avila - Image Generator",
+        "X-Title": "{{PROJECT_NAME}} - Image Generator",
     }
 
     url = "https://openrouter.ai/api/v1/images/generations"

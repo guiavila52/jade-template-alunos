@@ -148,7 +148,7 @@ Ou sem argumento — o revisor pedirá o caminho.
 
 ### Auditoria de fontes (em migração — pixel perfect) — adicionado em 2026-05-06 (#102)
 - [ ] **Auditoria de fontes obrigatória** se a página é uma migração pixel perfect:
-  - [ ] Rodei `cd "Sites Astro Gui Avila" && node scripts/audit-fonts.mjs <urlOriginal> http://localhost:4321/[slug]`
+  - [ ] Rodei `cd "{{PAGINAS_PROJECT}}" && node scripts/audit-fonts.mjs <urlOriginal> http://localhost:4321/[slug]`
   - [ ] Pra cada elemento textual (hero, body, headings, links, footer, FAQ, badges, botões, labels): font-family local == original (computed style)
   - [ ] Resultado do script: `Mismatches: 0` (0 falhas)
   - [ ] Weights necessários estão carregados (Google Fonts URL ou @font-face)

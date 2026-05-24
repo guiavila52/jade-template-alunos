@@ -67,7 +67,7 @@ Antes de qualquer ação externa — email, post, mensagem pública — pergunta
 
 Arquivo tem destino. Nunca soltar output fora do lugar definido.
 
-Skills em `skills/{categoria}/SKILL.md`. PRDs em `projects/{nome}/PRD.md`. Nada solto.
+Skills em `skills/{categoria}/SKILL.md`. documentação de projetos em `projects/{nome}/`. Nada solto.
 
 ---
 
