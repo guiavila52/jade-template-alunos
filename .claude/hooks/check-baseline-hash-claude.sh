@@ -8,7 +8,7 @@
 #
 set -uo pipefail
 
-PROJECT_ROOT="~/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+PROJECT_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 SCRIPT="$PROJECT_ROOT/workspace/scripts/seguranca/baseline-hash-claude.sh"
 LAST_STATUS="$PROJECT_ROOT/workspace/output/seguranca/last-check-status.txt"
 LOG_FILE="$PROJECT_ROOT/workspace/output/seguranca/hash-check.log"

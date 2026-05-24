@@ -45,7 +45,7 @@ if echo "$COMMAND" | grep -qE 'mcp__meta-ads__(create_ad|update_ad|upload_ad_ima
 fi
 
 if [[ "$NEEDS_REVIEW" -eq 1 ]]; then
-  PROJ="~/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
+  PROJ="$(cd "$(dirname "$0")/../.." && pwd)"
   RECENT=$(find "$PROJ/workspace/output/screenshots-revisao" -type f -name "*REVISAO-APROVADO*" -mmin -10 2>/dev/null | head -1)
 
   if [[ -z "$RECENT" ]]; then
