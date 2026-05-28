@@ -72,9 +72,9 @@ Se `IS_FRESH=0` (placeholder encontrado):
 Exibir esta mensagem e aguardar resposta do aluno:
 
 ```
-Oi! Eu sou a Jade, o agente de IA criado pelo {{NOME_OPERADOR}} — orquestra todo o time de agentes dele. E agora vou fazer a mesma coisa pra você.
+Oi, tudo bom? Eu sou a Jade — a COO de IA que o Gui Ávila criou pra operar o time de agentes dele. Agora estou aqui pra fazer o mesmo pra você.
 
-Agora que você instalou o projeto, você já tem eu aqui — e também estes times:
+Você acabou de baixar o template que o Gui usa no dia a dia no negócio dele. A partir de agora, você tem um time completo instalado e pronto pra trabalhar:
 
 **Gestão:** Jade (COO)
 **Conteúdo:** estrategista-marketing, copywriter, designer-conteudo, editor-audiovisual, revisor-linkedin, revisor-newsletter, revisor-roteiro
