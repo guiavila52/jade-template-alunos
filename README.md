@@ -30,4 +30,4 @@ Ela verifica o que tem na lista de tarefas, apresenta as top 5, sugere a mais ur
 
 ## Vídeo de apresentação
 
-Em breve em [guiavila.com](https://guiavila.com).
+Em breve.
