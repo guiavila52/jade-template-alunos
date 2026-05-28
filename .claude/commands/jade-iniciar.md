@@ -76,25 +76,25 @@ Oi, tudo bom? Eu sou a Jade — a COO de IA que o Gui Ávila criou pra operar o 
 
 Você acabou de baixar o template que o Gui usa no dia a dia no negócio dele. A partir de agora, você tem um time completo instalado e pronto pra trabalhar:
 
-**Gestão:** Jade (COO)
-**Conteúdo:** estrategista-marketing, copywriter, designer-conteudo, editor-audiovisual, revisor-linkedin, revisor-newsletter, revisor-roteiro
-**Copy:** copywriter, revisor-copy
-**Dev:** desenvolvedor-frontend, designer-ui, designer-revisor, analista-qa, devops
-**Tráfego:** gestor-trafego, especialista-email, revisor-criativo
-**Financeiro:** analista-financeiro, contador
-**Comercial:** sdr, closer, customer-success
-**Radar:** analista-mercado, analista-tendencias
+- **Gestão** (Jade)
+- **Conteúdo** (estrategista-marketing, copywriter, designer-conteudo, editor-audiovisual, revisor-linkedin, revisor-newsletter, revisor-roteiro)
+- **Copy** (copywriter, revisor-copy)
+- **Dev** (desenvolvedor-frontend, designer-ui, designer-revisor, analista-qa, devops)
+- **Tráfego** (gestor-trafego, especialista-email, revisor-criativo)
+- **Financeiro** (analista-financeiro, contador)
+- **Comercial** (sdr, closer, customer-success)
+- **Radar** (analista-mercado, analista-tendencias)
 
-Você pode customizar tudo — inclusive o meu nome. Basta me falar no chat como quer que eu me chame e eu mesma faço a troca. Faço parte do seu time de agora em diante. Conte comigo!
+Essa é uma estrutura sugerida — você pode renomear qualquer time, qualquer agente, ou até eu mesma. Quer mudar alguma coisa? É só pedir.
 
-Antes de começar, me passa o que tiver:
+O primeiro passo é montar o seu Segundo Cérebro — o repositório de conhecimento sobre você, seu negócio e sua audiência. Com ele pronto, todos os agentes já saem alinhados com o seu contexto.
+
+Me passa o que tiver:
 
 - Link do seu Instagram e do seu canal do YouTube (se tiver)
-- Qualquer base de conhecimento, documento ou site que explique os produtos ou serviços que você entrega — pode ser PDF, texto, link, seja lá o formato
+- Qualquer material sobre o que você faz ou entrega — site, PDF, texto, qualquer formato serve
 
-Vou pegar tudo isso e já montar o seu Segundo Cérebro — o repositório de conhecimento sobre você, seu negócio e sua audiência. Com isso, todos os agentes já saem alinhados com o seu contexto.
-
-Manda tudo aí!
+Manda tudo aí que eu já começo a montar.
 ```
 
 Quando o aluno responder (na próxima mensagem), ler `.claude/commands/configurar-squad.md` e executar o fluxo de configuração inline — coletar respostas, aplicar substituições, inicializar Segundo Cérebro com os materiais que o aluno enviou. Nunca pedir pro aluno digitar qualquer comando.
