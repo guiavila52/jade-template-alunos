@@ -1,0 +1,93 @@
+# macOS
+.DS_Store
+._.DS_Store
+**/.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependências
+node_modules/
+
+# Builds
+dist/
+.astro/
+.vercel/
+.next/
+out/
+
+# Variáveis de ambiente — Regra Inviolável #21
+# Padrão: secrets em .env.local (gitignored), template em .env.example (versionado).
+# Único .env.local oficial do squad: app/.env.local (app/ está ignorado abaixo, então herda).
+.env
+.env.*
+!.env.example
+
+# Backups de migração / refatoração
+*.preFix*
+*.preMigracao
+*.preMentoriaV2
+*.preMentoriaPrecosV2
+*.preHeroFotoV3
+*.preUrlsRetrofit98
+*.preSlider
+*.bloqueado
+*.bak
+
+# Templates / git aninhado
+workspace/output/dev/squad-template-alunos/.git/
+
+# Outputs de trabalho (não devem ser commitados)
+workspace/output/
+squad-fisico/output/
+output/
+
+# Worktrees git interno
+.claude/worktrees/
+
+# Duplicatas iCloud (arquivos com " 2", " 3", " 4" no nome)
+* 2.md
+* 3.md
+* 4.md
+* 2.sh
+* 2.json
+* 2.py
+* 2/
+
+# Hooks temporariamente desligados
+*.tempoff
+
+# Next antigo (repo separado, mantido fisicamente — Regra #18)
+app/
+
+# Cache do Claude Code (sessão)
+.claude/cache/
+.claude/scheduled_tasks.lock
+
+# Caches Python
+**/__pycache__/
+*.pyc
+
+# Segurança — baseline hashes (Item 0.2 Fase 0 Hardening, ClickUp {{CLICKUP_TASK_EXEMPLO}})
+# baseline-hashes.json muda toda vez que arquivos críticos legítimos mudam (localmachine)
+workspace/output/seguranca/baseline-hashes.json
+workspace/output/seguranca/last-check-status.txt
+workspace/output/seguranca/*.log
+
+# SigNoz observability (Item 0.4 Fase 0 Hardening, ClickUp {{CLICKUP_TASK_EXEMPLO}})
+workspace/infra/signoz/data/
+
+# Pre-commit caches (Item 0.3 Fase 0 Hardening, ClickUp {{CLICKUP_TASK_EXEMPLO}})
+.pre-commit-cache/
+privado/
+package-lock.json
+*.bak-*
