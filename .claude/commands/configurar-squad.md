@@ -134,26 +134,39 @@ fi
 
 ### 2. Coletar respostas (UMA pergunta por vez)
 
-Não despejar 8 perguntas de uma vez. Fazer conversacionalmente:
+Não despejar perguntas de uma vez. Fazer conversacionalmente, no tom da Jade.
+Atenção: o aluno pode ter enviado Instagram/YouTube/materiais na mensagem inicial —
+EXTRAIR primeiro o que já foi enviado antes de perguntar de novo.
 
+**Bloco A — Identidade básica (placeholders):**
 1. "Qual o seu nome completo?"
-2. "Qual seu @ no Instagram/Twitter? (sem o @, só o nome)"
+2. "Qual seu @ no Instagram? (sem o @, só o nome)"
 3. "Qual seu domínio principal? (ex: joaosilva.com, sem https://)"
-4. "Rode `whoami` no terminal do seu Mac e me diga o resultado"
+4. "Qual o username do seu Mac? (rode `whoami` no terminal e me manda o resultado)"
 5. "Nome da sua empresa principal?"
-6. "Nome do seu produto/negócio principal?"
-7. "Como você quer chamar seu agente COO? O padrão é Jade — pode manter ou escolher outro nome. Aperta Enter pra ficar Jade mesmo."
+6. "Nome do seu produto ou negócio principal?"
+7. "Como quer chamar seu agente COO? Padrão é Jade — pode manter ou escolher outro nome."
+8. "Como as pessoas te chamam? (primeiro nome ou apelido — ex: João, JP)"
+9. "Em uma frase, o que você faz?"
+10. "Descreva sua empresa em 1 linha:"
+11. "Qual é seu principal canal pra atrair audiência? (YouTube, Instagram, Podcast…)"
+12. "Nome do seu produto de entrada ou isca?"
+13. "Nome do seu produto high-ticket / topo de funil?"
+14. "Qual é sua meta financeira de curto prazo?"
 
-8. "Qual é o seu primeiro nome ou apelido curto? (Ex: João, João Paulo, JP)"
-9. "Em uma frase, o que você faz? (Ex: especialista em tráfego pago, nutricionista funcional)"
-10. "Descreva sua empresa principal em 1 linha:"
-11. "Qual é seu canal de topo de funil? (Ex: YouTube, Instagram, Podcast)"
-12. "Qual é o nome do seu produto de entrada ou isca? (Ex: Imersão Gratuita, Ebook Grátis)"
-13. "Qual é o seu produto topo de funil / high-ticket? (Ex: Mentoria Individual, Programa Anual)"
-14. "Qual é sua meta financeira de curto prazo? (Ex: R$ 50k de lucro mensal)" 
+**Bloco B — Segundo Cérebro (perguntas adicionais para preencher os arquivos corretos):**
 
-   - Se vazio ou "jade": `NOME_AGENTE_COO="Jade"`
-   - Senão: `NOME_AGENTE_COO="[resposta capitalizada]"`
+15. "Me manda o link do seu canal do YouTube (se tiver). Se não tiver, pode pular."
+    → Guarda como YOUTUBE_URL
+
+16. "Como você escreve? Descreve seu tom de voz em 2-3 frases. Ex: direto e sem rodeios, uso gírias do nicho, nunca uso jargão corporativo. Se tiver post ou legenda que representa bem seu estilo, manda o link."
+    → Guarda como TOM_DE_VOZ_DESC
+
+17. "Quem é o cliente que você atende? Descreve em 3-4 linhas: quem é, qual dor tem, o que ele quer conquistar."
+    → Guarda como ICP_DESC
+
+18. "Tem documentos, páginas de vendas, PDFs ou qualquer material que descreva seus produtos/serviços? Me manda aqui."
+    → Ler e extrair para os arquivos corretos (ver Passo 9)
 
 Validações leves inline. Se resposta inválida → reformular UMA vez.
 
@@ -299,90 +312,178 @@ else
 fi
 ```
 
-### 8. Inicializar arquivos de estado
+### 8. Inicializar arquivos do Segundo Cérebro
+
+**REGRA CRÍTICA: NUNCA criar arquivos novos. Sempre usar os arquivos que já existem.**
+
+Mapa obrigatório — informação → arquivo correto:
+
+| O que preencher | Arquivo existente | Fonte |
+|---|---|---|
+| Identidade completa | `segundo-cerebro/01-identidade/identidade.md` | Respostas 1-10 |
+| Tom de voz | `segundo-cerebro/01-identidade/tom-de-voz.md` | Resposta 16 + análise |
+| ICP / cliente ideal | `segundo-cerebro/05-audiencia/icp.md` | Resposta 17 |
+| Produtos e serviços | `segundo-cerebro/02-negocios/produtos-servicos.md` | Respostas 6, 12, 13 + docs |
+| Canal YouTube | `segundo-cerebro/02-negocios/canal-youtube.md` | Resposta 15 |
+| Ofertas e funil | `segundo-cerebro/02-negocios/ofertas.md` | Respostas 11, 12, 13 |
+
+Se o aluno não tiver info pra preencher algum arquivo, deixar o arquivo como está (com os campos em branco marcados com `_`). Não apagar, não criar arquivo novo.
+
+Escrever em cada arquivo assim:
 
 ```bash
-# PROGRESS.md (se não existir)
-[[ -f PROGRESS.md ]] || cat > PROGRESS.md << EOF
-# PROGRESS — Squad de $NOME_OPERADOR
-
-Squad configurado em $(date +%Y-%m-%d).
-
-Próximas tarefas: criar tasks no ClickUp e rodar /jade-iniciar
-EOF
-
-# segundo-cerebro/01-identidade/identidade.md — preencher básico
-mkdir -p "segundo-cerebro/01-identidade"
+# identidade.md
 cat > "segundo-cerebro/01-identidade/identidade.md" << EOF
 # Identidade — $NOME_OPERADOR
 
-## Básico
+## Quem é o operador
+$NOME_OPERADOR — $DESCRICAO_OPERADOR
 
-- Nome: $NOME_OPERADOR
-- Handle: @$HANDLE_OPERADOR
+## Empresas
+- $EMPRESA_PRINCIPAL: $DESCRICAO_EMPRESA_1
+
+## Produto principal
+$PRODUTO_PRINCIPAL
+
+## Contato e presença
+- Instagram: @$HANDLE_OPERADOR
 - Domínio: $DOMINIO
-- Empresa principal: $EMPRESA_PRINCIPAL
-- Produto principal: $PRODUTO_PRINCIPAL
 
-Squad configurado em $(date +%Y-%m-%d).
+## Meta financeira
+$OBJETIVO_FINANCEIRO
+
+Configurado em $(date +%Y-%m-%d).
 EOF
 
-echo "Arquivos de estado inicializados"
+# tom-de-voz.md — só preencher se TOM_DE_VOZ_DESC não estiver vazio
+if [[ -n "$TOM_DE_VOZ_DESC" ]]; then
+  cat > "segundo-cerebro/01-identidade/tom-de-voz.md" << EOF
+# Tom de Voz — $NOME_OPERADOR
+
+## Como escreve
+$TOM_DE_VOZ_DESC
+
+## Canal principal
+$CANAL_TOPO — @$HANDLE_OPERADOR
+
+## O que é característico
+_(completar conforme mais exemplos forem aparecendo)_
+
+## O que é banido
+_(completar conforme correções do operador)_
+
+Configurado em $(date +%Y-%m-%d).
+EOF
+fi
+
+# canal-youtube.md — só preencher se YOUTUBE_URL não estiver vazio
+if [[ -n "$YOUTUBE_URL" ]]; then
+  cat > "segundo-cerebro/02-negocios/canal-youtube.md" << EOF
+# Canal YouTube — $NOME_OPERADOR
+
+## URL do canal
+$YOUTUBE_URL
+
+## Posicionamento do canal
+_(extrair da análise dos vídeos ou do que o operador descreveu)_
+
+## Tipos de vídeo que publica
+_(completar conforme análise)_
+
+## CTA padrão dos vídeos
+_(completar conforme análise)_
+
+Configurado em $(date +%Y-%m-%d).
+EOF
+fi
+
+# icp.md (05-audiencia) — só preencher se ICP_DESC não estiver vazio
+if [[ -n "$ICP_DESC" ]]; then
+  cat > "segundo-cerebro/05-audiencia/icp.md" << EOF
+# Perfil do Cliente Ideal (ICP) — $NOME_OPERADOR
+
+## Quem é
+$ICP_DESC
+
+## Dores principais
+_(completar conforme mais info)_
+
+## Sonhos
+_(completar conforme mais info)_
+
+## Como fala
+_(completar conforme exemplos reais)_
+
+Configurado em $(date +%Y-%m-%d).
+EOF
+fi
+
+# produtos-servicos.md — preencher com o que já se sabe (NUNCA criar "produtos.md")
+cat > "segundo-cerebro/02-negocios/produtos-servicos.md" << EOF
+# Produtos e Serviços — $NOME_OPERADOR
+
+## Produto principal
+$PRODUTO_PRINCIPAL
+
+## Produto de entrada / isca
+$PRODUTO_ENTRADA
+
+## High-ticket / topo de funil
+$PRODUTO_TOPO
+
+## Detalhes adicionais
+_(completar com materiais enviados pelo operador)_
+
+Configurado em $(date +%Y-%m-%d).
+EOF
+
+# ofertas.md — preencher com estrutura do funil
+cat > "segundo-cerebro/02-negocios/ofertas.md" << EOF
+# Estrutura de Ofertas e Funil — $NOME_OPERADOR
+
+## Topo (geração de audiência)
+Canal: $CANAL_TOPO
+
+## Meio (qualificação e aquecimento)
+Isca/entrada: $PRODUTO_ENTRADA
+
+## Fundo (conversão)
+High-ticket: $PRODUTO_TOPO
+
+## Ascensão
+_(completar conforme evolução do funil)_
+
+Configurado em $(date +%Y-%m-%d).
+EOF
+
+echo "Segundo Cérebro inicializado."
 ```
 
-### 9. Guia do Segundo Cérebro (executar ANTES do output final)
+Após escrever os arquivos, confirmar para o aluno: "Preenchido: [lista dos arquivos preenchidos]. Vazio por falta de info: [lista]."
 
-Após confirmar que as substituições estão OK, guiar o aluno pelo Segundo Cérebro — a parte mais importante pra os agentes funcionarem bem.
+### 9. Processar documentos enviados pelo aluno
 
-Exibir:
+Se o aluno mandou documentos (página de vendas, PDF, texto sobre produtos, etc.):
 
-```
-Dados básicos configurados.
+1. **Ler o conteúdo** de cada documento
+2. **Extrair e escrever nos arquivos EXISTENTES corretos** (nunca criar arquivo novo):
 
-Agora a parte mais importante: o Segundo Cérebro.
+| Tipo de conteúdo encontrado | Arquivo existente pra atualizar |
+|---|---|
+| Descrição de produto, preço, formato | `segundo-cerebro/02-negocios/produtos-servicos.md` |
+| Funil, jornada do cliente, ofertas | `segundo-cerebro/02-negocios/ofertas.md` |
+| Tom de voz, exemplos de copy | `segundo-cerebro/01-identidade/tom-de-voz.md` |
+| Quem é o cliente ideal, dores, sonhos | `segundo-cerebro/05-audiencia/icp.md` |
+| Ferramentas, plataformas usadas | `segundo-cerebro/03-operacao/ferramentas.md` |
+| Estratégia atual, prioridades | `segundo-cerebro/04-decisoes/estrategia-atual.md` |
+| Concorrentes, diferenciais | `segundo-cerebro/02-negocios/concorrentes.md` |
 
-É aqui que os agentes buscam contexto pra produzir como se fossem do seu time —
-copy no seu tom, estratégia alinhada ao seu negócio, conteúdo sobre seus produtos.
+3. **Nunca criar** `produtos.md`, `servicos.md`, `meu-negocio.md` ou qualquer arquivo fora do mapa acima
+4. **Confirmar** quais arquivos foram preenchidos e com o quê — em lista curta, sem jargão
 
-Seu Segundo Cérebro tem 5 pastas. A identidade básica já foi preenchida.
-As outras 4 são o que faz a diferença:
-
-segundo-cerebro/01-identidade/  [já preenchida]
-   Quem você é, seu tom de voz, seu posicionamento
-
-segundo-cerebro/02-negocios/
-   Seus produtos, preços, diferenciais, concorrentes
-   Quanto mais detalhe, melhor a copy e a estratégia
-
-segundo-cerebro/03-operacao/
-   Ferramentas que você usa: CRM, email, plataforma de cursos, agendamento
-   Permite que os agentes façam integrações certinhas
-
-segundo-cerebro/04-decisoes/
-   Sua estratégia atual: o que está priorizando, onde quer chegar
-   A base pra os agentes tomarem decisões alinhadas com você
-
-segundo-cerebro/05-audiencia/
-   Quem é seu cliente ideal: dores, sonhos, como ele fala
-   O copywriter usa isso pra escrever copy que ressoa de verdade
-
-Você tem documentos sobre o seu negócio? Pode ser:
-- Página de vendas ou pitch deck
-- Briefing de produto ou posicionamento
-- Descrição do cliente ideal
-- Qualquer texto que descreva o que você faz
-
-Me manda os arquivos ou me diz onde estão — eu leio e já preencho as pastas certas.
-
-Se não tiver agora, tudo bem. Você pode adicionar depois arrastando arquivos pro chat.
-Mas quanto antes preencher, mais útil o squad fica.
-```
-
-Se o aluno tiver documentos:
-1. Ler os arquivos indicados
-2. Extrair: produto → `02-negocios/`, ferramentas → `03-operacao/`, estratégia → `04-decisoes/`, ICP → `05-audiencia/`
-3. Criar arquivos `.md` nas pastas corretas com o conteúdo extraído
-4. Confirmar o que foi salvo em cada pasta
+Se o aluno não tiver documentos agora:
+- Dizer que tudo bem, pode mandar depois a qualquer hora
+- Confirmar o que já foi preenchido com as respostas dadas
 
 ### 10. Output final
 
