@@ -33,13 +33,13 @@ Pra inspeção visual, usa `page.screenshot()` + leitura do arquivo. Pra inspeci
 ```json
 [
   "https://sites.{{DOMINIO}}/",
-  "https://sites.{{DOMINIO}}/squad-time-ia",
-  "https://{{DOMINIO}}/automacoes",
+  "https://sites.{{DOMINIO}}/{{SLUG_PAGINA_PRINCIPAL}}",
+  "https://sites.{{DOMINIO}}/{{SLUG_PRODUTO_ENTRADA_1}}",
   "https://sites.{{DOMINIO}}/mentoria",
   "https://sites.{{DOMINIO}}/consultoria",
-  "https://sites.{{DOMINIO}}/imersao",
+  "https://sites.{{DOMINIO}}/{{SLUG_PRODUTO_ENTRADA_2}}",
   "https://sites.{{DOMINIO}}/ferramentas",
-  "https://sites.{{DOMINIO}}/sistema-reverso",
+  "https://sites.{{DOMINIO}}/{{SLUG_PRODUTO_PRINCIPAL}}",
   "https://sites.{{DOMINIO}}/sobre",
   "https://sites.{{DOMINIO}}/templates"
 ]
@@ -194,13 +194,13 @@ Antes de dar commit nesta skill, validar:
 /executar-bateria-qa --paginas='["https://sites.{{DOMINIO}}/sobre"]' --modo=prod
 
 # 2. Testa contra página com warnings (deve APROVAR COM RESSALVAS)
-/executar-bateria-qa --paginas='["https://sites.{{DOMINIO}}/sistema-reverso"]' --modo=prod
+/executar-bateria-qa --paginas='["https://sites.{{DOMINIO}}/{{SLUG_PRODUTO_PRINCIPAL}}"]' --modo=prod
 
 # 3. Testa contra página com erro crítico conhecido (deve REPROVAR)
 # (não temos uma em prod — simular com preview quebrada)
 
 # 4. Valida que relatório é gerado em workspace/output/auditorias/
-ls -lh $HOME/Documents/Projetos\ IA\ {{NOME_OPERADOR_CURTO}}\ Ávila/Squad\ Empresa\ {{NOME_OPERADOR_CURTO}}\ Ávila/workspace/output/auditorias/bug-hunt-*.md
+ls -lh {{PATH_PROJETO}}/workspace/output/auditorias/bug-hunt-*.md
 
 # 5. Valida classificação de severidade (grep no relatório)
 grep -E "CRITICAL|HIGH|MEDIUM|LOW" workspace/output/auditorias/bug-hunt-*.md | head -20

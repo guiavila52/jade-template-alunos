@@ -11,7 +11,7 @@ type: skill
 
 Newsletter semanal do {{NOME_OPERADOR}}. Objetivo padrão: **compartilhar conhecimento** com a base.
 
-CTA/Pitch: **OPCIONAL** — {{NOME_OPERADOR_CURTO}} pede explicitamente quando quiser. Ex: "adiciona gancho pro Reverso no final." Se não pediu, a newsletter termina em "Um abraço," sem pitch.
+CTA/Pitch: **OPCIONAL** — {{NOME_OPERADOR_CURTO}} pede explicitamente quando quiser. Ex: "adiciona gancho pro {{PRODUTO_PRINCIPAL}} no final." Se não pediu, a newsletter termina em "Um abraço," sem pitch.
 
 ---
 
@@ -76,7 +76,7 @@ O que Jade precisa antes de despachar @copywriter:
 
 1. **Tema** — insight da semana OU URL de vídeo YouTube
 2. **Audiência (obrigatório)** — `minha-base` (Projeto {{NOME_OPERADOR}}) OU `{{plataforma_cursos}}`. Se {{NOME_OPERADOR_CURTO}} não informar, Jade pergunta antes de prosseguir.
-3. **Pitch (opcional)** — {{NOME_OPERADOR_CURTO}} diz se quer CTA e pra qual produto (Reverso, Mentoria, outro)
+3. **Pitch (opcional)** — {{NOME_OPERADOR_CURTO}} diz se quer CTA e pra qual produto ({{PRODUTO_PRINCIPAL}}, {{PRODUTO_MENTORIA}}, outro)
 
 Se o input for URL de vídeo: Jade transcreve com yt-dlp antes de despachar copywriter.
 
@@ -150,7 +150,7 @@ Parágrafo de fechamento.
 
 Um abraço,
 
-**PS:** Se você quiser saber mais sobre [referência ao tema da newsletter] e ainda receber dois bônus, entra no [{{PRODUTO_PRINCIPAL}}](https://{{DOMINIO}}/reverso).
+**PS:** Se você quiser saber mais sobre [referência ao tema da newsletter] e ainda receber dois bônus, entra no [{{PRODUTO_PRINCIPAL}}](https://{{DOMINIO}}/{{SLUG_PRODUTO_PRINCIPAL}}).
 
 <!-- ============================================== -->
 <!-- INTERNO — NÃO ENVIAR — apenas histórico/revisão -->
@@ -202,7 +202,7 @@ Se {{NOME_OPERADOR_CURTO}} pediu pitch, adicionar 1–2 frases antes de "Um abra
 
 - Tom natural, sem hard-sell ("garanta sua vaga", "últimas chances" — proibido)
 - 1 link único (nunca dois CTAs primários no mesmo email)
-- Links canônicos: `{{DOMINIO}}/reverso` · `{{DOMINIO}}/mentoria`
+- Links canônicos: `{{DOMINIO}}/{{SLUG_PRODUTO_PRINCIPAL}}` · `{{DOMINIO}}/{{SLUG_PRODUTO_MENTORIA}}`
 
 Se {{NOME_OPERADOR_CURTO}} **não** pediu pitch: a newsletter termina direto em "Um abraço,".
 
@@ -212,7 +212,7 @@ Sempre após "Um abraço,", antes do marker INTERNO. Variante depende da **audi�
 
 **Audiência `minha-base`:**
 ```
-**PS:** Se você quiser saber mais sobre [referência ao tema da newsletter] e ainda receber dois bônus, entra no [{{PRODUTO_PRINCIPAL}}](https://{{DOMINIO}}/reverso).
+**PS:** Se você quiser saber mais sobre [referência ao tema da newsletter] e ainda receber dois bônus, entra no [{{PRODUTO_PRINCIPAL}}](https://{{DOMINIO}}/{{SLUG_PRODUTO_PRINCIPAL}}).
 ```
 
 **Audiência `{{plataforma_cursos}}`:**
@@ -223,7 +223,7 @@ Sempre após "Um abraço,", antes do marker INTERNO. Variante depende da **audi�
 **Regras:**
 - **[referência ao tema]** → adaptar pra conectar com o assunto da newsletter
 - Tom natural, não hard-sell
-- Links canônicos: `minha-base` → `https://{{DOMINIO}}/reverso` · `{{plataforma_cursos}}` → `https://{{DOMINIO}}/{{plataforma_cursos}}`
+- Links canônicos: `minha-base` → `https://{{DOMINIO}}/{{SLUG_PRODUTO_PRINCIPAL}}` · `{{plataforma_cursos}}` → `https://{{DOMINIO}}/{{plataforma_cursos}}`
 - Nunca remover o PS, mesmo quando não há pitch principal
 - Nunca misturar: newsletter pra {{PLATAFORMA_CURSOS}} nunca menciona o Reverso
 

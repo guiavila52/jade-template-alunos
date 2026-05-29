@@ -286,15 +286,15 @@ ls *.preFix* *.preMigracao *.bloqueado *.bak 2>/dev/null
 ```bash
 URLS=(
   "https://sites.{{DOMINIO}}/"
-  "https://sites.{{DOMINIO}}/squad-time-ia"
-  "https://sites.{{DOMINIO}}/reverso"
-  "https://sites.{{DOMINIO}}/consultoria"
-  "https://sites.{{DOMINIO}}/mentoria"
-  "https://sites.{{DOMINIO}}/mentoria-precos"
-  "https://sites.{{DOMINIO}}/clickup8x"
+  "https://sites.{{DOMINIO}}/{{SLUG_PAGINA_PRINCIPAL}}"
+  "https://sites.{{DOMINIO}}/{{SLUG_PRODUTO_PRINCIPAL}}"
+  "https://sites.{{DOMINIO}}/{{SLUG_PRODUTO_CONSULTORIA}}"
+  "https://sites.{{DOMINIO}}/{{SLUG_PRODUTO_MENTORIA}}"
+  "https://sites.{{DOMINIO}}/{{SLUG_PRODUTO_MENTORIA}}-precos"
+  "https://sites.{{DOMINIO}}/{{SLUG_PRODUTO_ENTRADA}}"
   "https://sites.{{DOMINIO}}/oferta-irresistivel-{{plataforma_cursos}}"
-  "https://sites.{{DOMINIO}}/inscricao-aula-gui-avila-{{plataforma_cursos}}"
-  "https://{{DOMINIO}}/automacoes"
+  "https://sites.{{DOMINIO}}/inscricao-aula-{{HANDLE_SOCIAL}}-{{plataforma_cursos}}"
+  "https://{{DOMINIO}}/{{SLUG_AFILIADO_1}}"
 )
 for u in "${URLS[@]}"; do
   CODE=$(curl -s -o /dev/null -w "%{http_code}" -L --max-time 15 "$u")
@@ -337,7 +337,7 @@ done
 **Severidade quando falha:**
 - HIGH se faltar GTM ou favicon
 - MEDIUM se faltar `/_astro/` (provável snapshot estático fora do padrão)
-**Exemplo:** `HIGH | J | https://{{DOMINIO}}/automacoes GTM=0 (falta tag de medição — Regra §5)`.
+**Exemplo:** `HIGH | J | https://sites.{{DOMINIO}}/{{SLUG_PAGINA}} GTM=0 (falta tag de medição — Regra §5)`.
 
 ---
 
@@ -371,7 +371,7 @@ done
 
 **Pass:** 0 SUSPECT.
 **Severidade quando falha:** HIGH.
-**Exemplo:** `HIGH | K | src/pages/automacoes/index.astro tem overflow-x:auto sem importar Slider.astro (snapshot Framer perdeu runtime — Regra §5)`.
+**Exemplo:** `HIGH | K | src/pages/{{SLUG_PAGINA}}/index.astro tem overflow-x:auto sem importar Slider.astro (snapshot Framer perdeu runtime — Regra §5)`.
 
 ⚠️ **Caveat:** detecção é heurística (markup-only). Confirmar com Playwright (`scripts/test-slider-drag.mjs`) antes de marcar como problema definitivo. Esta categoria sinaliza candidatos a inspeção.
 
@@ -382,7 +382,7 @@ done
 **Critério:**
 - `git ls-files` NÃO retorna `.env*` (exceto `.env.example`).
 - `git log -p --all -G "sk-(ant|proj|sq|or)-[a-zA-Z0-9_-]{20,}"` retorna vazio (zero secret real no histórico).
-- `mcp/.env.local` (App Reverso) NÃO está em `git ls-files`.
+- `mcp/.env.local` (App do operador) NÃO está em `git ls-files`.
 
 **Comando:**
 ```bash
@@ -568,7 +568,7 @@ Skills exceptas (orquestradoras puras / não-produtoras):
 cd "/Users/{{USERNAME_MAC}}/Documents/Projetos IA {{NOME_OPERADOR}}/Squad Empresa {{NOME_OPERADOR}}"
 for f in .claude/commands/*.md; do
   case "$(basename $f)" in
-    *.preFix*|*.bak|mapa.md|jade.md|preparar-clear-jade.md|consolidar-sessao.md|check-up-estrutura.md|ver-agenda.md|ver-carrossel.md|transcrever-video.md|configurar-squad.md|publicar-jade.md|atualizar-voz-gui-avila.md) continue ;;
+    *.preFix*|*.bak|mapa.md|jade.md|preparar-clear-jade.md|consolidar-sessao.md|check-up-estrutura.md|ver-agenda.md|ver-carrossel.md|transcrever-video.md|configurar-squad.md|publicar-jade.md|atualizar-voz-{{HANDLE_SOCIAL}}.md) continue ;;
   esac
   TEM_APRENDIZADO=$(grep -cE "aprendizado|aprendizados\.md" "$f" 2>/dev/null || echo 0)
   TEM_APRENDIZADO=$(echo "$TEM_APRENDIZADO" | tr -d ' 
@@ -767,7 +767,7 @@ Check-up estrutura — APROVADO COM RESSALVAS
 
 Top findings:
 1. [HIGH] AGENTS.md tem dois cabeçalhos §13
-2. [HIGH] /automacoes GTM=0 em produção
+2. [HIGH] /{{SLUG_PAGINA}} GTM=0 em produção
 3. [MEDIUM] squads/dev/agentes/desenvolvedor-frontend-dev/memoria.md ausente
 
 Relatório completo: workspace/output/auditorias/2026-05-07-checkup-estrutura.md

@@ -40,7 +40,7 @@ Perguntar nessa ordem (uma de cada vez, esperando resposta):
 2. **Quem decidiu?** ({{NOME_OPERADOR_CURTO}} / Jade / {{NOME_OPERADOR_CURTO}}+sócio / etc)
 3. **Por quê?** (motivo da mudança — ajuda no histórico)
 4. **Qual o impacto?**
-   - Quais páginas precisam de update? (ex: `/mentoria`, `/imersao`)
+   - Quais páginas precisam de update? (ex: `/{{SLUG_PRODUTO_MENTORIA}}`, `/{{SLUG_PRODUTO_ENTRADA}}`)
    - Quais skills/agentes precisam saber? (ex: estrategista, copywriter)
    - Quais memórias persistentes precisam ser criadas/atualizadas?
    - Quais peças em produção precisam ser refeitas/pausadas?

@@ -77,6 +77,9 @@ check_pattern "Credencial com valor" '(NOTAZZ|GHL_API_KEY|MAILGUN_API_KEY|ENSINI
 check_pattern "Task IDs reais"       '\b86[a-z0-9]{7,8}\b'                             '\{\{'
 check_pattern "Google Calendar IDs"  'c_[a-z0-9]{20,}@group\.calendar\.google\.com'    '\{\{'
 
+check_pattern "Slugs produto Gui (reverso/clickup8x/automacoes)" '\b(reverso|clickup8x|automacoes|sistema-reverso|magicaonline|imersao)\b' '\{\{|\$SLUG|SLUG_|ctas-links|atualizar-template|scan-template|security-scan'
+check_pattern "gui-avila em URL"     'gui-avila'                                      '\{\{|README|guiavila52|atualizar-template|scan-template'
+check_pattern "Sobrenome literal Ávila em path" 'Ávila/'                              '\{\{|README|atualizar-template|scan-template'
 echo "=== AVISOS (revisar, não bloqueiam) ==="
 check_warning "Domínio pessoal"  'guiavila\.com'  'canonical|\{\{|placeholder|README\.md|guiavila52'
 check_warning "Handle social"    '@guiavila'      'guiavila52|\{\{'

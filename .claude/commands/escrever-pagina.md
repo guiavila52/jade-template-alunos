@@ -38,7 +38,7 @@ Ver `/escrever-copy` seção "Métricas do {{NOME_OPERADOR_CURTO}} — o que pod
 
 ### Hiperlinks INLINE
 
-Ver `/escrever-copy` seção "Hiperlinks INLINE — link na palavra, NUNCA URL como texto". Regra crítica: **URL nunca aparece como texto** que o usuário tenha que copiar/colar. Sempre `<a href="https://{{DOMINIO}}/[slug]" class="link-inline">palavra</a>`. Slugs canônicos: magicaonline, manychat, clickup, clickup8x, level, automacoes, reverso, youtube, mentoria, consultoria, {{plataforma_cursos}} (ver `project_hiperlinks_padrao.md`).
+Ver `/escrever-copy` seção "Hiperlinks INLINE — link na palavra, NUNCA URL como texto". Regra crítica: **URL nunca aparece como texto** que o usuário tenha que copiar/colar. Sempre `<a href="https://{{DOMINIO}}/[slug]" class="link-inline">palavra</a>`. Slugs canônicos: [slugs canônicos do operador — ver segundo-cerebro/03-operacao/ctas-links.md].
 
 ---
 

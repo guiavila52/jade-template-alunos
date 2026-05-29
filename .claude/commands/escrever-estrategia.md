@@ -38,7 +38,7 @@ type: skill
   # Para descobrir o project-hash: rode `ls ~/.claude/projects/` e copie a pasta do seu projetoMEMORY.md` + memórias relevantes pra essa estratégia específica:
    - SEMPRE: `segundo-cerebro/01-identidade/posicionamento-operador.md`, `segundo-cerebro/02-negocios/empresas.md`, `project_posicionamento_squads.md`
    - SE MENCIONAR FUNIL: `project_jornada_cliente_reverso.md`
-   - SE MENCIONAR {{PLATAFORMA_CURSOS}}: `{{plataforma_cursos}}_comercial.md`, `magica_online_origem_{{plataforma_cursos}}.md`
+   - SE MENCIONAR {{PLATAFORMA_CURSOS}}: `{{plataforma_cursos}}_comercial.md`, `{{plataforma_cursos}}_origem.md`
    - SE MENCIONAR PÁGINA WORDPRESS: `project_redirects_wordpress.md`
    - SE MENCIONAR MENTORIA: feedback sobre mentoria-só-grupo (entrada de 2026-05-06 em `estrategia-viva.md`)
 
@@ -67,7 +67,7 @@ A skill é chamada com (no mínimo):
 
 - **Objetivo da estratégia** (ex: "página /mentoria nova", "campanha de aquecimento Imersão de 21/05", "repositioning {{PRODUTO_PRINCIPAL}}")
 - **Contexto** (ex: "{{NOME_OPERADOR_CURTO}} decidiu mentoria só em grupo, página atual está desatualizada")
-- **Slug/identificador** (ex: `mentoria`, `imersao-21-05`, `reverso-repositioning`)
+- **Slug/identificador** (ex: `mentoria`, `imersao-21-05`, `{{SLUG_PRODUTO_PRINCIPAL}}-repositioning`)
 - **Quem aprova** (default: Jade COO via `/revisar-estrategia`)
 - **Output destino** (default: `workspace/output/estrategia/{YYYY-MM-DD}-{slug}-estrategia.md`)
 
@@ -127,7 +127,7 @@ Não termina o ciclo só com a peça aprovada — o estado canônico precisa ref
 - [ ] Toda métrica pública citada está na lista permitida da `estrategia-viva.md`
 - [ ] Posicionamento dos produtos citados bate com `estrategia-viva.md`
 - [ ] Tese central reforça posicionamento {{NOME_OPERADOR_CURTO}} = especialista nº 1 em squads de agentes de IA
-- [ ] Funil canônico respeitado (YouTube → Imersão → Mentoria/Reverso → Consultoria)
+- [ ] Funil canônico respeitado (conforme segundo-cerebro/02-negocios/ofertas.md)
 - [ ] Não inventou conteúdo sobre o {{NOME_OPERADOR_CURTO}} (tudo citado tem fonte no segundo-cerebro)
 - [ ] Não usou jargão novo sem combinar
 - [ ] Briefing pra peças derivadas é executável dentro de Light Copy

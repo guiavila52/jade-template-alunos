@@ -119,7 +119,7 @@ Critério: `0` ocorrências de Cormorant. Presença de Syne e DM Sans no `<link>
 ```bash
 curl -s http://localhost:4321/[slug] | grep -oE 'https://{{DOMINIO}}/[a-z0-9]+' | sort -u
 ```
-Critério: toda menção a {{PLATAFORMA_CURSOS}}, {{PRODUTO_PARCERIA}} (slug `magicaonline`, NÃO `magica`), YouTube, ClickUp 8x, Automações, Reverso, Imersão, Mentoria, Consultoria está com link no padrão `https://{{DOMINIO}}/[slug]`.
+Critério: toda menção a {{PLATAFORMA_CURSOS}}, {{PRODUTO_PARCERIA}}, YouTube, [produtos e parceiros do operador — ver segundo-cerebro/03-operacao/ctas-links.md] está com link no padrão `https://{{DOMINIO}}/[slug]`.
 
 ### 8. Rodapé padrão presente
 ```bash

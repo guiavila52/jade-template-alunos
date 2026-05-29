@@ -108,7 +108,7 @@ Ou sem argumento — o revisor pedirá o caminho.
   - [ ] grep `{{DOMINIO}}` no `.astro` retorna 0 ocorrências em texto puro (sem `href=` e fora de comentários `//`)
   - [ ] Toda URL é `<a href="https://{{DOMINIO}}/[slug]">palavra</a>` com classe `.link-inline`
   - [ ] Sem URLs entre parênteses como texto pra copiar (ex: ❌ "consultoria ({{DOMINIO}}/consultoria)")
-  - [ ] Slugs seguem padrão canônico (magicaonline, manychat, clickup, clickup8x, level, automacoes, reverso, youtube, mentoria, consultoria, {{plataforma_cursos}} — ver `project_hiperlinks_padrao.md`)
+  - [ ] Slugs seguem padrão canônico do operador (ver `segundo-cerebro/03-operacao/ctas-links.md`)
   Falhar = REPROVAR.
 - [ ] **Vocabulário aproxima o lead — não afasta**:
   - [ ] grep `-E "(qualifica|pré-sel|screening|triagem|avaliar se|tem fit|encaixa no perfil|se você passar|for aprovado)"` no `.astro` retorna 0 ocorrências em copy visível ao lead
@@ -171,7 +171,7 @@ Registrar resultado em `squads/copy/aprendizados.md`:
   - [ ] grep `400 ?k|400 ?mil` retorna 0 ocorrências como métrica do {{NOME_OPERADOR_CURTO}} (pode aparecer descrevendo a {{PLATAFORMA_CURSOS}} em contexto claro: "plataforma com 400k+ usuários hospedando cursos")
   - [ ] Sem "N+ empresas" sem precisão
   - [ ] Sem "N continentes" / "globalmente"
-  - [ ] Métricas usadas são sobre o GUI: CEO {{PLATAFORMA_CURSOS}}, autor 2 livros, ~15 mil inscritos YouTube, avaliações cursos
+  - [ ] Métricas usadas são sobre o {{NOME_OPERADOR_CURTO}}: credenciais reais (ver `segundo-cerebro/01-identidade/identidade.md`), avaliações cursos
   - [ ] Cada número tem fonte verificável (não inventado)
   - [ ] Leitor não consegue confundir o que pertence ao {{NOME_OPERADOR_CURTO}} vs ao produto que ele cofundou
   Falhar = REPROVAR.

@@ -135,7 +135,7 @@ Ou sem argumento — o revisor pedirá o caminho.
   - [ ] Sticky elements seguem o scroll sem bloquear
   - [ ] Listeners de scroll (collapse, ScrollTrigger, IntersectionObserver) **não causam reflow visível**
   - [ ] Rail horizontal interno **não rouba** scroll vertical
-  - [ ] Comparei lado-a-lado com `/reverso` (referência fluida): sem regressão de fluidez
+  - [ ] Comparei lado-a-lado com a referência de página fluida do projeto: sem regressão de fluidez
   - [ ] Bug HISTÓRICO: `/squad-time-ia` 06/05/2026 ficou tremendo no scroll vertical depois do collapse listener (#117). Revisor passou batido — não pode repetir.
   - **Falhar = REPROVAR.** Inspecionar markup NÃO substitui scroll real. Citação {{NOME_OPERADOR_CURTO}}: *"Bati scroll e o site ficou todo tremendo. Como é que isso passou na revisão? Uma coisa tão óbvia."*
 
@@ -165,14 +165,14 @@ Ou sem argumento — o revisor pedirá o caminho.
   - [ ] Iniciais decorativas grandes (`bio-photo-initials`, etc) com `font-size > 4rem` têm `font-weight ≤ 600`?
   - [ ] Letter-spacing em hero grande não passa de `-0.02em` (mais negativo comprime demais)?
   - [ ] Weight pedido está EXPLICITAMENTE carregado no `Base.astro` (Google Fonts URL contém o peso)? **NUNCA confiar em síntese de bold do browser.**
-  - [ ] Hero foi visualmente comparado com `/reverso` (referência aprovada pelo {{NOME_OPERADOR_CURTO}}) e não está achatado/distorcido?
+  - [ ] Hero foi visualmente comparado com a referência aprovada pelo {{NOME_OPERADOR_CURTO}} e não está achatado/distorcido?
   - [ ] **Exceção:** números puros (`.vs-cta-main`, contadores) podem usar weight 700/800 — mas SEMPRE preferir `.price-number` em DM Sans com `tabular-nums`.
-- [ ] **Hiperlinks padronizados:** toda menção a {{PLATAFORMA_CURSOS}}, {{PRODUTO_PARCERIA}}, YouTube, ClickUp 8x, Automações, Reverso, Imersão, Mentoria, Consultoria está com hiperlink seguindo padrão `https://{{DOMINIO}}/[slug]` (ver `DESIGN-SYSTEM.md` seção Hiperlinks). Reprovar se houver menção textual sem link.
+- [ ] **Hiperlinks padronizados:** toda menção a {{PLATAFORMA_CURSOS}}, {{PRODUTO_PARCERIA}}, YouTube, [produtos e parceiros do operador] está com hiperlink seguindo padrão `https://{{DOMINIO}}/[slug]` (ver `DESIGN-SYSTEM.md` seção Hiperlinks e `segundo-cerebro/03-operacao/ctas-links.md`). Reprovar se houver menção textual sem link.
 - [ ] **Hiperlinks INLINE — link na palavra, NUNCA URL como texto (Regra #19, tarefa #110 — 06/05/2026):**
   - [ ] grep `{{DOMINIO}}` no `.astro` retorna 0 ocorrências em **texto puro/visível** (fora de `href=`, fora de comentários `//`, fora de strings JS de mapping de slug)
   - [ ] Toda menção visível é `<a href="https://{{DOMINIO}}/[slug]" class="link-inline">palavra</a>` (palavra-âncora, não URL)
   - [ ] **Sem URLs entre parênteses como texto pra copiar/colar** (ex: ❌ "consultoria ({{DOMINIO}}/consultoria)" → ✅ "consultoria" como anchor)
-  - [ ] Slugs respeitam padrão canônico (`magicaonline`, `manychat`, `clickup`, `clickup8x`, `level`, `automacoes`, `reverso`, `youtube`, `mentoria`, `consultoria`, `{{plataforma_cursos}}` — ver `project_hiperlinks_padrao.md`)
+  - [ ] Slugs respeitam padrão canônico do operador (ver `segundo-cerebro/03-operacao/ctas-links.md`)
   - [ ] Comando rápido de auditoria: `grep -nE '\({{DOMINIO}}|{{DOMINIO}}\)' src/pages/[slug]/index.astro` deve retornar **0 hits** em texto visível.
   Falhar = REPROVAR.
 - [ ] **Iframes/formulários — validação visual obrigatória (Regra #14, falha de 06/05/2026):** o iframe está fora de containers com padding/border/background restritivos? `overflow:visible` em todos os ancestrais? Altura inicial generosa + listener `postMessage` aceitando múltiplos formatos GHL (string, objeto, payload aninhado)? Validado em mobile (390px) E desktop (1440px) via `node scripts/validate-visual.mjs [slug]` (Playwright)? O relatório JSON do `validate-visual` mostra `iframeUrlMeasuredHeight` MENOR que `renderedHeight` do iframe (folga ≥ 100px)? **Sem essa validação visual REAL — não basta CSS no código —, o iframe NUNCA é aprovado.** Item crítico — reprovar imediatamente se algum campo ou o botão de submit estiver cortado.
@@ -257,7 +257,7 @@ Ou sem argumento — o revisor pedirá o caminho.
   - JS com erro silencioso não inicializa (verificar console.error)
   - Event listeners no elemento errado (wrap vs track)
   - CSS pai com `overflow: hidden` no eixo errado, `pointer-events: none` ou `z-index` baixo
-  - `<script is:inline>{`...`}</script>` sintaxe quebrada — emite template literal como statement, código nunca executa (bug encontrado em #103, afetava `inscricao-aula-gui-avila-{{plataforma_cursos}}` e `oferta-irresistivel-{{plataforma_cursos}}`)
+  - `<script is:inline>{`...`}</script>` sintaxe quebrada — emite template literal como statement, código nunca executa (bug encontrado em histórico do projeto, afetava páginas de inscrição)
   - `touch-action: auto` (default do browser) — mobile o gesto vai pro scroll vertical antes do JS pegar
   - CSS `animation` em vez de rAF + JS — sem `dragging=true` para pausar, drag briga com keyframe e move 20-30px só
 
@@ -344,7 +344,7 @@ Ou sem argumento — o revisor pedirá o caminho.
   - [ ] Para cada asset, `test -s public/[caminho]` (tamanho > 0 bytes).
   - [ ] **Validação cenário "Vercel novo":** rodei script Playwright que bloqueia `sites.{{DOMINIO}}` e contei `imgs.filter(i => !i.complete || i.naturalWidth === 0).length` → tem que ser **0**. Se for > 0, são exatamente os assets que vão quebrar em produção num projeto Vercel novo.
 
-  **Falhar em qualquer item = REPROVAR a página.** Migração SEM assets clonados não é entrega completa. Diff visual padrão MASCARA o problema (ambos os lados puxam da mesma CDN antiga e dão "PASS" enganoso). Hotfix histórico: #82 (clickup8x — vídeo .mov 36MB faltava, detectado pelo {{NOME_OPERADOR_CURTO}}) + #86 (sistêmico — 46 assets em 4 páginas). Em produção via CDN antiga (`sites.{{DOMINIO}}`) carrega; em qualquer projeto Vercel novo OU se o domínio antigo cair, tudo 404.
+  **Falhar em qualquer item = REPROVAR a página.** Migração SEM assets clonados não é entrega completa. Diff visual padrão MASCARA o problema (ambos os lados puxam da mesma CDN antiga e dão "PASS" enganoso). Hotfix histórico: assets faltando detectados pelo {{NOME_OPERADOR_CURTO}} após migração (bug em múltiplas páginas). Em produção via CDN antiga (`sites.{{DOMINIO}}`) carrega; em qualquer projeto Vercel novo OU se o domínio antigo cair, tudo 404.
 
 - [ ] **Logomarcas em ferramentas/parceiros (Regra Inviolável #19, hotfix #91 — 06/05/2026):** toda menção a ferramenta, plataforma, parceiro, integração ou produto terceiro renderiza com `<img>` apontando para logo oficial. Não pode haver emoji, letra-num-quadrado-dourado, ou texto-só representando a marca.
   - [ ] Cada item em listas tipo `mcps`, `ferramentas`, `integracoes`, `parceiros` tem propriedade `logo: "/logos/<slug>.svg"` (não `letter:` ou `emoji:`).
@@ -360,11 +360,11 @@ Ou sem argumento — o revisor pedirá o caminho.
   **Falhar em qualquer item = REPROVAR a página.** Logo oficial dá legitimidade visual; emoji/letra dá amadorismo.
 
 
-- [ ] **Slugs WordPress NÃO são páginas a migrar (Regra Inviolável #19, hotfix #98 — 06/05/2026):** os slugs públicos `{{DOMINIO}}/[slug]` (`/magicaonline`, `/manychat`, `/clickup`, `/level`, `/automacoes`, `/reverso`, `/youtube`, `/{{plataforma_cursos}}`) são **redirects do WordPress**, NÃO páginas próprias do Astro. Exceção: `/clickup8x` É página Astro real.
-  - [ ] Verifiquei: nenhum link tipo `<a href="/magicaonline">` está sendo tratado como rota Astro (esses slugs são redirects públicos do WordPress, não páginas próprias).
-  - [ ] Hiperlinks pra empresas/parceiros usam `https://{{DOMINIO}}/[slug]` com `target="_blank" rel="noopener"` (ex: `{{DOMINIO}}/magicaonline`, `{{DOMINIO}}/clickup`) — NÃO `sites.{{DOMINIO}}/[slug]` (esse domínio é só o sistema Astro do squad).
-  - [ ] Lista canônica de slugs WP: `magicaonline`, `manychat`, `clickup`, `clickup8x` (← ESSE É PÁGINA), `level`, `automacoes`, `reverso`, `youtube`, `{{plataforma_cursos}}`, `consultoria`, `palestras`, `shortcuts`, `percepcao`.
-  - [ ] Padrão de hiperlink pra produto/parceiro do {{NOME_OPERADOR_CURTO}} é SEMPRE via `{{DOMINIO}}/[slug]` (memória `project_hiperlinks_padrao.md` + `project_redirects_wordpress.md`), porque o roteamento fica centralizado no WordPress.
+- [ ] **Slugs WordPress NÃO são páginas a migrar:** os slugs públicos `{{DOMINIO}}/[slug]` configurados como redirects do WordPress NÃO são páginas próprias do Astro — não usar como rotas no projeto.
+  - [ ] Verifiquei: nenhum link de redirect WP está sendo tratado como rota Astro (causaria 404 em produção).
+  - [ ] Hiperlinks pra empresas/parceiros usam `https://{{DOMINIO}}/[slug]` com `target="_blank" rel="noopener"` — NÃO `sites.{{DOMINIO}}/[slug]` (esse domínio é só o sistema Astro do squad).
+  - [ ] Lista canônica de slugs WP configurada em `segundo-cerebro/03-operacao/ctas-links.md`.
+  - [ ] Padrão de hiperlink pra produto/parceiro do {{NOME_OPERADOR_CURTO}} é SEMPRE via `{{DOMINIO}}/[slug]`, porque o roteamento fica centralizado no WordPress.
 
   **Falhar em qualquer item = REPROVAR a página.** Slug WP tratado como rota Astro vai 404 em produção. Hiperlink pra produto via `sites.{{DOMINIO}}/[slug]` quebra a estratégia de centralização de redirects ({{NOME_OPERADOR_CURTO}} muda destino no WP sem precisar redeployar páginas).
 
@@ -422,7 +422,7 @@ JS_COUNT=$(echo "$HTML"  | grep -o 'googletagmanager.com/gtm.js'  | wc -l)   # >
 NS_COUNT=$(echo "$HTML"  | grep -o 'googletagmanager.com/ns.html' | wc -l)   # >= 1
 ```
 
-ATENÇÃO: usar `grep -o | wc -l` — o HTML servido é minificado em uma linha gigante, e `grep -c` (que conta linhas) subconta drasticamente. Bug real do agente revisor #147 (07/05/2026) que reportou /automacoes como GTM=1 quando na verdade tinha GTM=3.
+ATENÇÃO: usar `grep -o | wc -l` — o HTML servido é minificado em uma linha gigante, e `grep -c` (que conta linhas) subconta drasticamente. Bug real do agente revisor (07/05/2026) que reportou uma página como GTM=1 quando na verdade tinha GTM=3.
 
 Se qualquer um dos 3 retornar 0 = REJEITAR a entrega.
 

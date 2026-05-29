@@ -129,7 +129,7 @@ grep -c '{{contact.first_name}}' "$PATH"  # 1+ esperado em maioria das newslette
 
 ### 9. Hiperlinks padrão {{DOMINIO}}/[slug]
 
-Se newsletter menciona produto/parceiro do {{NOME_OPERADOR_CURTO}}, link DEVE seguir padrão `{{DOMINIO}}/[slug]` (ver `project_hiperlinks_padrao.md` — slugs conhecidos: magicaonline, manychat, clickup, clickup8x, level, automacoes, reverso, youtube).
+Se newsletter menciona produto/parceiro do {{NOME_OPERADOR_CURTO}}, link DEVE seguir padrão `{{DOMINIO}}/[slug]` (ver `project_hiperlinks_padrao.md` — slugs canônicos do operador — ver segundo-cerebro/03-operacao/ctas-links.md).
 
 Exceção: URLs externas mencionadas em contexto (ex: {{plataforma_newsletter}}.{{DOMINIO}} inline).
 
@@ -186,7 +186,7 @@ assert '**Preheader:**' not in body_email, "Body tem **Preheader:** inline"
 
 ### 15. Body NÃO contém assinatura nem separador `---` antes do marker
 
-**Regra desde {{DATA_EVENTO}}:** o markdown da newsletter NÃO carrega assinatura. O renderer (`scripts/newsletter/renderizar-html.py` → `renderizar_assinatura()`) monta automaticamente: foto 96x96 circular + 4 linhas canônicas ({{NOME_OPERADOR}} bold / Fundador e CEO da {{PLATAFORMA_CURSOS}} / Autor do {{PRODUTO_PRINCIPAL}}, Automações PRO e ClickUp 8x / Fundador do {{PRODUTO_PARCERIA}} · {{DOMINIO}}).
+**Regra desde {{DATA_EVENTO}}:** o markdown da newsletter NÃO carrega assinatura. O renderer (`scripts/newsletter/renderizar-html.py` → `renderizar_assinatura()`) monta automaticamente: foto 96x96 circular + 4 linhas canônicas ({{NOME_OPERADOR}} bold / Fundador e CEO da {{PLATAFORMA_CURSOS}} / Autor do {{PRODUTO_PRINCIPAL}}, {{PRODUTO_ENTRADA}}, {{PRODUTO_ENTRADA_2}} / Fundador do {{PRODUTO_PARCERIA}} · {{DOMINIO}}).
 
 Body deve terminar em `Um abraço,` (vírgula) e em seguida vir DIRETO o marker INTERNO, sem `---` e sem bloco de assinatura.
 

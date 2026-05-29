@@ -58,7 +58,7 @@ Marcar `[x]` ou `[ ]` em cada item. Documento aprovado = TODOS `[x]`.
 - [ ] Origem de tráfego identificada (YouTube/Email/Instagram/LinkedIn/Pago/Direto)
 - [ ] Posicionamento honesto, sem inflar
 - [ ] Tese reforça "{{NOME_OPERADOR_CURTO}} = especialista nº 1 em construir squads de agentes de IA" (direta ou indiretamente)
-- [ ] Funil canônico respeitado (YouTube → Imersão → Mentoria/Reverso → Consultoria)
+- [ ] Funil canônico respeitado (conforme segundo-cerebro/02-negocios/ofertas.md)
 
 #### Ângulo único
 - [ ] Ângulo único definido em 1 frase (não tenta capturar todos os públicos)
@@ -99,7 +99,7 @@ Marcar `[x]` ou `[ ]` em cada item. Documento aprovado = TODOS `[x]`.
 
 #### Hiperlinks
 - [ ] Hiperlinks `{{DOMINIO}}/[slug]` mapeados (somente os usados nesta página)
-- [ ] Slugs canônicos respeitados: magicaonline, manychat, clickup, clickup8x, level, automacoes, reverso, youtube, mentoria, consultoria, {{plataforma_cursos}}
+- [ ] Slugs canônicos do operador respeitados (ver segundo-cerebro/03-operacao/ctas-links.md)
 - [ ] Toda menção a empresa/produto/parceiro vira link inline (na palavra, não URL como texto)
 
 #### Briefing pra peças derivadas (SEÇÃO 10)
@@ -142,7 +142,7 @@ Exemplos que disparam:
 - "Vamos focar em {{PRODUTO_PRINCIPAL}} pelos próximos 90 dias"
 - "Mentoria volta a ter opção 1:1"
 - "Nova métrica pública: 12 squads em produção"
-- "Imersão muda de 2x/mês pra semanal"
+- "{{PRODUTO_ENTRADA}} muda de formato"
 
 ---
 

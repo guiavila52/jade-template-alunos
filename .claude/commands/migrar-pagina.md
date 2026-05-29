@@ -73,7 +73,7 @@ node -e "/* abrir Playwright + page.route bloqueando sites.{{DOMINIO}} */"
 
 **Cobertura mínima:** validar zero `<img>` quebrado quando navegador bloqueia `sites.{{DOMINIO}}` (cenário "Vercel novo"). Documentar count de assets clonados na linha do mapa.md.
 
-**Bug histórico que motivou esta regra:** 06/05/2026 — Onda 6 migrou 6 páginas sem clonar assets. /clickup8x detectado pelo {{NOME_OPERADOR_CURTO}} (vídeo de fundo `.mov` 36MB faltava). Auditoria revelou ~70 assets faltando em outras 4 páginas (/reverso, /inscricao-aula-gui-avila-{{plataforma_cursos}}, /oferta-irresistivel-{{plataforma_cursos}}, /mentoria-precos). Hotfix sistêmico em #86 clonou 46 únicos. Risco que escapou: se URL absoluta `sites.{{DOMINIO}}` for desativada (ou domínio mudar), todas as páginas migradas quebram em produção.
+**Bug histórico que motivou esta regra:** 06/05/2026 — Onda 6 migrou 6 páginas sem clonar assets. /{{SLUG_PRODUTO_ENTRADA}} detectado pelo {{NOME_OPERADOR_CURTO}} (vídeo de fundo `.mov` 36MB faltava). Auditoria revelou assets faltando em outras páginas (/{{SLUG_PRODUTO_PRINCIPAL}}, /inscricao-aula-{{HANDLE_SOCIAL}}-{{plataforma_cursos}}, /oferta-irresistivel-{{plataforma_cursos}}, /{{SLUG_PRODUTO_MENTORIA}}-precos). Hotfix sistêmico em #86 clonou 46 únicos. Risco que escapou: se URL absoluta `sites.{{DOMINIO}}` for desativada (ou domínio mudar), todas as páginas migradas quebram em produção.
 
 **Detalhe técnico crítico:** quando o `.astro` original referencia URL absoluta (`https://sites.{{DOMINIO}}/...`), o navegador continua puxando da CDN antiga MESMO com asset clonado em `public/`. Para o asset local "ativar", uma das duas opções:
 - (a) refatorar `.astro` pra path relativo (`/[slug]/img/...`) — recomendado, ciclo de migração separado;
