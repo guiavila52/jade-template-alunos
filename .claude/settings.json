@@ -27,7 +27,7 @@
             "Skill(schedule)",
             "Skill(schedule:*)"
         ],
-        "defaultMode": "bypassPermissions",
+        "defaultMode": "default",
         "additionalDirectories": []
     },
     "hooks": {

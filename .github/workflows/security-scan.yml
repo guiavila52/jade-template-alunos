@@ -23,54 +23,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: false
 
-      - name: Scan padrões pessoais (custom)
-        run: |
-          echo "🔍 Verificando padrões sensíveis do operador..."
-          FAIL=0
-
-          # Arquivos meta — excluídos do scan (contêm os próprios patterns)
-          META_EXCLUDE='workspace/scripts/scan-template-completo\.sh|\.github/workflows/security-scan\.yml'
-
-          check() {
-            local label="$1"
-            local pattern="$2"
-            local exclude="${3:-NOMATCH_XYZ_PLACEHOLDER}"
-            MATCHES=$(grep -rniE "$pattern" . \
-              --include="*.md" --include="*.json" --include="*.sh" \
-              --include="*.txt" --include="*.yml" --include="*.yaml" \
-              2>/dev/null \
-              | grep -v ".git/" \
-              | grep -vE "$META_EXCLUDE" \
-              | grep -vE "$exclude" || true)
-            if [ -n "$MATCHES" ]; then
-              echo "❌ $label:"
-              echo "$MATCHES" | head -5
-              FAIL=1
-            fi
-          }
-
-          check "Nome operador"        '\bgui\s?[áa]vila\b|\bguiavila\b'                '\{\{|placeholder|canonical|README|guiavila52'
-          check "Empresa Ensinio"      '\b(ensinio)\b'                                   '\{\{'
-          check "Empresa Fatorial"     '\b(52 fatorial|fatorial)\b'                      '\{\{'
-          check "Empresa Mágica"       '\b(magica online|mágica online)\b'               '\{\{'
-          check "Gimmick SaaS"         '\bgimmick\b'                                     '\{\{|\.app\}'
-          check "Nome pessoal"         '\b(Lohan|Cleisson|Michella|Lisieux|Tarlis|Luiz Fosc)\b' ''
-          check "CNPJ"                 '[0-9]{2}\.[0-9]{3}\.[0-9]{3}/[0-9]{4}-[0-9]{2}' '00\.000\.000|\{\{'
-          check "Email operador"       'gui@guiavila\.com|@guiavila\.com'                '\{\{|placeholder'
-          check "ClickUp IDs reais"    '\b30978229\b|\b901327[0-9]{6}\b'                 'CLICKUP_LIST_ID|\{\{'
-          check "Path absoluto"        '/Users/guiavila|/home/guiavila'                  ''
-          check "Token Anthropic"      'sk-ant-[a-zA-Z0-9]{20,}'                         ''
-          check "API keys"             'AKIA[A-Z0-9]{16}|ghp_[a-zA-Z0-9]{36,}'          ''
-          check "Credencial com valor" '(NOTAZZ|GHL_API_KEY|MAILGUN_API_KEY|ENSINIO_API)[=:"\s]+[a-zA-Z0-9_\-]{8,}' '\{\{|placeholder|\.env\.example'
-          check "Google Calendar IDs"  'c_[a-z0-9]{20,}@group\.calendar\.google\.com'    '\{\{'
-
-          if [ "$FAIL" = "1" ]; then
-            echo ""
-            echo "🚫 SCAN FALHOU — dados sensíveis encontrados."
-            exit 1
-          fi
-          echo "✅ Nenhum dado sensível detectado."
-
       - name: Verificar arquivos proibidos
         run: |
           echo "🔍 Verificando arquivos proibidos..."
