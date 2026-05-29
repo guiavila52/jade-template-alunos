@@ -159,8 +159,10 @@ EXTRAIR primeiro o que já foi enviado antes de perguntar de novo.
 15. "Me manda o link do seu canal do YouTube (se tiver). Se não tiver, pode pular."
     → Guarda como YOUTUBE_URL
 
-16. "Como você escreve? Descreve seu tom de voz em 2-3 frases. Ex: direto e sem rodeios, uso gírias do nicho, nunca uso jargão corporativo. Se tiver post ou legenda que representa bem seu estilo, manda o link."
-    → Guarda como TOM_DE_VOZ_DESC
+16. "Me manda exemplos do jeito que você escreve/fala — quanto mais, melhor. Pode ser: post do Instagram com legenda, vídeo do YouTube, artigo do LinkedIn, print de newsletter que você enviou, qualquer coisa que você produziu. Manda o link ou o texto direto aqui."
+    → Ler os exemplos enviados, analisar padrões de linguagem, tom, estrutura
+    → Extrair: vocabulário característico, nível de formalidade, ritmo, o que evita
+    → Sintetizar em TOM_DE_VOZ_DESC baseado nos exemplos reais — não em autodefinição do aluno
 
 17. "Quem é o cliente que você atende? Descreve em 3-4 linhas: quem é, qual dor tem, o que ele quer conquistar."
     → Guarda como ICP_DESC
