@@ -1,0 +1,41 @@
+name: Security Scan — Template Jade
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  scan-sensitive-data:
+    name: Scan dados sensíveis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan com gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: false
+
+      - name: Verificar arquivos proibidos
+        run: |
+          echo "🔍 Verificando arquivos proibidos..."
+          FAIL=0
+
+          for f in "app/.env.local" ".secrets.baseline"; do
+            [ -f "$f" ] && echo "❌ Arquivo proibido: $f" && FAIL=1
+          done
+
+          if find workspace/output -type f ! -name '.gitkeep' 2>/dev/null | grep -q .; then
+            echo "❌ workspace/output/ contém arquivos reais"
+            FAIL=1
+          fi
+
+          [ "$FAIL" = "1" ] && { echo "🚫 Arquivos proibidos encontrados."; exit 1; }
+          echo "✅ Nenhum arquivo proibido encontrado."

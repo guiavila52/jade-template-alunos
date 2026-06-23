@@ -1,0 +1,22 @@
+# Pre-commit hooks — fecha vetor R5 (secret leak via commit acidental)
+# Pendência mãe ClickUp: {{CLICKUP_TASK_EXEMPLO}} / Regra §16 AGENTS.md
+# Item 0.3 do hardening de segurança — 2026-05-16
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+        name: gitleaks (regex+entropy secret scan)
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        name: detect-secrets (baseline-aware)
+        args: ['--baseline', '.secrets.baseline']
+        exclude: |
+          (?x)^(
+            package-lock\.json|
+            workspace/output/seguranca/baseline-hashes\.json|
+            \.secrets\.baseline
+          )$

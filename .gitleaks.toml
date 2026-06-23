@@ -1,0 +1,14 @@
+# gitleaks config — herda regras default + adiciona allowlist específica do squad
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Squad de Agentes IA — false positives conhecidos"
+
+# .secrets.baseline contém hashes de secrets já tratados (não são keys reais).
+# Gitleaks confunde os hashes com generic-api-key — false positive arquitetural.
+paths = [
+    '''\.secrets\.baseline''',
+    '''squad/historico-mudancas/.*''',
+    '''squad/skills-arquivadas/.*''',
+]
