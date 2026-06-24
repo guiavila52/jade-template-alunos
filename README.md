@@ -30,4 +30,4 @@ Ela verifica o que tem na lista de tarefas, apresenta as top 5, sugere a mais ur
 
 ## Vídeo de apresentação
 
-Em breve.
+▶️ [Como instalar a Jade no seu negócio (passo a passo)](https://youtu.be/2Xr1_hFq_kE)
